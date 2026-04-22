@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+<meta name="description" content="GPDI Our Work — 주요 실적 및 서비스 소개">
+<title>GPDI | 사업 분야</title>
+<link rel="icon" type="image/svg+xml" href="images/GPDI_Symbol.svg">
+<link rel="apple-touch-icon" href="images/GPDI_Symbol.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap">
+
+<script src="js/lang.js" defer></script>
+<style>
+  /* 언어 토글 */
+  body[data-lang="ko"] .t-en{display:none !important}
+  body[data-lang="en"] .t-ko{display:none !important}
+
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;padding:0;scroll-behavior:smooth}
+  ul,ol{list-style:none;margin:0;padding:0}
+  h1,h2,h3,h4,h5,h6,p{margin:0}
+  button{font:inherit}
+  body{font-family:"Noto Sans KR","Malgun Gothic",sans-serif;color:#3e3a39;background:#fff;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;height:auto;display:block}
+  a{color:inherit;text-decoration:none}
+
+  /* Header */
+  .header{position:absolute;top:0;left:0;right:0;z-index:100;background:transparent;border-bottom:1px solid rgba(255,255,255,.08)}
+  .header .contain{max-width:1400px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;gap:30px;height:88px}
+  .header .contain .util--clean{margin-right:64px}
+  header.header h1.sitelogo{margin:0 !important;padding:0 !important;flex-shrink:0;line-height:1;display:flex !important;align-items:center;align-self:center;height:auto;font-size:0}
+  header.header h1.sitelogo a{display:inline-flex !important;align-items:center;line-height:0;padding:0;margin:0;border:0}
+  header.header h1.sitelogo img{height:36px !important;width:auto !important;display:block;margin:0;padding:0;border:0;vertical-align:middle}
+  .header #gnb{flex:1}
+  .header #gnb > ul{display:flex !important;justify-content:center;gap:56px;margin:0;padding:0;list-style:none}
+  .header #gnb > ul > li{position:relative;list-style:none}
+  .header #gnb > ul > li > a{display:flex !important;align-items:center;height:88px;padding:0 4px;font:500 15px/1 "Noto Sans KR",sans-serif;letter-spacing:-.01em;color:#fff !important;position:relative;transition:color .2s ease;white-space:nowrap;text-decoration:none}
+  .header #gnb > ul > li > a::after{content:"";position:absolute;left:50%;bottom:32px;width:0;height:2px;background:#86acaa;transform:translateX(-50%);transition:width .25s ease}
+  .header #gnb > ul > li:hover > a::after,.header #gnb > ul > li:focus-within > a::after{width:22px}
+  .header #gnb > ul > li.is-current > a::after{width:22px}
+  .header #gnb .submenu{position:absolute !important;left:50% !important;top:88px !important;transform:translateX(-50%) translateY(4px);background:#fff !important;border-top:2px solid #535470;box-shadow:0 20px 44px rgba(14,20,38,.16);padding:4px 0;min-width:200px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,transform .22s ease,visibility 0s linear .22s;z-index:120;display:block !important}
+  .header #gnb > ul > li:hover > .submenu,.header #gnb > ul > li:focus-within > .submenu{opacity:1 !important;visibility:visible !important;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .22s ease,transform .22s ease,visibility 0s}
+  .header #gnb > ul > li::before{content:"";position:absolute;left:-16px;right:-16px;top:88px;height:8px;opacity:0;pointer-events:none}
+  .header #gnb > ul > li:hover::before,.header #gnb > ul > li:focus-within::before{opacity:1;pointer-events:auto}
+  .header #gnb .submenu ul{list-style:none !important;margin:0 !important;padding:0 !important;display:block !important}
+  .header #gnb .submenu li{list-style:none;background:transparent !important;border:0 !important;padding:0 !important}
+  .header #gnb .submenu li a{display:block !important;padding:12px 22px !important;font:500 14px/1.45 "Noto Sans KR",sans-serif !important;color:#3e3a39 !important;white-space:nowrap;background:transparent;transition:background .18s ease,color .18s ease,padding-left .18s ease;text-decoration:none;letter-spacing:0}
+  .header #gnb .submenu li a:hover{background:#f3f5f8 !important;color:#535470 !important;padding-left:26px !important}
+  .util--clean{display:inline-flex;align-items:stretch;font:600 12px/1 "Inter","Noto Sans KR",sans-serif}
+  .util--clean .lang-toggle{display:inline-flex;align-items:stretch;border:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.08);backdrop-filter:blur(4px)}
+  .util--clean .lang-btn{appearance:none;background:transparent;border:0;padding:8px 14px;color:rgba(255,255,255,.7);font:inherit;letter-spacing:.14em;cursor:pointer;transition:color .15s ease,background .15s ease}
+  .util--clean .lang-btn:hover{color:#fff}
+  .util--clean .lang-btn.is-active{color:#fff;background:rgba(83,84,112,.85)}
+
+  /* Sub-hero */
+  .sub-hero{position:relative;min-height:360px;background:#0a0d14 url('images/main/web-banner-1.png') center/cover no-repeat;color:#fff;display:flex;align-items:flex-end;padding:0 0 60px}
+  .sub-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(14,20,38,.65),rgba(14,20,38,.82))}
+  .sub-hero__inner{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:0 40px;width:100%}
+  .sub-hero__crumb{font:600 11px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.22em;color:rgba(255,255,255,.7);text-transform:uppercase;margin:0 0 14px}
+  .sub-hero__crumb a{color:rgba(255,255,255,.6);transition:color .2s}
+  .sub-hero__crumb a:hover{color:#fff}
+  .sub-hero__crumb span{margin:0 10px;color:rgba(255,255,255,.35)}
+  .sub-hero__title{font:700 clamp(32px,4vw,48px)/1.15 "Noto Sans KR","Inter",sans-serif;letter-spacing:-.02em;margin:0}
+  .sub-hero__lede{margin:14px 0 0;max-width:760px;font:400 15px/1.7 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.78);letter-spacing:-.005em;word-break:keep-all;text-wrap:balance}
+
+  /* ===== Work Body ===== */
+  .wk-body{padding:0 0 120px;background:#fff}
+  .wk-body__inner{max-width:1200px;margin:0 auto;padding:0 40px}
+
+  /* 탭 네비 (Performance / Services) */
+  .wk-tabs{
+    position:sticky;top:0;z-index:40;
+    background:rgba(255,255,255,.96);backdrop-filter:blur(10px);
+    border-bottom:1px solid #eceff5;
+    margin:0 -40px 90px;padding:0 40px;
+  }
+  .wk-tabs__list{
+    display:flex;justify-content:center;gap:0;list-style:none;margin:0;padding:0;
+    max-width:1200px;margin:0 auto;
+  }
+  .wk-tabs__list li{flex:1;border-right:1px solid #eceff5;list-style:none}
+  .wk-tabs__list li:last-child{border-right:0}
+  .wk-tabs__list a{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    padding:22px 20px;position:relative;
+    font:700 14px/1 "Noto Sans KR","Inter",sans-serif;color:#8a90a0;letter-spacing:.04em;
+    transition:color .22s ease,background .22s ease;
+  }
+  .wk-tabs__list a:hover{background:#faf9f6;color:#535470}
+  .wk-tabs__list a::after{
+    content:"";position:absolute;left:20%;right:20%;bottom:0;height:3px;background:#535470;
+    transform:scaleX(0);transition:transform .25s ease;transform-origin:center;
+  }
+  .wk-tabs__list a.is-active{color:#535470;background:#f5f3ef}
+  .wk-tabs__list a.is-active::after{transform:scaleX(1)}
+  .wk-tabs__sub{font:500 11px/1 "Inter",sans-serif;color:#86acaa;letter-spacing:.14em;text-transform:uppercase;margin-left:6px}
+
+  /* 섹션 공통 */
+  .wk-section{margin:0 0 80px}
+  .wk-section:last-child{margin-bottom:0}
+  .wk-section__eyebrow{font:700 11px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.28em;color:#b87860;text-transform:uppercase;margin:0 0 12px}
+  .wk-section__title{
+    margin:0 0 20px;font:700 clamp(26px,2.8vw,34px)/1.25 "Noto Sans KR","Inter",sans-serif;
+    color:#3e3a39;letter-spacing:-.015em;text-align:center;
+  }
+  .wk-section__title::after{content:"";display:block;width:36px;height:2px;background:#86acaa;margin:16px auto 0}
+  .wk-section__lede{max-width:760px;margin:20px auto 0;font:400 14.5px/1.9 "Noto Sans KR",sans-serif;color:#595857;word-break:keep-all;text-wrap:pretty;text-align:center}
+
+  /* 패널 숨김/표시 */
+  .wk-panel[hidden]{display:none}
+
+  /* 정부사업 헤더 */
+  .wk-group{margin:0 0 72px}
+  .wk-group:last-child{margin-bottom:0}
+  .wk-group__heading{
+    display:flex;align-items:center;gap:10px;margin:0 0 28px;
+    font:700 20px/1.3 "Noto Sans KR",sans-serif;color:#535470;letter-spacing:-.01em;
+  }
+  .wk-group__heading::before{
+    content:"";flex-shrink:0;width:14px;height:14px;border-radius:50%;background:#535470;
+    box-shadow:inset 0 0 0 3px #fff,0 0 0 1px #535470;
+  }
+
+  /* 기관별 블록 */
+  .wk-agency{margin:0 0 56px;padding:0}
+  .wk-agency:last-child{margin-bottom:0}
+  .wk-agency__head{
+    display:flex;align-items:center;gap:14px;padding:0 0 14px;margin:0 0 20px;
+    border-bottom:1px solid #e5e2dc;
+  }
+  .wk-agency__logo{
+    display:inline-flex;align-items:center;justify-content:center;
+    min-width:76px;height:40px;padding:0 14px;
+    background:#fff;border:1px solid #d6dae3;
+    font:800 13px/1 "Inter",sans-serif;color:#1f2a4a;letter-spacing:.08em;
+  }
+  .wk-agency__name{flex:1;min-width:0}
+  .wk-agency__kname{display:block;font:700 15px/1.3 "Noto Sans KR",sans-serif;color:#3e3a39;letter-spacing:-.005em}
+  .wk-agency__ename{display:block;font:500 11px/1.3 "Inter",sans-serif;color:#86acaa;letter-spacing:.08em;text-transform:uppercase;margin-top:2px}
+
+  /* 실적 테이블 */
+  .wk-tbl{width:100%;border-collapse:collapse}
+  .wk-tbl thead th{
+    padding:12px 14px;text-align:center;vertical-align:middle;
+    font:700 11.5px/1 "Noto Sans KR","Inter",sans-serif;letter-spacing:.08em;
+    color:#86acaa;text-transform:uppercase;
+    background:#faf9f6;border-bottom:1.5px solid #535470;
+  }
+  .wk-tbl thead th:first-child{text-align:left;padding-left:22px}
+  .wk-tbl tbody td{
+    padding:16px 14px;vertical-align:middle;
+    font:400 13.5px/1.55 "Noto Sans KR",sans-serif;color:#3e3a39;
+    border-bottom:1px solid #eceff5;word-break:keep-all;text-wrap:pretty;
+  }
+  .wk-tbl tbody td:first-child{padding-left:22px;font-weight:500;color:#3e3a39}
+  .wk-tbl tbody td.wk-tbl__date{
+    font:500 12.5px/1.4 "Inter","Noto Sans KR",sans-serif;color:#535470;
+    letter-spacing:-.005em;white-space:nowrap;text-align:center;
+  }
+  .wk-tbl tbody tr:hover{background:#faf9f6}
+  .wk-tbl tbody tr:last-child td{border-bottom:0}
+  .wk-tbl__desc{color:#595857;font-size:13px;line-height:1.7}
+
+  /* 체크리스트 노트 (테이블 아래) */
+  .wk-notes{margin:18px 0 0;padding:0;list-style:none}
+  .wk-notes li{
+    position:relative;padding:8px 0 8px 28px;
+    font:500 13px/1.6 "Noto Sans KR",sans-serif;color:#3e3a39;word-break:keep-all;
+  }
+  .wk-notes li::before{
+    content:"";position:absolute;left:0;top:12px;width:14px;height:14px;
+    border:1px solid #86acaa;border-radius:50%;
+    background:
+      linear-gradient(45deg,transparent 43%,#86acaa 43%,#86acaa 52%,transparent 52%) 2px 2px/8px 8px no-repeat,
+      linear-gradient(-45deg,transparent 43%,#86acaa 43%,#86acaa 52%,transparent 52%) 4px 4px/6px 6px no-repeat;
+  }
+  .wk-notes li ul{margin:4px 0 0 6px;padding:0;list-style:none}
+  .wk-notes li ul li{padding:3px 0 3px 14px;font-size:12.5px;color:#595857}
+  .wk-notes li ul li::before{content:"—";position:absolute;left:0;top:3px;width:auto;height:auto;background:none;border:0;color:#86acaa;font-size:12.5px}
+
+  /* ===== Services 패널 ===== */
+  .wk-services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:0 0 64px}
+  .wk-service-card{
+    position:relative;padding:32px 28px 28px;background:#fff;border:1px solid #eceff5;
+    transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+    display:flex;flex-direction:column;gap:16px;
+  }
+  .wk-service-card:hover{transform:translateY(-3px);border-color:#86acaa;box-shadow:0 18px 36px rgba(14,20,38,.08)}
+  .wk-service-card__num{font:800 13px/1 "Inter",sans-serif;color:#86acaa;letter-spacing:.15em}
+  .wk-service-card__title{margin:0;font:700 18px/1.35 "Noto Sans KR",sans-serif;color:#535470;letter-spacing:-.01em;word-break:keep-all}
+  .wk-service-card__desc{margin:0;font:400 13.5px/1.8 "Noto Sans KR",sans-serif;color:#595857;word-break:keep-all;text-wrap:pretty;flex:1}
+  .wk-service-card__tags{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+  .wk-service-card__tags li{list-style:none;padding:4px 10px;background:#f3f5f8;color:#535470;font:600 11px/1 "Noto Sans KR",sans-serif;letter-spacing:-.005em}
+
+  /* 프로세스 스트립 */
+  .wk-process{margin:0 0 64px}
+  .wk-process__title{margin:0 0 28px;text-align:center;font:700 22px/1.3 "Noto Sans KR",sans-serif;color:#3e3a39;letter-spacing:-.01em}
+  .wk-process__list{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;list-style:none;padding:0;margin:0;position:relative}
+  .wk-process__list::before{
+    content:"";position:absolute;top:28px;left:10%;right:10%;height:1px;
+    background:repeating-linear-gradient(90deg,#c9cfdb 0,#c9cfdb 4px,transparent 4px,transparent 8px);
+    z-index:0;
+  }
+  .wk-process__list li{position:relative;z-index:1;list-style:none;text-align:center}
+  .wk-process__num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:56px;height:56px;border-radius:50%;background:#fff;border:2px solid #535470;
+    font:700 16px/1 "Inter",sans-serif;color:#535470;margin:0 auto 14px;
+  }
+  .wk-process__list li:nth-child(2) .wk-process__num{border-color:#86acaa;color:#86acaa}
+  .wk-process__list li:nth-child(3) .wk-process__num{border-color:#b87860;color:#b87860}
+  .wk-process__list li:nth-child(4) .wk-process__num{border-color:#535470;color:#535470}
+  .wk-process__list li:nth-child(5) .wk-process__num{background:#535470;color:#fff}
+  .wk-process__step{display:block;font:700 13.5px/1.3 "Noto Sans KR",sans-serif;color:#3e3a39;margin-bottom:4px}
+  .wk-process__desc{display:block;font:400 12px/1.55 "Noto Sans KR",sans-serif;color:#86acaa;word-break:keep-all}
+
+  /* CTA */
+  .wk-cta{margin:0;padding:48px;background:#faf9f6;border-left:4px solid #535470;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center}
+  .wk-cta h3{margin:0 0 12px;font:700 22px/1.35 "Noto Sans KR",sans-serif;color:#3e3a39;letter-spacing:-.01em;word-break:keep-all}
+  .wk-cta p{margin:0;font:400 14px/1.8 "Noto Sans KR",sans-serif;color:#595857;word-break:keep-all}
+  .wk-cta__mail{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;background:#535470;color:#fff;font:700 13.5px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.02em;transition:background .22s ease;justify-self:end}
+  .wk-cta__mail:hover{background:#3e3a39}
+  .wk-cta__mail::after{content:"→";font-weight:400;margin-left:2px}
+
+  @media (max-width:900px){
+    .sub-hero{min-height:280px;padding-bottom:40px}
+    .wk-body{padding-bottom:80px}
+    .wk-body__inner{padding:0 24px}
+    .wk-tabs{margin:0 -24px 64px;padding:0 24px}
+    .wk-tabs__list a{padding:16px 10px;font-size:13px}
+    .wk-tabs__sub{display:none}
+    .wk-group__heading{font-size:17px}
+    .wk-agency__head{flex-wrap:wrap}
+    .wk-tbl{display:block;overflow-x:auto;white-space:nowrap}
+    .wk-tbl thead th,.wk-tbl tbody td{padding:12px 10px;font-size:12.5px}
+    .wk-services-grid{grid-template-columns:1fr;gap:16px}
+    .wk-process__list{grid-template-columns:repeat(2,1fr);gap:24px 14px}
+    .wk-process__list::before{display:none}
+    .wk-cta{grid-template-columns:1fr;gap:20px;padding:32px 24px}
+    .wk-cta__mail{justify-self:start}
+  }
+
+  /* Floating Info */
+  .info-float{position:fixed;right:48px;top:50%;transform:translateY(-50%);z-index:200}
+  .info-float__btn{position:relative;appearance:none;border:0;cursor:pointer;width:56px;height:56px;padding:0;background:#535470;box-shadow:0 10px 24px rgba(14,20,38,.24);transition:background .2s ease,transform .2s ease,box-shadow .2s ease;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .info-float__btn:hover,.info-float__btn:focus-visible,.info-float.is-open .info-float__btn{background:#3e3a39;transform:translateY(-2px);box-shadow:0 14px 30px rgba(14,20,38,.32);outline:none}
+  .info-float__txt{font:800 12px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.24em;color:#fff;position:relative;z-index:2}
+  .info-float__btn::before{content:"";position:absolute;top:0;right:0;width:10px;height:10px;background:#86acaa;z-index:1}
+  .info-float__btn::after{content:"";position:absolute;bottom:0;left:0;width:8px;height:8px;background:#b87860;z-index:1}
+  .info-float.is-scrolled .info-float__btn{background:#fff;box-shadow:0 10px 24px rgba(14,20,38,.18)}
+  .info-float.is-scrolled .info-float__txt{color:#535470}
+  .info-float.is-scrolled .info-float__btn:hover,.info-float.is-scrolled.is-open .info-float__btn{background:#f3f5f8}
+  .info-float__menu{position:absolute;right:calc(100% + 14px);top:50%;transform:translateY(-50%) translateX(6px);min-width:240px;padding:14px 0 8px;background:#fff;border-right:2px solid #535470;box-shadow:0 20px 44px rgba(14,20,38,.22);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,visibility 0s linear .22s,transform .22s ease}
+  .info-float:hover .info-float__menu,.info-float:focus-within .info-float__menu,.info-float.is-open .info-float__menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(-50%) translateX(0);transition:opacity .22s ease,visibility 0s,transform .22s ease}
+  .info-float::before{content:"";position:absolute;right:100%;top:0;bottom:0;width:18px;opacity:0;pointer-events:none}
+  .info-float:hover::before,.info-float:focus-within::before{opacity:1;pointer-events:auto}
+  .info-float__title{margin:0 0 6px;padding:0 20px;font:700 10px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#86acaa}
+  .info-float__menu ul{list-style:none;padding:0;margin:0}
+  .info-float__menu li{list-style:none}
+  .info-float__menu li a{display:block;padding:11px 20px;font:500 13.5px/1.45 "Noto Sans KR",sans-serif;color:#3e3a39;transition:background .18s ease,color .18s ease,padding-left .18s ease;white-space:nowrap}
+  .info-float__menu li a:hover{background:#f3f5f8;color:#535470;padding-left:24px}
+  @media (max-width:768px){.info-float{top:auto;bottom:24px;transform:none;right:20px}.info-float__btn{width:52px;height:52px}.info-float__txt{font-size:11px}.info-float__menu{right:calc(100% + 10px);top:auto;bottom:0;transform:translateX(6px)}.info-float:hover .info-float__menu,.info-float:focus-within .info-float__menu,.info-float.is-open .info-float__menu{transform:translateX(0)}}
+
+  /* Footer — 메인과 동일 */
+  .gp-footer{background:#3a3f4a;color:rgba(255,255,255,.65)}
+  .gp-footer a{color:inherit;text-decoration:none;transition:color .18s ease}
+  .gp-footer__wrap{max-width:1400px;margin:0 auto;padding:0 40px}
+  .gp-footer__links{border-bottom:1px solid rgba(255,255,255,.08)}
+  .gp-footer__links ul{list-style:none;margin:0;padding:14px 0;display:flex;gap:32px;align-items:center}
+  .gp-footer__links li{list-style:none}
+  .gp-footer__links a{display:inline-flex;align-items:center;gap:8px;font:400 12.5px/1 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.7);letter-spacing:-.005em}
+  .gp-footer__links a::before{content:"";display:inline-block;width:11px;height:11px;border:1px solid rgba(255,255,255,.35);flex-shrink:0}
+  .gp-footer__links a:hover{color:#fff}
+  .gp-footer__info .gp-footer__wrap{display:grid;grid-template-columns:1fr auto;gap:60px;align-items:flex-start;padding-top:40px;padding-bottom:40px}
+  .gp-footer__addr{font-style:normal;font:400 12.5px/1.75 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.55);letter-spacing:-.005em}
+  .gp-footer__addr p{margin:0 0 4px}
+  .gp-footer__addr p:last-child{margin-bottom:0}
+  .gp-footer__name{font:700 15px/1.3 "Noto Sans KR",sans-serif;color:#fff;margin:0 0 10px !important;letter-spacing:-.01em}
+  .gp-footer__copy{margin-top:14px !important;font-size:11.5px;letter-spacing:.02em;color:rgba(255,255,255,.4)}
+  .gp-footer__brand{display:flex;flex-direction:column;align-items:flex-end;gap:14px;text-align:right;min-width:220px}
+  .gp-footer__logo{height:28px;width:auto;display:block}
+  .gp-footer__voucher{display:inline-block;line-height:0}
+  .gp-footer__voucher img{height:20px;width:auto;display:block}
+  .gp-footer__partner{margin:4px 0 0;font:400 11.5px/1.65 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.55)}
+  @media (max-width:900px){.gp-footer__wrap{padding:0 24px}.gp-footer__info .gp-footer__wrap{grid-template-columns:1fr;gap:28px;padding-top:32px;padding-bottom:32px}.gp-footer__brand{align-items:flex-start;text-align:left}.gp-footer__links ul{gap:20px;padding:12px 0}}
+</style>
+</head>
+<body data-lang="ko">
+
+<header id="header" class="header">
+  <div class="contain">
+    <h1 class="sitelogo">
+      <a href="index.html"><img src="images/GPDI_LOGO_white.svg" alt="글로벌조달개발원" style="height:36px;width:auto"></a>
+    </h1>
+    <div id="gnb" class="gnb">
+      <ul>
+        <li><a href="index.html#about">About Us</a>
+          <div class="submenu"><ul>
+            <li><a href="about.html">해외공공조달</a></li>
+            <li><a href="history.html">히스토리</a></li>
+            <li><a href="members.html">해외 공공조달 전문가</a></li>
+            <li><a href="gpdi-usa.html">GPDI USA</a></li>
+            <li><a href="gpdi-uae.html">GPDI UAE</a></li>
+            <li><a href="gpdi-ukraine.html">GPDI Ukraine</a></li>
+          </ul></div>
+        </li>
+        <li class="is-current"><a href="work.html">사업 분야</a>
+          <div class="submenu"><ul>
+            <li><a href="work.html#tab-performance">주요 실적</a></li>
+            <li><a href="work.html#tab-services">서비스 소개</a></li>
+          </ul></div>
+        </li>
+        <li><a href="healthcare.html">헬스케어</a>
+          <div class="submenu"><ul>
+            <li><a href="healthcare.html#hc-expertise">전문 분야</a></li>
+            <li><a href="healthcare.html#hc-partners">발주기관 · 파트너</a></li>
+            <li><a href="healthcare.html#hc-performance">수행 실적</a></li>
+            <li><a href="healthcare.html#hc-methodology">방법론</a></li>
+          </ul></div>
+        </li>
+        <li><a href="index.html#smartcity">Smart City</a>
+          <div class="submenu"><ul>
+            <li><a href="index.html#smartcity-overview">사업 개요</a></li>
+            <li><a href="index.html#smartcity-solutions">분야별 솔루션</a></li>
+            <li><a href="index.html#smartcity-cases">해외 레퍼런스</a></li>
+            <li><a href="index.html#smartcity-partners">파트너십</a></li>
+            <li><a href="index.html#smartcity-export">수출 지원 프로그램</a></li>
+          </ul></div>
+        </li>
+        <li><a href="index.html#ai">AI Transformation</a>
+          <div class="submenu"><ul>
+            <li><a href="index.html#ai-overview">서비스 소개</a></li>
+            <li><a href="index.html#ai-stack">기술 스택</a></li>
+            <li><a href="index.html#ai-data">AI 데이터 서비스</a></li>
+            <li><a href="index.html#ai-cases">도입 사례</a></li>
+            <li><a href="index.html#ai-partners">파트너십</a></li>
+          </ul></div>
+        </li>
+      </ul>
+    </div>
+    <div class="util util--clean">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" class="lang-btn is-active" data-lang="ko">KOR</button>
+        <button type="button" class="lang-btn" data-lang="en">ENG</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="sub-hero">
+  <div class="sub-hero__inner">
+    <p class="sub-hero__crumb"><a href="index.html">HOME</a><span>›</span>OUR WORK</p>
+    <h2 class="sub-hero__title">사업 분야</h2>
+    <p class="sub-hero__lede">조달청·보건복지부·NIPA·KHIDI 등 공공기관과 수행한 해외공공조달 실적과 GPDI의 핵심 서비스를 소개합니다.</p>
+  </div>
+</section>
+
+<main class="wk-body">
+  <!-- ===== 탭 네비 (Performance / Services) ===== -->
+  <nav class="wk-tabs" aria-label="사업 분야 선택" role="tablist">
+    <div class="wk-body__inner">
+      <ul class="wk-tabs__list">
+        <li><a href="#tab-performance" data-target="tab-performance" class="is-active" role="tab" aria-selected="true" aria-controls="tab-performance">주요 실적<span class="wk-tabs__sub">Performance</span></a></li>
+        <li><a href="#tab-services" data-target="tab-services" role="tab" aria-selected="false" aria-controls="tab-services">서비스 소개<span class="wk-tabs__sub">Services</span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="wk-body__inner">
+
+    <!-- ================= Performance ================= -->
+    <section class="wk-panel" id="tab-performance" role="tabpanel" aria-label="주요 실적">
+
+      <header class="wk-section">
+        <p class="wk-section__eyebrow">Performance</p>
+        <h3 class="wk-section__title">주요 실적</h3>
+        <p class="wk-section__lede">조달청·보건복지부·국방부 산하기관·NIPA·aT 등 국내 공공부문 발주기관과의 누적 수행 실적. 국제입찰·ODA·해외조달 시장 진출 지원 전 주기에 걸쳐 프로젝트를 진행해 왔습니다.</p>
+      </header>
+
+      <div class="wk-group">
+        <h4 class="wk-group__heading">정부사업</h4>
+
+        <!-- NIPA -->
+        <div class="wk-agency">
+          <div class="wk-agency__head">
+            <span class="wk-agency__logo">NIPA</span>
+            <div class="wk-agency__name">
+              <span class="wk-agency__kname">정보통신산업진흥원</span>
+              <span class="wk-agency__ename">National IT Industry Promotion Agency</span>
+            </div>
+          </div>
+          <table class="wk-tbl">
+            <thead>
+              <tr>
+                <th>사업명</th>
+                <th style="width:13%">시작일</th>
+                <th style="width:13%">종료일</th>
+                <th style="width:36%">주요내용</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>해외 프로젝트 연계 전단형 메타버스 수출지원: 2024년 해외 프로젝트 연계 전단형 메타버스 수출지원 전문기관</td>
+                <td class="wk-tbl__date">2024.05.01</td>
+                <td class="wk-tbl__date">2024.12.31</td>
+                <td class="wk-tbl__desc">국내 메타버스 기업의 해외 네트워크 형성과 사업화에 대한 글로벌 역량 양성 및 타 산업분야와의 동반 수출 활성화</td>
+              </tr>
+              <tr>
+                <td>해외 메타버스-이종분야 융합 프로젝트의 전단형 수출지원방안 조사연구</td>
+                <td class="wk-tbl__date">2023.09.22</td>
+                <td class="wk-tbl__date">2023.12.15</td>
+                <td class="wk-tbl__desc">해외 대형 프로젝트 발주현황 조사를 통한 메타버스 해외진출 지원방향 수립</td>
+              </tr>
+            </tbody>
+          </table>
+          <ul class="wk-notes">
+            <li>국내 메타버스 산업의 해외 대형 프로젝트 수주지원을 통한 중소 메타버스 기업과 국내 주력분야 대기업간의 융합형 동반진출 지원모델 마련</li>
+          </ul>
+        </div>
+
+        <!-- 조달청 -->
+        <div class="wk-agency">
+          <div class="wk-agency__head">
+            <span class="wk-agency__logo">조달청</span>
+            <div class="wk-agency__name">
+              <span class="wk-agency__kname">조달청</span>
+              <span class="wk-agency__ename">Public Procurement Service</span>
+            </div>
+          </div>
+          <table class="wk-tbl">
+            <thead>
+              <tr>
+                <th>사업명</th>
+                <th style="width:13%">시작일</th>
+                <th style="width:13%">종료일</th>
+                <th style="width:36%">주요내용</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2024년 K-바이오 해외조달시장 진출 지원사업 용역</td>
+                <td class="wk-tbl__date">2024.02.20</td>
+                <td class="wk-tbl__date">2024.12.31</td>
+                <td class="wk-tbl__desc">국내 기업의 입찰제안서 작성 등 국제입찰참가 지원, 벤더 발굴 및 매칭</td>
+              </tr>
+              <tr>
+                <td>2023년 K-바이오 해외조달시장 진출 지원사업</td>
+                <td class="wk-tbl__date">2023.03.13</td>
+                <td class="wk-tbl__date">2023.12.29</td>
+                <td class="wk-tbl__desc">국내 기업의 입찰제안서 작성 등 국제입찰참가 지원, 벤더 발굴 및 매칭</td>
+              </tr>
+              <tr>
+                <td>해외조달시장 수출전략기업 육성사업 (2020~2021)</td>
+                <td class="wk-tbl__date">2020.04.01</td>
+                <td class="wk-tbl__date">2021.12.31</td>
+                <td class="wk-tbl__desc">국내기업들의 해외조달시장 수출역량 증진</td>
+              </tr>
+              <tr>
+                <td>해외조달시장 수출전략기업 육성사업 (2019~2020)</td>
+                <td class="wk-tbl__date">2019.05.08</td>
+                <td class="wk-tbl__date">2020.12.31</td>
+                <td class="wk-tbl__desc">국내기업들의 해외조달시장 수출역량 증진</td>
+              </tr>
+              <tr>
+                <td>해외조달시장 수출전략기업 육성 시범사업 계약의뢰</td>
+                <td class="wk-tbl__date">2018.04.13</td>
+                <td class="wk-tbl__date">2019.12.31</td>
+                <td class="wk-tbl__desc">국내기업들의 해외조달시장 수출역량 증진</td>
+              </tr>
+            </tbody>
+          </table>
+          <ul class="wk-notes">
+            <li>"해외조달시장 수출전략기업 육성사업"의 기획용역과 '19년, '20년 사업을 수주하여 총 4년간 본 사업 수행</li>
+            <li>약 30개 참여기업을 대상으로 해외 민수, 공공시장 진출 지원
+              <ul>
+                <li>사업발굴 및 개발 / 바이어 매칭 / 인증획득 지원 / 교육 및 역량강화 등</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <!-- KHIDI -->
+        <div class="wk-agency">
+          <div class="wk-agency__head">
+            <span class="wk-agency__logo">KHIDI</span>
+            <div class="wk-agency__name">
+              <span class="wk-agency__kname">한국보건산업진흥원</span>
+              <span class="wk-agency__ename">Korea Health Industry Development Institute</span>
+            </div>
+          </div>
+          <table class="wk-tbl">
+            <thead>
+              <tr>
+                <th>사업명</th>
+                <th style="width:13%">시작일</th>
+                <th style="width:13%">종료일</th>
+                <th style="width:36%">주요내용</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>국제입찰 역량강화 및 컨설팅 지원사업 위탁 운영</td>
+                <td class="wk-tbl__date">2024.04</td>
+                <td class="wk-tbl__date">2024.11.30</td>
+                <td class="wk-tbl__desc">해외 정부 발주처 수요조사 / 시장분석 / 진출전략 수립</td>
+              </tr>
+              <tr>
+                <td>국제입찰 공고분석 및 낙찰 상위국가 지원사업 선진사례 조사</td>
+                <td class="wk-tbl__date">2023.08.24</td>
+                <td class="wk-tbl__date">2023.11.30</td>
+                <td class="wk-tbl__desc">공고분석 및 낙찰 국가 지원사업 사례 조사</td>
+              </tr>
+              <tr>
+                <td>국제입찰 컨설팅 지원사업 위탁운영</td>
+                <td class="wk-tbl__date">2023.03.17</td>
+                <td class="wk-tbl__date">2023.11.30</td>
+                <td class="wk-tbl__desc">해외 정부 발주처 수요조사 / 시장분석 / 진출전략 수립</td>
+              </tr>
+              <tr>
+                <td>감염병 방역체계 구축 ODA 디렉토리를 활용한 방글라데시 사업개발</td>
+                <td class="wk-tbl__date">2022.10.05</td>
+                <td class="wk-tbl__date">2022.12.09</td>
+                <td class="wk-tbl__desc">디렉토리를 활용한 방글라데시 사업개발</td>
+              </tr>
+              <tr>
+                <td>국제입찰 컨설팅 지원사업</td>
+                <td class="wk-tbl__date">2022.04.19</td>
+                <td class="wk-tbl__date">2022.11.30</td>
+                <td class="wk-tbl__desc">해외 정부 발주처 수요조사 / 시장분석 / 진출전략 수립</td>
+              </tr>
+              <tr>
+                <td>국제입찰 컨설팅 지원사업</td>
+                <td class="wk-tbl__date">2021.04.01</td>
+                <td class="wk-tbl__date">2021.11.30</td>
+                <td class="wk-tbl__desc">국내 보건의료기업들의 해외조달 시장 진출 지원 및 수출역량</td>
+              </tr>
+              <tr>
+                <td>2021년 의료 해외진출 프로젝트 지원사업</td>
+                <td class="wk-tbl__date">2021.02.10</td>
+                <td class="wk-tbl__date">2021.11.20</td>
+                <td class="wk-tbl__desc">씨젠의 이동형 분자진단검사 솔루션 구축 및 해외수출을 위한 사업기획과 개발</td>
+              </tr>
+              <tr>
+                <td>감염병 대응 패키지형 ODA 사업모델 개발</td>
+                <td class="wk-tbl__date">2021.08.03</td>
+                <td class="wk-tbl__date">2021.11.02</td>
+                <td class="wk-tbl__desc">우리나라 감염대응체계를 활용한 국제 ODA 사업 기획</td>
+              </tr>
+              <tr>
+                <td>국제입찰 컨설팅 지원사업</td>
+                <td class="wk-tbl__date">2020.04.06</td>
+                <td class="wk-tbl__date">2020.11.30</td>
+                <td class="wk-tbl__desc">국내 보건의료기업들의 해외조달 시장 진출 지원 및 수출역량</td>
+              </tr>
+              <tr>
+                <td>국제입찰 컨설팅 지원사업</td>
+                <td class="wk-tbl__date">2019.06.25</td>
+                <td class="wk-tbl__date">2019.11.15</td>
+                <td class="wk-tbl__desc">국내 보건의료기업들의 해외조달 시장 진출 지원 및 수출역량</td>
+              </tr>
+            </tbody>
+          </table>
+          <ul class="wk-notes">
+            <li>"국제입찰 컨설팅 지원사업" 보건의료분야 참여기업 약 25개사를 대상으로 역량강화 교육</li>
+            <li>기업별 맞춤형 해외입찰정보 제공 / 입찰제안서 작성 / 입찰 지원</li>
+            <li>해외 정부 대상 사업개발 및 선제안서 제출</li>
+          </ul>
+        </div>
+
+        <!-- aT -->
+        <div class="wk-agency">
+          <div class="wk-agency__head">
+            <span class="wk-agency__logo">aT</span>
+            <div class="wk-agency__name">
+              <span class="wk-agency__kname">한국농수산식품유통공사</span>
+              <span class="wk-agency__ename">Korea Agro-Fisheries &amp; Food Trade Corporation</span>
+            </div>
+          </div>
+          <table class="wk-tbl">
+            <thead>
+              <tr>
+                <th>사업명</th>
+                <th style="width:13%">시작일</th>
+                <th style="width:13%">종료일</th>
+                <th style="width:36%">주요내용</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2023년 한국 농식품 국제조달시장 진출 가이드북 제작용역</td>
+                <td class="wk-tbl__date">2023.10.26</td>
+                <td class="wk-tbl__date">2023.12.08</td>
+                <td class="wk-tbl__desc">농식품 국제조달시장 진출 가이드북 제작</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- KRIT -->
+        <div class="wk-agency">
+          <div class="wk-agency__head">
+            <span class="wk-agency__logo">KRIT</span>
+            <div class="wk-agency__name">
+              <span class="wk-agency__kname">국방기술진흥연구소</span>
+              <span class="wk-agency__ename">Korea Research Institute for defense Technology planning and advancement</span>
+            </div>
+          </div>
+          <table class="wk-tbl">
+            <thead>
+              <tr>
+                <th>사업명</th>
+                <th style="width:13%">시작일</th>
+                <th style="width:13%">종료일</th>
+                <th style="width:36%">주요내용</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>미 국방사업 제안요청서 사례 조사 및 분석 용역</td>
+                <td class="wk-tbl__date">2023.09.18</td>
+                <td class="wk-tbl__date">2023.12.16</td>
+                <td class="wk-tbl__desc">미국 국방조달시장 진출활성화하는 방안을 모색</td>
+              </tr>
+              <tr>
+                <td>한·미 국방상호조달협정(RDP MOU) 경제성 및 산업영향성 분석</td>
+                <td class="wk-tbl__date">2022.05.10</td>
+                <td class="wk-tbl__date">2022.07.31</td>
+                <td class="wk-tbl__desc">한·미 안보 동맹 강화와 대미 방산수출 확대를 위한 상호 방산시장개방을 목적으로 RDP MOU 체결에 따른 국내 방위산업의 영향성 및 기회/위협 식별, 내실 있는 정책방향 결정 지원을 하기 위함임</td>
+              </tr>
+            </tbody>
+          </table>
+          <ul class="wk-notes">
+            <li>RDP MOU 체결 추진에 따른 국내 방위산업 영향성 및 경제성 분석
+              <ul>
+                <li>방산기업 및 전문가 대상 의견수렴, 국내 방산제품 경쟁력 분석 등</li>
+              </ul>
+            </li>
+            <li>양국 국방조달 관련 쟁점사항에 대한 법적 해석</li>
+            <li>RDP MOU 체결국(28개국)의 협정문 비교 및 사례 분석</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Services ================= -->
+    <section class="wk-panel" id="tab-services" role="tabpanel" aria-label="서비스 소개" hidden>
+
+      <header class="wk-section">
+        <p class="wk-section__eyebrow">Services</p>
+        <h3 class="wk-section__title">서비스 소개</h3>
+        <p class="wk-section__lede">해외 공공조달 시장 진입의 전 단계를 아우르는 GPDI의 핵심 서비스. 시장 진단부터 입찰·계약·사후관리까지, 기업 상황에 맞춘 맞춤형 컨설팅을 제공합니다.</p>
+      </header>
+
+      <div class="wk-services-grid">
+        <article class="wk-service-card">
+          <p class="wk-service-card__num">01</p>
+          <h4 class="wk-service-card__title">해외조달 시장 진단 · 전략 수립</h4>
+          <p class="wk-service-card__desc">진출 대상국의 조달 제도·산업 구조·경쟁환경을 분석하고, 기업 제품·역량에 맞는 진입 전략과 로드맵을 설계합니다.</p>
+          <ul class="wk-service-card__tags">
+            <li>시장 분석</li>
+            <li>SWOT · PEST</li>
+            <li>진입 로드맵</li>
+          </ul>
+        </article>
+
+        <article class="wk-service-card">
+          <p class="wk-service-card__num">02</p>
+          <h4 class="wk-service-card__title">국제입찰 참가 지원</h4>
+          <p class="wk-service-card__desc">WHO·UN·MDB·개도국 정부의 국제입찰 공고 분석, 참가 자격 검토, 팀 구성 자문, 제출 서류 일체를 지원합니다.</p>
+          <ul class="wk-service-card__tags">
+            <li>입찰 모니터링</li>
+            <li>자격 검토</li>
+            <li>제안서 작성</li>
+          </ul>
+        </article>
+
+        <article class="wk-service-card">
+          <p class="wk-service-card__num">03</p>
+          <h4 class="wk-service-card__title">벤더 발굴 · 현지 파트너 매칭</h4>
+          <p class="wk-service-card__desc">현지 법무·유통·기술 파트너 풀을 활용하여 컨소시엄 구성과 대리인 계약을 조율하고 리스크를 최소화합니다.</p>
+          <ul class="wk-service-card__tags">
+            <li>파트너 풀</li>
+            <li>Due Diligence</li>
+            <li>컨소시엄 자문</li>
+          </ul>
+        </article>
+
+        <article class="wk-service-card">
+          <p class="wk-service-card__num">04</p>
+          <h4 class="wk-service-card__title">인증 · 등록 · 컴플라이언스</h4>
+          <p class="wk-service-card__desc">진출국 조달 시스템 등록(GSA, VA 등), 의료기기·의약품 인증, 수출통제 및 원산지 증명 등 규제 대응을 지원합니다.</p>
+          <ul class="wk-service-card__tags">
+            <li>GSA · VA Schedule</li>
+            <li>CE · FDA · CSDT</li>
+            <li>원산지 / 수출통제</li>
+          </ul>
+        </article>
+
+        <article class="wk-service-card">
+          <p class="wk-service-card__num">05</p>
+          <h4 class="wk-service-card__title">ODA 사업기획 · 성과관리</h4>
+          <p class="wk-service-card__desc">KOICA·EDCF·KOFIH 발주 ODA 사업의 기획·형성조사, PDM 설계, 중간·종료·사후 평가를 수행합니다.</p>
+          <ul class="wk-service-card__tags">
+            <li>PCP · 형성조사</li>
+            <li>PDM · ToC</li>
+            <li>OECD DAC 평가</li>
+          </ul>
+        </article>
+
+        <article class="wk-service-card">
+          <p class="wk-service-card__num">06</p>
+          <h4 class="wk-service-card__title">교육 · 역량강화</h4>
+          <p class="wk-service-card__desc">해외조달 진출 기업 임직원 대상 워크숍, 정부 공무원·유관기관 연수, 온·오프라인 교육 프로그램을 기획·운영합니다.</p>
+          <ul class="wk-service-card__tags">
+            <li>기업 워크숍</li>
+            <li>공공 연수</li>
+            <li>KSP 역량강화</li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- 컨설팅 프로세스 -->
+      <div class="wk-process">
+        <h3 class="wk-process__title">컨설팅 프로세스</h3>
+        <ol class="wk-process__list">
+          <li>
+            <span class="wk-process__num">1</span>
+            <span class="wk-process__step">진단</span>
+            <span class="wk-process__desc">기업 현황·목표 시장 분석</span>
+          </li>
+          <li>
+            <span class="wk-process__num">2</span>
+            <span class="wk-process__step">전략 설계</span>
+            <span class="wk-process__desc">진입 경로·파트너십 설계</span>
+          </li>
+          <li>
+            <span class="wk-process__num">3</span>
+            <span class="wk-process__step">실행 지원</span>
+            <span class="wk-process__desc">입찰 · 등록 · 계약 실행</span>
+          </li>
+          <li>
+            <span class="wk-process__num">4</span>
+            <span class="wk-process__step">확장</span>
+            <span class="wk-process__desc">반복 수주 · 시장 확장</span>
+          </li>
+          <li>
+            <span class="wk-process__num">5</span>
+            <span class="wk-process__step">사후관리</span>
+            <span class="wk-process__desc">성과관리 · 레퍼런스 축적</span>
+          </li>
+        </ol>
+      </div>
+
+      <section class="wk-cta">
+        <div>
+          <h3>해외 공공조달 시장 진출을 준비하고 계신가요?</h3>
+          <p>제품·타깃 시장·현재 단계에 대해 간단히 알려주시면, 담당 컨설턴트가 초기 진단 자료와 함께 회신드립니다.</p>
+        </div>
+        <a class="wk-cta__mail" href="mailto:information@gpdi.kr">information@gpdi.kr</a>
+      </section>
+
+    </section>
+
+  </div>
+</main>
+
+<!-- ===== Floating Info ===== -->
+<div class="info-float" id="infoFloat">
+  <button type="button" class="info-float__btn" aria-haspopup="true" aria-expanded="false" aria-label="Information 메뉴"><span class="info-float__txt">INFO</span></button>
+  <div class="info-float__menu" role="menu">
+    <p class="info-float__title">Information</p>
+    <ul>
+      <li><a role="menuitem" href="index.html#newsletter">공공조달 뉴스레터</a></li>
+      <li><a role="menuitem" href="index.html#press">보도자료</a></li>
+      <li><a role="menuitem" href="index.html#videos">교육동영상</a></li>
+    </ul>
+  </div>
+</div>
+<script>
+  (function(){var f=document.getElementById('infoFloat');if(!f)return;var btn=f.querySelector('.info-float__btn');btn.addEventListener('click',function(e){e.stopPropagation();var o=f.classList.toggle('is-open');btn.setAttribute('aria-expanded',o?'true':'false');});document.addEventListener('click',function(e){if(!f.contains(e.target)){f.classList.remove('is-open');btn.setAttribute('aria-expanded','false');}});function s(){if(window.scrollY>120){f.classList.add('is-scrolled');}else{f.classList.remove('is-scrolled');}}window.addEventListener('scroll',s,{passive:true});s();})();
+
+  /* ===== 탭 전환: 클릭 시 해당 패널만 표시 ===== */
+  (function(){
+    var tabs = document.querySelectorAll('.wk-tabs__list a[data-target]');
+    var panels = document.querySelectorAll('.wk-panel');
+    if(!tabs.length || !panels.length) return;
+    function activate(id){
+      tabs.forEach(function(t){
+        var on = t.getAttribute('data-target') === id;
+        t.classList.toggle('is-active', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      panels.forEach(function(p){ p.hidden = (p.id !== id); });
+    }
+    tabs.forEach(function(t){
+      t.addEventListener('click', function(e){
+        e.preventDefault();
+        activate(t.getAttribute('data-target'));
+      });
+    });
+    // URL 해시로 초기 탭 결정 (work.html#tab-services 등)
+    var hash = window.location.hash.replace('#','');
+    if(hash === 'tab-services' || hash === 'tab-performance') activate(hash);
+  })();
+</script>
+
+<footer id="footer" class="gp-footer">
+  <div class="gp-footer__links">
+    <div class="gp-footer__wrap">
+      <ul>
+        <li><a href="sub/pop_privacy.html">개인정보처리방침</a></li>
+        <li><a href="sub/pop_email.html">이메일무단수집거부</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="gp-footer__info">
+    <div class="gp-footer__wrap">
+      <address class="gp-footer__addr">
+        <p class="gp-footer__name">글로벌조달개발원</p>
+        <p>주소 : (10542) 경기도 고양시 덕양구 청초로 10, A동 4층 AA04-0405호, 0406호(덕은동), AA04-0405, 0406, 10 Cheongcho-ro, Deogyang-gu, Goyang-si, Gyeonggi-do (10542)</p>
+        <p>사업자등록번호: 863-87-01643 &nbsp; 전화: 02-6242-7200 &nbsp; 팩스: 02-6242-7209 &nbsp; 대표 이메일: information@gpdi.kr</p>
+        <p class="gp-footer__copy">COPYRIGHT(C) 2022. Global Procurement Development Institute ALL RIGHTS RESERVED.</p>
+      </address>
+      <div class="gp-footer__brand">
+        <img class="gp-footer__logo" src="images/GPDI_LOGO_white.svg" alt="글로벌조달개발원">
+        <a href="https://www.exportvoucher.com/portal/sample/main" target="_blank" rel="noopener" class="gp-footer__voucher" aria-label="수출지원기반활용사업">
+          <img src="https://www.gpdi.kr/images/common/f_logo02.png" alt="수출지원기반활용사업" onerror="this.style.display='none'">
+        </a>
+        <p class="gp-footer__partner">수출바우처 공식수행기관<br>소관부처: 산업통상자원부(KOTRA)<br>중소벤처기업부(중진공)</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

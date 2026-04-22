@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+<meta name="description" content="GPDI 해외공공조달 — 세계 공공조달 시장 소개">
+<title>GPDI | 해외공공조달</title>
+<link rel="icon" type="image/svg+xml" href="images/GPDI_Symbol.svg">
+<link rel="apple-touch-icon" href="images/GPDI_Symbol.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+
+<script src="js/lang.js" defer></script>
+<style>
+  /* 언어 토글 */
+  body[data-lang="ko"] .t-en{display:none !important}
+  body[data-lang="en"] .t-ko{display:none !important}
+  .t-ko.is-block,.t-en.is-block{display:block}
+  body[data-lang="ko"] .t-en.is-block{display:none !important}
+  body[data-lang="en"] .t-ko.is-block{display:none !important}
+
+  /* Reset + base */
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  ul,ol{list-style:none;margin:0;padding:0}
+  h1,h2,h3,h4,h5,h6,p{margin:0}
+  button{font:inherit}
+  body{font-family:"Noto Sans KR","Malgun Gothic",sans-serif;color:#3e3a39;background:#fff;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;height:auto;display:block}
+  a{color:inherit;text-decoration:none}
+  .fallback-wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+
+  /* Header (index.html과 동일) */
+  .header{position:absolute;top:0;left:0;right:0;z-index:100;background:transparent;border-bottom:1px solid rgba(255,255,255,.08)}
+  .header .contain{max-width:1400px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;gap:30px;height:88px}
+  .header .contain .util--clean{margin-right:64px}
+  header.header h1.sitelogo{margin:0 !important;padding:0 !important;flex-shrink:0;line-height:1;display:flex !important;align-items:center;align-self:center;height:auto;font-size:0}
+  header.header h1.sitelogo a{display:inline-flex !important;align-items:center;line-height:0;padding:0;margin:0;border:0}
+  header.header h1.sitelogo img{height:36px !important;width:auto !important;display:block;margin:0;padding:0;border:0;vertical-align:middle}
+
+  .header #gnb{flex:1}
+  .header #gnb > ul{display:flex !important;justify-content:center;gap:56px;margin:0;padding:0;list-style:none}
+  .header #gnb > ul > li{position:relative;list-style:none}
+  .header #gnb > ul > li > a{display:flex !important;align-items:center;height:88px;padding:0 4px;font:500 15px/1 "Noto Sans KR",sans-serif;letter-spacing:-.01em;color:#fff !important;position:relative;transition:color .2s ease;white-space:nowrap;text-decoration:none}
+  .header #gnb > ul > li > a::after{content:"";position:absolute;left:50%;bottom:32px;width:0;height:2px;background:#86acaa;transform:translateX(-50%);transition:width .25s ease}
+  .header #gnb > ul > li:hover > a::after,
+  .header #gnb > ul > li:focus-within > a::after{width:22px}
+  .header #gnb .submenu{position:absolute !important;left:50% !important;top:88px !important;transform:translateX(-50%) translateY(4px);background:#fff !important;border-top:2px solid #535470;box-shadow:0 20px 44px rgba(14,20,38,.16);padding:4px 0;min-width:200px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,transform .22s ease,visibility 0s linear .22s;z-index:120;display:block !important}
+  .header #gnb > ul > li:hover > .submenu,
+  .header #gnb > ul > li:focus-within > .submenu{opacity:1 !important;visibility:visible !important;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .22s ease,transform .22s ease,visibility 0s}
+  .header #gnb > ul > li::before{content:"";position:absolute;left:-16px;right:-16px;top:88px;height:8px;opacity:0;pointer-events:none}
+  .header #gnb > ul > li:hover::before,
+  .header #gnb > ul > li:focus-within::before{opacity:1;pointer-events:auto}
+  .header #gnb .submenu ul{list-style:none !important;margin:0 !important;padding:0 !important;display:block !important}
+  .header #gnb .submenu li{list-style:none;background:transparent !important;border:0 !important;padding:0 !important}
+  .header #gnb .submenu li a{display:block !important;padding:12px 22px !important;font:500 14px/1.45 "Noto Sans KR",sans-serif !important;color:#3e3a39 !important;white-space:nowrap;background:transparent;transition:background .18s ease,color .18s ease,padding-left .18s ease;text-decoration:none;letter-spacing:0}
+  .header #gnb .submenu li a:hover{background:#f3f5f8 !important;color:#535470 !important;padding-left:26px !important}
+
+  .util--clean{display:inline-flex;align-items:stretch;font:600 12px/1 "Inter","Noto Sans KR",sans-serif}
+  .util--clean .lang-toggle{display:inline-flex;align-items:stretch;border:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.08);backdrop-filter:blur(4px)}
+  .util--clean .lang-btn{appearance:none;background:transparent;border:0;padding:8px 14px;color:rgba(255,255,255,.7);font:inherit;letter-spacing:.14em;cursor:pointer;transition:color .15s ease,background .15s ease}
+  .util--clean .lang-btn:hover{color:#fff}
+  .util--clean .lang-btn.is-active{color:#fff;background:rgba(83,84,112,.85)}
+
+  /* Sub-page hero (페이지 타이틀) */
+  .sub-hero{position:relative;min-height:360px;background:#0a0d14 url('images/main/web-banner-1.png') center/cover no-repeat;color:#fff;display:flex;align-items:flex-end;padding:0 0 60px}
+  .sub-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(14,20,38,.65),rgba(14,20,38,.8))}
+  .sub-hero__inner{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:0 40px;width:100%}
+  .sub-hero__crumb{font:600 11px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.22em;color:rgba(255,255,255,.7);text-transform:uppercase;margin:0 0 14px}
+  .sub-hero__crumb a{color:rgba(255,255,255,.6);transition:color .2s}
+  .sub-hero__crumb a:hover{color:#fff}
+  .sub-hero__crumb span{margin:0 10px;color:rgba(255,255,255,.35)}
+  .sub-hero__title{font:700 clamp(32px,4vw,48px)/1.15 "Noto Sans KR","Inter",sans-serif;letter-spacing:-.02em;margin:0}
+
+  /* 본문 */
+  .sub-body{padding:110px 0 60px;background:#fff;position:relative;overflow:hidden}
+  .sub-body__inner{max-width:1200px;margin:0 auto;padding:0 40px;position:relative;z-index:1}
+
+  /* 헤더 인트로 — 로고 + 리드 카피 */
+  .sub-head{text-align:center;margin:0 0 120px;position:relative}
+  .sub-head::before{
+    /* 배경 L-shape 연회색 기하학 */
+    content:"";position:absolute;left:50%;top:-30px;transform:translateX(-50%);
+    width:180px;height:180px;pointer-events:none;z-index:-1;opacity:.6;
+    background:
+      linear-gradient(to right,#f3f5f8 100%,transparent 0) 0 0/100% 20% no-repeat,
+      linear-gradient(to bottom,#f3f5f8 100%,transparent 0) 0 0/20% 100% no-repeat;
+  }
+  .sub-head__logo{height:46px;width:auto;margin:0 auto 32px;display:block}
+  .sub-head__intro{margin:0 auto;max-width:900px;font:400 16.5px/2 "Noto Sans KR","Malgun Gothic",sans-serif;color:#3e3a39;letter-spacing:-.005em}
+  .sub-head__divider{
+    width:32px;height:2px;background:#b87860;margin:32px auto 0;
+  }
+
+  /* 콘텐츠 블록 */
+  .sub-block{
+    display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+    margin:0 0 110px;position:relative;
+  }
+  .sub-block:last-child{margin-bottom:40px}
+  .sub-block--reverse{direction:rtl}
+  .sub-block--reverse > *{direction:ltr}
+
+  /* 에디토리얼 넘버 (뒷배경 큰 숫자) */
+  .sub-block__num{
+    position:absolute;top:-20px;
+    font:800 120px/1 "Inter",sans-serif;color:#f3f5f8;letter-spacing:-.04em;
+    pointer-events:none;z-index:0;user-select:none;
+  }
+  .sub-block .sub-block__num{left:-10px}
+  .sub-block--reverse .sub-block__num{right:-10px;left:auto;direction:ltr}
+
+  .sub-block__text{position:relative;z-index:1}
+  .sub-block__badge{
+    display:inline-flex;align-items:center;gap:10px;margin:0 0 18px;
+    font:700 11px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.28em;
+    color:#b87860;text-transform:uppercase;
+  }
+  .sub-block__badge::before{
+    content:"";width:20px;height:1px;background:#b87860;
+  }
+  .sub-block__text h3{
+    margin:0 0 24px;
+    font:700 clamp(26px,2.4vw,32px)/1.3 "Noto Sans KR","Inter",sans-serif;
+    color:#3e3a39;letter-spacing:-.015em;
+  }
+  .sub-block__text p{
+    margin:0;font:400 15.5px/1.9 "Noto Sans KR",sans-serif;color:#595857;
+    word-break:keep-all;
+  }
+  .sub-block__text p strong{color:#535470;font-weight:700}
+
+  /* 이미지 (우하단에 브랜드 컬러 포인트 오프셋) */
+  .sub-block__visual{position:relative}
+  .sub-block__visual::before{
+    content:"";position:absolute;left:-14px;bottom:-14px;
+    width:48%;height:60%;background:#f3f5f8;z-index:-1;
+  }
+  .sub-block__visual::after{
+    content:"";position:absolute;right:-10px;top:-10px;
+    width:36px;height:36px;background:#b87860;opacity:.9;
+  }
+  .sub-block--reverse .sub-block__visual::before{left:auto;right:-14px}
+  .sub-block--reverse .sub-block__visual::after{right:auto;left:-10px;background:#86acaa}
+  .sub-block__visual img{
+    width:100%;height:auto;display:block;
+    box-shadow:0 24px 48px rgba(14,20,38,.1);
+    position:relative;z-index:1;
+  }
+
+  /* 핵심수치 하이라이트 (블록 2 내부 스탯 카드) */
+  .sub-stats{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:0;
+    margin:32px 0 0;border-top:1px solid #e5e2dc;
+  }
+  .sub-stats__item{padding:20px 0 0}
+  .sub-stats__item + .sub-stats__item{padding-left:24px;border-left:1px solid #e5e2dc;margin-left:24px}
+  .sub-stats__num{
+    font:800 30px/1 "Inter","Noto Sans KR",sans-serif;color:#535470;letter-spacing:-.02em;
+    margin:0 0 6px;
+  }
+  .sub-stats__num em{font-style:normal;color:#b87860}
+  .sub-stats__lbl{
+    font:500 12px/1.4 "Noto Sans KR",sans-serif;color:#8a90a0;letter-spacing:-.005em;
+  }
+
+  /* 하단 CTA */
+  .sub-cta{
+    margin:120px -40px 0;padding:60px 40px;
+    background:linear-gradient(135deg,#3e3a39 0%,#535470 100%);color:#fff;
+    display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+    position:relative;overflow:hidden;
+  }
+  .sub-cta::before{
+    content:"";position:absolute;right:-30px;top:-30px;width:160px;height:160px;
+    background:
+      linear-gradient(to right,rgba(184,120,96,.4) 100%,transparent 0) 0 0/100% 22% no-repeat,
+      linear-gradient(to bottom,rgba(134,172,170,.4) 100%,transparent 0) 0 0/22% 100% no-repeat;
+    pointer-events:none;
+  }
+  .sub-cta__head{position:relative;z-index:1}
+  .sub-cta__eyebrow{
+    margin:0 0 8px;font:700 11px/1 "Inter",sans-serif;letter-spacing:.28em;
+    color:#86acaa;text-transform:uppercase;
+  }
+  .sub-cta__title{
+    margin:0;font:700 clamp(20px,2vw,26px)/1.3 "Noto Sans KR","Inter",sans-serif;
+    letter-spacing:-.01em;
+  }
+  .sub-cta__btn{
+    display:inline-flex;align-items:center;gap:10px;padding:16px 28px;
+    background:#b87860;color:#fff;
+    font:700 13px/1 "Noto Sans KR",sans-serif;letter-spacing:.04em;
+    transition:background .22s ease,gap .22s ease,transform .22s ease;
+    position:relative;z-index:1;
+  }
+  .sub-cta__btn:hover{background:#a06752;gap:16px;transform:translateY(-2px)}
+
+  @media (max-width:900px){
+    .sub-hero{min-height:260px;padding-bottom:40px}
+    .sub-body{padding:70px 0 40px}
+    .sub-body__inner{padding:0 24px}
+    .sub-head{margin-bottom:72px}
+    .sub-head__intro br{display:none}
+    .sub-block,.sub-block--reverse{grid-template-columns:1fr;gap:36px;margin-bottom:72px;direction:ltr}
+    .sub-block__num{font-size:80px;top:-30px}
+    .sub-block--reverse .sub-block__num{right:auto;left:-10px}
+    .sub-stats{grid-template-columns:1fr;gap:16px}
+    .sub-stats__item + .sub-stats__item{padding-left:0;border-left:0;margin-left:0;border-top:1px solid #e5e2dc;padding-top:16px}
+    .sub-cta{margin:80px -24px 0;padding:40px 24px;flex-direction:column;align-items:flex-start}
+  }
+
+  /* Floating Info (index.html과 동일) */
+  .info-float{position:fixed;right:48px;top:50%;transform:translateY(-50%);z-index:200}
+  .info-float__btn{position:relative;appearance:none;border:0;cursor:pointer;width:56px;height:56px;padding:0;background:#535470;box-shadow:0 10px 24px rgba(14,20,38,.24);transition:background .2s ease,transform .2s ease,box-shadow .2s ease;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .info-float__btn:hover,
+  .info-float__btn:focus-visible,
+  .info-float.is-open .info-float__btn{background:#3e3a39;transform:translateY(-2px);box-shadow:0 14px 30px rgba(14,20,38,.32);outline:none}
+  .info-float__txt{font:800 12px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.24em;color:#fff;position:relative;z-index:2}
+  .info-float__btn::before{content:"";position:absolute;top:0;right:0;width:10px;height:10px;background:#86acaa;z-index:1}
+  .info-float__btn::after{content:"";position:absolute;bottom:0;left:0;width:8px;height:8px;background:#b87860;z-index:1}
+  .info-float.is-scrolled .info-float__btn{background:#fff;box-shadow:0 10px 24px rgba(14,20,38,.18)}
+  .info-float.is-scrolled .info-float__txt{color:#535470}
+  .info-float.is-scrolled .info-float__btn:hover,
+  .info-float.is-scrolled.is-open .info-float__btn{background:#f3f5f8}
+  .info-float__menu{position:absolute;right:calc(100% + 14px);top:50%;transform:translateY(-50%) translateX(6px);min-width:240px;padding:14px 0 8px;background:#fff;border-right:2px solid #535470;box-shadow:0 20px 44px rgba(14,20,38,.22);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,visibility 0s linear .22s,transform .22s ease}
+  .info-float:hover .info-float__menu,
+  .info-float:focus-within .info-float__menu,
+  .info-float.is-open .info-float__menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(-50%) translateX(0);transition:opacity .22s ease,visibility 0s,transform .22s ease}
+  .info-float::before{content:"";position:absolute;right:100%;top:0;bottom:0;width:18px;opacity:0;pointer-events:none}
+  .info-float:hover::before,
+  .info-float:focus-within::before{opacity:1;pointer-events:auto}
+  .info-float__title{margin:0 0 6px;padding:0 20px;font:700 10px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#86acaa}
+  .info-float__menu ul{list-style:none;padding:0;margin:0}
+  .info-float__menu li{list-style:none}
+  .info-float__menu li a{display:block;padding:11px 20px;font:500 13.5px/1.45 "Noto Sans KR",sans-serif;color:#3e3a39;transition:background .18s ease,color .18s ease,padding-left .18s ease;white-space:nowrap}
+  .info-float__menu li a:hover{background:#f3f5f8;color:#535470;padding-left:24px}
+  @media (max-width:768px){
+    .info-float{top:auto;bottom:24px;transform:none;right:20px}
+    .info-float__btn{width:52px;height:52px}
+    .info-float__txt{font-size:11px}
+    .info-float__menu{right:calc(100% + 10px);top:auto;bottom:0;transform:translateX(6px)}
+    .info-float:hover .info-float__menu,
+    .info-float:focus-within .info-float__menu,
+    .info-float.is-open .info-float__menu{transform:translateX(0)}
+  }
+
+  /* Footer — index.html과 동일한 심플 2-tier */
+  .gp-footer{background:#3a3f4a;color:rgba(255,255,255,.65)}
+  .gp-footer a{color:inherit;text-decoration:none;transition:color .18s ease}
+  .gp-footer__wrap{max-width:1400px;margin:0 auto;padding:0 40px}
+  .gp-footer__links{border-bottom:1px solid rgba(255,255,255,.08)}
+  .gp-footer__links ul{list-style:none;margin:0;padding:14px 0;display:flex;gap:32px;align-items:center}
+  .gp-footer__links li{list-style:none}
+  .gp-footer__links a{display:inline-flex;align-items:center;gap:8px;font:400 12.5px/1 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.7);letter-spacing:-.005em}
+  .gp-footer__links a::before{content:"";display:inline-block;width:11px;height:11px;border:1px solid rgba(255,255,255,.35);flex-shrink:0}
+  .gp-footer__links a:hover{color:#fff}
+  .gp-footer__info .gp-footer__wrap{display:grid;grid-template-columns:1fr auto;gap:60px;align-items:flex-start;padding-top:40px;padding-bottom:40px}
+  .gp-footer__addr{font-style:normal;font:400 12.5px/1.75 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.55);letter-spacing:-.005em}
+  .gp-footer__addr p{margin:0 0 4px}
+  .gp-footer__addr p:last-child{margin-bottom:0}
+  .gp-footer__name{font:700 15px/1.3 "Noto Sans KR",sans-serif;color:#fff;margin:0 0 10px !important;letter-spacing:-.01em}
+  .gp-footer__copy{margin-top:14px !important;font-size:11.5px;letter-spacing:.02em;color:rgba(255,255,255,.4)}
+  .gp-footer__brand{display:flex;flex-direction:column;align-items:flex-end;gap:14px;text-align:right;min-width:220px}
+  .gp-footer__logo{height:28px;width:auto;display:block}
+  .gp-footer__voucher{display:inline-block;line-height:0}
+  .gp-footer__voucher img{height:20px;width:auto;display:block}
+  .gp-footer__partner{margin:4px 0 0;font:400 11.5px/1.65 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.55)}
+  @media (max-width:900px){.gp-footer__wrap{padding:0 24px}.gp-footer__info .gp-footer__wrap{grid-template-columns:1fr;gap:28px;padding-top:32px;padding-bottom:32px}.gp-footer__brand{align-items:flex-start;text-align:left}.gp-footer__links ul{gap:20px;padding:12px 0}}
+</style>
+</head>
+<body data-lang="ko">
+
+<!-- ===== HEADER ===== -->
+<header id="header" class="header">
+  <div class="contain">
+    <h1 class="sitelogo">
+      <a href="index.html">
+        <img src="images/GPDI_LOGO_white.svg" alt="글로벌조달개발원" style="height:36px;width:auto">
+      </a>
+    </h1>
+
+    <div id="gnb" class="gnb">
+      <ul>
+        <li><a href="index.html#about">About Us</a>
+          <div class="submenu">
+            <ul>
+              <li><a href="about.html">해외공공조달</a></li>
+              <li><a href="history.html">히스토리</a></li>
+              <li><a href="members.html">해외 공공조달 전문가</a></li>
+              <li><a href="gpdi-usa.html">GPDI USA</a></li>
+              <li><a href="gpdi-uae.html">GPDI UAE</a></li>
+              <li><a href="gpdi-ukraine.html">GPDI Ukraine</a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="work.html">사업 분야</a>
+          <div class="submenu"><ul>
+            <li><a href="work.html#tab-performance">주요 실적</a></li>
+            <li><a href="work.html#tab-services">서비스 소개</a></li>
+          </ul></div>
+        </li>
+        <li><a href="healthcare.html">헬스케어</a>
+          <div class="submenu"><ul>
+            <li><a href="healthcare.html#hc-expertise">전문 분야</a></li>
+            <li><a href="healthcare.html#hc-partners">발주기관 · 파트너</a></li>
+            <li><a href="healthcare.html#hc-performance">수행 실적</a></li>
+            <li><a href="healthcare.html#hc-methodology">방법론</a></li>
+          </ul></div>
+        </li>
+        <li><a href="index.html#smartcity">Smart City</a>
+          <div class="submenu">
+            <ul>
+              <li><a href="index.html#smartcity-overview">사업 개요</a></li>
+              <li><a href="index.html#smartcity-solutions">분야별 솔루션</a></li>
+              <li><a href="index.html#smartcity-cases">해외 레퍼런스</a></li>
+              <li><a href="index.html#smartcity-partners">파트너십</a></li>
+              <li><a href="index.html#smartcity-export">수출 지원 프로그램</a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="index.html#ai">AI Transformation</a>
+          <div class="submenu">
+            <ul>
+              <li><a href="index.html#ai-overview">서비스 소개</a></li>
+              <li><a href="index.html#ai-stack">기술 스택</a></li>
+              <li><a href="index.html#ai-data">AI 데이터 서비스</a></li>
+              <li><a href="index.html#ai-cases">도입 사례</a></li>
+              <li><a href="index.html#ai-partners">파트너십</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="util util--clean">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" class="lang-btn is-active" data-lang="ko">KOR</button>
+        <button type="button" class="lang-btn" data-lang="en">ENG</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Sub-page Hero ===== -->
+<section class="sub-hero" aria-label="페이지 타이틀">
+  <div class="sub-hero__inner">
+    <p class="sub-hero__crumb"><a href="index.html">HOME</a><span>›</span><a href="index.html#about">ABOUT</a><span>›</span>해외공공조달</p>
+    <h2 class="sub-hero__title">해외공공조달</h2>
+  </div>
+</section>
+
+<!-- ===== 본문 ===== -->
+<main class="sub-body">
+  <div class="sub-body__inner">
+
+    <!-- 상단 로고 + 인트로 -->
+    <div class="sub-head">
+      <img class="sub-head__logo" src="images/GPDI_LOGO.svg" alt="글로벌조달개발원">
+      <p class="sub-head__intro">
+        글로벌조달개발원은 국내 기업들이 해외 공공조달시장 및 민간시장 진출을 지원하고자 설립되었습니다.<br>
+        이를 위해 고객사들이 신속하게 기회를 포착하고 입찰에 참여할 수 있도록 돕고 있습니다.<br>
+        독보적인 컨설팅 경험과 더불어 치열한 시장 조사와 산업 전반의 동향 파악, 그리고 끊임없는 연구를 통해<br>
+        국내기업들에게 사업을 개발할 수 있는 기회를 제공하고 더 넓은 세계로 진출할 수 있도록 협력할 것입니다.
+      </p>
+      <div class="sub-head__divider" aria-hidden="true"></div>
+    </div>
+
+    <!-- 블록 1: 해외공공조달이란? -->
+    <article class="sub-block">
+      <span class="sub-block__num" aria-hidden="true">01</span>
+      <div class="sub-block__text">
+        <div class="sub-block__badge">OVERSEAS PROCUREMENT</div>
+        <h3>해외공공조달이란?</h3>
+        <p>해외 공공조달 시장은 각국의 공공조달기관이나 국제기구, 다자개발은행 등에서 발주하는 물품입찰 및 프로젝트의 수주를 목적으로, 세계 여러 기업들간 경쟁하는 <strong>공개적이고 전문화된 조달업무 시장</strong>입니다.</p>
+      </div>
+      <div class="sub-block__visual">
+        <img src="https://www.gpdi.kr/images/sub/sub04_01_img01.jpg"
+             onerror="this.onerror=null;this.src='images/main/web-banner-1.png'"
+             alt="해외공공조달 시장 — 글로벌 네트워크">
+      </div>
+    </article>
+
+    <!-- 블록 2: 왜 해외 공공조달이 답일까요? + 핵심수치 -->
+    <article class="sub-block sub-block--reverse">
+      <span class="sub-block__num" aria-hidden="true">02</span>
+      <div class="sub-block__visual">
+        <img src="https://www.gpdi.kr/images/sub/sub04_01_img02.jpg"
+             onerror="this.onerror=null;this.src='images/main/web-banner-2.png'"
+             alt="글로벌 물류 네트워크">
+      </div>
+      <div class="sub-block__text">
+        <div class="sub-block__badge">WHY GLOBAL PUBLIC PROCUREMENT</div>
+        <h3>왜 해외 공공조달이 답일까요?</h3>
+        <p>미국 연방정부 조달시장은 2021년 기준 세계 최대 단일 조달시장 중 하나로, 우리 기업이 진출할 수 있는 새로운 잠재적 시장입니다. OECD 국가들의 공공조달 예산 비중은 꾸준히 증가하고 있으며, 전 세계 공공조달 시장은 큰 비중을 차지하고 있고 중요성도 높아지고 있습니다.</p>
+        <dl class="sub-stats" aria-label="핵심 수치">
+          <div class="sub-stats__item">
+            <dt class="sub-stats__num"><em>₩800</em>조원</dt>
+            <dd class="sub-stats__lbl">미국 연방정부 조달시장 규모 (2021, 5,559억불)</dd>
+          </div>
+          <div class="sub-stats__item">
+            <dt class="sub-stats__num"><em>15–17</em>%</dt>
+            <dd class="sub-stats__lbl">OECD 국가 GDP 대비 공공조달 예산 비중</dd>
+          </div>
+        </dl>
+      </div>
+    </article>
+
+    <!-- 하단 CTA -->
+    <section class="sub-cta" aria-label="컨설팅 문의">
+      <div class="sub-cta__head">
+        <p class="sub-cta__eyebrow">CONSULTING INQUIRY</p>
+        <h4 class="sub-cta__title">해외 공공조달 진출, GPDI와 함께 시작하세요.</h4>
+      </div>
+      <a href="index.html#inquiry" class="sub-cta__btn">
+        컨설팅 문의하기
+        <svg viewBox="0 0 14 14" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+      </a>
+    </section>
+
+  </div>
+</main>
+
+<!-- ===== Floating Information ===== -->
+<div class="info-float" id="infoFloat">
+  <button type="button" class="info-float__btn" aria-haspopup="true" aria-expanded="false" aria-label="Information 메뉴">
+    <span class="info-float__txt">INFO</span>
+  </button>
+  <div class="info-float__menu" role="menu">
+    <p class="info-float__title">Information</p>
+    <ul>
+      <li role="none"><a role="menuitem" href="index.html#newsletter">공공조달 뉴스레터</a></li>
+      <li role="none"><a role="menuitem" href="index.html#press">보도자료</a></li>
+      <li role="none"><a role="menuitem" href="index.html#videos">교육동영상</a></li>
+    </ul>
+  </div>
+</div>
+<script>
+  (function(){
+    var f = document.getElementById('infoFloat'); if(!f) return;
+    var btn = f.querySelector('.info-float__btn');
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var open = f.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function(e){
+      if(!f.contains(e.target)){ f.classList.remove('is-open'); btn.setAttribute('aria-expanded','false'); }
+    });
+    function onScroll(){
+      if(window.scrollY > 120){ f.classList.add('is-scrolled'); }
+      else{ f.classList.remove('is-scrolled'); }
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  })();
+</script>
+
+<!-- ===== Footer ===== -->
+<footer id="footer" class="gp-footer">
+  <div class="gp-footer__links">
+    <div class="gp-footer__wrap">
+      <ul>
+        <li><a href="sub/pop_privacy.html">개인정보처리방침</a></li>
+        <li><a href="sub/pop_email.html">이메일무단수집거부</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="gp-footer__info">
+    <div class="gp-footer__wrap">
+      <address class="gp-footer__addr">
+        <p class="gp-footer__name">글로벌조달개발원</p>
+        <p>주소 : (10542) 경기도 고양시 덕양구 청초로 10, A동 4층 AA04-0405호, 0406호(덕은동), AA04-0405, 0406, 10 Cheongcho-ro, Deogyang-gu, Goyang-si, Gyeonggi-do (10542)</p>
+        <p>사업자등록번호: 863-87-01643 &nbsp; 전화: 02-6242-7200 &nbsp; 팩스: 02-6242-7209 &nbsp; 대표 이메일: information@gpdi.kr</p>
+        <p class="gp-footer__copy">COPYRIGHT(C) 2022. Global Procurement Development Institute ALL RIGHTS RESERVED.</p>
+      </address>
+      <div class="gp-footer__brand">
+        <img class="gp-footer__logo" src="images/GPDI_LOGO_white.svg" alt="글로벌조달개발원">
+        <a href="https://www.exportvoucher.com/portal/sample/main" target="_blank" rel="noopener" class="gp-footer__voucher" aria-label="수출지원기반활용사업">
+          <img src="https://www.gpdi.kr/images/common/f_logo02.png" alt="수출지원기반활용사업" onerror="this.style.display='none'">
+        </a>
+        <p class="gp-footer__partner">수출바우처 공식수행기관<br>소관부처: 산업통상자원부(KOTRA)<br>중소벤처기업부(중진공)</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

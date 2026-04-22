@@ -1,0 +1,39 @@
+# ===== 백업 전용 폴더 — 공개하지 않음 =====
+# _백업/ 안에 버전 스냅샷, 원본 소스 사진, 제안서 PDF, 작업 자료 등 보관
+_백업/
+
+# 혹시 과거 형식의 _Backup/ 폴더가 남아있을 경우 대비
+_Backup/
+
+# ===== 추가 안전장치: 루트에 수동 버전 스냅샷이 다시 생기면 자동 제외 =====
+*_v[0-9].html
+*_v[0-9][0-9].html
+*_v-i18n.html
+*_backup.html
+*_bak.html
+
+# 날짜 붙은 README 원본
+README_[0-9]*.md
+
+# ===== OS · 에디터 캐시 =====
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ===== 로그 / 임시 =====
+*.log
+.cache/
+.tmp/
+*.tmp
+
+# ===== 파이썬 스크립트 캐시 (도구 작업 흔적) =====
+__pycache__/
+*.pyc
+*.pyo
+fix_members.py
+fix_*.py

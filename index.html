@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+<meta name="subject" content="글로벌조달개발원">
+<meta name="description" content="글로벌조달개발원 - Your Partner in Global Public Procurement">
+<meta name="keywords" content="글로벌조달개발원, 해외공공조달, GPDI, 공공조달">
+<title data-ko="GPDI | 글로벌조달개발원" data-en="GPDI | Global Procurement Development Institute">GPDI | 글로벌조달개발원</title>
+<!-- 파비콘 — 로고 L-shape 심볼 (SVG 우선, 구형 브라우저 fallback은 추후 .ico 추가 가능) -->
+<link rel="icon" type="image/svg+xml" href="images/GPDI_Symbol.svg">
+<link rel="apple-touch-icon" href="images/GPDI_Symbol.svg">
+
+<meta property="og:url" content="http://www.gpdi.kr/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="글로벌조달개발원">
+<meta property="og:description" content="Your Partner in Global Public Procurement">
+
+<!-- 외부 gpdi.kr CSS 링크 제거 — 로컬 CSS가 서브메뉴·로고를 덮어쓰는 충돌 원인이었음.
+     폰트만 구글 CDN으로 유지. 기존 링크는 주석으로 기록(필요시 복원 가능). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<!--
+  과거 참조하던 원격 gpdi.kr CSS (충돌 때문에 해제):
+  https://www.gpdi.kr/css/notosanskr.css
+  https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css
+  https://www.gpdi.kr/css/slick.css
+  https://www.gpdi.kr/css/swiper.min.css
+  https://www.gpdi.kr/css/animate.css
+  https://www.gpdi.kr/css/reset.css
+  https://www.gpdi.kr/css/layout.css
+  https://www.gpdi.kr/css/doc.css
+  https://www.gpdi.kr/css/board.css
+  https://www.gpdi.kr/css/member.css
+  https://www.gpdi.kr/css/responsive.css
+-->
+<style>
+  /* 외부 CSS 제거로 인한 기본 reset 최소 보강 */
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  ul,ol{list-style:none;margin:0;padding:0}
+  h1,h2,h3,h4,h5,h6,p{margin:0}
+  button{font:inherit}
+
+  /* === 언어 토글 시스템 === */
+  body[data-lang="ko"] .t-en{display:none !important}
+  body[data-lang="en"] .t-ko{display:none !important}
+  .t-ko,.t-en{display:inline}
+  /* block 레벨 한영 토글 지원 */
+  .t-ko.is-block,.t-en.is-block{display:block}
+  body[data-lang="ko"] .t-en.is-block{display:none !important}
+  body[data-lang="en"] .t-ko.is-block{display:none !important}
+</style>
+<script src="js/lang.js" defer></script>
+
+<!-- 로컬 카피 전용 오버라이드 — GPDI 톤앤매너: 직각/기하학 (로고 L-shape 모티프) -->
+<style>
+  /* === Base === */
+  body{font-family:"Noto Sans KR","Malgun Gothic",sans-serif;margin:0;color:#3e3a39;background:#fff;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;height:auto;display:block}
+  a{color:inherit;text-decoration:none}
+  .fallback-wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+
+  /* === Header: 직각 메뉴바 (다크 히어로 위에 오버레이) === */
+  .header{
+    position:absolute;top:0;left:0;right:0;z-index:100;background:transparent;
+    border-bottom:1px solid rgba(255,255,255,.08); /* 헤더 영역 하단 헤어라인 */
+  }
+  .header .contain{
+    max-width:1400px;margin:0 auto;padding:0 40px;
+    display:flex;align-items:center;justify-content:space-between;gap:30px;
+    height:88px;
+  }
+  /* 우측 Info 플로팅이 언어 토글과 겹치지 않도록 utility 우측에 여백 확보 */
+  .header .contain .util--clean{margin-right:64px}
+  .sitelogo{margin:0;flex-shrink:0}
+  .sitelogo a{display:block;line-height:0}
+  .sitelogo img{height:36px;width:auto}
+
+  /* === GNB (specificity 강화: .header #gnb 로 외부 원격 CSS 덮어쓰기) === */
+  .header #gnb{flex:1}
+  .header #gnb > ul{display:flex !important;justify-content:center;gap:56px;margin:0;padding:0;list-style:none}
+  .header #gnb > ul > li{position:relative;list-style:none}
+  .header #gnb > ul > li > a{
+    display:flex !important;align-items:center;height:88px;padding:0 4px;
+    font:500 15px/1 "Noto Sans KR",sans-serif;letter-spacing:-.01em;
+    color:#fff !important;position:relative;transition:color .2s ease;white-space:nowrap;
+    text-decoration:none;
+  }
+  /* 언더라인은 텍스트 바로 아래에 (bottom을 텍스트 기준 근접 배치) */
+  .header #gnb > ul > li > a::after{
+    content:"";position:absolute;left:50%;bottom:32px;
+    width:0;height:2px;background:#86acaa; /* 브랜드 세이지 틸 */
+    transform:translateX(-50%);transition:width .25s ease;
+  }
+  .header #gnb > ul > li:hover > a::after,
+  .header #gnb > ul > li:focus-within > a::after{width:22px}
+
+  /* GNB 서브메뉴: 직각/박스형 드롭다운 — 헤더 바로 아래에 정확히 위치 */
+  .header #gnb .submenu{
+    position:absolute !important;left:50% !important;top:88px !important;
+    transform:translateX(-50%) translateY(4px);
+    background:#fff !important;border-top:2px solid #535470;
+    box-shadow:0 20px 44px rgba(14,20,38,.16);
+    padding:4px 0;min-width:200px;
+    opacity:0;visibility:hidden;pointer-events:none;
+    transition:opacity .22s ease,transform .22s ease,visibility 0s linear .22s;
+    z-index:120;
+    display:block !important;
+  }
+  .header #gnb > ul > li:hover > .submenu,
+  .header #gnb > ul > li:focus-within > .submenu{
+    opacity:1 !important;visibility:visible !important;pointer-events:auto;
+    transform:translateX(-50%) translateY(0);
+    transition:opacity .22s ease,transform .22s ease,visibility 0s;
+  }
+  /* 호버 브릿지 (메뉴 ↔ 서브 패널 빈틈) */
+  .header #gnb > ul > li::before{
+    content:"";position:absolute;left:-16px;right:-16px;top:88px;height:8px;
+    opacity:0;pointer-events:none;
+  }
+  .header #gnb > ul > li:hover::before,
+  .header #gnb > ul > li:focus-within::before{opacity:1;pointer-events:auto}
+  .header #gnb .submenu ul{list-style:none !important;margin:0 !important;padding:0 !important;display:block !important}
+  .header #gnb .submenu li{list-style:none;background:transparent !important;border:0 !important;padding:0 !important}
+  .header #gnb .submenu li a{
+    display:block !important;padding:12px 22px !important;
+    font:500 14px/1.45 "Noto Sans KR",sans-serif !important;
+    color:#3e3a39 !important;white-space:nowrap;background:transparent;
+    transition:background .18s ease,color .18s ease,padding-left .18s ease;
+    text-decoration:none;letter-spacing:0;
+  }
+  .header #gnb .submenu li a:hover{background:#f3f5f8 !important;color:#535470 !important;padding-left:26px !important}
+
+  /* === Util: KOR|ENG 직각 토글 (로그인 버튼 제거) === */
+  .util--clean{display:inline-flex;align-items:stretch;font:600 12px/1 "Inter","Noto Sans KR",sans-serif}
+  .util--clean .lang-toggle{
+    display:inline-flex;align-items:stretch;
+    border:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.08);
+    backdrop-filter:blur(4px);
+  }
+  .util--clean .lang-btn{
+    appearance:none;background:transparent;border:0;padding:8px 14px;
+    color:rgba(255,255,255,.7);font:inherit;letter-spacing:.14em;cursor:pointer;
+    transition:color .15s ease,background .15s ease;
+  }
+  .util--clean .lang-btn:hover{color:#fff}
+  .util--clean .lang-btn.is-active{color:#fff;background:rgba(83,84,112,.85)}
+  .util--clean .lang-sep{display:none}
+
+  /* === Floating Information — 우측 세로 중앙, 글씨 중심 디자인 === */
+  .info-float{
+    position:fixed;right:48px;top:50%;transform:translateY(-50%);z-index:200;
+  }
+  .info-float__btn{
+    position:relative;appearance:none;border:0;cursor:pointer;
+    width:56px;height:56px;padding:0;
+    background:#535470;
+    box-shadow:0 10px 24px rgba(14,20,38,.24);
+    transition:background .2s ease,transform .2s ease,box-shadow .2s ease;
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+  }
+  .info-float__btn:hover,
+  .info-float__btn:focus-visible,
+  .info-float.is-open .info-float__btn{
+    background:#3e3a39;transform:translateY(-2px);
+    box-shadow:0 14px 30px rgba(14,20,38,.32);
+    outline:none;
+  }
+  /* INFO 글씨 — 버튼 내부 메인 */
+  .info-float__txt{
+    font:800 12px/1 "Inter","Noto Sans KR",sans-serif;
+    letter-spacing:.24em;color:#fff;
+    position:relative;z-index:2;
+  }
+  /* 로고 L-shape 모티프 — 모서리 포인트 2개 (세이지 틸 / 테라코타) */
+  .info-float__btn::before{
+    content:"";position:absolute;top:0;right:0;
+    width:10px;height:10px;background:#86acaa;z-index:1;
+  }
+  .info-float__btn::after{
+    content:"";position:absolute;bottom:0;left:0;
+    width:8px;height:8px;background:#b87860;z-index:1;
+  }
+
+  /* 스크롤 시 흰 반전 */
+  .info-float.is-scrolled .info-float__btn{
+    background:#fff;box-shadow:0 10px 24px rgba(14,20,38,.18);
+  }
+  .info-float.is-scrolled .info-float__txt{color:#535470}
+  .info-float.is-scrolled .info-float__btn:hover,
+  .info-float.is-scrolled.is-open .info-float__btn{background:#f3f5f8}
+
+  /* 드롭다운 패널: 버튼 왼쪽으로 슬라이드 (우측 중앙 위치이므로) */
+  .info-float__menu{
+    position:absolute;right:calc(100% + 14px);top:50%;transform:translateY(-50%) translateX(6px);
+    min-width:240px;padding:14px 0 8px;
+    background:#fff;border-right:2px solid #535470;
+    box-shadow:0 20px 44px rgba(14,20,38,.22);
+    opacity:0;visibility:hidden;pointer-events:none;
+    transition:opacity .22s ease,visibility 0s linear .22s,transform .22s ease;
+  }
+  .info-float:hover .info-float__menu,
+  .info-float:focus-within .info-float__menu,
+  .info-float.is-open .info-float__menu{
+    opacity:1;visibility:visible;pointer-events:auto;
+    transform:translateY(-50%) translateX(0);
+    transition:opacity .22s ease,visibility 0s,transform .22s ease;
+  }
+  /* 호버 브릿지 (버튼 ↔ 패널 빈틈을 좌측 18px로) */
+  .info-float::before{
+    content:"";position:absolute;right:100%;top:0;bottom:0;width:18px;
+    opacity:0;pointer-events:none;
+  }
+  .info-float:hover::before,
+  .info-float:focus-within::before{opacity:1;pointer-events:auto}
+
+  .info-float__title{
+    margin:0 0 6px;padding:0 20px;
+    font:700 10px/1 "Inter","Noto Sans KR",sans-serif;
+    letter-spacing:.22em;text-transform:uppercase;color:#86acaa;
+  }
+  .info-float__menu ul{list-style:none;padding:0;margin:0}
+  .info-float__menu li{list-style:none}
+  .info-float__menu li a{
+    display:block;padding:11px 20px;
+    font:500 13.5px/1.45 "Noto Sans KR",sans-serif;color:#3e3a39;
+    transition:background .18s ease,color .18s ease,padding-left .18s ease;
+    white-space:nowrap;
+  }
+  .info-float__menu li a:hover{background:#f3f5f8;color:#535470;padding-left:24px}
+
+  /* 모바일: 우하단으로 이동 */
+  @media (max-width:768px){
+    .info-float{top:auto;bottom:24px;transform:none;right:20px}
+    .info-float__btn{width:52px;height:52px}
+    .info-float__txt{font-size:11px}
+    .info-float__menu{right:calc(100% + 10px);top:auto;bottom:0;transform:translateX(6px)}
+    .info-float:hover .info-float__menu,
+    .info-float:focus-within .info-float__menu,
+    .info-float.is-open .info-float__menu{transform:translateX(0)}
+  }
+
+  /* === Contact Us 푸터 네비 — 직각 그리드 === */
+  .contact-nav{background:#f3f5f8;padding:72px 0;border-top:1px solid #e5e8ef}
+  .contact-nav__head{text-align:center;margin:0 0 32px}
+  .contact-nav__eyebrow{
+    margin:0 0 12px;color:#86acaa;
+    font:700 11px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.24em;
+  }
+  .contact-nav__title{margin:0;font-size:28px;font-weight:700;color:#3e3a39;letter-spacing:-.01em}
+  .contact-nav__sub{margin:10px 0 0;color:#595857;font-size:14px}
+  .contact-nav__grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    max-width:1200px;margin:36px auto 0;
+    border-left:1px solid #dfe3ea;
+  }
+  .contact-nav__item{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    background:#fff;padding:26px 26px;
+    border:1px solid #dfe3ea;border-left:0;
+    font:600 15px/1.3 "Noto Sans KR",sans-serif;color:#3e3a39;
+    transition:background .22s ease,color .22s ease,border-color .22s ease;
+    position:relative;
+  }
+  .contact-nav__item::before{
+    content:"";position:absolute;left:0;top:0;width:3px;height:0;background:#535470;
+    transition:height .25s ease;
+  }
+  .contact-nav__item:hover{background:#535470;color:#fff;border-color:#535470}
+  .contact-nav__item:hover::before{height:100%;background:#b87860}
+  .contact-nav__arrow{
+    font-size:18px;opacity:.55;
+    transition:opacity .2s ease,transform .2s ease;
+  }
+  .contact-nav__item:hover .contact-nav__arrow{opacity:1;transform:translateX(6px)}
+  @media (max-width:768px){
+    .contact-nav__grid{grid-template-columns:1fr 1fr}
+  }
+</style>
+</head>
+<body data-lang="ko">
+
+<!-- ================= HEADER ================= -->
+<header id="header" class="header">
+  <div class="contain">
+    <h1 class="sitelogo">
+      <a href="index.html">
+        <img src="images/GPDI_LOGO_white.svg" alt="글로벌조달개발원" style="height:36px;width:auto">
+      </a>
+    </h1>
+
+    <div id="gnb" class="gnb">
+      <ul>
+        <li><a href="#about"><span class="t-ko">회사 소개</span><span class="t-en">About Us</span></a>
+          <div class="submenu">
+            <ul>
+              <li><a href="about.html"><span class="t-ko">해외공공조달</span><span class="t-en">Overseas Procurement</span></a></li>
+              <li><a href="history.html"><span class="t-ko">히스토리</span><span class="t-en">History</span></a></li>
+              <li><a href="members.html"><span class="t-ko">해외 공공조달 전문가</span><span class="t-en">Senior Members</span></a></li>
+              <li><a href="gpdi-usa.html">GPDI USA</a></li>
+              <li><a href="gpdi-uae.html">GPDI UAE</a></li>
+              <li><a href="gpdi-ukraine.html">GPDI Ukraine</a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="work.html"><span class="t-ko">사업 분야</span><span class="t-en">Our Work</span></a>
+          <div class="submenu">
+            <ul>
+              <li><a href="work.html#tab-performance"><span class="t-ko">주요 실적</span><span class="t-en">Performance</span></a></li>
+              <li><a href="work.html#tab-services"><span class="t-ko">서비스 소개</span><span class="t-en">Services</span></a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="healthcare.html"><span class="t-ko">헬스케어</span><span class="t-en">Healthcare</span></a>
+          <div class="submenu">
+            <ul>
+              <li><a href="healthcare.html#hc-expertise"><span class="t-ko">전문 분야</span><span class="t-en">Expertise</span></a></li>
+              <li><a href="healthcare.html#hc-partners"><span class="t-ko">발주기관 · 파트너</span><span class="t-en">Partners</span></a></li>
+              <li><a href="healthcare.html#hc-performance"><span class="t-ko">수행 실적</span><span class="t-en">Performance</span></a></li>
+              <li><a href="healthcare.html#hc-methodology"><span class="t-ko">방법론</span><span class="t-en">Methodology</span></a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="#smartcity"><span class="t-ko">스마트시티</span><span class="t-en">Smart City</span></a>
+          <div class="submenu">
+            <ul>
+              <li><a href="#smartcity-overview"><span class="t-ko">사업 개요</span><span class="t-en">Overview</span></a></li>
+              <li><a href="#smartcity-solutions"><span class="t-ko">분야별 솔루션</span><span class="t-en">Solutions</span></a></li>
+              <li><a href="#smartcity-cases"><span class="t-ko">해외 레퍼런스</span><span class="t-en">References</span></a></li>
+              <li><a href="#smartcity-partners"><span class="t-ko">파트너십</span><span class="t-en">Partnerships</span></a></li>
+              <li><a href="#smartcity-export"><span class="t-ko">수출 지원 프로그램</span><span class="t-en">Export Programs</span></a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="#ai"><span class="t-ko">AI 전환</span><span class="t-en">AI Transformation</span></a>
+          <div class="submenu">
+            <ul>
+              <li><a href="#ai-overview"><span class="t-ko">서비스 소개</span><span class="t-en">Overview</span></a></li>
+              <li><a href="#ai-stack"><span class="t-ko">기술 스택</span><span class="t-en">Tech Stack</span></a></li>
+              <li><a href="#ai-data"><span class="t-ko">AI 데이터 서비스</span><span class="t-en">AI Data Services</span></a></li>
+              <li><a href="#ai-cases"><span class="t-ko">도입 사례</span><span class="t-en">Case Studies</span></a></li>
+              <li><a href="#ai-partners"><span class="t-ko">파트너십</span><span class="t-en">Partnerships</span></a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="util util--clean">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" class="lang-btn is-active" data-lang="ko">KOR</button>
+        <span class="lang-sep" aria-hidden="true">|</span>
+        <button type="button" class="lang-btn" data-lang="en">ENG</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ Floating Information (스크롤 팔로우, 로고 L-shape 기하학) ============ -->
+<div class="info-float" id="infoFloat">
+  <button type="button" class="info-float__btn" aria-haspopup="true" aria-expanded="false" aria-label="Information 메뉴">
+    <span class="info-float__txt">INFO</span>
+  </button>
+  <div class="info-float__menu" role="menu">
+    <p class="info-float__title">Information</p>
+    <ul>
+      <li role="none"><a role="menuitem" href="#newsletter">공공조달 뉴스레터</a></li>
+      <li role="none"><a role="menuitem" href="#press">보도자료</a></li>
+      <li role="none"><a role="menuitem" href="#videos">교육동영상</a></li>
+    </ul>
+  </div>
+</div>
+<script>
+  (function(){
+    var f = document.getElementById('infoFloat'); if(!f) return;
+    var btn = f.querySelector('.info-float__btn');
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var open = f.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function(e){
+      if(!f.contains(e.target)){ f.classList.remove('is-open'); btn.setAttribute('aria-expanded','false'); }
+    });
+    /* 헤더를 지나면 is-scrolled 토글 — 다크 배경을 벗어나면 버튼 색 반전 */
+    function onScroll(){
+      if(window.scrollY > 120){ f.classList.add('is-scrolled'); }
+      else{ f.classList.remove('is-scrolled'); }
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  })();
+</script>
+
+<!-- ================= HERO / MAIN VISUAL SLIDER ================= -->
+<div class="hero-wrap">
+<section class="hero-slider" aria-label="메인 비주얼 슬라이더">
+  <div class="hero-slide is-active" data-idx="0" style="background-image:linear-gradient(rgba(14,20,38,.35),rgba(14,20,38,.45)),url('images/main/web-banner.png')"></div>
+  <div class="hero-slide"            data-idx="1" style="background-image:linear-gradient(rgba(14,20,38,.35),rgba(14,20,38,.45)),url('images/main/web-banner-1.png')"></div>
+  <div class="hero-slide"            data-idx="2" style="background-image:linear-gradient(rgba(14,20,38,.35),rgba(14,20,38,.45)),url('images/main/web-banner-2.png')"></div>
+
+  <div class="hero-copy">
+    <p class="hero-eyebrow">GPDI · GLOBAL PROCUREMENT DEVELOPMENT INSTITUTE</p>
+    <h2 class="hero-title">
+      <span class="t-ko is-block">해외 공공조달의<br>글로벌 파트너</span>
+      <span class="t-en is-block">Your Partner in<br>Global Public Procurement</span>
+    </h2>
+  </div>
+
+  <div class="hero-dots" role="tablist" aria-label="슬라이드 내비게이션">
+    <button type="button" class="hero-dot is-active" data-idx="0" aria-label="슬라이드 1"></button>
+    <button type="button" class="hero-dot"            data-idx="1" aria-label="슬라이드 2"></button>
+    <button type="button" class="hero-dot"            data-idx="2" aria-label="슬라이드 3"></button>
+  </div>
+</section>
+</div>
+
+<style>
+  /* === Hero Slider (3 main banners) — 풀 뷰포트 폭, 이미지 중앙 크롭 === */
+  .hero-wrap{background:#0a0d14;width:100%}
+  .hero-slider{
+    position:relative;width:100%;
+    min-height:clamp(520px, 56vw, 820px);
+    overflow:hidden;color:#fff;isolation:isolate;
+    background:#0a0d14;
+  }
+  .hero-slider .hero-slide{
+    position:absolute;inset:0;z-index:0;
+    background-size:cover;background-position:center center;background-repeat:no-repeat;
+    opacity:0;transition:opacity 1.2s ease-in-out;
+  }
+  .hero-slider .hero-slide.is-active{opacity:1}
+  .hero-slider .hero-copy{
+    position:relative;z-index:2;min-height:640px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:0 24px;
+  }
+  .hero-slider .hero-eyebrow{letter-spacing:.25em;font-size:13px;opacity:.85;margin:0 0 18px;text-transform:uppercase}
+  .hero-slider .hero-title{font-size:clamp(32px,5vw,60px);font-weight:700;line-height:1.2;margin:0;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+  .hero-slider .hero-scroll{margin-top:36px;opacity:.8;font-size:12px;letter-spacing:.2em}
+  .hero-slider .hero-dots{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);z-index:3;display:flex;gap:10px}
+  .hero-slider .hero-dot{width:30px;height:2px;padding:0;border:0;cursor:pointer;background:rgba(255,255,255,.35);transition:background .25s ease,width .25s ease}
+  .hero-slider .hero-dot.is-active{background:#fff;width:44px}
+  .hero-slider .hero-dot:hover{background:rgba(255,255,255,.75)}
+</style>
+
+<script>
+  (function(){
+    var slides = document.querySelectorAll('.hero-slider .hero-slide');
+    var dots   = document.querySelectorAll('.hero-slider .hero-dot');
+    if(!slides.length) return;
+    var idx = 0, timer = null, INTERVAL = 5500;
+    function show(i){
+      idx = (i + slides.length) % slides.length;
+      slides.forEach(function(s,k){ s.classList.toggle('is-active', k===idx); });
+      dots.forEach(function(d,k){ d.classList.toggle('is-active', k===idx); });
+    }
+    function play(){ stop(); timer = setInterval(function(){ show(idx+1); }, INTERVAL); }
+    function stop(){ if(timer){ clearInterval(timer); timer = null; } }
+    dots.forEach(function(d,k){ d.addEventListener('click', function(){ show(k); play(); }); });
+    var hs = document.querySelector('.hero-slider');
+    hs.addEventListener('mouseenter', stop);
+    hs.addEventListener('mouseleave', play);
+    play();
+  })();
+</script>
+
+<!-- ================= ABOUT / WHO WE ARE ================= -->
+<section id="about" class="main-about" style="padding:90px 0">
+  <div class="fallback-wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
+    <div>
+      <p style="color:#535470;font-weight:600;letter-spacing:.15em;margin:0 0 12px">WHO WE ARE</p>
+      <h3 style="font-size:34px;line-height:1.3;margin:0 0 20px">글로벌조달개발원</h3>
+      <p style="color:#555;line-height:1.8">글로벌조달개발원은 해외공공조달시장에 우리나라 기업들의 진출을 촉진하기 위해 설립되었습니다. 이를 위해 여러 산업분야의 해외공공조달 전문기관 및 국내외 전문가들과 함께 일하고 있습니다.</p>
+    </div>
+    <div><img src="https://www.gpdi.kr/images/main/main_about.jpg" alt="About GPDI"></div>
+  </div>
+</section>
+
+<!-- ================= GLOBAL NETWORK ================= -->
+<section id="network" class="main-network">
+  <div class="contain">
+    <div class="head">
+      <h2>Global Network</h2>
+      <p>글로벌조달개발원은 전세계<strong>16</strong>개국의 전문기관 및 전문가들과 협업합니다.</p>
+    </div>
+    <div class="partner-list">
+      <div class="wolrdMap" id="gpdiWorldMap">
+        <div class="map"><img src="images/main/world.png" alt="Global Network 세계지도"></div>
+        <!-- 도시 핀은 JS가 cities 데이터와 equirectangular projection으로 자동 배치 -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* === Global Network === */
+  .main-network{background:#0a0d14;color:#fff;padding:110px 0 130px}
+  .main-network .contain{max-width:1400px;margin:0 auto;padding:0 40px}
+  .main-network .head{margin:0 0 60px}
+  .main-network .head h2{
+    font:800 clamp(36px,4vw,52px)/1.1 "Inter","Noto Sans KR",sans-serif;
+    letter-spacing:-.02em;color:#fff;margin:0 0 16px;
+  }
+  .main-network .head h2::before{
+    content:"GLOBAL NETWORK";display:block;
+    font:700 11px/1 "Inter",sans-serif;letter-spacing:.3em;color:#b87860;
+    margin-bottom:14px;text-transform:uppercase;
+  }
+  .main-network .head p{color:rgba(255,255,255,.7);font-size:16px;max-width:720px}
+  .main-network .head p strong{color:#b87860;font-weight:700;font-size:1.1em;margin:0 2px}
+
+  .partner-list{position:relative;margin:0 auto}
+  .wolrdMap{
+    position:relative;max-width:1280px;margin:0 auto;
+    aspect-ratio:2/1;
+  }
+  .wolrdMap .map{width:100%;height:100%}
+  .wolrdMap .map img{
+    width:100%;height:100%;object-fit:contain;display:block;
+    opacity:.82;
+  }
+
+  /* 도시 핀 (터라코타 닷 + 이름 라벨) */
+  .wolrdMap .local{
+    position:absolute;width:8px;height:8px;border-radius:50%;
+    background:#b87860;
+    transform:translate(-50%,-50%);
+    cursor:pointer;z-index:2;
+    box-shadow:0 0 0 0 rgba(184,120,96,.6);
+    animation:gpdi-pulse 2.4s ease-out infinite;
+  }
+  .wolrdMap .local::after{
+    content:"";position:absolute;inset:-4px;border-radius:50%;
+    border:1px solid rgba(184,120,96,.4);
+    opacity:0;transition:opacity .2s ease;
+  }
+  .wolrdMap .local:hover{background:#fff;animation:none}
+  .wolrdMap .local:hover::after{opacity:1;border-color:#fff}
+  @keyframes gpdi-pulse{
+    0%  {box-shadow:0 0 0 0 rgba(184,120,96,.55)}
+    80% {box-shadow:0 0 0 12px rgba(184,120,96,0)}
+    100%{box-shadow:0 0 0 0 rgba(184,120,96,0)}
+  }
+
+  /* 라벨 — 닷을 기준으로 top/bottom/left/right 배치 */
+  .wolrdMap .local > span{
+    position:absolute;white-space:nowrap;
+    font:500 11px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.02em;
+    color:#b87860;pointer-events:none;
+  }
+  .wolrdMap .local > span.top   {bottom:calc(100% + 7px);left:50%;transform:translateX(-50%)}
+  .wolrdMap .local > span.bottom{top:calc(100% + 7px);left:50%;transform:translateX(-50%)}
+  .wolrdMap .local > span.left  {right:calc(100% + 10px);top:50%;transform:translateY(-50%)}
+  .wolrdMap .local > span.right {left:calc(100% + 10px);top:50%;transform:translateY(-50%)}
+  .wolrdMap .local:hover > span{color:#fff;font-weight:700}
+
+  /* 개별 핀 좌표는 JS에서 lat/lng → % 계산 후 inline style로 주입 */
+
+  @media (max-width:768px){
+    .main-network{padding:70px 0}
+    .main-network .contain{padding:0 20px}
+    .main-network .head{margin-bottom:36px}
+    .wolrdMap .local{width:6px;height:6px}
+    .wolrdMap .local > span{font-size:9.5px}
+  }
+</style>
+
+<script>
+  /* === Global Network — lat/lng → equirectangular projection으로 자동 핀 배치 ===
+     이미지가 바뀌어도 MAP_BOUNDS 4개 값만 조정하면 모든 핀이 비례 이동함. */
+  (function(){
+    /* 1) world.png가 커버하는 경·위도 범위 (캘리브레이션 — 이미지가 바뀌면 이 4개만 조정) */
+    var MAP_BOUNDS = {
+      lngL:  -169,   /* 좌단 경도 (이미지 왼쪽 끝) */
+      lngR:   190,   /* 우단 경도 (이미지 오른쪽 끝) */
+      latT:    83,   /* 상단 위도 (이미지 위쪽 끝) */
+      latB:   -58    /* 하단 위도 (이미지 아래쪽 끝) */
+    };
+
+    /* 2) 16개국 21개 거점 도시 — 실제 위·경도 */
+    var cities = [
+      { name: "Toronto",          lat: 43.65,  lng: -79.38,  label: "top"    },
+      { name: "Boston",           lat: 42.36,  lng: -71.06,  label: "top"    },
+      { name: "Maryland",         lat: 39.05,  lng: -76.64,  label: "right"  },
+      { name: "Washington, D.C.", lat: 38.90,  lng: -77.04,  label: "left"   },
+      { name: "Virginia",         lat: 37.43,  lng: -78.66,  label: "right"  },
+      { name: "Atlanta",          lat: 33.75,  lng: -84.39,  label: "left"   },
+      { name: "Los Angeles",      lat: 34.05,  lng: -118.24, label: "top"    },
+      { name: "South Carolina",   lat: 33.84,  lng: -81.16,  label: "bottom" },
+      { name: "Louisiana",        lat: 31.24,  lng: -92.14,  label: "bottom" },
+      { name: "Hawaii",           lat: 21.31,  lng: -157.86, label: "top"    },
+      { name: "Barcelona",        lat: 41.39,  lng:   2.17,  label: "top"    },
+      { name: "Tirana",           lat: 41.33,  lng:  19.82,  label: "top"    },
+      { name: "Nairobi",          lat: -1.29,  lng:  36.82,  label: "top"    },
+      { name: "Beijing",          lat: 39.90,  lng: 116.40,  label: "top"    },
+      { name: "Mumbai",           lat: 19.08,  lng:  72.88,  label: "left"   },
+      { name: "Ha Noi",           lat: 21.03,  lng: 105.85,  label: "top"    },
+      { name: "Darka",            lat: 23.81,  lng:  90.41,  label: "right"  },  /* Dhaka */
+      { name: "Bangkok",          lat: 13.76,  lng: 100.50,  label: "bottom" },
+      { name: "Manila",           lat: 14.60,  lng: 120.98,  label: "right"  },
+      { name: "Jakarta",          lat: -6.21,  lng: 106.85,  label: "bottom" },
+      { name: "Sydney",           lat: -33.87, lng: 151.21,  label: "right"  }
+    ];
+
+    /* 3) Equirectangular projection — lat/lng를 컨테이너의 % 좌표로 변환 */
+    function project(lat, lng){
+      var x = (lng - MAP_BOUNDS.lngL) / (MAP_BOUNDS.lngR - MAP_BOUNDS.lngL) * 100;
+      var y = (MAP_BOUNDS.latT - lat) / (MAP_BOUNDS.latT - MAP_BOUNDS.latB) * 100;
+      return { x: x, y: y };
+    }
+
+    /* 4) 핀 DOM 동적 생성 */
+    var root = document.getElementById('gpdiWorldMap');
+    if(!root) return;
+    cities.forEach(function(c, i){
+      var p = project(c.lat, c.lng);
+      var a = document.createElement('a');
+      a.href = 'javascript:;';
+      a.className = 'local local' + (i + 1);
+      a.setAttribute('data-city', c.name);
+      a.setAttribute('data-lat', c.lat);
+      a.setAttribute('data-lng', c.lng);
+      a.style.left = p.x.toFixed(2) + '%';
+      a.style.top  = p.y.toFixed(2) + '%';
+      a.innerHTML = '<span class="' + c.label + '">' + c.name + '</span>';
+      root.appendChild(a);
+    });
+  })();
+</script>
+
+<!-- ================= WHAT WE DO ================= -->
+<section id="work" class="main-biz" style="padding:90px 0;background:url('https://www.gpdi.kr/images/main/bg_main_biz.jpg') center/cover;color:#fff">
+  <div class="fallback-wrap">
+    <p style="color:#9cc;font-weight:600;letter-spacing:.15em;margin:0 0 12px;text-align:center">WHAT WE DO</p>
+    <h3 style="font-size:32px;margin:0 0 40px;text-align:center">Services</h3>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+      <div style="background:rgba(255,255,255,.08);padding:32px 24px;border-radius:2px;backdrop-filter:blur(2px)">
+        <img src="https://www.gpdi.kr/images/main/icon_main_biz1.png" alt="" style="width:60px;margin-bottom:16px">
+        <h4 style="margin:0 0 10px;font-size:18px">시장조사분석</h4>
+        <p style="font-size:13px;line-height:1.7;opacity:.85">해외 공공조달시장 및 민수시장 진출을 위한 분석 및 환경구축을 위한 컨설팅</p>
+        <a href="#" style="display:inline-block;margin-top:18px;font-size:12px;letter-spacing:.15em;opacity:.9">VIEW MORE →</a>
+      </div>
+      <div style="background:rgba(255,255,255,.08);padding:32px 24px;border-radius:2px">
+        <img src="https://www.gpdi.kr/images/main/icon_main_biz2.png" alt="" style="width:60px;margin-bottom:16px">
+        <h4 style="margin:0 0 10px;font-size:18px">사업개발 전략 컨설팅</h4>
+        <p style="font-size:13px;line-height:1.7;opacity:.85">제안된 분석 및 타당성을 바탕으로 사업개발을 실행하기 위한 전략 컨설팅</p>
+        <a href="#" style="display:inline-block;margin-top:18px;font-size:12px;letter-spacing:.15em;opacity:.9">VIEW MORE →</a>
+      </div>
+      <div style="background:rgba(255,255,255,.08);padding:32px 24px;border-radius:2px">
+        <img src="https://www.gpdi.kr/images/main/icon_main_biz3.png" alt="" style="width:60px;margin-bottom:16px">
+        <h4 style="margin:0 0 10px;font-size:18px">미국 GSA, VA Schedule 진출</h4>
+        <p style="font-size:13px;line-height:1.7;opacity:.85">미국 공공조달시장 진출을 위한 컨설팅</p>
+        <a href="#" style="display:inline-block;margin-top:18px;font-size:12px;letter-spacing:.15em;opacity:.9">VIEW MORE →</a>
+      </div>
+      <div style="background:rgba(255,255,255,.08);padding:32px 24px;border-radius:2px">
+        <img src="https://www.gpdi.kr/images/main/icon_main_biz4.png" alt="" style="width:60px;margin-bottom:16px">
+        <h4 style="margin:0 0 10px;font-size:18px">투자유치</h4>
+        <p style="font-size:13px;line-height:1.7;opacity:.85">투자처 발굴 및 투자유치를 위한 IR 패키지 지원</p>
+        <a href="#" style="display:inline-block;margin-top:18px;font-size:12px;letter-spacing:.15em;opacity:.9">VIEW MORE →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INQUIRY ================= -->
+<section id="inquiry" class="main-inquiry" style="padding:70px 0;background:url('https://www.gpdi.kr/images/main/bg_main_inquiry.jpg') center/cover;color:#fff;text-align:center">
+  <div class="fallback-wrap">
+    <h3 style="font-size:26px;margin:0 0 10px">맞춤형 상담</h3>
+    <p style="opacity:.85;margin:0 0 24px">글로벌조달개발원에 궁금하신 사항이 있으시면 친절히 응대해 드립니다.</p>
+    <a href="#contact" style="display:inline-block;padding:14px 36px;border:1px solid #fff;border-radius:0;color:#fff;font-weight:600;letter-spacing:.1em">맞춤형 상담 바로가기 →</a>
+  </div>
+</section>
+
+<!-- ================= PAST PERFORMANCE ================= -->
+<section id="performance" class="main-prj" style="padding:90px 0">
+  <div class="fallback-wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
+    <div><img src="https://www.gpdi.kr/images/main/main_prj.jpg" alt="Past Performance"></div>
+    <div>
+      <p style="color:#535470;font-weight:600;letter-spacing:.15em;margin:0 0 12px">PAST PERFORMANCE</p>
+      <h3 style="font-size:30px;margin:0 0 18px">Past Performance</h3>
+      <p style="color:#555;line-height:1.8">글로벌조달개발원은 국내 기관과 중소기업들이 해외조달 시장에서 더 큰 비중을 차지할 수 있도록 적극적으로 지원하고 있습니다.</p>
+      <a href="#" style="display:inline-block;margin-top:22px;padding:12px 30px;border:1px solid #535470;color:#535470;border-radius:0;font-weight:600">VIEW MORE →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NEWSLETTER (밝은 배경 + 가로 슬라이더) ================= -->
+<section id="newsletter" class="nl-sec" aria-label="뉴스레터">
+  <!-- 배경 데코: 도트 · 대각 스트라이프 · 원형 · 파도 라인 -->
+  <span class="nl-sec__deco nl-sec__deco--dots" aria-hidden="true"></span>
+  <span class="nl-sec__deco nl-sec__deco--stripe" aria-hidden="true"></span>
+  <span class="nl-sec__deco nl-sec__deco--circle" aria-hidden="true"></span>
+  <span class="nl-sec__deco nl-sec__deco--dots2" aria-hidden="true"></span>
+  <span class="nl-sec__deco nl-sec__deco--wave" aria-hidden="true"></span>
+
+  <div class="nl-sec__inner">
+    <div class="nl-sec__head">
+      <h3 class="nl-sec__title">뉴스레터</h3>
+      <p class="nl-sec__sub">경쟁력 있는 국내 기업들의 해외조달 시장 진출을 위해 카이스트 글로벌 공공조달 연구센터와 협력하여 뉴스레터를 발간합니다.</p>
+    </div>
+
+    <div class="nl-slider">
+      <button type="button" class="nl-slider__nav nl-slider__nav--prev" aria-label="이전 뉴스레터">‹</button>
+      <div class="nl-slider__viewport">
+        <ul class="nl-slider__track">
+          <li class="nl-card">
+            <a href="https://narangdesign.com/mail/livingtree/20241202/news2.html" target="_blank" rel="noopener">
+              <div class="nl-card__title">[December 2nd 2024] 보건의료산업 해외조달 뉴스레터 34호</div>
+              <time class="nl-card__date">2024-12-04</time>
+            </a>
+          </li>
+          <li class="nl-card">
+            <a href="https://narangdesign.com/mail/livingtree/20241125/news.html" target="_blank" rel="noopener">
+              <div class="nl-card__title">[November 25th 2024] 보건의료산업 해외조달 뉴스레터 33호</div>
+              <time class="nl-card__date">2024-12-04</time>
+            </a>
+          </li>
+          <li class="nl-card">
+            <a href="https://narangdesign.com/mail/livingtree/20241118/news2.html" target="_blank" rel="noopener">
+              <div class="nl-card__title">[November 18th 2024] 보건의료산업 해외조달 뉴스레터 32호</div>
+              <time class="nl-card__date">2024-12-04</time>
+            </a>
+          </li>
+          <li class="nl-card">
+            <a href="https://narangdesign.com/mail/livingtree/20241111/news2.html" target="_blank" rel="noopener">
+              <div class="nl-card__title">[November 11st 2024] 보건의료산업 해외조달 뉴스레터 31호</div>
+              <time class="nl-card__date">2024-11-13</time>
+            </a>
+          </li>
+          <li class="nl-card">
+            <a href="https://narangdesign.com/mail/livingtree/20241104/news2.html" target="_blank" rel="noopener">
+              <div class="nl-card__title">[November 4th 2024] 보건의료산업 해외조달 뉴스레터 30호</div>
+              <time class="nl-card__date">2024-11-13</time>
+            </a>
+          </li>
+          <li class="nl-card">
+            <a href="https://narangdesign.com/mail/livingtree/20241028/news2.html" target="_blank" rel="noopener">
+              <div class="nl-card__title">[October 28th 2024] 보건의료산업 해외조달 뉴스레터 29호</div>
+              <time class="nl-card__date">2024-10-29</time>
+            </a>
+          </li>
+          <li class="nl-card">
+            <a href="https://narangdesign.com/mail/livingtree/20241021/news2.html" target="_blank" rel="noopener">
+              <div class="nl-card__title">[October 21th 2024] 보건의료산업 해외조달 뉴스레터 28호</div>
+              <time class="nl-card__date">2024-10-29</time>
+            </a>
+          </li>
+          <li class="nl-card">
+            <a href="https://narangdesign.com/mail/livingtree/20241014/news2.html" target="_blank" rel="noopener">
+              <div class="nl-card__title">[October 14th 2024] 보건의료산업 해외조달 뉴스레터 27호</div>
+              <time class="nl-card__date">2024-10-29</time>
+            </a>
+          </li>
+          <li class="nl-card">
+            <a href="https://narangdesign.com/mail/livingtree/20241007/news2.html" target="_blank" rel="noopener">
+              <div class="nl-card__title">[October 7th 2024] 보건의료산업 해외조달 뉴스레터 26호</div>
+              <time class="nl-card__date">2024-10-07</time>
+            </a>
+          </li>
+          <li class="nl-card">
+            <a href="https://narangdesign.com/mail/livingtree/20240930/news2.html" target="_blank" rel="noopener">
+              <div class="nl-card__title">[September 30th 2024] 보건의료산업 해외조달 뉴스레터 25호</div>
+              <time class="nl-card__date">2024-10-07</time>
+            </a>
+          </li>
+          <li class="nl-card">
+            <a href="https://narangdesign.com/mail/livingtree/20240923/news2.html" target="_blank" rel="noopener">
+              <div class="nl-card__title">[September 23th 2024] 보건의료산업 해외조달 뉴스레터 24호</div>
+              <time class="nl-card__date">2024-09-24</time>
+            </a>
+          </li>
+          <li class="nl-card">
+            <a href="https://narangdesign.com/mail/livingtree/20240913/news2.html" target="_blank" rel="noopener">
+              <div class="nl-card__title">[September 13th 2024] 보건의료산업 해외조달 뉴스레터 23호</div>
+              <time class="nl-card__date">2024-09-24</time>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <button type="button" class="nl-slider__nav nl-slider__nav--next" aria-label="다음 뉴스레터">›</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* === Newsletter 섹션 — 컴팩트 · 좁은 컨테이너 === */
+  .nl-sec{
+    position:relative;padding:110px 0 130px;
+    background:#fafafa;overflow:hidden;
+    min-height:560px;
+  }
+  .nl-sec__inner{position:relative;max-width:960px;margin:0 auto;padding:0 40px;z-index:2}
+
+  /* 배경 데코들 */
+  /* 1) 좌측 상단 — 큰 도트 클러스터 */
+  .nl-sec__deco--dots{
+    position:absolute;left:10%;top:30px;width:340px;height:240px;pointer-events:none;z-index:1;
+    background-image:radial-gradient(#cfd3dd 1.8px,transparent 1.8px);
+    background-size:16px 16px;opacity:.7;
+    -webkit-mask-image:radial-gradient(circle at 35% 45%,#000 55%,transparent 75%);
+            mask-image:radial-gradient(circle at 35% 45%,#000 55%,transparent 75%);
+  }
+  /* 2) 우측 상단 — 대각선 스트라이프 */
+  .nl-sec__deco--stripe{
+    position:absolute;right:8%;top:60px;width:220px;height:220px;pointer-events:none;z-index:1;
+    background-image:repeating-linear-gradient(135deg,#d6dae3 0 1px,transparent 1px 10px);
+    opacity:.55;
+  }
+  /* 3) 카드 영역 뒤 중앙 — 큰 연한 원 */
+  .nl-sec__deco--circle{
+    position:absolute;left:50%;top:58%;transform:translate(-50%,-50%);
+    width:260px;height:260px;border-radius:50%;
+    background:#ececf0;opacity:.55;pointer-events:none;z-index:1;
+  }
+  /* 4) 우하단 — 파도 라인 패턴 (SVG 인라인) */
+  .nl-sec__deco--wave{
+    position:absolute;right:6%;bottom:40px;width:320px;height:140px;pointer-events:none;z-index:1;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 140'><g fill='none' stroke='%23d8dce6' stroke-width='1.2'><path d='M0 20 Q40 0 80 20 T160 20 T240 20 T320 20'/><path d='M0 50 Q40 30 80 50 T160 50 T240 50 T320 50'/><path d='M0 80 Q40 60 80 80 T160 80 T240 80 T320 80'/><path d='M0 110 Q40 90 80 110 T160 110 T240 110 T320 110'/></g></svg>");
+    background-size:contain;background-repeat:no-repeat;opacity:.75;
+  }
+  /* 5) 좌하단 — 작은 도트 스트립 (밸런스용) */
+  .nl-sec__deco--dots2{
+    position:absolute;left:4%;bottom:70px;width:120px;height:60px;pointer-events:none;z-index:1;
+    background-image:radial-gradient(#dfe2ea 1.2px,transparent 1.2px);
+    background-size:10px 10px;opacity:.6;
+  }
+
+  /* 헤더 */
+  .nl-sec__head{text-align:center;margin:0 0 48px;position:relative;z-index:2}
+  .nl-sec__title{
+    margin:0 0 14px;font:800 clamp(26px,2.8vw,38px)/1.2 "Noto Sans KR","Inter",sans-serif;
+    color:#2d2d33;letter-spacing:-.02em;
+  }
+  .nl-sec__sub{
+    margin:0 auto;max-width:620px;color:#6a7380;
+    font:400 13.5px/1.7 "Noto Sans KR",sans-serif;
+  }
+
+  /* 슬라이더 — 좁은 컨테이너, 화살표 양끝 */
+  .nl-slider{
+    position:relative;padding:0 52px; /* 화살표 자리 */
+  }
+  .nl-slider__viewport{overflow:hidden}
+  .nl-slider__track{
+    list-style:none;margin:0;padding:6px 4px;
+    display:flex;gap:16px;
+    transition:transform .45s cubic-bezier(.2,.8,.2,1);
+  }
+  .nl-card{
+    flex:0 0 calc((100% - 32px) / 3);
+    min-height:150px;padding:20px 18px;
+    background:#fff;border:1px solid #eceff5;
+    box-shadow:0 6px 16px rgba(14,20,38,.04);
+    display:flex;flex-direction:column;justify-content:space-between;gap:12px;
+    transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+    list-style:none;
+  }
+  .nl-card a{
+    display:flex;flex-direction:column;justify-content:space-between;gap:12px;
+    height:100%;color:inherit;text-decoration:none;
+  }
+  .nl-card:hover{
+    transform:translateY(-4px);
+    border-color:#d1d5de;
+    box-shadow:0 14px 28px rgba(14,20,38,.08);
+  }
+  .nl-card__title{
+    font:500 13.5px/1.5 "Noto Sans KR",sans-serif;color:#2d2d33;
+    letter-spacing:-.008em;
+    display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;
+    overflow:hidden;word-break:keep-all;
+  }
+  .nl-card__date{
+    font:600 11px/1 "Inter",sans-serif;color:#b0b5c0;letter-spacing:.04em;
+  }
+
+  /* 화살표 — 슬라이더 양끝 */
+  .nl-slider__nav{
+    position:absolute;top:50%;transform:translateY(-50%);
+    width:40px;height:40px;padding:0;
+    background:#fff;border:1px solid #dfe3ea;color:#535470;
+    font:300 20px/1 "Inter",sans-serif;
+    cursor:pointer;transition:background .22s ease,border-color .22s ease,color .22s ease,transform .22s ease;
+    display:flex;align-items:center;justify-content:center;z-index:3;
+  }
+  .nl-slider__nav--prev{left:0}
+  .nl-slider__nav--next{right:0}
+  .nl-slider__nav:hover{
+    background:#535470;border-color:#535470;color:#fff;
+    transform:translateY(-50%) scale(1.05);
+  }
+  .nl-slider__nav:disabled{opacity:.3;cursor:not-allowed;transform:translateY(-50%)}
+  .nl-slider__nav:disabled:hover{background:#fff;border-color:#dfe3ea;color:#535470;transform:translateY(-50%)}
+
+  @media (max-width:1024px){
+    .nl-card{flex:0 0 calc((100% - 16px) / 2)}
+    .nl-sec__deco--dots{left:4%;width:220px;height:160px}
+    .nl-sec__deco--stripe{right:4%;width:160px;height:160px}
+    .nl-sec__deco--circle{width:200px;height:200px}
+    .nl-sec__deco--wave{right:2%;width:240px;height:110px}
+  }
+  @media (max-width:640px){
+    .nl-sec{padding:80px 0;min-height:0}
+    .nl-sec__inner{padding:0 24px}
+    .nl-slider{padding:0 52px}
+    .nl-card{flex:0 0 100%}
+    .nl-slider__nav{width:40px;height:40px;font-size:20px}
+    .nl-sec__deco--dots,.nl-sec__deco--stripe,.nl-sec__deco--circle,.nl-sec__deco--dots2{display:none}
+    .nl-sec__deco--wave{width:180px;height:80px;bottom:20px}
+  }
+</style>
+
+<script>
+  /* Newsletter 슬라이더 — 한 번에 1개씩 슬라이드 */
+  (function(){
+    var track = document.querySelector('.nl-slider__track');
+    var prev  = document.querySelector('.nl-slider__nav--prev');
+    var next  = document.querySelector('.nl-slider__nav--next');
+    if(!track || !prev || !next) return;
+    var idx = 0;
+    function cardsPerView(){
+      var w = window.innerWidth;
+      if(w <= 640) return 1;
+      if(w <= 1024) return 2;
+      return 3;
+    }
+    function cardCount(){ return track.children.length; }
+    function maxIdx(){ return Math.max(0, cardCount() - cardsPerView()); }
+    function apply(){
+      idx = Math.min(Math.max(0, idx), maxIdx());
+      var card = track.children[0];
+      if(!card) return;
+      var step = card.getBoundingClientRect().width + 16; /* gap:16px */
+      track.style.transform = 'translateX(' + (-idx * step) + 'px)';
+      prev.disabled = idx <= 0;
+      next.disabled = idx >= maxIdx();
+    }
+    prev.addEventListener('click', function(){ idx--; apply(); });
+    next.addEventListener('click', function(){ idx++; apply(); });
+    window.addEventListener('resize', apply, {passive:true});
+    apply();
+  })();
+</script>
+
+<!-- ================= PRESS ================= -->
+<section id="press" style="padding:80px 0">
+  <div class="fallback-wrap">
+    <p style="color:#535470;font-weight:600;letter-spacing:.15em;margin:0 0 10px">PRESS</p>
+    <h3 style="font-size:26px;margin:0 0 26px">보도자료</h3>
+    <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:0 28px;border-top:1px solid #eceff5">
+      <li style="padding:18px 20px;border-bottom:1px solid #eceff5">
+        <span style="font-size:11px;color:#888">2025-05-29</span>
+        <div>"한국 조선업은 美 해군 전력 강화 최적 파트너…수리·정비 분야부터 실적 쌓아가야" [매일경제]</div>
+      </li>
+      <li style="padding:18px 20px;border-bottom:1px solid #eceff5">
+        <span style="font-size:11px;color:#888">2025-04-25</span>
+        <div>'K-방산 브리프' 출판 기념 세미나·북콘서트 열려… K-방산 미래전략에 대한 심도 깊은 논의 [뉴스로드]</div>
+      </li>
+      <li style="padding:18px 20px;border-bottom:1px solid #eceff5">
+        <span style="font-size:11px;color:#888">2025-04-21</span>
+        <div>[기고] 우크라 재건 사업, 한국 기업엔 기회 [매일경제]</div>
+      </li>
+      <li style="padding:18px 20px;border-bottom:1px solid #eceff5">
+        <span style="font-size:11px;color:#888">2025-04-21</span>
+        <div>[시론] '관세 폭풍' 돌파구, 美 공공조달 시장 [한경 오피니언]</div>
+      </li>
+      <li style="padding:18px 20px;border-bottom:1px solid #eceff5">
+        <span style="font-size:11px;color:#888">2026-02-04</span>
+        <div>프로파일럿(방송) 한국방위산업 2026-1 · 2026-2</div>
+      </li>
+      <li style="padding:18px 20px;border-bottom:1px solid #eceff5">
+        <span style="font-size:11px;color:#888">2026-02-03</span>
+        <div>(컬럼) Korean Herald: RDP MOU — The missing link in the Korea-US defense alliance</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= VIDEOS ================= -->
+<section id="videos" style="padding:80px 0;background:#f6f8fb">
+  <div class="fallback-wrap">
+    <p style="color:#535470;font-weight:600;letter-spacing:.15em;margin:0 0 10px">EDUCATION</p>
+    <h3 style="font-size:26px;margin:0 0 26px">교육동영상</h3>
+    <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+      <li style="background:transparent;overflow:hidden">
+        <img src="https://www.gpdi.kr/uploaded/board/video/t_XcZQtO_pAbY.jpg" alt="" onerror="this.style.display='none'">
+        <div style="padding:14px 16px">
+          <div style="font-size:14px;font-weight:600;line-height:1.45">[KAIST IGMP] Global Public Procurement by Prof. Man Ki Kim</div>
+          <span style="font-size:11px;color:#888">2022-07-18</span>
+        </div>
+      </li>
+      <li style="background:transparent;overflow:hidden">
+        <img src="https://www.gpdi.kr/uploaded/board/video/t_MzmDV2DrYLE.jpg" alt="" onerror="this.style.display='none'">
+        <div style="padding:14px 16px">
+          <div style="font-size:14px;font-weight:600;line-height:1.45">[TRADE ON] '수출을 잇-다 Connect on' #1 UN 공공조달(1)</div>
+          <span style="font-size:11px;color:#888">2022-07-18</span>
+        </div>
+      </li>
+      <li style="background:transparent;overflow:hidden">
+        <img src="https://www.gpdi.kr/uploaded/board/video/t_o5IVsgZY4GM.jpg" alt="" onerror="this.style.display='none'">
+        <div style="padding:14px 16px">
+          <div style="font-size:14px;font-weight:600;line-height:1.45">[KAIST IGMP] 유엔조달 특별좌담회 -1/3 김만기 교수</div>
+          <span style="font-size:11px;color:#888">2022-07-18</span>
+        </div>
+      </li>
+      <li style="background:transparent;overflow:hidden">
+        <img src="https://www.gpdi.kr/uploaded/board/video/t_l9HMFC_5LS4.jpg" alt="" onerror="this.style.display='none'">
+        <div style="padding:14px 16px">
+          <div style="font-size:14px;font-weight:600;line-height:1.45">[메인비즈협회] 제117회 굿모닝CEO학습 — 해외공공조달시장 소개</div>
+          <span style="font-size:11px;color:#888">2022-09-29</span>
+        </div>
+      </li>
+      <li style="background:transparent;overflow:hidden">
+        <img src="https://www.gpdi.kr/uploaded/board/video/t_WuGUYz3uXQs.jpg" alt="" onerror="this.style.display='none'">
+        <div style="padding:14px 16px">
+          <div style="font-size:14px;font-weight:600;line-height:1.45">해외조달시장 진출 온라인 설명회: 국제기구 조달시장 진출 전략</div>
+          <span style="font-size:11px;color:#888">2022-09-27</span>
+        </div>
+      </li>
+      <li style="background:transparent;overflow:hidden">
+        <img src="https://www.gpdi.kr/uploaded/board/video/t_dw4hhceuopE.jpg" alt="" onerror="this.style.display='none'">
+        <div style="padding:14px 16px">
+          <div style="font-size:14px;font-weight:600;line-height:1.45">新 정부의 방위산업 추진정책 기조와 방산수출 성과 및 전망</div>
+          <span style="font-size:11px;color:#888">2022-09-27</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= LOCATION (Google Maps embed, 카드 클릭 전환) ================= -->
+<section id="location" class="main-location">
+  <div class="fallback-wrap">
+    <div class="loc-head">
+      <p class="loc-eyebrow">WHERE WE WORK</p>
+      <h3 class="loc-title">Where We Work</h3>
+    </div>
+
+    <!-- 지도: 한국/미국/우크라이나 3개 iframe 겹쳐놓고 active 클래스로 전환 -->
+    <div class="loc-map">
+      <iframe
+        class="loc-map__frame is-active"
+        data-loc="kr"
+        src="https://maps.google.com/maps?q=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EA%B3%A0%EC%96%91%EC%8B%9C%20%EB%8D%95%EC%96%91%EA%B5%AC%20%EC%B2%AD%EC%B4%88%EB%A1%9C%2010&z=16&hl=ko&output=embed"
+        loading="lazy" title="GPDI 한국 본사" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe
+        class="loc-map__frame"
+        data-loc="us"
+        src="https://maps.google.com/maps?q=7617%20Little%20River%20Turnpike%2C%20Suite%20800%2C%20Annandale%2C%20VA%2022003&z=16&hl=en&output=embed"
+        loading="lazy" title="GPDI US Office" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe
+        class="loc-map__frame"
+        data-loc="ua"
+        src="https://maps.google.com/maps?q=Haharina%20Ave%2012a%2C%20Odesa%2C%20Odes%27ka%20oblast%2C%20Ukraine&z=15&hl=en&output=embed"
+        loading="lazy" title="GPDI Ukraine Office" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <!-- 주소 카드 (클릭 → 지도 전환) -->
+    <ul class="loc-list" role="tablist" aria-label="오피스 선택">
+      <li>
+        <button type="button" class="loc-list__item is-active" data-loc="kr" role="tab" aria-selected="true">
+          <span class="loc-list__flag">KR</span>
+          <span class="loc-list__body">
+            <span class="loc-list__name">한국 본사</span>
+            <span class="loc-list__addr">경기도 고양시 덕양구 청초로 10, A동 4층 AA04-0405 / 0406호 (덕은동)</span>
+            <span class="loc-list__zip">10542</span>
+          </span>
+          <span class="loc-list__arrow" aria-hidden="true">→</span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="loc-list__item" data-loc="us" role="tab" aria-selected="false">
+          <span class="loc-list__flag">US</span>
+          <span class="loc-list__body">
+            <span class="loc-list__name">미국 사무소</span>
+            <span class="loc-list__addr">7617 Little River Turnpike, Suite 800, Annandale, VA, USA</span>
+            <span class="loc-list__zip">22003</span>
+          </span>
+          <span class="loc-list__arrow" aria-hidden="true">→</span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="loc-list__item" data-loc="ua" role="tab" aria-selected="false">
+          <span class="loc-list__flag">UA</span>
+          <span class="loc-list__body">
+            <span class="loc-list__name">우크라이나 사무소</span>
+            <span class="loc-list__addr">Haharina Ave, 12a, Odesa, Odes'ka oblast, Ukraine (Office 140865044)</span>
+            <span class="loc-list__zip">ODESA</span>
+          </span>
+          <span class="loc-list__arrow" aria-hidden="true">→</span>
+        </button>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  /* === Location 섹션 — Google Maps embed, 한·미 카드 전환 === */
+  .main-location{padding:110px 0 130px;background:#fff}
+  .main-location .fallback-wrap{max-width:1280px}
+  .loc-head{text-align:center;margin:0 0 48px}
+  .loc-eyebrow{
+    margin:0 0 12px;color:#535470;letter-spacing:.28em;
+    font:700 11px/1 "Inter","Noto Sans KR",sans-serif;text-transform:uppercase;
+  }
+  .loc-title{
+    margin:0;font:700 clamp(28px,3.2vw,40px)/1.15 "Inter","Noto Sans KR",sans-serif;
+    color:#3e3a39;letter-spacing:-.02em;
+  }
+
+  /* 지도 컨테이너 (2개 iframe 겹쳐두고 active 토글) */
+  .loc-map{
+    position:relative;width:100%;
+    height:clamp(380px,48vw,520px);
+    background:#f3f5f8;overflow:hidden;border:1px solid #e5e2dc;
+  }
+  .loc-map__frame{
+    position:absolute;inset:0;width:100%;height:100%;border:0;
+    opacity:0;visibility:hidden;transition:opacity .4s ease,visibility 0s linear .4s;
+    pointer-events:none;
+  }
+  .loc-map__frame.is-active{
+    opacity:1;visibility:visible;pointer-events:auto;
+    transition:opacity .4s ease,visibility 0s;
+  }
+
+  /* 주소 카드 리스트 (클릭 가능한 버튼 형태) */
+  .loc-list{
+    list-style:none;margin:36px 0 0;padding:0;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    border-top:1px solid #e5e2dc;
+  }
+  .loc-list > li{margin:0;padding:0;list-style:none}
+  .loc-list__item{
+    display:flex;gap:20px;align-items:flex-start;
+    width:100%;padding:28px 28px;
+    background:#fff;border:0;border-bottom:1px solid #e5e2dc;border-right:1px solid #e5e2dc;
+    cursor:pointer;text-align:left;
+    font-family:"Noto Sans KR","Malgun Gothic",sans-serif;
+    transition:background .22s ease;position:relative;
+  }
+  .loc-list > li:last-child .loc-list__item{border-right:0}
+  .loc-list__item::before{
+    content:"";position:absolute;left:0;top:0;width:0;height:2px;background:#535470;
+    transition:width .3s ease;
+  }
+  .loc-list__item:hover{background:#faf9f6}
+  .loc-list__item.is-active{background:#f3f5f8}
+  .loc-list__item.is-active::before{width:100%}
+  .loc-list__flag{
+    flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;
+    width:38px;height:38px;
+    background:#535470;color:#fff;
+    font:700 11px/1 "Inter",sans-serif;letter-spacing:.08em;
+    transition:background .22s ease;
+  }
+  .loc-list__item.is-active .loc-list__flag{background:#b87860}
+  .loc-list__body{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+  .loc-list__name{
+    font:600 15px/1.3 "Noto Sans KR",sans-serif;color:#3e3a39;
+  }
+  .loc-list__addr{
+    font-size:13.5px;line-height:1.65;color:#595857;
+  }
+  .loc-list__zip{
+    align-self:flex-start;margin-top:4px;padding:3px 8px;
+    font:600 11px/1 "Inter",sans-serif;letter-spacing:.08em;
+    background:#f3f5f8;color:#535470;border:1px solid #e5e2dc;
+  }
+  .loc-list__item.is-active .loc-list__zip{background:#fff}
+  .loc-list__arrow{
+    align-self:center;flex-shrink:0;
+    font-size:18px;color:#b87860;opacity:.5;
+    transition:opacity .22s ease,transform .22s ease;
+  }
+  .loc-list__item:hover .loc-list__arrow,
+  .loc-list__item.is-active .loc-list__arrow{opacity:1;transform:translateX(4px)}
+
+  @media (max-width:1024px){
+    .loc-list{grid-template-columns:1fr 1fr}
+    .loc-list > li:nth-child(2) .loc-list__item{border-right:0}
+    .loc-list > li:nth-child(3) .loc-list__item{border-right:0}
+  }
+  @media (max-width:768px){
+    .main-location{padding:70px 0}
+    .loc-head{margin-bottom:30px}
+    .loc-list{grid-template-columns:1fr}
+    .loc-list__item{border-right:0;padding:22px 20px}
+  }
+</style>
+
+<script>
+  /* 오피스 카드 클릭 → 지도 iframe 전환 */
+  (function(){
+    var items  = document.querySelectorAll('.loc-list__item');
+    var frames = document.querySelectorAll('.loc-map__frame');
+    if(!items.length || !frames.length) return;
+    items.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var target = btn.getAttribute('data-loc');
+        items.forEach(function(b){
+          var on = (b === btn);
+          b.classList.toggle('is-active', on);
+          b.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        frames.forEach(function(f){
+          f.classList.toggle('is-active', f.getAttribute('data-loc') === target);
+        });
+      });
+    });
+  })();
+</script>
+
+<!-- ================= FOOTER (gpdi.kr 원본 스타일 — 심플 2-tier) ================= -->
+<footer id="footer" class="gp-footer">
+  <!-- 상단 유틸 스트립: 2개 링크만 -->
+  <div class="gp-footer__links">
+    <div class="gp-footer__wrap">
+      <ul>
+        <li><a href="sub/pop_privacy.html">개인정보처리방침</a></li>
+        <li><a href="sub/pop_email.html">이메일무단수집거부</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 메인 인포: 좌(주소·저작권) + 우(로고·파트너) -->
+  <div class="gp-footer__info">
+    <div class="gp-footer__wrap">
+      <address class="gp-footer__addr">
+        <p class="gp-footer__name">글로벌조달개발원</p>
+        <p>주소 : (10542) 경기도 고양시 덕양구 청초로 10, A동 4층 AA04-0405호, 0406호(덕은동), AA04-0405, 0406, 10 Cheongcho-ro, Deogyang-gu, Goyang-si, Gyeonggi-do (10542)</p>
+        <p>사업자등록번호: 863-87-01643 &nbsp; 전화: 02-6242-7200 &nbsp; 팩스: 02-6242-7209 &nbsp; 대표 이메일: information@gpdi.kr</p>
+        <p class="gp-footer__copy">COPYRIGHT(C) 2022. Global Procurement Development Institute ALL RIGHTS RESERVED.</p>
+      </address>
+
+      <div class="gp-footer__brand">
+        <img class="gp-footer__logo" src="images/GPDI_LOGO_white.svg" alt="글로벌조달개발원">
+        <a href="https://www.exportvoucher.com/portal/sample/main" target="_blank" rel="noopener" class="gp-footer__voucher" aria-label="수출지원기반활용사업">
+          <img src="https://www.gpdi.kr/images/common/f_logo02.png" alt="수출지원기반활용사업" onerror="this.style.display='none'">
+        </a>
+        <p class="gp-footer__partner">
+          수출바우처 공식수행기관<br>
+          소관부처: 산업통상자원부(KOTRA)<br>
+          중소벤처기업부(중진공)
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* === Footer — gpdi.kr 원본 레이아웃 기반 심플 2-tier === */
+  .gp-footer{background:#3a3f4a;color:rgba(255,255,255,.65)}
+  .gp-footer a{color:inherit;text-decoration:none;transition:color .18s ease}
+  .gp-footer__wrap{max-width:1400px;margin:0 auto;padding:0 40px}
+
+  /* 상단 유틸 스트립 */
+  .gp-footer__links{border-bottom:1px solid rgba(255,255,255,.08)}
+  .gp-footer__links ul{
+    list-style:none;margin:0;padding:14px 0;display:flex;gap:32px;align-items:center;
+  }
+  .gp-footer__links li{list-style:none}
+  .gp-footer__links a{
+    display:inline-flex;align-items:center;gap:8px;
+    font:400 12.5px/1 "Noto Sans KR",sans-serif;
+    color:rgba(255,255,255,.7);letter-spacing:-.005em;
+  }
+  .gp-footer__links a::before{
+    content:"";display:inline-block;width:11px;height:11px;
+    border:1px solid rgba(255,255,255,.35);flex-shrink:0;
+  }
+  .gp-footer__links a:hover{color:#fff}
+
+  /* 메인 인포 (좌 주소 / 우 로고·파트너) */
+  .gp-footer__info .gp-footer__wrap{
+    display:grid;grid-template-columns:1fr auto;gap:60px;align-items:flex-start;
+    padding-top:40px;padding-bottom:40px;
+  }
+
+  .gp-footer__addr{
+    font-style:normal;
+    font:400 12.5px/1.75 "Noto Sans KR",sans-serif;
+    color:rgba(255,255,255,.55);letter-spacing:-.005em;
+  }
+  .gp-footer__addr p{margin:0 0 4px}
+  .gp-footer__addr p:last-child{margin-bottom:0}
+  .gp-footer__name{
+    font:700 15px/1.3 "Noto Sans KR",sans-serif;color:#fff;
+    margin:0 0 10px !important;letter-spacing:-.01em;
+  }
+  .gp-footer__copy{margin-top:14px !important;font-size:11.5px;letter-spacing:.02em;color:rgba(255,255,255,.4)}
+
+  /* 우측 로고 + 수출바우처 스택 */
+  .gp-footer__brand{
+    display:flex;flex-direction:column;align-items:flex-end;gap:14px;
+    text-align:right;min-width:220px;
+  }
+  .gp-footer__logo{height:28px;width:auto;display:block}
+  .gp-footer__voucher{display:inline-block;line-height:0}
+  .gp-footer__voucher img{height:20px;width:auto;display:block}
+  .gp-footer__partner{
+    margin:4px 0 0;
+    font:400 11.5px/1.65 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.55);
+  }
+
+  @media (max-width:900px){
+    .gp-footer__wrap{padding:0 24px}
+    .gp-footer__info .gp-footer__wrap{
+      grid-template-columns:1fr;gap:28px;padding-top:32px;padding-bottom:32px;
+    }
+    .gp-footer__brand{align-items:flex-start;text-align:left}
+    .gp-footer__links ul{gap:20px;padding:12px 0}
+  }
+</style>
+
+</body>
+</html>
