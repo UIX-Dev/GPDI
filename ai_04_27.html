@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+<meta name="description" content="GPDI AX·DX — 엔터프라이즈 AI 전환 · 맞춤형 SI 개발 · 해결사 파트너">
+<title>GPDI | AI 전환</title>
+<link rel="icon" type="image/svg+xml" href="images/GPDI_Symbol.svg">
+<link rel="apple-touch-icon" href="images/GPDI_Symbol.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap">
+
+<script src="js/lang.js" defer></script>
+<style>
+  /* 언어 토글 */
+  body[data-lang="ko"] .t-en{display:none !important}
+  body[data-lang="en"] .t-ko{display:none !important}
+
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;padding:0;scroll-behavior:smooth}
+  ul,ol{list-style:none;margin:0;padding:0}
+  h1,h2,h3,h4,h5,h6,p{margin:0}
+  button{font:inherit}
+  body{font-family:"Noto Sans KR","Malgun Gothic",sans-serif;color:#3e3a39;background:#fff;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;height:auto;display:block}
+  a{color:inherit;text-decoration:none}
+
+  /* Header (공통) */
+  .header{position:absolute;top:0;left:0;right:0;z-index:100;background:transparent;border-bottom:1px solid rgba(255,255,255,.08)}
+  .header .contain{max-width:1400px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;gap:30px;height:88px}
+  .header .contain .util--clean{margin-right:64px}
+  header.header h1.sitelogo{margin:0 !important;padding:0 !important;flex-shrink:0;line-height:1;display:flex !important;align-items:center;align-self:center;height:auto;font-size:0}
+  header.header h1.sitelogo a{display:inline-flex !important;align-items:center;line-height:0;padding:0;margin:0;border:0}
+  header.header h1.sitelogo img{height:36px !important;width:auto !important;display:block;margin:0;padding:0;border:0;vertical-align:middle}
+  .header #gnb{flex:1}
+  .header #gnb > ul{display:flex !important;justify-content:center;gap:56px;margin:0;padding:0;list-style:none}
+  .header #gnb > ul > li{position:relative;list-style:none}
+  .header #gnb > ul > li > a{display:flex !important;align-items:center;height:88px;padding:0 4px;font:500 15px/1 "Noto Sans KR",sans-serif;letter-spacing:-.01em;color:#fff !important;position:relative;transition:color .2s ease;white-space:nowrap;text-decoration:none}
+  .header #gnb > ul > li > a::after{content:"";position:absolute;left:50%;bottom:32px;width:0;height:2px;background:#86acaa;transform:translateX(-50%);transition:width .25s ease}
+  .header #gnb > ul > li:hover > a::after,.header #gnb > ul > li:focus-within > a::after{width:22px}
+  .header #gnb > ul > li.is-current > a::after{width:22px}
+  .header #gnb .submenu{position:absolute !important;left:50% !important;top:88px !important;transform:translateX(-50%) translateY(4px);background:#fff !important;border-top:2px solid #535470;box-shadow:0 20px 44px rgba(14,20,38,.16);padding:4px 0;min-width:200px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,transform .22s ease,visibility 0s linear .22s;z-index:120;display:block !important}
+  .header #gnb > ul > li:hover > .submenu,.header #gnb > ul > li:focus-within > .submenu{opacity:1 !important;visibility:visible !important;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .22s ease,transform .22s ease,visibility 0s}
+  .header #gnb > ul > li::before{content:"";position:absolute;left:-16px;right:-16px;top:88px;height:8px;opacity:0;pointer-events:none}
+  .header #gnb > ul > li:hover::before,.header #gnb > ul > li:focus-within::before{opacity:1;pointer-events:auto}
+  .header #gnb .submenu ul{list-style:none !important;margin:0 !important;padding:0 !important;display:block !important}
+  .header #gnb .submenu li{list-style:none;background:transparent !important;border:0 !important;padding:0 !important}
+  .header #gnb .submenu li a{display:block !important;padding:12px 22px !important;font:500 14px/1.45 "Noto Sans KR",sans-serif !important;color:#3e3a39 !important;white-space:nowrap;background:transparent;transition:background .18s ease,color .18s ease,padding-left .18s ease;text-decoration:none;letter-spacing:0}
+  .header #gnb .submenu li a:hover{background:#f3f5f8 !important;color:#535470 !important;padding-left:26px !important}
+  .util--clean{display:inline-flex;align-items:stretch;font:600 12px/1 "Inter","Noto Sans KR",sans-serif}
+  .util--clean .lang-toggle{display:inline-flex;align-items:stretch;border:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.08);backdrop-filter:blur(4px)}
+  .util--clean .lang-btn{appearance:none;background:transparent;border:0;padding:8px 14px;color:rgba(255,255,255,.7);font:inherit;letter-spacing:.14em;cursor:pointer;transition:color .15s ease,background .15s ease}
+  .util--clean .lang-btn:hover{color:#fff}
+  .util--clean .lang-btn.is-active{color:#fff;background:rgba(83,84,112,.85)}
+
+  /* Sub-hero (공통 스타일) */
+  .sub-hero{position:relative;min-height:360px;background:#0a0d14 url('images/main/web-banner-1.png') center/cover no-repeat;color:#fff;display:flex;align-items:flex-end;padding:0 0 60px}
+  .sub-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(14,20,38,.65),rgba(14,20,38,.82))}
+  .sub-hero__inner{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:0 40px;width:100%}
+  .sub-hero__crumb{font:600 11px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.22em;color:rgba(255,255,255,.7);text-transform:uppercase;margin:0 0 14px}
+  .sub-hero__crumb a{color:rgba(255,255,255,.6);transition:color .2s}
+  .sub-hero__crumb a:hover{color:#fff}
+  .sub-hero__crumb span{margin:0 10px;color:rgba(255,255,255,.35)}
+  .sub-hero__title{font:700 clamp(32px,4vw,48px)/1.15 "Noto Sans KR","Inter",sans-serif;letter-spacing:-.02em;margin:0}
+  .sub-hero__lede{margin:14px 0 0;max-width:760px;font:400 15px/1.7 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.78);letter-spacing:-.005em;word-break:keep-all;text-wrap:balance}
+
+  /* ===== AX Body ===== */
+  .ax-body{padding:120px 0 120px;background:#fff}
+  .ax-body__inner{max-width:1200px;margin:0 auto;padding:0 40px}
+
+  /* 섹션 공통 */
+  .ax-section{margin:0 0 120px}
+  .ax-section:last-child{margin-bottom:0}
+  .ax-section__eyebrow{font:700 11px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.28em;color:#b87860;text-transform:uppercase;margin:0 0 14px}
+  .ax-section__title{
+    margin:0 0 20px;font:700 clamp(24px,2.6vw,32px)/1.25 "Noto Sans KR","Inter",sans-serif;
+    color:#3e3a39;letter-spacing:-.015em;word-break:keep-all;max-width:820px;
+  }
+  .ax-section__title::after{content:"";display:block;width:36px;height:2px;background:#86acaa;margin:16px 0 0}
+  .ax-section__lede{max-width:820px;font:400 15.5px/1.95 "Noto Sans KR",sans-serif;color:#595857;margin:20px 0 0;word-break:keep-all;text-wrap:pretty}
+
+  /* ===== 인트로 Hook — 큰 메시지 ===== */
+  .ax-hook{
+    margin:0 0 140px;padding:80px 64px;position:relative;overflow:hidden;
+    background:linear-gradient(135deg,#1f2a4a 0%,#3a3f4a 50%,#1f2a4a 100%);
+    color:#fff;
+  }
+  .ax-hook::before{
+    content:"";position:absolute;top:-50px;right:-50px;width:300px;height:300px;
+    background:radial-gradient(circle,rgba(134,172,170,.3) 0%,transparent 70%);
+  }
+  .ax-hook::after{
+    content:"";position:absolute;bottom:-80px;left:-80px;width:280px;height:280px;
+    background:radial-gradient(circle,rgba(184,120,96,.22) 0%,transparent 70%);
+  }
+  .ax-hook__tag{position:relative;z-index:2;display:inline-block;padding:6px 14px;background:rgba(134,172,170,.2);border:1px solid rgba(134,172,170,.35);font:700 11px/1 "Inter",sans-serif;letter-spacing:.2em;color:#c5e1df;text-transform:uppercase;margin:0 0 24px}
+  .ax-hook__title{
+    position:relative;z-index:2;
+    margin:0 0 28px;max-width:880px;
+    font:800 clamp(30px,3.8vw,48px)/1.22 "Inter","Noto Sans KR",sans-serif;
+    color:#fff;letter-spacing:-.022em;word-break:keep-all;text-wrap:balance;
+  }
+  .ax-hook__title .hl{color:#86acaa}
+  .ax-hook__desc{position:relative;z-index:2;max-width:760px;font:400 16px/1.95 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.82);word-break:keep-all;text-wrap:pretty}
+  .ax-hook__desc p{margin:0 0 14px}
+  .ax-hook__desc p:last-child{margin-bottom:0}
+
+  /* KPI 스트립 */
+  .ax-kpis{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    margin:40px 0 0;position:relative;z-index:2;
+    border-top:1px solid rgba(255,255,255,.12);
+  }
+  .ax-kpis > div{padding:22px 0 0;border-right:1px solid rgba(255,255,255,.08)}
+  .ax-kpis > div:last-child{border-right:0}
+  .ax-kpis strong{display:block;font:800 28px/1.1 "Inter",sans-serif;color:#86acaa;letter-spacing:-.01em;margin-bottom:6px}
+  .ax-kpis span{display:block;font:500 12px/1.5 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.65);letter-spacing:-.005em}
+
+  /* ===== Global Delivery — 해외 개발 특화 ===== */
+  .ax-global{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:40px 0 32px}
+  .ax-global__card{
+    position:relative;padding:32px 26px 28px;
+    background:linear-gradient(160deg,#1f2a4a 0%,#3a3f4a 100%);color:#fff;
+    display:flex;flex-direction:column;gap:8px;
+    overflow:hidden;transition:transform .25s ease;
+  }
+  .ax-global__card:hover{transform:translateY(-4px)}
+  .ax-global__card[data-color="teal"]{background:linear-gradient(160deg,#3a5f5d 0%,#1f2a4a 100%)}
+  .ax-global__card[data-color="terra"]{background:linear-gradient(160deg,#7a4a3a 0%,#3e3a39 100%)}
+  .ax-global__card[data-color="charcoal"]{background:linear-gradient(160deg,#2a3042 0%,#1f2a4a 100%)}
+  .ax-global__card::before{
+    content:"";position:absolute;top:-30px;right:-30px;width:120px;height:120px;
+    background:radial-gradient(circle,rgba(134,172,170,.22) 0%,transparent 70%);
+  }
+  .ax-global__pin{color:#86acaa;font-size:10px;letter-spacing:.2em;margin:0 0 10px;display:inline-block}
+  .ax-global__city{margin:0;font:800 20px/1.1 "Inter",sans-serif;color:#fff;letter-spacing:-.015em;position:relative;z-index:1}
+  .ax-global__country{margin:4px 0 14px;font:500 11.5px/1 "Inter","Noto Sans KR",sans-serif;color:#86acaa;letter-spacing:.08em;text-transform:uppercase;position:relative;z-index:1}
+  .ax-global__desc{margin:0;font:400 13px/1.8 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.78);word-break:keep-all;text-wrap:pretty;position:relative;z-index:1}
+
+  .ax-global__caps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0 0}
+  .ax-global__cap{padding:24px 22px;background:#faf9f6;border-left:3px solid #86acaa}
+  .ax-global__cap:nth-child(2){border-left-color:#b87860}
+  .ax-global__cap:nth-child(3){border-left-color:#535470}
+  .ax-global__cap-num{font:800 11px/1 "Inter",sans-serif;color:#86acaa;letter-spacing:.16em;margin:0 0 10px}
+  .ax-global__cap-title{margin:0 0 8px;font:700 15px/1.35 "Noto Sans KR",sans-serif;color:#1f2a4a;letter-spacing:-.005em;word-break:keep-all}
+  .ax-global__cap-desc{margin:0;font:400 13px/1.75 "Noto Sans KR",sans-serif;color:#595857;word-break:keep-all;text-wrap:pretty}
+
+  /* ===== 서비스 영역 — 6 카드 그리드 ===== */
+  .ax-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:40px 0 0}
+  .ax-card{
+    position:relative;padding:36px 28px 32px;background:#fff;
+    border:1px solid #eceff5;
+    transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+    display:flex;flex-direction:column;gap:14px;
+    min-height:240px;overflow:hidden;
+  }
+  .ax-card:hover{transform:translateY(-4px);border-color:#86acaa;box-shadow:0 22px 40px rgba(14,20,38,.1)}
+  .ax-card::before{
+    content:"";position:absolute;top:0;left:0;width:0;height:3px;
+    background:linear-gradient(90deg,#535470,#86acaa);transition:width .35s ease;
+  }
+  .ax-card:hover::before{width:100%}
+  .ax-card__num{font:800 12px/1 "Inter",sans-serif;color:#86acaa;letter-spacing:.16em;margin:0}
+  .ax-card__title{margin:0;font:700 19px/1.3 "Noto Sans KR",sans-serif;color:#1f2a4a;letter-spacing:-.01em;word-break:keep-all}
+  .ax-card__desc{margin:0;font:400 14px/1.85 "Noto Sans KR",sans-serif;color:#595857;word-break:keep-all;text-wrap:pretty;flex:1}
+  .ax-card__list{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+  .ax-card__list li{list-style:none;padding:4px 10px;background:#f3f5f8;color:#535470;font:600 11.5px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:-.003em}
+
+  /* ===== 기술 스택 ===== */
+  .ax-stack{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:40px 0 0}
+  .ax-stack__group{padding:28px 24px;background:#faf9f6;border-top:3px solid #535470}
+  .ax-stack__group:nth-child(2){border-top-color:#86acaa}
+  .ax-stack__group:nth-child(3){border-top-color:#b87860}
+  .ax-stack__group:nth-child(4){border-top-color:#3e3a39}
+  .ax-stack__label{font:700 11px/1 "Inter",sans-serif;color:#86acaa;letter-spacing:.16em;text-transform:uppercase;margin:0 0 12px}
+  .ax-stack__name{margin:0 0 16px;font:700 15px/1.35 "Noto Sans KR",sans-serif;color:#1f2a4a;letter-spacing:-.005em}
+  .ax-stack__tools{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+  .ax-stack__tools li{
+    list-style:none;padding:5px 0;border-bottom:1px dashed #e5e2dc;
+    font:500 13px/1.4 "Inter","Noto Sans KR",sans-serif;color:#3e3a39;letter-spacing:-.003em;
+  }
+  .ax-stack__tools li:last-child{border-bottom:0}
+
+  /* ===== 프로세스 — 5단계 ===== */
+  .ax-process{margin:40px 0 0}
+  .ax-process__list{display:grid;grid-template-columns:repeat(5,1fr);gap:0;list-style:none;padding:0;margin:0;position:relative}
+  .ax-process__list::before{
+    content:"";position:absolute;top:38px;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,#535470 0%,#86acaa 50%,#b87860 100%);opacity:.35;z-index:0;
+  }
+  .ax-process__list li{
+    position:relative;z-index:1;list-style:none;
+    padding:0 14px;border-right:1px dashed #e5e2dc;
+  }
+  .ax-process__list li:last-child{border-right:0}
+  .ax-process__num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:76px;height:76px;border-radius:50%;
+    background:#fff;border:2px solid #535470;
+    font:800 18px/1 "Inter",sans-serif;color:#535470;margin:0 0 18px;
+    box-shadow:0 8px 20px rgba(14,20,38,.08);
+  }
+  .ax-process__list li:nth-child(2) .ax-process__num{border-color:#86acaa;color:#86acaa}
+  .ax-process__list li:nth-child(3) .ax-process__num{border-color:#b87860;color:#b87860}
+  .ax-process__list li:nth-child(4) .ax-process__num{border-color:#3e3a39;color:#3e3a39}
+  .ax-process__list li:nth-child(5) .ax-process__num{background:linear-gradient(135deg,#535470,#3e3a39);border-color:#1f2a4a;color:#fff}
+  .ax-process__step{display:block;font:700 14px/1.3 "Noto Sans KR",sans-serif;color:#1f2a4a;margin-bottom:8px;letter-spacing:-.005em}
+  .ax-process__desc{display:block;font:400 12.5px/1.7 "Noto Sans KR",sans-serif;color:#595857;word-break:keep-all;text-wrap:pretty}
+
+  /* ===== 왜 GPDI인가 — 2x2 그리드 ===== */
+  .ax-why{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:40px 0 0}
+  .ax-why__item{
+    padding:36px 32px;background:#fff;border:1px solid #eceff5;
+    display:flex;gap:24px;align-items:flex-start;
+    transition:border-color .22s ease,background .22s ease;
+  }
+  .ax-why__item:hover{background:#faf9f6;border-color:#86acaa}
+  .ax-why__icon{
+    flex-shrink:0;width:54px;height:54px;
+    display:inline-flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,#535470,#86acaa);
+    color:#fff;font:800 20px/1 "Inter",sans-serif;letter-spacing:-.01em;
+  }
+  .ax-why__item:nth-child(2) .ax-why__icon{background:linear-gradient(135deg,#86acaa,#b87860)}
+  .ax-why__item:nth-child(3) .ax-why__icon{background:linear-gradient(135deg,#b87860,#3e3a39)}
+  .ax-why__item:nth-child(4) .ax-why__icon{background:linear-gradient(135deg,#3e3a39,#535470)}
+  .ax-why__body{flex:1;min-width:0}
+  .ax-why__title{margin:0 0 10px;font:700 17px/1.35 "Noto Sans KR",sans-serif;color:#1f2a4a;letter-spacing:-.01em;word-break:keep-all}
+  .ax-why__desc{margin:0;font:400 14px/1.85 "Noto Sans KR",sans-serif;color:#595857;word-break:keep-all;text-wrap:pretty}
+
+  /* ===== CTA ===== */
+  .ax-cta{
+    margin:0;padding:64px 56px;position:relative;overflow:hidden;
+    background:linear-gradient(135deg,#535470 0%,#3e3a39 100%);color:#fff;
+    display:grid;grid-template-columns:1.5fr 1fr;gap:40px;align-items:center;
+  }
+  .ax-cta::before{
+    content:"";position:absolute;top:-40px;right:-40px;width:220px;height:220px;
+    background:radial-gradient(circle,rgba(134,172,170,.3) 0%,transparent 70%);
+  }
+  .ax-cta > *{position:relative;z-index:1}
+  .ax-cta__tag{display:inline-block;padding:5px 12px;background:rgba(134,172,170,.22);font:700 10.5px/1 "Inter",sans-serif;letter-spacing:.22em;color:#c5e1df;text-transform:uppercase;margin:0 0 18px}
+  .ax-cta h3{margin:0 0 14px;font:700 clamp(22px,2.4vw,28px)/1.3 "Noto Sans KR",sans-serif;letter-spacing:-.01em;word-break:keep-all}
+  .ax-cta p{margin:0;font:400 14.5px/1.8 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.8);word-break:keep-all;text-wrap:pretty}
+  .ax-cta__btn{
+    display:inline-flex;align-items:center;gap:10px;padding:16px 28px;
+    background:#86acaa;color:#fff;font:700 13.5px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.02em;
+    transition:background .22s ease,transform .22s ease;justify-self:end;
+  }
+  .ax-cta__btn:hover{background:#b87860;transform:translateX(4px)}
+  .ax-cta__btn::after{content:"→";font-weight:400;margin-left:2px}
+
+  @media (max-width:900px){
+    .sub-hero{min-height:340px;padding-bottom:48px}
+    .ax-body{padding:72px 0 80px}
+    .ax-body__inner{padding:0 24px}
+    .ax-section{margin-bottom:72px}
+    .ax-hook{margin-bottom:72px;padding:48px 28px}
+    .ax-kpis{grid-template-columns:repeat(2,1fr);gap:2px 0}
+    .ax-kpis > div{border-right:0}
+    .ax-kpis > div:nth-child(odd){border-right:1px solid rgba(255,255,255,.08)}
+    .ax-global{grid-template-columns:1fr 1fr;gap:12px}
+    .ax-global__caps{grid-template-columns:1fr;gap:10px}
+    .ax-grid{grid-template-columns:1fr;gap:14px}
+    .ax-stack{grid-template-columns:repeat(2,1fr);gap:12px}
+    .ax-process__list{grid-template-columns:1fr 1fr;gap:32px 0;padding-top:0}
+    .ax-process__list::before{display:none}
+    .ax-process__list li{border-right:0;padding:0 12px}
+    .ax-why{grid-template-columns:1fr;gap:14px}
+    .ax-why__item{padding:28px 22px;gap:16px}
+    .ax-cta{grid-template-columns:1fr;gap:24px;padding:40px 28px}
+    .ax-cta__btn{justify-self:start}
+  }
+
+  /* Floating Info */
+  .info-float{position:fixed;right:48px;top:50%;transform:translateY(-50%);z-index:200}
+  .info-float__btn{position:relative;appearance:none;border:0;cursor:pointer;width:56px;height:56px;padding:0;background:#535470;box-shadow:0 10px 24px rgba(14,20,38,.24);transition:background .2s ease,transform .2s ease,box-shadow .2s ease;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .info-float__btn:hover,.info-float__btn:focus-visible,.info-float.is-open .info-float__btn{background:#3e3a39;transform:translateY(-2px);box-shadow:0 14px 30px rgba(14,20,38,.32);outline:none}
+  .info-float__txt{font:800 12px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.24em;color:#fff;position:relative;z-index:2}
+  .info-float__btn::before{content:"";position:absolute;top:0;right:0;width:10px;height:10px;background:#86acaa;z-index:1}
+  .info-float__btn::after{content:"";position:absolute;bottom:0;left:0;width:8px;height:8px;background:#b87860;z-index:1}
+  .info-float.is-scrolled .info-float__btn{background:#fff;box-shadow:0 10px 24px rgba(14,20,38,.18)}
+  .info-float.is-scrolled .info-float__txt{color:#535470}
+  .info-float.is-scrolled .info-float__btn:hover,.info-float.is-scrolled.is-open .info-float__btn{background:#f3f5f8}
+  .info-float__menu{position:absolute;right:calc(100% + 14px);top:50%;transform:translateY(-50%) translateX(6px);min-width:240px;padding:14px 0 8px;background:#fff;border-right:2px solid #535470;box-shadow:0 20px 44px rgba(14,20,38,.22);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,visibility 0s linear .22s,transform .22s ease}
+  .info-float:hover .info-float__menu,.info-float:focus-within .info-float__menu,.info-float.is-open .info-float__menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(-50%) translateX(0);transition:opacity .22s ease,visibility 0s,transform .22s ease}
+  .info-float::before{content:"";position:absolute;right:100%;top:0;bottom:0;width:18px;opacity:0;pointer-events:none}
+  .info-float:hover::before,.info-float:focus-within::before{opacity:1;pointer-events:auto}
+  .info-float__title{margin:0 0 6px;padding:0 20px;font:700 10px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#86acaa}
+  .info-float__menu ul{list-style:none;padding:0;margin:0}
+  .info-float__menu li{list-style:none}
+  .info-float__menu li a{display:block;padding:11px 20px;font:500 13.5px/1.45 "Noto Sans KR",sans-serif;color:#3e3a39;transition:background .18s ease,color .18s ease,padding-left .18s ease;white-space:nowrap}
+  .info-float__menu li a:hover{background:#f3f5f8;color:#535470;padding-left:24px}
+  @media (max-width:768px){.info-float{top:auto;bottom:24px;transform:none;right:20px}.info-float__btn{width:52px;height:52px}.info-float__txt{font-size:11px}.info-float__menu{right:calc(100% + 10px);top:auto;bottom:0;transform:translateX(6px)}.info-float:hover .info-float__menu,.info-float:focus-within .info-float__menu,.info-float.is-open .info-float__menu{transform:translateX(0)}}
+
+  /* Footer */
+  .gp-footer{background:#3a3f4a;color:rgba(255,255,255,.65)}
+  .gp-footer a{color:inherit;text-decoration:none;transition:color .18s ease}
+  .gp-footer__wrap{max-width:1400px;margin:0 auto;padding:0 40px}
+  .gp-footer__links{border-bottom:1px solid rgba(255,255,255,.08)}
+  .gp-footer__links ul{list-style:none;margin:0;padding:14px 0;display:flex;gap:32px;align-items:center}
+  .gp-footer__links li{list-style:none}
+  .gp-footer__links a{display:inline-flex;align-items:center;gap:8px;font:400 12.5px/1 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.7);letter-spacing:-.005em}
+  .gp-footer__links a::before{content:"";display:inline-block;width:11px;height:11px;border:1px solid rgba(255,255,255,.35);flex-shrink:0}
+  .gp-footer__links a:hover{color:#fff}
+  .gp-footer__info .gp-footer__wrap{display:grid;grid-template-columns:1fr auto;gap:60px;align-items:flex-start;padding-top:40px;padding-bottom:40px}
+  .gp-footer__addr{font-style:normal;font:400 12.5px/1.75 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.55);letter-spacing:-.005em}
+  .gp-footer__addr p{margin:0 0 4px}
+  .gp-footer__addr p:last-child{margin-bottom:0}
+  .gp-footer__name{font:700 15px/1.3 "Noto Sans KR",sans-serif;color:#fff;margin:0 0 10px !important;letter-spacing:-.01em}
+  .gp-footer__copy{margin-top:14px !important;font-size:11.5px;letter-spacing:.02em;color:rgba(255,255,255,.4)}
+  .gp-footer__brand{display:flex;flex-direction:column;align-items:flex-end;gap:14px;text-align:right;min-width:220px}
+  .gp-footer__logo{height:28px;width:auto;display:block}
+  .gp-footer__voucher{display:inline-block;line-height:0}
+  .gp-footer__voucher img{height:20px;width:auto;display:block}
+  .gp-footer__partner{margin:4px 0 0;font:400 11.5px/1.65 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.55)}
+  @media (max-width:900px){.gp-footer__wrap{padding:0 24px}.gp-footer__info .gp-footer__wrap{grid-template-columns:1fr;gap:28px;padding-top:32px;padding-bottom:32px}.gp-footer__brand{align-items:flex-start;text-align:left}.gp-footer__links ul{gap:20px;padding:12px 0}}
+</style>
+</head>
+<body data-lang="ko">
+
+<header id="header" class="header">
+  <div class="contain">
+    <h1 class="sitelogo">
+      <a href="index.html"><img src="images/GPDI_LOGO_white.svg" alt="글로벌조달개발원" style="height:36px;width:auto"></a>
+    </h1>
+    <div id="gnb" class="gnb">
+      <ul>
+        <li><a href="about.html">전략 자문</a>
+          <div class="submenu"><ul>
+            <li><a href="about.html">해외공공조달</a></li>
+            <li><a href="members.html">해외 공공조달 전문가</a></li>
+            <li><a href="history.html">히스토리</a></li>
+          </ul></div>
+        </li>
+        <li><a href="performance.html">글로벌 사업</a>
+          <div class="submenu"><ul>
+            <li><a href="performance.html">주요 실적</a></li>
+            <li><a href="services.html">서비스 소개</a></li>
+            <li><a href="gpdi-usa.html">GPDI USA</a></li>
+            <li><a href="gpdi-uae.html">GPDI UAE</a></li>
+            <li><a href="gpdi-ukraine.html">GPDI Ukraine</a></li>
+          </ul></div>
+        </li>
+        <li><a href="healthcare.html">산업 솔루션</a>
+          <div class="submenu"><ul>
+            <li><a href="healthcare.html">헬스케어</a></li>
+            <li><a href="smartcity.html">스마트시티</a></li>
+            <li><a href="#">국방안전</a></li>
+          </ul></div>
+        </li>
+        <li class="is-current"><a href="ai.html">AI 전환</a>
+          <div class="submenu"><ul>
+            <li><a href="ai.html#ax-ai">AI</a></li>
+            <li><a href="ai.html#ax-ict">ICT</a></li>
+            <li><a href="ai.html#ax-dx">DX</a></li>
+            <li><a href="ai.html#ax-si">SI</a></li>
+          </ul></div>
+        </li>
+      </ul>
+    </div>
+    <div class="util util--clean">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" class="lang-btn is-active" data-lang="ko">KOR</button>
+        <button type="button" class="lang-btn" data-lang="en">ENG</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="sub-hero">
+  <div class="sub-hero__inner">
+    <p class="sub-hero__crumb"><a href="index.html">HOME</a><span>›</span>AI TRANSFORMATION</p>
+    <h2 class="sub-hero__title">AI 전환</h2>
+    <p class="sub-hero__lede">호치민·뉴욕·방콕·다카 네 도시에서 진행 중인 프로젝트 기반으로, 해외 현장 요건에 특화된 AI·DX·SI 실행력을 제공합니다.</p>
+  </div>
+</section>
+
+<main class="ax-body">
+  <div class="ax-body__inner">
+
+    <!-- ===== 메인 Hook ===== -->
+    <section class="ax-hook">
+      <span class="ax-hook__tag">New Business · AX / DX / SI</span>
+      <h3 class="ax-hook__title">조달 전문성 위에 얹은 <span class="hl">실행 가능한 기술.</span> 필요한 순간에 나타나는 <span class="hl">해결사.</span></h3>
+      <div class="ax-hook__desc">
+        <p>GPDI는 20여 년간 해외 공공조달 시장에서 입찰서·사업기획서·정보화전략(ISP)을 다뤄왔습니다. 이제 그 기획 역량을 <strong style="color:#c5e1df">실제 작동하는 소프트웨어</strong>로 만들어냅니다.</p>
+        <p>대기업이 맡기고 싶어 하지만 내부에서 하기 어려운 프로젝트 — AI 파일럿·레거시 현대화·맞춤 SI — 를 아웃소싱 파트너로 받아 단단히 납품합니다. 요구사항 불확실성이 높은 초기 단계부터 PMO·SI·유지보수까지, 필요한 깊이만큼 들어갑니다.</p>
+      </div>
+
+      <div class="ax-kpis">
+        <div>
+          <strong>4개 도시</strong>
+          <span>호치민 · 뉴욕 · 방콕 · 다카 현장 가동</span>
+        </div>
+        <div>
+          <strong>Agile + SoW</strong>
+          <span>스프린트 기반 개발 + 공공조달급 문서화</span>
+        </div>
+        <div>
+          <strong>Full-stack</strong>
+          <span>웹·모바일·백엔드·AI·인프라 전 영역</span>
+        </div>
+        <div>
+          <strong>B2B · Global</strong>
+          <span>대기업·공공 + 해외 현장 동시 대응</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Global Delivery — 해외 개발 특화 ===== -->
+    <section class="ax-section" id="ax-global">
+      <p class="ax-section__eyebrow">Global Delivery</p>
+      <h3 class="ax-section__title">해외 현장에 특화된 개발 팀</h3>
+      <p class="ax-section__lede">국내 기업이 해외에서 부딪히는 규제·언어·현지 파트너·데이터 주권 이슈까지 — 실제 프로젝트를 네 도시에서 동시 진행하며 쌓은 노하우를 코드에 담습니다.</p>
+
+      <div class="ax-global">
+        <article class="ax-global__card" data-color="slate">
+          <span class="ax-global__pin">●</span>
+          <p class="ax-global__city">Ho Chi Minh City</p>
+          <p class="ax-global__country">베트남 · 호치민</p>
+          <p class="ax-global__desc">의료·공공조달 디지털 인프라 구축. 현지 보건 당국·파트너와 직접 협업하며 ISP·플랫폼 설계를 현장에서 진행.</p>
+        </article>
+
+        <article class="ax-global__card" data-color="teal">
+          <span class="ax-global__pin">●</span>
+          <p class="ax-global__city">New York</p>
+          <p class="ax-global__country">미국 · 뉴욕</p>
+          <p class="ax-global__desc">북미 B2B·에너지·핀테크 영역의 엔터프라이즈 SI. 미 연방 조달 규정과 현지 클라이언트 요구사항에 맞춘 개발.</p>
+        </article>
+
+        <article class="ax-global__card" data-color="terra">
+          <span class="ax-global__pin">●</span>
+          <p class="ax-global__city">Bangkok</p>
+          <p class="ax-global__country">태국 · 방콕</p>
+          <p class="ax-global__desc">동남아 시장 진입 컨소시엄 및 스마트시티·모빌리티 분야 공동 개발. ASEAN 인증·데이터 로컬라이제이션 대응.</p>
+        </article>
+
+        <article class="ax-global__card" data-color="charcoal">
+          <span class="ax-global__pin">●</span>
+          <p class="ax-global__city">Dhaka</p>
+          <p class="ax-global__country">방글라데시 · 다카</p>
+          <p class="ax-global__desc">보건 ODA 및 공공 디지털 사업 현장 개발. 개발협력 사업의 시스템·역량강화 프로그램 동시 운영.</p>
+        </article>
+      </div>
+
+      <!-- 해외 특화 역량 스트립 -->
+      <div class="ax-global__caps">
+        <div class="ax-global__cap">
+          <p class="ax-global__cap-num">01</p>
+          <h4 class="ax-global__cap-title">현지 규제 · 컴플라이언스</h4>
+          <p class="ax-global__cap-desc">데이터 주권, 개인정보 현지법, 조달 규정, 인증 요건 등 지역별 규제 프레임을 코드와 문서에 반영.</p>
+        </div>
+        <div class="ax-global__cap">
+          <p class="ax-global__cap-num">02</p>
+          <h4 class="ax-global__cap-title">현장 협업 · 이해관계자 관리</h4>
+          <p class="ax-global__cap-desc">수원국 정부·발주처·현지 파트너와의 조율 · 통번역 · 원격 워크샵 운영까지 개발 팀이 직접 담당.</p>
+        </div>
+        <div class="ax-global__cap">
+          <p class="ax-global__cap-num">03</p>
+          <h4 class="ax-global__cap-title">다시간대 · 다국어 DevOps</h4>
+          <p class="ax-global__cap-desc">한국·북미·동남아 시차를 활용한 릴레이 개발과 다국어(한·영·베트남어 등) UX·문서 동시 출시.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 서비스 영역 (6 카드) ===== -->
+    <section class="ax-section" id="ax-services">
+      <p class="ax-section__eyebrow">Our Services</p>
+      <h3 class="ax-section__title">서비스 영역 — AX부터 SI까지</h3>
+      <p class="ax-section__lede">AI 모델을 붙이는 일만이 아니라, 조직이 실제로 쓰는 시스템을 만드는 일 전체를 책임집니다. 여섯 개의 축.</p>
+
+      <div class="ax-grid">
+        <article class="ax-card" id="ax-ai">
+          <p class="ax-card__num">01 · AI</p>
+          <h4 class="ax-card__title">AI Agent · LLM 솔루션</h4>
+          <p class="ax-card__desc">LLM·RAG·Agent 시스템을 조직의 실제 업무 플로우에 맞게 설계·구현. 내부 지식관리 챗봇, 문서 자동화, 의사결정 지원 에이전트.</p>
+          <ul class="ax-card__list">
+            <li>RAG</li><li>Agent</li><li>Fine-tuning</li><li>Vector DB</li>
+          </ul>
+        </article>
+
+        <article class="ax-card" id="ax-dx">
+          <p class="ax-card__num">02 · DX</p>
+          <h4 class="ax-card__title">디지털 전환 (DX)</h4>
+          <p class="ax-card__desc">레거시 업무·엑셀·종이문서 기반 프로세스를 디지털 플랫폼으로 재설계. As-Is 분석부터 ISP 수립, 단계별 마이그레이션까지.</p>
+          <ul class="ax-card__list">
+            <li>ISP</li><li>BPR</li><li>Migration</li><li>Workflow</li>
+          </ul>
+        </article>
+
+        <article class="ax-card" id="ax-si">
+          <p class="ax-card__num">03 · SI</p>
+          <h4 class="ax-card__title">맞춤형 SI 개발</h4>
+          <p class="ax-card__desc">엔터프라이즈 웹/앱/플랫폼을 처음부터 설계·구축. 공공조달급 문서화와 보안 가이드 준수, SoW 기반 단계별 납품.</p>
+          <ul class="ax-card__list">
+            <li>Web · App</li><li>Platform</li><li>API</li><li>DevOps</li>
+          </ul>
+        </article>
+
+        <article class="ax-card">
+          <p class="ax-card__num">04 · AUTOMATION</p>
+          <h4 class="ax-card__title">업무 자동화 · MCP</h4>
+          <p class="ax-card__desc">반복 업무를 LLM·RPA·워크플로우 엔진으로 자동화. Claude MCP 서버 개발, 내부 툴 연결, 엔드-투-엔드 파이프라인 구축.</p>
+          <ul class="ax-card__list">
+            <li>MCP</li><li>RPA</li><li>n8n</li><li>ETL</li>
+          </ul>
+        </article>
+
+        <article class="ax-card">
+          <p class="ax-card__num">05 · DATA</p>
+          <h4 class="ax-card__title">데이터 파이프라인 · 분석</h4>
+          <p class="ax-card__desc">수집·정제·저장·서빙까지 데이터 스택을 구축하고, BI·대시보드·AI 모델 학습을 위한 기반을 마련합니다.</p>
+          <ul class="ax-card__list">
+            <li>Data Lake</li><li>ETL</li><li>BI</li><li>ML Ops</li>
+          </ul>
+        </article>
+
+        <article class="ax-card">
+          <p class="ax-card__num">06 · MVP</p>
+          <h4 class="ax-card__title">MVP · PoC 기획·개발</h4>
+          <p class="ax-card__desc">신사업·신규 서비스 아이디어를 4~12주 안에 검증 가능한 MVP로 제작. 기획·디자인·개발·배포 통합 운영.</p>
+          <ul class="ax-card__list">
+            <li>Prototyping</li><li>Validation</li><li>Pilot</li><li>Launch</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== 기술 스택 ===== -->
+    <section class="ax-section" id="ax-stack"><span id="ax-ict" style="position:relative;top:-80px"></span>
+      <p class="ax-section__eyebrow">Technology Stack</p>
+      <h3 class="ax-section__title">우리가 쓰는 기술</h3>
+      <p class="ax-section__lede">프로젝트 성격에 맞춰 검증된 스택을 조합합니다. 모든 도구는 장기 유지보수 가능한 오픈 표준 기반.</p>
+
+      <div class="ax-stack">
+        <div class="ax-stack__group">
+          <p class="ax-stack__label">Frontend</p>
+          <h4 class="ax-stack__name">웹 · 모바일 UI</h4>
+          <ul class="ax-stack__tools">
+            <li>React · Next.js</li>
+            <li>TypeScript</li>
+            <li>Tailwind · shadcn/ui</li>
+            <li>React Native · Flutter</li>
+          </ul>
+        </div>
+        <div class="ax-stack__group">
+          <p class="ax-stack__label">Backend</p>
+          <h4 class="ax-stack__name">API · 비즈니스 로직</h4>
+          <ul class="ax-stack__tools">
+            <li>Node.js · NestJS</li>
+            <li>Python · FastAPI</li>
+            <li>Java · Spring</li>
+            <li>GraphQL · REST</li>
+          </ul>
+        </div>
+        <div class="ax-stack__group">
+          <p class="ax-stack__label">AI · Data</p>
+          <h4 class="ax-stack__name">지능·데이터 레이어</h4>
+          <ul class="ax-stack__tools">
+            <li>OpenAI · Claude · Gemini</li>
+            <li>LangChain · LlamaIndex</li>
+            <li>Pinecone · Weaviate · pgvector</li>
+            <li>MCP Servers</li>
+          </ul>
+        </div>
+        <div class="ax-stack__group">
+          <p class="ax-stack__label">Infra · DevOps</p>
+          <h4 class="ax-stack__name">배포 · 운영</h4>
+          <ul class="ax-stack__tools">
+            <li>AWS · Azure · GCP</li>
+            <li>Docker · Kubernetes</li>
+            <li>PostgreSQL · MySQL · Redis</li>
+            <li>GitHub Actions · Terraform</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 작업 방식 (5단계) ===== -->
+    <section class="ax-section" id="ax-process">
+      <p class="ax-section__eyebrow">How We Work</p>
+      <h3 class="ax-section__title">작업 방식</h3>
+      <p class="ax-section__lede">공공조달급 문서화 + 스타트업의 실행 속도. SoW 기반 단계별 합의와 주 단위 데모로 리스크를 잘게 쪼갭니다.</p>
+
+      <div class="ax-process">
+        <ol class="ax-process__list">
+          <li>
+            <span class="ax-process__num">01</span>
+            <span class="ax-process__step">발굴 · 진단</span>
+            <span class="ax-process__desc">문제와 목표를 재정의합니다. 현재 프로세스·시스템·데이터를 훑고 기술 리스크를 먼저 꺼냅니다.</span>
+          </li>
+          <li>
+            <span class="ax-process__num">02</span>
+            <span class="ax-process__step">설계 · 합의</span>
+            <span class="ax-process__desc">아키텍처·데이터 모델·UX 와이어프레임과 함께 SoW·일정·마일스톤을 문서로 확정합니다.</span>
+          </li>
+          <li>
+            <span class="ax-process__num">03</span>
+            <span class="ax-process__step">스프린트 개발</span>
+            <span class="ax-process__desc">2주 단위 스프린트로 실제 작동하는 결과를 단계별 납품. 매주 데모와 피드백으로 방향을 교정합니다.</span>
+          </li>
+          <li>
+            <span class="ax-process__num">04</span>
+            <span class="ax-process__step">검증 · 배포</span>
+            <span class="ax-process__desc">보안·성능·품질 체크리스트로 검증 후 운영 환경에 배포. 모니터링과 롤백 체계까지 설정합니다.</span>
+          </li>
+          <li>
+            <span class="ax-process__num">05</span>
+            <span class="ax-process__step">운영 · 고도화</span>
+            <span class="ax-process__desc">운영 이관 후에도 SLA 기반 유지보수 · 증분 개선 · 내부 인력 전수까지. 장기 파트너로 남습니다.</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== 왜 GPDI인가 (2x2) ===== -->
+    <section class="ax-section" id="ax-why">
+      <p class="ax-section__eyebrow">Why GPDI</p>
+      <h3 class="ax-section__title">왜 GPDI인가</h3>
+      <p class="ax-section__lede">개발사는 많습니다. 공공조달·엔터프라이즈 문법을 이해하면서 '실제로 돌아가는 코드'까지 만드는 팀은 많지 않습니다.</p>
+
+      <div class="ax-why">
+        <article class="ax-why__item">
+          <span class="ax-why__icon">01</span>
+          <div class="ax-why__body">
+            <h4 class="ax-why__title">조달 DNA · 엔터프라이즈 문법</h4>
+            <p class="ax-why__desc">대기업·공공기관의 제안서·요구사항·보안·거버넌스 기준에 익숙합니다. 계약·산출물·검수 절차까지 자연스럽게 맞추니 기획팀이 편해집니다.</p>
+          </div>
+        </article>
+
+        <article class="ax-why__item">
+          <span class="ax-why__icon">02</span>
+          <div class="ax-why__body">
+            <h4 class="ax-why__title">해결사 마인드</h4>
+            <p class="ax-why__desc">'우리 업무 아닙니다'라고 말하지 않습니다. 요구사항이 불분명하거나 기술 리스크가 큰 구간일수록 먼저 진입해 정리하고 납품까지 책임집니다.</p>
+          </div>
+        </article>
+
+        <article class="ax-why__item">
+          <span class="ax-why__icon">03</span>
+          <div class="ax-why__body">
+            <h4 class="ax-why__title">풀스택 · 소규모 정예</h4>
+            <p class="ax-why__desc">프론트·백엔드·AI·인프라·PM·UX가 한 팀 안에 있습니다. 외주 재하청 없이 하나의 팀이 책임지고 납품 속도와 품질을 유지합니다.</p>
+          </div>
+        </article>
+
+        <article class="ax-why__item">
+          <span class="ax-why__icon">04</span>
+          <div class="ax-why__body">
+            <h4 class="ax-why__title">Long-term 파트너십</h4>
+            <p class="ax-why__desc">한 번의 납품으로 끝나지 않습니다. 운영 이관, 내부 인력 전수, 후속 확장 프로젝트까지 — 고객 내부 조직의 연장선에서 함께 갑니다.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="ax-cta">
+      <div>
+        <span class="ax-cta__tag">Let's Build</span>
+        <h3>고민되는 AI · DX 프로젝트가 있으신가요?</h3>
+        <p>프로젝트 개요나 현재 고민 지점을 간단히 정리해 보내주시면, 담당 PM이 2영업일 내 회신드립니다. 초기 타당성 검토·견적 스케치는 무료로 진행합니다.</p>
+      </div>
+      <a class="ax-cta__btn" href="mailto:ax@gpdi.kr">ax@gpdi.kr</a>
+    </section>
+
+  </div>
+</main>
+
+<!-- ===== Floating Info ===== -->
+<div class="info-float" id="infoFloat">
+  <button type="button" class="info-float__btn" aria-haspopup="true" aria-expanded="false" aria-label="Information 메뉴"><span class="info-float__txt">INFO</span></button>
+  <div class="info-float__menu" role="menu">
+    <p class="info-float__title">Information</p>
+    <ul>
+      <li><a role="menuitem" href="index.html#newsletter">공공조달 뉴스레터</a></li>
+      <li><a role="menuitem" href="index.html#press">보도자료</a></li>
+      <li><a role="menuitem" href="index.html#videos">교육동영상</a></li>
+    </ul>
+  </div>
+</div>
+<script>(function(){var f=document.getElementById('infoFloat');if(!f)return;var btn=f.querySelector('.info-float__btn');btn.addEventListener('click',function(e){e.stopPropagation();var o=f.classList.toggle('is-open');btn.setAttribute('aria-expanded',o?'true':'false');});document.addEventListener('click',function(e){if(!f.contains(e.target)){f.classList.remove('is-open');btn.setAttribute('aria-expanded','false');}});function s(){if(window.scrollY>120){f.classList.add('is-scrolled');}else{f.classList.remove('is-scrolled');}}window.addEventListener('scroll',s,{passive:true});s();})();</script>
+
+<footer id="footer" class="gp-footer">
+  <div class="gp-footer__links">
+    <div class="gp-footer__wrap">
+      <ul>
+        <li><a href="sub/pop_privacy.html">개인정보처리방침</a></li>
+        <li><a href="sub/pop_email.html">이메일무단수집거부</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="gp-footer__info">
+    <div class="gp-footer__wrap">
+      <address class="gp-footer__addr">
+        <p class="gp-footer__name">글로벌조달개발원</p>
+        <p>주소 : (10542) 경기도 고양시 덕양구 청초로 10, A동 4층 AA04-0405호, 0406호(덕은동), AA04-0405, 0406, 10 Cheongcho-ro, Deogyang-gu, Goyang-si, Gyeonggi-do (10542)</p>
+        <p>사업자등록번호: 863-87-01643 &nbsp; 전화: 02-6242-7200 &nbsp; 팩스: 02-6242-7209 &nbsp; 대표 이메일: information@gpdi.kr</p>
+        <p class="gp-footer__copy">COPYRIGHT(C) 2022. Global Procurement Development Institute ALL RIGHTS RESERVED.</p>
+      </address>
+      <div class="gp-footer__brand">
+        <img class="gp-footer__logo" src="images/GPDI_LOGO_white.svg" alt="글로벌조달개발원">
+        <a href="https://www.exportvoucher.com/portal/sample/main" target="_blank" rel="noopener" class="gp-footer__voucher" aria-label="수출지원기반활용사업">
+          <img src="https://www.gpdi.kr/images/common/f_logo02.png" alt="수출지원기반활용사업" onerror="this.style.display='none'">
+        </a>
+        <p class="gp-footer__partner">수출바우처 공식수행기관<br>소관부처: 산업통상자원부(KOTRA)<br>중소벤처기업부(중진공)</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

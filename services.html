@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
-<meta name="description" content="GPDI Ukraine — 우크라이나 재건·공공조달 시장 진출 지원">
-<title>GPDI | GPDI Ukraine</title>
+<meta name="description" content="GPDI 서비스 소개 — 해외 공공조달 시장 진입 전 단계 컨설팅 서비스">
+<title>GPDI | 서비스 소개</title>
 <link rel="icon" type="image/svg+xml" href="images/GPDI_Symbol.svg">
 <link rel="apple-touch-icon" href="images/GPDI_Symbol.svg">
 
@@ -15,23 +15,17 @@
 
 <script src="js/lang.js" defer></script>
 <style>
-  /* 언어 토글 */
   body[data-lang="ko"] .t-en{display:none !important}
   body[data-lang="en"] .t-ko{display:none !important}
-  .t-ko.is-block,.t-en.is-block{display:block}
-  body[data-lang="ko"] .t-en.is-block{display:none !important}
-  body[data-lang="en"] .t-ko.is-block{display:none !important}
 
-  /* ======== 공용 ======== */
   *,*::before,*::after{box-sizing:border-box}
-  html,body{margin:0;padding:0}
+  html,body{margin:0;padding:0;scroll-behavior:smooth}
   ul,ol{list-style:none;margin:0;padding:0}
   h1,h2,h3,h4,h5,h6,p{margin:0}
   button{font:inherit}
   body{font-family:"Noto Sans KR","Malgun Gothic",sans-serif;color:#3e3a39;background:#fff;-webkit-font-smoothing:antialiased}
   img{max-width:100%;height:auto;display:block}
   a{color:inherit;text-decoration:none}
-  .fallback-wrap{max-width:1200px;margin:0 auto;padding:0 20px}
 
   /* Header */
   .header{position:absolute;top:0;left:0;right:0;z-index:100;background:transparent;border-bottom:1px solid rgba(255,255,255,.08)}
@@ -46,6 +40,7 @@
   .header #gnb > ul > li > a{display:flex !important;align-items:center;height:88px;padding:0 4px;font:500 15px/1 "Noto Sans KR",sans-serif;letter-spacing:-.01em;color:#fff !important;position:relative;transition:color .2s ease;white-space:nowrap;text-decoration:none}
   .header #gnb > ul > li > a::after{content:"";position:absolute;left:50%;bottom:32px;width:0;height:2px;background:#86acaa;transform:translateX(-50%);transition:width .25s ease}
   .header #gnb > ul > li:hover > a::after,.header #gnb > ul > li:focus-within > a::after{width:22px}
+  .header #gnb > ul > li.is-current > a::after{width:22px}
   .header #gnb .submenu{position:absolute !important;left:50% !important;top:88px !important;transform:translateX(-50%) translateY(4px);background:#fff !important;border-top:2px solid #535470;box-shadow:0 20px 44px rgba(14,20,38,.16);padding:4px 0;min-width:200px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,transform .22s ease,visibility 0s linear .22s;z-index:120;display:block !important}
   .header #gnb > ul > li:hover > .submenu,.header #gnb > ul > li:focus-within > .submenu{opacity:1 !important;visibility:visible !important;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .22s ease,transform .22s ease,visibility 0s}
   .header #gnb > ul > li::before{content:"";position:absolute;left:-16px;right:-16px;top:88px;height:8px;opacity:0;pointer-events:none}
@@ -61,7 +56,7 @@
   .util--clean .lang-btn.is-active{color:#fff;background:rgba(83,84,112,.85)}
 
   /* Sub-hero */
-  .sub-hero{position:relative;min-height:360px;background:#0a0d14 url('images/main/web-banner.png') center/cover no-repeat;color:#fff;display:flex;align-items:flex-end;padding:0 0 60px}
+  .sub-hero{position:relative;min-height:360px;background:#0a0d14 url('images/main/web-banner-1.png') center/cover no-repeat;color:#fff;display:flex;align-items:flex-end;padding:0 0 60px}
   .sub-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(14,20,38,.65),rgba(14,20,38,.82))}
   .sub-hero__inner{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:0 40px;width:100%}
   .sub-hero__crumb{font:600 11px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.22em;color:rgba(255,255,255,.7);text-transform:uppercase;margin:0 0 14px}
@@ -71,81 +66,74 @@
   .sub-hero__title{font:700 clamp(32px,4vw,48px)/1.15 "Noto Sans KR","Inter",sans-serif;letter-spacing:-.02em;margin:0}
   .sub-hero__lede{margin:14px 0 0;max-width:760px;font:400 15px/1.7 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.78);letter-spacing:-.005em;word-break:keep-all;text-wrap:balance}
 
-  /* ======== Region Page ======== */
-  .rg-body{padding:90px 0 120px;background:#fff}
-  .rg-body__inner{max-width:1060px;margin:0 auto;padding:0 40px}
+  /* ===== Body ===== */
+  .wk-body{padding:110px 0 120px;background:#fff}
+  .wk-body__inner{max-width:1200px;margin:0 auto;padding:0 40px}
 
-  /* 상단 타이틀 */
-  .rg-head{text-align:center;margin:0 0 48px}
-  .rg-head::before{content:"";display:block;width:36px;height:2px;background:#86acaa;margin:0 auto 14px}
-  .rg-head__title{margin:0;font:700 clamp(24px,2.6vw,32px)/1.2 "Inter","Noto Sans KR",sans-serif;color:#3e3a39;letter-spacing:-.015em}
+  /* 섹션 공통 */
+  .wk-section{margin:0 0 80px}
+  .wk-section:last-child{margin-bottom:0}
+  .wk-section__eyebrow{font:700 11px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.28em;color:#b87860;text-transform:uppercase;margin:0 0 12px;text-align:center}
+  .wk-section__title{
+    margin:0 0 20px;font:700 clamp(26px,2.8vw,34px)/1.25 "Noto Sans KR","Inter",sans-serif;
+    color:#3e3a39;letter-spacing:-.015em;text-align:center;
+  }
+  .wk-section__title::after{content:"";display:block;width:36px;height:2px;background:#86acaa;margin:16px auto 0}
+  .wk-section__lede{max-width:760px;margin:20px auto 0;font:400 14.5px/1.9 "Noto Sans KR",sans-serif;color:#595857;word-break:keep-all;text-wrap:pretty;text-align:center}
 
-  /* 국기 3종 그리드 */
-  .rg-flags{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:32px;
-    margin:0 0 64px;
+  /* ===== Services ===== */
+  .wk-services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:0 0 64px}
+  .wk-service-card{
+    position:relative;padding:32px 28px 28px;background:#fff;border:1px solid #eceff5;
+    transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+    display:flex;flex-direction:column;gap:16px;
   }
-  .rg-flags__item{
-    aspect-ratio:3/2;background:#f3f5f8;overflow:hidden;
-    box-shadow:0 4px 16px rgba(14,20,38,.06);
-    display:flex;align-items:center;justify-content:center;
-  }
-  .rg-flags__item img{
-    width:100%;height:100%;object-fit:cover;display:block;
-  }
+  .wk-service-card:hover{transform:translateY(-3px);border-color:#86acaa;box-shadow:0 18px 36px rgba(14,20,38,.08)}
+  .wk-service-card__num{font:800 13px/1 "Inter",sans-serif;color:#86acaa;letter-spacing:.15em}
+  .wk-service-card__title{margin:0;font:700 18px/1.35 "Noto Sans KR",sans-serif;color:#535470;letter-spacing:-.01em;word-break:keep-all}
+  .wk-service-card__desc{margin:0;font:400 13.5px/1.8 "Noto Sans KR",sans-serif;color:#595857;word-break:keep-all;text-wrap:pretty;flex:1}
+  .wk-service-card__tags{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+  .wk-service-card__tags li{list-style:none;padding:4px 10px;background:#f3f5f8;color:#535470;font:600 11px/1 "Noto Sans KR",sans-serif;letter-spacing:-.005em}
 
-  /* 콘텐츠 블록 */
-  .rg-block{margin:0 0 48px}
-  .rg-block:last-of-type{margin-bottom:0}
-  .rg-block__heading{
-    display:flex;align-items:center;gap:10px;
-    margin:0 0 18px;
-    font:700 19px/1.4 "Noto Sans KR","Inter",sans-serif;color:#535470;letter-spacing:-.01em;
+  /* 프로세스 */
+  .wk-process{margin:0 0 64px}
+  .wk-process__title{margin:0 0 28px;text-align:center;font:700 22px/1.3 "Noto Sans KR",sans-serif;color:#3e3a39;letter-spacing:-.01em}
+  .wk-process__list{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;list-style:none;padding:0;margin:0;position:relative}
+  .wk-process__list::before{
+    content:"";position:absolute;top:28px;left:10%;right:10%;height:1px;
+    background:repeating-linear-gradient(90deg,#c9cfdb 0,#c9cfdb 4px,transparent 4px,transparent 8px);
+    z-index:0;
   }
-  .rg-block__heading::before{
-    content:"";flex-shrink:0;
-    width:14px;height:14px;border-radius:50%;
-    background:#535470;
-    box-shadow:inset 0 0 0 3px #fff,0 0 0 1px #535470;
+  .wk-process__list li{position:relative;z-index:1;list-style:none;text-align:center}
+  .wk-process__num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:56px;height:56px;border-radius:50%;background:#fff;border:2px solid #535470;
+    font:700 16px/1 "Inter",sans-serif;color:#535470;margin:0 auto 14px;
   }
-  .rg-block__body{padding:0 0 0 24px}
-  .rg-block__body p{
-    margin:0 0 12px;
-    font:400 14.5px/1.9 "Noto Sans KR",sans-serif;color:#3e3a39;
-    word-break:keep-all;
-  }
-  .rg-block__body p:last-child{margin-bottom:0}
-  .rg-block__body a.mailto{
-    color:#b87860;font-weight:600;border-bottom:1px solid rgba(184,120,96,.35);
-    transition:color .2s ease,border-color .2s ease;
-  }
-  .rg-block__body a.mailto:hover{color:#535470;border-color:#535470}
+  .wk-process__list li:nth-child(2) .wk-process__num{border-color:#86acaa;color:#86acaa}
+  .wk-process__list li:nth-child(3) .wk-process__num{border-color:#b87860;color:#b87860}
+  .wk-process__list li:nth-child(4) .wk-process__num{border-color:#535470;color:#535470}
+  .wk-process__list li:nth-child(5) .wk-process__num{background:#535470;color:#fff}
+  .wk-process__step{display:block;font:700 13.5px/1.3 "Noto Sans KR",sans-serif;color:#3e3a39;margin-bottom:4px}
+  .wk-process__desc{display:block;font:400 12px/1.55 "Noto Sans KR",sans-serif;color:#86acaa;word-break:keep-all}
 
-  /* 언어 섹션 구분선 */
-  .rg-section-sep{
-    margin:56px 0;padding:0;
-    border:0;border-top:1px solid #e5e2dc;position:relative;
-  }
-  .rg-section-sep::after{
-    content:"";position:absolute;left:50%;top:-6px;transform:translateX(-50%);
-    width:12px;height:12px;background:#fff;
-    border:1px solid #e5e2dc;border-radius:50%;
-  }
+  /* CTA */
+  .wk-cta{margin:0;padding:48px;background:#faf9f6;border-left:4px solid #535470;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center}
+  .wk-cta h3{margin:0 0 12px;font:700 22px/1.35 "Noto Sans KR",sans-serif;color:#3e3a39;letter-spacing:-.01em;word-break:keep-all}
+  .wk-cta p{margin:0;font:400 14px/1.8 "Noto Sans KR",sans-serif;color:#595857;word-break:keep-all}
+  .wk-cta__mail{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;background:#535470;color:#fff;font:700 13.5px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.02em;transition:background .22s ease;justify-self:end}
+  .wk-cta__mail:hover{background:#3e3a39}
+  .wk-cta__mail::after{content:"→";font-weight:400;margin-left:2px}
 
-  /* Ukrainian 서브 블록 (작은 포인트) */
-  .rg-block--alt .rg-block__heading{color:#86acaa}
-  .rg-block--alt .rg-block__heading::before{background:#86acaa;box-shadow:inset 0 0 0 3px #fff,0 0 0 1px #86acaa}
-
-  @media (max-width:768px){
-    .sub-hero{min-height:260px;padding-bottom:40px}
-    .rg-body{padding:56px 0 80px}
-    .rg-body__inner{padding:0 24px}
-    .rg-flags{grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:40px}
-    .rg-flags__item{aspect-ratio:3/2}
-    .rg-block__heading{font-size:17px}
-    .rg-block__body{padding-left:0}
-    .rg-block__body p{font-size:13.5px}
-    .rg-section-sep{margin:40px 0}
+  @media (max-width:900px){
+    .sub-hero{min-height:280px;padding-bottom:40px}
+    .wk-body{padding:80px 0}
+    .wk-body__inner{padding:0 24px}
+    .wk-services-grid{grid-template-columns:1fr;gap:16px}
+    .wk-process__list{grid-template-columns:repeat(2,1fr);gap:24px 14px}
+    .wk-process__list::before{display:none}
+    .wk-cta{grid-template-columns:1fr;gap:20px;padding:32px 24px}
+    .wk-cta__mail{justify-self:start}
   }
 
   /* Floating Info */
@@ -169,7 +157,7 @@
   .info-float__menu li a:hover{background:#f3f5f8;color:#535470;padding-left:24px}
   @media (max-width:768px){.info-float{top:auto;bottom:24px;transform:none;right:20px}.info-float__btn{width:52px;height:52px}.info-float__txt{font-size:11px}.info-float__menu{right:calc(100% + 10px);top:auto;bottom:0;transform:translateX(6px)}.info-float:hover .info-float__menu,.info-float:focus-within .info-float__menu,.info-float.is-open .info-float__menu{transform:translateX(0)}}
 
-  /* Footer — 메인과 동일한 심플 2-tier */
+  /* Footer */
   .gp-footer{background:#3a3f4a;color:rgba(255,255,255,.65)}
   .gp-footer a{color:inherit;text-decoration:none;transition:color .18s ease}
   .gp-footer__wrap{max-width:1400px;margin:0 auto;padding:0 40px}
@@ -195,7 +183,6 @@
 </head>
 <body data-lang="ko">
 
-<!-- ===== HEADER ===== -->
 <header id="header" class="header">
   <div class="contain">
     <h1 class="sitelogo">
@@ -243,67 +230,129 @@
   </div>
 </header>
 
-<!-- ===== Sub-hero ===== -->
 <section class="sub-hero">
   <div class="sub-hero__inner">
-    <p class="sub-hero__crumb"><a href="index.html">HOME</a><span>›</span><a href="index.html#about">ABOUT</a><span>›</span>GPDI Ukraine</p>
-    <h2 class="sub-hero__title">GPDI Ukraine</h2>
-    <p class="sub-hero__lede">우크라이나 재건과 공공조달 시장 진출을 위해 한국·미국·우크라이나 3국 협력 체계로 지원합니다.</p>
+    <p class="sub-hero__crumb"><a href="index.html">HOME</a><span>›</span>SERVICES</p>
+    <h2 class="sub-hero__title">서비스 소개</h2>
+    <p class="sub-hero__lede">시장 진단부터 입찰·계약·사후관리까지 — 해외 공공조달 시장 진입 전 단계를 아우르는 GPDI의 핵심 서비스입니다.</p>
   </div>
 </section>
 
-<!-- ===== Region Body ===== -->
-<main class="rg-body">
-  <div class="rg-body__inner">
+<main class="wk-body">
+  <div class="wk-body__inner">
 
-    <!-- 상단 타이틀 -->
-    <div class="rg-head">
-      <h3 class="rg-head__title">GPDI Ukraine</h3>
+    <header class="wk-section">
+      <p class="wk-section__eyebrow">Services</p>
+      <h3 class="wk-section__title">핵심 컨설팅 서비스</h3>
+      <p class="wk-section__lede">해외 공공조달 시장 진입의 전 단계를 아우르는 GPDI의 핵심 서비스. 시장 진단부터 입찰·계약·사후관리까지, 기업 상황에 맞춘 맞춤형 컨설팅을 제공합니다.</p>
+    </header>
+
+    <div class="wk-services-grid">
+      <article class="wk-service-card">
+        <p class="wk-service-card__num">01</p>
+        <h4 class="wk-service-card__title">해외조달 시장 진단 · 전략 수립</h4>
+        <p class="wk-service-card__desc">진출 대상국의 조달 제도·산업 구조·경쟁환경을 분석하고, 기업 제품·역량에 맞는 진입 전략과 로드맵을 설계합니다.</p>
+        <ul class="wk-service-card__tags">
+          <li>시장 분석</li>
+          <li>SWOT · PEST</li>
+          <li>진입 로드맵</li>
+        </ul>
+      </article>
+
+      <article class="wk-service-card">
+        <p class="wk-service-card__num">02</p>
+        <h4 class="wk-service-card__title">국제입찰 참가 지원</h4>
+        <p class="wk-service-card__desc">WHO·UN·MDB·개도국 정부의 국제입찰 공고 분석, 참가 자격 검토, 팀 구성 자문, 제출 서류 일체를 지원합니다.</p>
+        <ul class="wk-service-card__tags">
+          <li>입찰 모니터링</li>
+          <li>자격 검토</li>
+          <li>제안서 작성</li>
+        </ul>
+      </article>
+
+      <article class="wk-service-card">
+        <p class="wk-service-card__num">03</p>
+        <h4 class="wk-service-card__title">벤더 발굴 · 현지 파트너 매칭</h4>
+        <p class="wk-service-card__desc">현지 법무·유통·기술 파트너 풀을 활용하여 컨소시엄 구성과 대리인 계약을 조율하고 리스크를 최소화합니다.</p>
+        <ul class="wk-service-card__tags">
+          <li>파트너 풀</li>
+          <li>Due Diligence</li>
+          <li>컨소시엄 자문</li>
+        </ul>
+      </article>
+
+      <article class="wk-service-card">
+        <p class="wk-service-card__num">04</p>
+        <h4 class="wk-service-card__title">인증 · 등록 · 컴플라이언스</h4>
+        <p class="wk-service-card__desc">진출국 조달 시스템 등록(GSA, VA 등), 의료기기·의약품 인증, 수출통제 및 원산지 증명 등 규제 대응을 지원합니다.</p>
+        <ul class="wk-service-card__tags">
+          <li>GSA · VA Schedule</li>
+          <li>CE · FDA · CSDT</li>
+          <li>원산지 / 수출통제</li>
+        </ul>
+      </article>
+
+      <article class="wk-service-card">
+        <p class="wk-service-card__num">05</p>
+        <h4 class="wk-service-card__title">ODA 사업기획 · 성과관리</h4>
+        <p class="wk-service-card__desc">KOICA·EDCF·KOFIH 발주 ODA 사업의 기획·형성조사, PDM 설계, 중간·종료·사후 평가를 수행합니다.</p>
+        <ul class="wk-service-card__tags">
+          <li>PCP · 형성조사</li>
+          <li>PDM · ToC</li>
+          <li>OECD DAC 평가</li>
+        </ul>
+      </article>
+
+      <article class="wk-service-card">
+        <p class="wk-service-card__num">06</p>
+        <h4 class="wk-service-card__title">교육 · 역량강화</h4>
+        <p class="wk-service-card__desc">해외조달 진출 기업 임직원 대상 워크숍, 정부 공무원·유관기관 연수, 온·오프라인 교육 프로그램을 기획·운영합니다.</p>
+        <ul class="wk-service-card__tags">
+          <li>기업 워크숍</li>
+          <li>공공 연수</li>
+          <li>KSP 역량강화</li>
+        </ul>
+      </article>
     </div>
 
-    <!-- 국기 3종 (한국 · 우크라이나 · 미국) -->
-    <div class="rg-flags" aria-label="협력 국가 국기">
-      <div class="rg-flags__item"><img src="images/about/info06_01_country01.png" alt="대한민국"></div>
-      <div class="rg-flags__item"><img src="images/about/info06_01_country02.png" alt="우크라이나"></div>
-      <div class="rg-flags__item"><img src="images/about/info06_01_country03.png" alt="미국"></div>
+    <!-- 컨설팅 프로세스 -->
+    <div class="wk-process">
+      <h3 class="wk-process__title">컨설팅 프로세스</h3>
+      <ol class="wk-process__list">
+        <li>
+          <span class="wk-process__num">1</span>
+          <span class="wk-process__step">진단</span>
+          <span class="wk-process__desc">기업 현황·목표 시장 분석</span>
+        </li>
+        <li>
+          <span class="wk-process__num">2</span>
+          <span class="wk-process__step">전략 설계</span>
+          <span class="wk-process__desc">진입 경로·파트너십 설계</span>
+        </li>
+        <li>
+          <span class="wk-process__num">3</span>
+          <span class="wk-process__step">실행 지원</span>
+          <span class="wk-process__desc">입찰 · 등록 · 계약 실행</span>
+        </li>
+        <li>
+          <span class="wk-process__num">4</span>
+          <span class="wk-process__step">확장</span>
+          <span class="wk-process__desc">반복 수주 · 시장 확장</span>
+        </li>
+        <li>
+          <span class="wk-process__num">5</span>
+          <span class="wk-process__step">사후관리</span>
+          <span class="wk-process__desc">성과관리 · 레퍼런스 축적</span>
+        </li>
+      </ol>
     </div>
 
-    <!-- GPDI Ukraine 미션 (한글) -->
-    <section class="rg-block">
-      <h4 class="rg-block__heading">GPDI Ukraine의 미션</h4>
-      <div class="rg-block__body">
-        <p>GPDI Ukraine의 미션은 한국과 미국 기업이 우크라이나의 황폐화된 산업 부문을 지속가능하고 번영하는 경제로 재건·전환하도록 효과적으로 지원하는 것입니다. 우리는 평화를 사랑하는 우크라이나 국민을 위해 새로운 번영과 부를 창출하는 것을 목표로 합니다.</p>
-        <p>GPDI Ukraine 팀은 한국·미국의 해당 분야 전문가들과 함께 우크라이나 시장 및 제품 분석을 수행하며, 한국 및 미국 기업이 우크라이나 공공조달 시장과 주요 민수 시장에 접근할 수 있도록 지원합니다.</p>
+    <section class="wk-cta">
+      <div>
+        <h3>해외 공공조달 시장 진출을 준비하고 계신가요?</h3>
+        <p>제품·타깃 시장·현재 단계에 대해 간단히 알려주시면, 담당 컨설턴트가 초기 진단 자료와 함께 회신드립니다.</p>
       </div>
-    </section>
-
-    <!-- 우크라이나 사무소 (한글) -->
-    <section class="rg-block">
-      <h4 class="rg-block__heading">우크라이나 사무소</h4>
-      <div class="rg-block__body">
-        <p>Haharina Ave, 12a, Odesa, Odes'ka oblast, Ukraine, Office 140865044</p>
-        <p>우크라이나 사업 관련 더 자세한 정보는 <a class="mailto" href="mailto:ukraine@gpdi.kr">ukraine@gpdi.kr</a>로 문의해 주세요.</p>
-      </div>
-    </section>
-
-    <hr class="rg-section-sep" aria-hidden="true">
-
-    <!-- Ukrainian 원문 (Місія) -->
-    <section class="rg-block rg-block--alt">
-      <h4 class="rg-block__heading">Місія GPDI Ukraine</h4>
-      <div class="rg-block__body">
-        <p>Місія GPDI Ukraine полягає в підтримці корейської та американської промисловості в ефективному відновленні та трансформації зруйнованого промислового сектора України у стійку та процвітаючу економіку. Ми прагнемо сприяти новому процвітанню та добробуту миролюбного народу України.</p>
-        <p>Команда GPDI Ukraine, разом із експертами з Кореї та США, готова проводити аналіз ринку та продукції в Україні, а також сприяти доступу до державних закупівель країни та окремих комерційних ринків для корейських і американських компаній.</p>
-      </div>
-    </section>
-
-    <!-- Ukrainian 사무소 -->
-    <section class="rg-block rg-block--alt">
-      <h4 class="rg-block__heading">Офіс в Україні для запитів</h4>
-      <div class="rg-block__body">
-        <p>проспект Гагаріна, 12а, Одеса, Одеська область, Україна, офіс 140865044, Україна.</p>
-        <p>Для отримання додаткової інформації про ведення бізнесу в Україні, будь ласка, пишіть на <a class="mailto" href="mailto:ukraine@gpdi.kr">ukraine@gpdi.kr</a>.</p>
-      </div>
+      <a class="wk-cta__mail" href="mailto:information@gpdi.kr">information@gpdi.kr</a>
     </section>
 
   </div>
@@ -322,10 +371,9 @@
   </div>
 </div>
 <script>
-(function(){var f=document.getElementById('infoFloat');if(!f)return;var btn=f.querySelector('.info-float__btn');btn.addEventListener('click',function(e){e.stopPropagation();var o=f.classList.toggle('is-open');btn.setAttribute('aria-expanded',o?'true':'false');});document.addEventListener('click',function(e){if(!f.contains(e.target)){f.classList.remove('is-open');btn.setAttribute('aria-expanded','false');}});function s(){if(window.scrollY>120){f.classList.add('is-scrolled');}else{f.classList.remove('is-scrolled');}}window.addEventListener('scroll',s,{passive:true});s();})();
+  (function(){var f=document.getElementById('infoFloat');if(!f)return;var btn=f.querySelector('.info-float__btn');btn.addEventListener('click',function(e){e.stopPropagation();var o=f.classList.toggle('is-open');btn.setAttribute('aria-expanded',o?'true':'false');});document.addEventListener('click',function(e){if(!f.contains(e.target)){f.classList.remove('is-open');btn.setAttribute('aria-expanded','false');}});function s(){if(window.scrollY>120){f.classList.add('is-scrolled');}else{f.classList.remove('is-scrolled');}}window.addEventListener('scroll',s,{passive:true});s();})();
 </script>
 
-<!-- ===== Footer ===== -->
 <footer id="footer" class="gp-footer">
   <div class="gp-footer__links">
     <div class="gp-footer__wrap">
