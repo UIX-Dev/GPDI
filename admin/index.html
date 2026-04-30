@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta content="width=device-width,initial-scale=1.0" name="viewport">
+<title>GPDI Admin</title>
+<link rel="icon" type="image/svg+xml" href="../images/GPDI_Symbol.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:"Noto Sans KR","Malgun Gothic",sans-serif;color:#3e3a39;background:#f3f5f8;-webkit-font-smoothing:antialiased;min-height:100vh}
+  ul,ol{list-style:none;margin:0;padding:0}
+  h1,h2,h3,h4,h5,h6,p{margin:0}
+  button,input,textarea,select{font:inherit}
+  a{color:#535470;text-decoration:none}
+
+  .ad-hdr{background:#1f2a4a;color:#fff;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 12px rgba(14,20,38,.18)}
+  .ad-hdr__title{font:700 16px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.04em}
+  .ad-hdr__title small{font-weight:400;color:rgba(255,255,255,.6);margin-left:10px;font-size:12px}
+  .ad-hdr__user{display:flex;align-items:center;gap:14px;font-size:13px;color:rgba(255,255,255,.85)}
+  .ad-btn{appearance:none;border:0;cursor:pointer;padding:8px 16px;font:600 13px/1 "Inter","Noto Sans KR",sans-serif;background:#86acaa;color:#fff;letter-spacing:.02em;transition:background .18s ease,color .18s ease,border-color .18s ease}
+  .ad-btn:hover{background:#b87860}
+  .ad-btn--ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4)}
+  .ad-btn--ghost:hover{background:rgba(255,255,255,.1);border-color:#fff}
+  .ad-btn--danger{background:#b87860}
+  .ad-btn--danger:hover{background:#9a5e48}
+  .ad-btn--secondary{background:transparent;color:#535470;border:1px solid #535470}
+  .ad-btn--secondary:hover{background:#535470;color:#fff}
+  .ad-btn:disabled{opacity:.5;cursor:not-allowed}
+
+  /* 로그인 화면 */
+  .ad-login{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:linear-gradient(135deg,#1f2a4a,#535470)}
+  .ad-login__card{background:#fff;padding:40px 36px;width:100%;max-width:380px;box-shadow:0 24px 60px rgba(14,20,38,.24)}
+  .ad-login__title{font:700 22px/1.2 "Noto Sans KR",sans-serif;color:#1f2a4a;margin:0 0 6px}
+  .ad-login__sub{font:400 13px/1.5 "Noto Sans KR",sans-serif;color:#888;margin:0 0 28px}
+  .ad-field{display:block;margin:0 0 16px}
+  .ad-field__label{display:block;font:600 11px/1 "Inter",sans-serif;color:#535470;letter-spacing:.14em;text-transform:uppercase;margin:0 0 6px}
+  .ad-input{display:block;width:100%;padding:12px 14px;border:1px solid #d6dae3;background:#fff;font:500 14px/1.4 "Noto Sans KR",sans-serif;color:#3e3a39;transition:border-color .18s ease,box-shadow .18s ease}
+  .ad-input:focus{outline:none;border-color:#535470;box-shadow:0 0 0 3px rgba(83,84,112,.1)}
+  textarea.ad-input{min-height:90px;resize:vertical;font-family:"Noto Sans KR",sans-serif}
+  .ad-login .ad-btn{width:100%;padding:13px;margin-top:8px;background:#1f2a4a}
+  .ad-login .ad-btn:hover{background:#535470}
+  .ad-error{margin:0 0 14px;padding:10px 12px;background:#fdecea;border-left:3px solid #b87860;color:#7a3b2c;font:500 12.5px/1.5 "Noto Sans KR",sans-serif}
+
+  /* 대시보드 */
+  .ad-wrap{max-width:1200px;margin:0 auto;padding:24px 28px 60px}
+  .ad-tabs{display:flex;gap:0;margin:0 0 20px;border-bottom:1px solid #d6dae3}
+  .ad-tab{appearance:none;border:0;background:transparent;cursor:pointer;padding:14px 22px;font:600 14px/1 "Noto Sans KR",sans-serif;color:#888;letter-spacing:-.005em;border-bottom:2px solid transparent;transition:color .18s ease,border-color .18s ease}
+  .ad-tab.is-active{color:#1f2a4a;border-bottom-color:#535470}
+  .ad-tab:hover:not(.is-active){color:#535470}
+
+  .ad-toolbar{display:flex;justify-content:space-between;align-items:center;margin:0 0 16px;gap:14px;flex-wrap:wrap}
+  .ad-toolbar__count{font:500 13px/1 "Inter","Noto Sans KR",sans-serif;color:#666}
+  .ad-toolbar__count strong{color:#1f2a4a}
+
+  .ad-form{background:#fff;padding:22px 24px;margin:0 0 20px;border:1px solid #e5e2dc;display:none}
+  .ad-form.is-open{display:block}
+  .ad-form__row{display:grid;grid-template-columns:1fr 200px;gap:14px;margin:0 0 14px}
+  .ad-form__row--single{grid-template-columns:1fr}
+  .ad-form__check{display:flex;align-items:center;gap:8px;margin:0 0 14px;font:500 13px/1 "Noto Sans KR",sans-serif;color:#535470;cursor:pointer}
+  .ad-form__hint{font:400 11.5px/1.5 "Noto Sans KR",sans-serif;color:#888;margin:4px 0 0}
+  .ad-form__actions{display:flex;gap:10px;justify-content:flex-end;padding-top:6px;border-top:1px dashed #e5e2dc;margin-top:14px}
+
+  .ad-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid #e5e2dc;font:500 13px/1.5 "Noto Sans KR",sans-serif}
+  .ad-table th{background:#faf9f6;padding:12px 14px;text-align:left;font:700 11.5px/1 "Inter","Noto Sans KR",sans-serif;color:#86acaa;letter-spacing:.06em;text-transform:uppercase;border-bottom:1.5px solid #535470}
+  .ad-table td{padding:12px 14px;border-bottom:1px solid #eceff5;vertical-align:middle;color:#3e3a39}
+  .ad-table tr:hover td{background:#faf9f6}
+  .ad-table .ad-td-date{font:500 12.5px/1 "Inter",sans-serif;color:#535470;white-space:nowrap;width:110px}
+  .ad-table .ad-td-flag{width:60px;white-space:nowrap}
+  .ad-table .ad-td-actions{width:170px;text-align:right;white-space:nowrap}
+  .ad-table .ad-td-thumb{width:84px}
+  .ad-table .ad-td-thumb img{width:80px;height:60px;object-fit:cover;display:block;background:#e5e2dc}
+  .ad-table .ad-td-thumb .ad-thumb-ph{width:80px;height:60px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#535470,#1f2a4a);color:rgba(255,255,255,.85);font:700 9px/1 "Inter",sans-serif;letter-spacing:.04em}
+  .ad-table .ad-title{color:#1f2a4a;font-weight:600;line-height:1.45;word-break:keep-all;text-wrap:pretty;display:block;max-width:560px}
+  .ad-table .ad-meta{color:#888;font-size:11.5px;margin-top:2px;display:block;word-break:break-all}
+  .ad-table .ad-meta a{color:#86acaa}
+  .ad-table .ad-meta a:hover{color:#535470;text-decoration:underline}
+  .ad-flag{display:inline-block;padding:3px 8px;font:700 10px/1 "Inter",sans-serif;letter-spacing:.08em;text-transform:uppercase}
+  .ad-flag--on{background:#eaf3f2;color:#86acaa}
+  .ad-flag--off{background:#f3f5f8;color:#888}
+  .ad-act-btn{appearance:none;border:1px solid #d6dae3;background:#fff;color:#535470;padding:6px 11px;font:600 11.5px/1 "Inter","Noto Sans KR",sans-serif;cursor:pointer;margin-left:6px;transition:background .18s ease,color .18s ease,border-color .18s ease}
+  .ad-act-btn:hover{background:#535470;color:#fff;border-color:#535470}
+  .ad-act-btn--danger:hover{background:#b87860;border-color:#b87860}
+
+  .ad-pager{display:flex;justify-content:center;gap:6px;margin:24px 0 0;flex-wrap:wrap}
+  .ad-pager button{appearance:none;border:1px solid #e5e2dc;background:#fff;color:#535470;padding:8px 13px;font:600 12.5px/1 "Inter",sans-serif;cursor:pointer;transition:background .18s ease,color .18s ease,border-color .18s ease}
+  .ad-pager button:hover{background:#535470;color:#fff;border-color:#535470}
+  .ad-pager button:disabled{opacity:.4;cursor:not-allowed;background:#fff !important;color:#535470 !important;border-color:#e5e2dc !important}
+  .ad-pager .is-current{background:#535470;color:#fff;border-color:#535470}
+  .ad-pager .ad-ellipsis{color:#aaa;padding:8px 6px;font-size:12px}
+
+  .ad-toast{position:fixed;right:24px;bottom:24px;padding:12px 18px;background:#1f2a4a;color:#fff;font:600 13px/1.4 "Noto Sans KR",sans-serif;box-shadow:0 16px 32px rgba(14,20,38,.32);transform:translateY(20px);opacity:0;pointer-events:none;transition:transform .25s ease,opacity .25s ease;z-index:1000}
+  .ad-toast.is-show{transform:translateY(0);opacity:1}
+  .ad-toast--err{background:#b87860}
+
+  .ad-loading{padding:32px;text-align:center;color:#888;font-size:13px}
+
+  @media (max-width:768px){
+    .ad-wrap{padding:16px 16px 40px}
+    .ad-form__row{grid-template-columns:1fr}
+    .ad-table{font-size:12.5px}
+    .ad-table th,.ad-table td{padding:10px 8px}
+    .ad-table .ad-td-thumb{width:60px}
+    .ad-table .ad-td-thumb img,.ad-table .ad-td-thumb .ad-thumb-ph{width:54px;height:40px}
+    .ad-table .ad-td-actions{width:auto}
+    .ad-act-btn{padding:5px 8px;font-size:10.5px}
+  }
+</style>
+</head>
+<body>
+
+<!-- 로그인 화면 -->
+<section id="login-view" class="ad-login">
+  <form class="ad-login__card" id="login-form">
+    <h1 class="ad-login__title">GPDI Admin</h1>
+    <p class="ad-login__sub">관리자만 접근 가능한 페이지입니다.</p>
+    <div id="login-error" class="ad-error" style="display:none"></div>
+    <label class="ad-field">
+      <span class="ad-field__label">ID</span>
+      <input type="text" id="login-id" class="ad-input" autocomplete="username" required value="admin">
+    </label>
+    <label class="ad-field">
+      <span class="ad-field__label">Password</span>
+      <input type="password" id="login-pw" class="ad-input" autocomplete="current-password" required>
+    </label>
+    <button type="submit" class="ad-btn" id="login-submit">로그인</button>
+  </form>
+</section>
+
+<!-- 대시보드 -->
+<div id="dash-view" style="display:none">
+  <header class="ad-hdr">
+    <div class="ad-hdr__title">GPDI Admin <small>콘텐츠 관리</small></div>
+    <div class="ad-hdr__user">
+      <span id="hdr-user"></span>
+      <button class="ad-btn ad-btn--ghost" id="logout-btn">로그아웃</button>
+    </div>
+  </header>
+
+  <div class="ad-wrap">
+    <div class="ad-tabs" role="tablist">
+      <button class="ad-tab is-active" data-tab="press" role="tab" aria-selected="true">보도자료</button>
+      <button class="ad-tab" data-tab="video" role="tab" aria-selected="false">교육영상</button>
+    </div>
+
+    <div class="ad-toolbar">
+      <div class="ad-toolbar__count">전체 <strong id="ad-total">…</strong>건</div>
+      <button class="ad-btn" id="ad-new-btn">+ 새 항목 추가</button>
+    </div>
+
+    <!-- 보도자료 폼 -->
+    <form class="ad-form" id="press-form" data-form="press">
+      <div class="ad-form__row">
+        <label>
+          <span class="ad-field__label">제목</span>
+          <input type="text" name="title" class="ad-input" required maxlength="500">
+        </label>
+        <label>
+          <span class="ad-field__label">날짜</span>
+          <input type="date" name="published_at" class="ad-input" required>
+        </label>
+      </div>
+      <div class="ad-form__row ad-form__row--single">
+        <label>
+          <span class="ad-field__label">기사 링크 (선택)</span>
+          <input type="url" name="url" class="ad-input" placeholder="https://…" maxlength="2000">
+          <div class="ad-form__hint">없으면 비워둬도 됩니다. 비워두면 클릭해도 이동하지 않습니다.</div>
+        </label>
+      </div>
+      <label class="ad-form__check">
+        <input type="checkbox" name="is_published" checked> 발행 (체크 해제 시 비공개 — 사이트엔 안 보이고 admin에서만 보임)
+      </label>
+      <div class="ad-form__actions">
+        <button type="button" class="ad-btn ad-btn--secondary" data-act="cancel">취소</button>
+        <button type="submit" class="ad-btn">저장</button>
+      </div>
+    </form>
+
+    <!-- 교육영상 폼 -->
+    <form class="ad-form" id="video-form" data-form="video">
+      <div class="ad-form__row">
+        <label>
+          <span class="ad-field__label">제목</span>
+          <input type="text" name="title" class="ad-input" required maxlength="500">
+        </label>
+        <label>
+          <span class="ad-field__label">날짜</span>
+          <input type="date" name="published_at" class="ad-input" required>
+        </label>
+      </div>
+      <div class="ad-form__row ad-form__row--single">
+        <label>
+          <span class="ad-field__label">YouTube URL 또는 11자 ID</span>
+          <input type="text" name="youtube_url" class="ad-input" placeholder="https://www.youtube.com/watch?v=… 또는 11자 ID">
+          <div class="ad-form__hint">URL 붙여넣으면 자동으로 ID 추출 + 썸네일 생성. 있으면 아래 외부 링크는 무시됩니다.</div>
+        </label>
+      </div>
+      <div class="ad-form__row ad-form__row--single">
+        <label>
+          <span class="ad-field__label">외부 링크 (YouTube 없을 때만)</span>
+          <input type="url" name="external_url" class="ad-input" placeholder="https://… (예: gpdi.kr 영상 페이지)">
+          <div class="ad-form__hint">YouTube 미사용 영상(직접 호스팅 등)에 대비한 선택 필드. 둘 중 하나는 반드시 입력.</div>
+        </label>
+      </div>
+      <label class="ad-form__check">
+        <input type="checkbox" name="is_published" checked> 발행
+      </label>
+      <div class="ad-form__actions">
+        <button type="button" class="ad-btn ad-btn--secondary" data-act="cancel">취소</button>
+        <button type="submit" class="ad-btn">저장</button>
+      </div>
+    </form>
+
+    <div id="ad-list-wrap">
+      <div class="ad-loading">불러오는 중…</div>
+    </div>
+    <nav class="ad-pager" id="ad-pager" aria-label="페이지 이동"></nav>
+  </div>
+</div>
+
+<div class="ad-toast" id="ad-toast"></div>
+
+<script type="module" src="../js/admin.js"></script>
+</body>
+</html>

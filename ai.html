@@ -114,8 +114,9 @@
     margin:40px 0 0;position:relative;z-index:2;
     border-top:1px solid rgba(255,255,255,.12);
   }
-  .ax-kpis > div{padding:22px 0 0;border-right:1px solid rgba(255,255,255,.08)}
-  .ax-kpis > div:last-child{border-right:0}
+  .ax-kpis > div{padding:22px 22px 0;border-right:1px solid rgba(255,255,255,.08)}
+  .ax-kpis > div:first-child{padding-left:0}
+  .ax-kpis > div:last-child{padding-right:0;border-right:0}
   .ax-kpis strong{display:block;font:800 28px/1.1 "Inter",sans-serif;color:#86acaa;letter-spacing:-.01em;margin-bottom:6px}
   .ax-kpis span{display:block;font:500 12px/1.5 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.65);letter-spacing:-.005em}
 
@@ -168,6 +169,85 @@
   .ax-card__desc{margin:0;font:400 14px/1.85 "Noto Sans KR",sans-serif;color:#595857;word-break:keep-all;text-wrap:pretty;flex:1}
   .ax-card__list{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
   .ax-card__list li{list-style:none;padding:4px 10px;background:#f3f5f8;color:#535470;font:600 11.5px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:-.003em}
+
+  /* ===== AI Agent 아키텍처 다이어그램 ===== */
+  .ax-arch{margin:60px 0 0;padding:48px 36px;background:linear-gradient(180deg,#faf9f6 0%,#fff 100%);border:1px solid #eceff5}
+  .ax-arch__eyebrow{font:800 11px/1 "Inter",sans-serif;color:#86acaa;letter-spacing:.18em;text-transform:uppercase;margin:0 0 8px;text-align:center}
+  .ax-arch__title{margin:0 0 8px;font:700 18px/1.3 "Noto Sans KR",sans-serif;color:#1f2a4a;letter-spacing:-.005em;text-align:center}
+  .ax-arch__sub{margin:0 0 36px;font:400 13.5px/1.7 "Noto Sans KR",sans-serif;color:#595857;text-align:center;word-break:keep-all;text-wrap:pretty;max-width:720px;margin-left:auto;margin-right:auto}
+  .ax-arch__flow{display:grid;grid-template-columns:1fr 90px 1.4fr 90px 1fr;gap:0;align-items:stretch;margin:0 auto 0;max-width:920px}
+  .ax-arch__node{padding:22px 18px;background:#fff;border:1px solid #d6dae3;text-align:center;display:flex;flex-direction:column;justify-content:center;gap:8px}
+  .ax-arch__node--core{background:linear-gradient(140deg,#1f2a4a 0%,#535470 100%);border-color:#1f2a4a;color:#fff;padding:32px 22px;box-shadow:0 18px 36px rgba(31,42,74,.18)}
+  .ax-arch__node-label{font:700 11px/1 "Inter",sans-serif;color:#86acaa;letter-spacing:.18em;text-transform:uppercase;margin:0}
+  .ax-arch__node--core .ax-arch__node-label{color:rgba(134,172,170,.95)}
+  .ax-arch__node-title{margin:0;font:700 15px/1.3 "Noto Sans KR",sans-serif;color:#1f2a4a;letter-spacing:-.005em;word-break:keep-all}
+  .ax-arch__node--core .ax-arch__node-title{color:#fff;font-size:18px}
+  .ax-arch__node-desc{margin:0;font:400 11.5px/1.6 "Noto Sans KR",sans-serif;color:#595857;word-break:keep-all;text-wrap:pretty}
+  .ax-arch__node--core .ax-arch__node-desc{color:rgba(255,255,255,.82)}
+  .ax-arch__arrow{display:flex;align-items:center;justify-content:center;color:#86acaa}
+  .ax-arch__connector{margin:0 auto;width:2px;height:32px;background:linear-gradient(180deg,#86acaa,rgba(134,172,170,.15));max-width:920px}
+  .ax-arch__support{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 auto;max-width:920px}
+  .ax-arch__sup-item{padding:20px 18px;background:#fff;border:1px dashed #d6dae3;text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center;transition:border-color .25s ease,background .25s ease}
+  .ax-arch__sup-item:hover{border-color:#86acaa;border-style:solid;background:#faf9f6}
+  .ax-arch__sup-icon{width:38px;height:38px;display:flex;align-items:center;justify-content:center;color:#535470;background:#f3f5f8;border-radius:50%}
+  .ax-arch__sup-item:nth-child(2) .ax-arch__sup-icon{color:#86acaa;background:#eaf3f2}
+  .ax-arch__sup-item:nth-child(3) .ax-arch__sup-icon{color:#b87860;background:#f5ebe6}
+  .ax-arch__sup-name{margin:0;font:700 13.5px/1.3 "Noto Sans KR",sans-serif;color:#1f2a4a;letter-spacing:-.005em}
+  .ax-arch__sup-desc{margin:0;font:400 11.5px/1.6 "Noto Sans KR",sans-serif;color:#595857;word-break:keep-all;text-wrap:pretty}
+
+  /* ===== Use Cases — 8 시나리오 ===== */
+  .ax-cases-wrap{margin:60px 0 0}
+  .ax-cases-wrap__eyebrow{font:800 11px/1 "Inter",sans-serif;color:#86acaa;letter-spacing:.18em;text-transform:uppercase;margin:0 0 8px}
+  .ax-cases-wrap__title{margin:0 0 8px;font:700 18px/1.3 "Noto Sans KR",sans-serif;color:#1f2a4a;letter-spacing:-.005em}
+  .ax-cases-wrap__sub{margin:0 0 24px;font:400 13.5px/1.7 "Noto Sans KR",sans-serif;color:#595857;word-break:keep-all;max-width:720px}
+  .ax-cases{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .ax-case{padding:24px 20px;background:#fff;border:1px solid #eceff5;display:flex;flex-direction:column;gap:12px;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+  .ax-case:hover{transform:translateY(-3px);border-color:#86acaa;box-shadow:0 14px 28px rgba(14,20,38,.08)}
+  .ax-case__icon{width:38px;height:38px;color:#535470;display:flex;align-items:center;justify-content:center;background:#f3f5f8;border-radius:8px;flex-shrink:0}
+  .ax-case:nth-child(4n+2) .ax-case__icon{color:#86acaa;background:#eaf3f2}
+  .ax-case:nth-child(4n+3) .ax-case__icon{color:#b87860;background:#f5ebe6}
+  .ax-case:nth-child(4n) .ax-case__icon{color:#1f2a4a;background:#e7e9ef}
+  .ax-case__title{margin:0;font:700 14.5px/1.35 "Noto Sans KR",sans-serif;color:#1f2a4a;letter-spacing:-.005em;word-break:keep-all}
+  .ax-case__desc{margin:0;font:400 12.5px/1.7 "Noto Sans KR",sans-serif;color:#595857;word-break:keep-all;text-wrap:pretty}
+
+  /* ===== 엔터프라이즈 아키텍처 5계층 ===== */
+  .ax-stack-arch{margin:48px 0 0;background:#fff;border:1px solid #eceff5;overflow:hidden}
+  .ax-stack-arch__hdr{padding:36px 30px 24px;text-align:center;background:linear-gradient(180deg,#faf9f6 0%,#fff 100%);border-bottom:1px solid #eceff5}
+  .ax-stack-arch__eyebrow{font:800 11px/1 "Inter",sans-serif;color:#86acaa;letter-spacing:.18em;text-transform:uppercase;margin:0 0 8px}
+  .ax-stack-arch__title{margin:0 0 8px;font:700 18px/1.3 "Noto Sans KR",sans-serif;color:#1f2a4a;letter-spacing:-.005em}
+  .ax-stack-arch__sub{margin:0 auto;font:400 13.5px/1.7 "Noto Sans KR",sans-serif;color:#595857;max-width:720px;word-break:keep-all;text-wrap:pretty}
+  .ax-stack-arch__body{display:flex;flex-direction:column}
+  .ax-stack-arch__layer{
+    display:grid;grid-template-columns:64px 1fr auto;gap:24px;align-items:center;
+    padding:22px 30px;border-bottom:1px solid #eceff5;position:relative;transition:background .22s ease;
+  }
+  .ax-stack-arch__layer:last-child{border-bottom:0}
+  .ax-stack-arch__layer::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:#86acaa;
+  }
+  .ax-stack-arch__layer:nth-child(1)::before{background:#535470}
+  .ax-stack-arch__layer:nth-child(2)::before{background:#86acaa}
+  .ax-stack-arch__layer:nth-child(3)::before{background:#b87860}
+  .ax-stack-arch__layer:nth-child(4)::before{background:#3e3a39}
+  .ax-stack-arch__layer:nth-child(5)::before{background:#1f2a4a}
+  .ax-stack-arch__layer:nth-child(5){background:linear-gradient(90deg,rgba(31,42,74,.04),rgba(31,42,74,.01))}
+  .ax-stack-arch__layer:hover{background:#faf9f6}
+  .ax-stack-arch__layer:nth-child(5):hover{background:linear-gradient(90deg,rgba(31,42,74,.08),rgba(31,42,74,.03))}
+  .ax-stack-arch__num{
+    font:800 12px/1 "Inter",sans-serif;color:#86acaa;letter-spacing:.16em;
+    padding:8px 12px;border:1px solid #d6dae3;text-align:center;
+  }
+  .ax-stack-arch__layer:nth-child(1) .ax-stack-arch__num{color:#535470;border-color:#535470}
+  .ax-stack-arch__layer:nth-child(2) .ax-stack-arch__num{color:#86acaa;border-color:#86acaa}
+  .ax-stack-arch__layer:nth-child(3) .ax-stack-arch__num{color:#b87860;border-color:#b87860}
+  .ax-stack-arch__layer:nth-child(4) .ax-stack-arch__num{color:#3e3a39;border-color:#3e3a39}
+  .ax-stack-arch__layer:nth-child(5) .ax-stack-arch__num{color:#1f2a4a;border-color:#1f2a4a}
+  .ax-stack-arch__heading{min-width:0}
+  .ax-stack-arch__label{margin:0 0 4px;font:600 10.5px/1 "Inter",sans-serif;color:#86acaa;letter-spacing:.18em;text-transform:uppercase}
+  .ax-stack-arch__name{margin:0 0 4px;font:700 15.5px/1.3 "Noto Sans KR",sans-serif;color:#1f2a4a;letter-spacing:-.005em;word-break:keep-all}
+  .ax-stack-arch__desc{margin:0;font:400 12.5px/1.65 "Noto Sans KR",sans-serif;color:#595857;word-break:keep-all;text-wrap:pretty}
+  .ax-stack-arch__tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:380px}
+  .ax-stack-arch__tag{padding:5px 11px;background:#f3f5f8;color:#535470;font:600 11px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:-.003em;white-space:nowrap}
 
   /* ===== 기술 스택 ===== */
   .ax-stack{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:40px 0 0}
@@ -273,6 +353,18 @@
     .ax-why__item{padding:28px 22px;gap:16px}
     .ax-cta{grid-template-columns:1fr;gap:24px;padding:40px 28px}
     .ax-cta__btn{justify-self:start}
+    .ax-arch{padding:32px 20px}
+    .ax-arch__flow{grid-template-columns:1fr;gap:14px}
+    .ax-arch__arrow{transform:rotate(90deg);padding:4px 0}
+    .ax-arch__support{grid-template-columns:1fr;gap:10px}
+    .ax-cases{grid-template-columns:repeat(2,1fr);gap:10px}
+    .ax-stack-arch__hdr{padding:28px 22px 18px}
+    .ax-stack-arch__layer{grid-template-columns:1fr;gap:10px;padding:20px 22px 20px 30px}
+    .ax-stack-arch__num{justify-self:start}
+    .ax-stack-arch__tags{justify-content:flex-start;max-width:none}
+  }
+  @media (max-width:540px){
+    .ax-cases{grid-template-columns:1fr}
   }
 
   /* Floating Info */
@@ -318,6 +410,147 @@
   .gp-footer__voucher img{height:20px;width:auto;display:block}
   .gp-footer__partner{margin:4px 0 0;font:400 11.5px/1.65 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.55)}
   @media (max-width:900px){.gp-footer__wrap{padding:0 24px}.gp-footer__info .gp-footer__wrap{grid-template-columns:1fr;gap:28px;padding-top:32px;padding-bottom:32px}.gp-footer__brand{align-items:flex-start;text-align:left}.gp-footer__links ul{gap:20px;padding:12px 0}}
+
+  /* ================================================== */
+  /* ===== 3D · 인터랙션 효과 ===== */
+  /* ================================================== */
+
+  /* AI Agent — 베이스라인 isometric + 마우스 패럴랙스 + 호버 시에만 흐름 활성 */
+  .ax-arch{perspective:1400px;--ax:0;--ay:0}
+  .ax-arch__flow{
+    transform-style:preserve-3d;
+    transform:rotateX(calc(2deg + var(--ay) * -3deg)) rotateY(calc(var(--ax) * 3deg));
+    transition:transform .35s cubic-bezier(.2,.7,.2,1);
+  }
+  .ax-arch__support{
+    transform-style:preserve-3d;
+    transform:rotateX(calc(2deg + var(--ay) * -2.5deg)) rotateY(calc(var(--ax) * 2.5deg));
+    transition:transform .35s cubic-bezier(.2,.7,.2,1);
+  }
+  .ax-arch__node{
+    position:relative;transform:translateZ(0);
+    transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease,border-color .25s ease;
+  }
+  .ax-arch__node:not(.ax-arch__node--core):hover{
+    transform:translateZ(22px);border-color:#86acaa;
+    box-shadow:0 24px 44px rgba(14,20,38,.14);
+  }
+  /* core: 정적 글로우, 호버 시만 강화 (펄스 없음) */
+  .ax-arch__node--core{position:relative}
+  .ax-arch__node--core::before{
+    content:"";position:absolute;inset:-24px;z-index:-1;
+    background:radial-gradient(closest-side,rgba(134,172,170,.42),transparent 70%);
+    filter:blur(18px);opacity:.6;
+    transition:opacity .45s ease,inset .45s ease;
+  }
+  .ax-arch__node--core:hover{transform:translateZ(30px)}
+  .ax-arch__node--core:hover::before{opacity:1;inset:-34px}
+
+  /* Beam — 정적 그라디언트 라인. 호버 시에만 파티클 통과 */
+  .ax-arch__arrow{
+    position:relative;align-self:center;justify-self:stretch;
+    height:2px;margin:0 10px;
+    background:linear-gradient(90deg,
+      rgba(134,172,170,.18),
+      rgba(134,172,170,.55) 50%,
+      rgba(134,172,170,.18));
+  }
+  .ax-arch__arrow svg{display:none}
+  .ax-arch__arrow::before{
+    content:"";position:absolute;top:50%;left:0;
+    width:7px;height:7px;border-radius:50%;
+    background:#86acaa;box-shadow:0 0 14px rgba(134,172,170,.85);
+    transform:translate(-3px,-50%);opacity:0;
+  }
+  .ax-arch:hover .ax-arch__arrow::before{animation:beamParticle 1.8s linear infinite}
+  .ax-arch:hover .ax-arch__flow .ax-arch__arrow:nth-of-type(2)::before{animation-delay:.6s}
+  @keyframes beamParticle{
+    0%{left:0;opacity:0}
+    10%{opacity:1}
+    85%{opacity:1}
+    100%{left:100%;opacity:0}
+  }
+
+  /* Connector — 호버 시에만 도트 흐름 */
+  .ax-arch__connector{position:relative;overflow:hidden}
+  .ax-arch__connector::before{
+    content:"";position:absolute;left:50%;top:0;
+    width:5px;height:5px;border-radius:50%;
+    background:#86acaa;box-shadow:0 0 12px rgba(134,172,170,.75);
+    transform:translateX(-50%);opacity:0;
+  }
+  .ax-arch:hover .ax-arch__connector::before{animation:archConnDot 2.6s ease-in-out infinite}
+  @keyframes archConnDot{
+    0%{top:-8px;opacity:0}
+    15%{opacity:1}
+    85%{opacity:1}
+    100%{top:calc(100% + 4px);opacity:0}
+  }
+
+  /* 보조 노드 — 호버 시 깊이 부상 */
+  .ax-arch__sup-item{
+    transform:translateZ(0);
+    transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease,background .25s ease,border-color .25s ease,border-style .25s ease;
+  }
+  .ax-arch__sup-item:hover{
+    transform:translateY(-6px) translateZ(26px);
+    box-shadow:0 26px 50px rgba(14,20,38,.16);
+  }
+  .ax-arch__sup-icon{transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+  .ax-arch__sup-item:hover .ax-arch__sup-icon{transform:translateZ(20px) scale(1.1)}
+
+  /* 5계층 — 베이스라인 isometric + 마우스 트래킹 + 레이어 부상 */
+  .ax-stack-arch{perspective:1800px;--sx:0;--sy:0}
+  .ax-stack-arch__body{
+    transform-style:preserve-3d;
+    transform:rotateX(calc(5deg + var(--sy) * -3deg)) rotateY(calc(var(--sx) * 2.5deg));
+    transition:transform .35s cubic-bezier(.2,.7,.2,1);
+  }
+  .ax-stack-arch__layer{
+    transform:translateZ(0);
+    will-change:transform,box-shadow;
+    transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s ease,background .25s ease;
+  }
+  .ax-stack-arch__layer:hover{
+    transform:translateZ(36px);
+    box-shadow:0 32px 64px rgba(14,20,38,.22);
+    z-index:2;
+  }
+  .ax-stack-arch__layer:has(+ .ax-stack-arch__layer:hover),
+  .ax-stack-arch__layer:hover + .ax-stack-arch__layer{transform:translateZ(10px)}
+  .ax-stack-arch__num{transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+  .ax-stack-arch__layer:hover .ax-stack-arch__num{transform:translateZ(16px)}
+
+  /* Use Cases — 마우스 위치 따라 카드별 틸트 (스냅 호버 X) */
+  .ax-cases{perspective:1100px}
+  .ax-case{
+    --cx:0;--cy:0;
+    transform-style:preserve-3d;
+    transform:rotateY(calc(var(--cx) * 5deg)) rotateX(calc(var(--cy) * -4deg));
+    transition:transform .14s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease,border-color .25s ease;
+  }
+  .ax-case:hover{
+    box-shadow:0 24px 46px rgba(14,20,38,.14);
+    border-color:#86acaa;
+  }
+  .ax-case__icon,.ax-case__title,.ax-case__desc{
+    transform:translateZ(0);
+    transition:transform .3s cubic-bezier(.2,.7,.2,1);
+  }
+  .ax-case:hover .ax-case__icon{transform:translateZ(24px) scale(1.1)}
+  .ax-case:hover .ax-case__title{transform:translateZ(12px)}
+  .ax-case:hover .ax-case__desc{transform:translateZ(5px)}
+
+  /* 모션 비선호 사용자 보호 */
+  @media (prefers-reduced-motion:reduce){
+    .ax-arch__arrow::before,.ax-arch__connector::before{animation:none}
+    .ax-arch__flow,.ax-arch__support,.ax-stack-arch__body,
+    .ax-arch__node,.ax-arch__sup-item,.ax-arch__sup-icon,
+    .ax-stack-arch__layer,.ax-stack-arch__num,
+    .ax-case,.ax-case__icon,.ax-case__title,.ax-case__desc{
+      transition:none;transform:none !important;
+    }
+  }
 </style>
 </head>
 <body data-lang="ko">
@@ -349,7 +582,7 @@
           <div class="submenu"><ul>
             <li><a href="healthcare.html">헬스케어</a></li>
             <li><a href="smartcity.html">스마트시티</a></li>
-            <li><a href="#">국방안전</a></li>
+            <li><a href="defense.html"><span class="t-ko">국방안전</span><span class="t-en">Defense &amp; Safety</span></a></li>
           </ul></div>
         </li>
         <li class="is-current"><a href="ai.html">AI 전환</a>
@@ -358,6 +591,7 @@
             <li><a href="ai.html#ax-ict-infra">ICT · 인프라</a></li>
           </ul></div>
         </li>
+        <li><a href="contact.html">문의·위치</a></li>
       </ul>
     </div>
     <div class="util util--clean">
@@ -508,6 +742,125 @@
           </ul>
         </article>
       </div>
+
+      <!-- ===== AI Agent 아키텍처 ===== -->
+      <div class="ax-arch">
+        <p class="ax-arch__eyebrow">How it works</p>
+        <h4 class="ax-arch__title">AI Agent 작동 흐름</h4>
+        <p class="ax-arch__sub">사용자 요청이 LLM 에이전트를 거쳐 사내 지식·도구·메모리와 연결되어 실제 업무로 실행됩니다. 단순 챗봇이 아닌, 의사결정과 행동까지 처리하는 구조.</p>
+        <div class="ax-arch__flow">
+          <div class="ax-arch__node">
+            <p class="ax-arch__node-label">User</p>
+            <p class="ax-arch__node-title">사용자 요청</p>
+            <p class="ax-arch__node-desc">자연어 질의 · 문서 입력 · 시스템 트리거</p>
+          </div>
+          <div class="ax-arch__arrow" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5l5 5-5 5"/></svg>
+          </div>
+          <div class="ax-arch__node ax-arch__node--core">
+            <p class="ax-arch__node-label">Agent · LLM</p>
+            <p class="ax-arch__node-title">AI Agent Core</p>
+            <p class="ax-arch__node-desc">의도 파악 · 계획 수립 · 도구 호출 · 결과 검증</p>
+          </div>
+          <div class="ax-arch__arrow" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14m-5-5l5 5-5 5"/></svg>
+          </div>
+          <div class="ax-arch__node">
+            <p class="ax-arch__node-label">Output</p>
+            <p class="ax-arch__node-title">응답 · 실행</p>
+            <p class="ax-arch__node-desc">자동 응답 · 문서 생성 · 시스템 작업 실행</p>
+          </div>
+        </div>
+        <div class="ax-arch__connector" aria-hidden="true"></div>
+        <div class="ax-arch__support">
+          <div class="ax-arch__sup-item">
+            <span class="ax-arch__sup-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
+            </span>
+            <p class="ax-arch__sup-name">지식 베이스 · RAG</p>
+            <p class="ax-arch__sup-desc">사내 문서 · 매뉴얼 · 과거 보고서를 임베딩해 즉시 검색</p>
+          </div>
+          <div class="ax-arch__sup-item">
+            <span class="ax-arch__sup-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 1 0 5.6 5.6l-3-3 3-3a4 4 0 0 0-5.6.4z"/><path d="M14.5 8.5L4 19l1.5 1.5L16 10"/></svg>
+            </span>
+            <p class="ax-arch__sup-name">도구 · MCP · API</p>
+            <p class="ax-arch__sup-desc">사내 시스템 · SaaS · DB와 연결해 읽고 쓰기 자동 실행</p>
+          </div>
+          <div class="ax-arch__sup-item">
+            <span class="ax-arch__sup-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            </span>
+            <p class="ax-arch__sup-name">메모리 · 컨텍스트</p>
+            <p class="ax-arch__sup-desc">대화 이력 · 사용자 맥락 · 작업 상태를 보존해 연속성 확보</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Use Cases — 8 시나리오 ===== -->
+      <div class="ax-cases-wrap">
+        <p class="ax-cases-wrap__eyebrow">Use Cases</p>
+        <h4 class="ax-cases-wrap__title">실제 적용 시나리오</h4>
+        <p class="ax-cases-wrap__sub">현장에서 효과가 큰 8가지 패턴 — 단발성 PoC가 아닌 운영 가능한 형태로 납품합니다.</p>
+        <div class="ax-cases">
+          <article class="ax-case">
+            <span class="ax-case__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </span>
+            <h5 class="ax-case__title">내부 지식 챗봇</h5>
+            <p class="ax-case__desc">회사 문서·규정·매뉴얼을 자연어로 즉시 검색·답변</p>
+          </article>
+          <article class="ax-case">
+            <span class="ax-case__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M9 13l2 2 4-4"/></svg>
+            </span>
+            <h5 class="ax-case__title">계약서 · 제안서 검토</h5>
+            <p class="ax-case__desc">핵심 조항 추출, 리스크·누락 항목 자동 플래그</p>
+          </article>
+          <article class="ax-case">
+            <span class="ax-case__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>
+            </span>
+            <h5 class="ax-case__title">보고서 자동 생성</h5>
+            <p class="ax-case__desc">데이터·이슈를 임원 요약본까지 한 번에 정리</p>
+          </article>
+          <article class="ax-case">
+            <span class="ax-case__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/><circle cx="8" cy="6" r="1.5" fill="currentColor"/><circle cx="16" cy="12" r="1.5" fill="currentColor"/><circle cx="11" cy="18" r="1.5" fill="currentColor"/></svg>
+            </span>
+            <h5 class="ax-case__title">견적 자동 산출</h5>
+            <p class="ax-case__desc">사양·옵션 입력 시 견적서 초안과 단가표 즉시 생성</p>
+          </article>
+          <article class="ax-case">
+            <span class="ax-case__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+            </span>
+            <h5 class="ax-case__title">고객응대 봇</h5>
+            <p class="ax-case__desc">문의 자동 분류 · 1차 응답 · 담당자 라우팅</p>
+          </article>
+          <article class="ax-case">
+            <span class="ax-case__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="1"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>
+            </span>
+            <h5 class="ax-case__title">채용 스크리닝</h5>
+            <p class="ax-case__desc">이력서 자동 정렬, 직무 적합도·면접질문 제안</p>
+          </article>
+          <article class="ax-case">
+            <span class="ax-case__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c3-3 6-3 9 0s6 3 9 0"/><path d="M3 18c3-3 6-3 9 0s6 3 9 0"/><path d="M3 6c3-3 6-3 9 0s6 3 9 0"/></svg>
+            </span>
+            <h5 class="ax-case__title">데이터 정제 · 분석</h5>
+            <p class="ax-case__desc">비정형 자료를 구조화하고 인사이트·이상치 탐지</p>
+          </article>
+          <article class="ax-case">
+            <span class="ax-case__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></svg>
+            </span>
+            <h5 class="ax-case__title">회의록 · 전사</h5>
+            <p class="ax-case__desc">실시간 받아쓰기, 액션아이템·결정사항 자동 추출</p>
+          </article>
+        </div>
+      </div>
     </section>
 
     <!-- ===== ICT · 인프라 — 시스템과 데이터 기반 ===== -->
@@ -552,6 +905,86 @@
             <li>OAuth · SSO</li><li>RBAC</li><li>암호화</li><li>감사로그</li>
           </ul>
         </article>
+      </div>
+
+      <!-- ===== 엔터프라이즈 시스템 5계층 아키텍처 ===== -->
+      <div class="ax-stack-arch">
+        <div class="ax-stack-arch__hdr">
+          <p class="ax-stack-arch__eyebrow">Architecture</p>
+          <h4 class="ax-stack-arch__title">엔터프라이즈 시스템 5계층 구조</h4>
+          <p class="ax-stack-arch__sub">사용자 요청이 어떤 경로로 처리되고, 데이터·AI·인프라가 어떻게 연결되는지 — 우리가 다루는 시스템의 전형적 레이어 구성.</p>
+        </div>
+        <div class="ax-stack-arch__body">
+          <div class="ax-stack-arch__layer">
+            <span class="ax-stack-arch__num">L1</span>
+            <div class="ax-stack-arch__heading">
+              <p class="ax-stack-arch__label">Presentation</p>
+              <h5 class="ax-stack-arch__name">클라이언트 · UI</h5>
+              <p class="ax-stack-arch__desc">웹 · 모바일 · 외부 채널 — 사용자가 만나는 화면과 외부 연동의 입출구</p>
+            </div>
+            <div class="ax-stack-arch__tags">
+              <span class="ax-stack-arch__tag">Web</span>
+              <span class="ax-stack-arch__tag">Mobile</span>
+              <span class="ax-stack-arch__tag">External APIs</span>
+            </div>
+          </div>
+          <div class="ax-stack-arch__layer">
+            <span class="ax-stack-arch__num">L2</span>
+            <div class="ax-stack-arch__heading">
+              <p class="ax-stack-arch__label">Gateway</p>
+              <h5 class="ax-stack-arch__name">API 게이트웨이</h5>
+              <p class="ax-stack-arch__desc">인증·라우팅·트래픽 제어·로깅 — 모든 요청이 통과하는 단일 진입점</p>
+            </div>
+            <div class="ax-stack-arch__tags">
+              <span class="ax-stack-arch__tag">OAuth · JWT</span>
+              <span class="ax-stack-arch__tag">Rate Limit</span>
+              <span class="ax-stack-arch__tag">Routing</span>
+              <span class="ax-stack-arch__tag">Logging</span>
+            </div>
+          </div>
+          <div class="ax-stack-arch__layer">
+            <span class="ax-stack-arch__num">L3</span>
+            <div class="ax-stack-arch__heading">
+              <p class="ax-stack-arch__label">Application</p>
+              <h5 class="ax-stack-arch__name">애플리케이션 서비스</h5>
+              <p class="ax-stack-arch__desc">비즈니스 로직 · 도메인 서비스 · 워크플로우 — 실제 일을 처리하는 핵심 계층</p>
+            </div>
+            <div class="ax-stack-arch__tags">
+              <span class="ax-stack-arch__tag">REST · GraphQL</span>
+              <span class="ax-stack-arch__tag">Microservices</span>
+              <span class="ax-stack-arch__tag">Event Bus</span>
+              <span class="ax-stack-arch__tag">Workflow</span>
+            </div>
+          </div>
+          <div class="ax-stack-arch__layer">
+            <span class="ax-stack-arch__num">L4</span>
+            <div class="ax-stack-arch__heading">
+              <p class="ax-stack-arch__label">Data · AI</p>
+              <h5 class="ax-stack-arch__name">데이터 · 지능 레이어</h5>
+              <p class="ax-stack-arch__desc">영속성 · 캐시 · 검색 · ML 모델 — 데이터를 보관하고 지식·예측으로 변환</p>
+            </div>
+            <div class="ax-stack-arch__tags">
+              <span class="ax-stack-arch__tag">RDB · NoSQL</span>
+              <span class="ax-stack-arch__tag">Cache</span>
+              <span class="ax-stack-arch__tag">Vector DB</span>
+              <span class="ax-stack-arch__tag">LLM · ML</span>
+            </div>
+          </div>
+          <div class="ax-stack-arch__layer">
+            <span class="ax-stack-arch__num">L5</span>
+            <div class="ax-stack-arch__heading">
+              <p class="ax-stack-arch__label">Infrastructure</p>
+              <h5 class="ax-stack-arch__name">인프라 · 운영 (Foundation)</h5>
+              <p class="ax-stack-arch__desc">클라우드 · 컨테이너 · CI/CD · 관측 · 보안 — 모든 상위 계층을 지탱하는 기반</p>
+            </div>
+            <div class="ax-stack-arch__tags">
+              <span class="ax-stack-arch__tag">AWS · Azure · GCP</span>
+              <span class="ax-stack-arch__tag">Kubernetes</span>
+              <span class="ax-stack-arch__tag">Terraform · IaC</span>
+              <span class="ax-stack-arch__tag">Monitoring</span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- 기술 스택 (ICT·인프라 하위) -->
@@ -696,28 +1129,73 @@
   <div class="info-float__menu" role="menu">
     <p class="info-float__title">Information</p>
     <ul>
-      <li><a role="menuitem" href="index.html#newsletter">공공조달 뉴스레터</a></li>
       <li><a role="menuitem" href="index.html#press">보도자료</a></li>
       <li><a role="menuitem" href="index.html#videos">교육동영상</a></li>
     </ul>
   </div>
 </div>
 <script>(function(){var f=document.getElementById('infoFloat');if(!f)return;var btn=f.querySelector('.info-float__btn');btn.addEventListener('click',function(e){e.stopPropagation();var o=f.classList.toggle('is-open');btn.setAttribute('aria-expanded',o?'true':'false');});document.addEventListener('click',function(e){if(!f.contains(e.target)){f.classList.remove('is-open');btn.setAttribute('aria-expanded','false');}});function s(){if(window.scrollY>120){f.classList.add('is-scrolled');}else{f.classList.remove('is-scrolled');}}window.addEventListener('scroll',s,{passive:true});s();})();</script>
+<script>
+/* 마우스 트래킹 — AI Agent · 5계층 · Use Cases 카드 */
+(function(){
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  function bindContainer(el, xVar, yVar){
+    if(!el) return;
+    var raf;
+    el.addEventListener('mousemove', function(e){
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(function(){
+        var r = el.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - 0.5;
+        var y = (e.clientY - r.top) / r.height - 0.5;
+        el.style.setProperty(xVar, x.toFixed(3));
+        el.style.setProperty(yVar, y.toFixed(3));
+      });
+    });
+    el.addEventListener('mouseleave', function(){
+      el.style.setProperty(xVar, 0);
+      el.style.setProperty(yVar, 0);
+    });
+  }
+
+  bindContainer(document.querySelector('.ax-arch'), '--ax', '--ay');
+  bindContainer(document.querySelector('.ax-stack-arch'), '--sx', '--sy');
+
+  document.querySelectorAll('.ax-case').forEach(function(card){
+    var raf;
+    card.addEventListener('mousemove', function(e){
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(function(){
+        var r = card.getBoundingClientRect();
+        var x = ((e.clientX - r.left) / r.width - 0.5) * 2;
+        var y = ((e.clientY - r.top) / r.height - 0.5) * 2;
+        card.style.setProperty('--cx', x.toFixed(3));
+        card.style.setProperty('--cy', y.toFixed(3));
+      });
+    });
+    card.addEventListener('mouseleave', function(){
+      card.style.setProperty('--cx', 0);
+      card.style.setProperty('--cy', 0);
+    });
+  });
+})();
+</script>
 
 <footer id="footer" class="gp-footer">
   <div class="gp-footer__links">
     <div class="gp-footer__wrap">
       <ul>
-        <li><a href="sub/pop_privacy.html">개인정보처리방침</a></li>
-        <li><a href="sub/pop_email.html">이메일무단수집거부</a></li>
+        <li><a href="sub/pop_privacy.html"><span class="t-ko">개인정보처리방침</span><span class="t-en">Privacy Policy</span></a></li>
+        <li><a href="sub/pop_email.html"><span class="t-ko">이메일무단수집거부</span><span class="t-en">No Email Collection</span></a></li>
       </ul>
     </div>
   </div>
   <div class="gp-footer__info">
     <div class="gp-footer__wrap">
       <address class="gp-footer__addr">
-        <p class="gp-footer__name">글로벌조달개발원</p>
-        <p>주소 : (10542) 경기도 고양시 덕양구 청초로 10, A동 4층 AA04-0405호, 0406호(덕은동), AA04-0405, 0406, 10 Cheongcho-ro, Deogyang-gu, Goyang-si, Gyeonggi-do (10542)</p>
+        <p class="gp-footer__name"><span class="t-ko">글로벌조달개발원</span><span class="t-en">Global Procurement Development Institute</span></p>
+        <p><span class="t-ko">주소 : (10542) 경기도 고양시 덕양구 청초로 10, A동 4층 AA04-0405호, 0406호(덕은동), AA04-0405, 0406, 10 Cheongcho-ro, Deogyang-gu, Goyang-si, Gyeonggi-do (10542)</p>
         <p>사업자등록번호: 863-87-01643 &nbsp; 전화: 02-6242-7200 &nbsp; 팩스: 02-6242-7209 &nbsp; 대표 이메일: information@gpdi.kr</p>
         <p class="gp-footer__copy">COPYRIGHT(C) 2022. Global Procurement Development Institute ALL RIGHTS RESERVED.</p>
       </address>
@@ -726,7 +1204,7 @@
         <a href="https://www.exportvoucher.com/portal/sample/main" target="_blank" rel="noopener" class="gp-footer__voucher" aria-label="수출지원기반활용사업">
           <img src="https://www.gpdi.kr/images/common/f_logo02.png" alt="수출지원기반활용사업" onerror="this.style.display='none'">
         </a>
-        <p class="gp-footer__partner">수출바우처 공식수행기관<br>소관부처: 산업통상자원부(KOTRA)<br>중소벤처기업부(중진공)</p>
+        <p class="gp-footer__partner"><span class="t-ko">수출바우처 공식수행기관<br>소관부처: 산업통상자원부(KOTRA)<br>중소벤처기업부(중진공)</span><span class="t-en">Official Export Voucher Operator<br>Sponsored by: Ministry of Trade, Industry &amp; Energy (KOTRA)<br>Ministry of SMEs &amp; Startups (KOSME)</span></p>
       </div>
     </div>
   </div>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta content="width=device-width,initial-scale=1.0" name="viewport">
+<meta name="description" content="GPDI 보도자료 전체 목록">
+<title>GPDI | 보도자료</title>
+<link rel="icon" type="image/svg+xml" href="images/GPDI_Symbol.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap">
+<script src="js/lang.js" defer></script>
+<style>
+  body[data-lang="ko"] .t-en{display:none !important}
+  body[data-lang="en"] .t-ko{display:none !important}
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;padding:0;scroll-behavior:smooth}
+  ul,ol{list-style:none;margin:0;padding:0}
+  h1,h2,h3,h4,h5,h6,p{margin:0}
+  body{font-family:"Noto Sans KR","Malgun Gothic",sans-serif;color:#3e3a39;background:#fff;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+
+  .header{position:absolute;top:0;left:0;right:0;z-index:100;background:transparent;border-bottom:1px solid rgba(255,255,255,.08)}
+  .header .contain{max-width:1400px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;gap:30px;height:88px}
+  header.header h1.sitelogo{margin:0;padding:0;flex-shrink:0;display:flex;align-items:center;font-size:0}
+  header.header h1.sitelogo img{height:36px;width:auto;display:block}
+  .header #gnb{flex:1}
+  .header #gnb > ul{display:flex;justify-content:center;gap:56px;margin:0;padding:0}
+  .header #gnb > ul > li{position:relative}
+  .header #gnb > ul > li > a{display:flex;align-items:center;height:88px;padding:0 4px;font:500 15px/1 "Noto Sans KR",sans-serif;color:#fff;position:relative;transition:color .2s ease;white-space:nowrap}
+  .header #gnb > ul > li > a::after{content:"";position:absolute;left:50%;bottom:32px;width:0;height:2px;background:#86acaa;transform:translateX(-50%);transition:width .25s ease}
+  .header #gnb > ul > li:hover > a::after,.header #gnb > ul > li.is-current > a::after{width:22px}
+  .header #gnb .submenu{position:absolute;left:50%;top:88px;transform:translateX(-50%) translateY(4px);background:#fff;border-top:2px solid #535470;box-shadow:0 20px 44px rgba(14,20,38,.16);padding:4px 0;min-width:200px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,transform .22s ease,visibility 0s linear .22s;z-index:120}
+  .header #gnb > ul > li:hover > .submenu,.header #gnb > ul > li:focus-within > .submenu{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .22s ease,transform .22s ease}
+  .header #gnb > ul > li::before{content:"";position:absolute;left:-16px;right:-16px;top:88px;height:8px;opacity:0;pointer-events:none}
+  .header #gnb > ul > li:hover::before,.header #gnb > ul > li:focus-within::before{opacity:1;pointer-events:auto}
+  .header #gnb .submenu li a{display:block;padding:12px 22px;font:500 14px/1.45 "Noto Sans KR",sans-serif;color:#3e3a39;white-space:nowrap;transition:background .18s ease,color .18s ease,padding-left .18s ease}
+  .header #gnb .submenu li a:hover{background:#f3f5f8;color:#535470;padding-left:26px}
+  .util--clean{display:inline-flex;font:600 12px/1 "Inter","Noto Sans KR",sans-serif}
+  .util--clean .lang-toggle{display:inline-flex;border:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.08);backdrop-filter:blur(4px)}
+  .util--clean .lang-btn{appearance:none;background:transparent;border:0;padding:8px 14px;color:rgba(255,255,255,.7);font:inherit;letter-spacing:.14em;cursor:pointer;transition:color .15s ease,background .15s ease}
+  .util--clean .lang-btn:hover{color:#fff}
+  .util--clean .lang-btn.is-active{color:#fff;background:rgba(83,84,112,.85)}
+
+  .sub-hero{position:relative;min-height:300px;background:#0a0d14 url('images/main/web-banner-1.png') center/cover no-repeat;color:#fff;display:flex;align-items:flex-end;padding:0 0 50px}
+  .sub-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(14,20,38,.65),rgba(14,20,38,.82))}
+  .sub-hero__inner{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:0 40px;width:100%}
+  .sub-hero__crumb{font:600 11px/1 "Inter",sans-serif;letter-spacing:.22em;color:rgba(255,255,255,.7);text-transform:uppercase;margin:0 0 14px}
+  .sub-hero__crumb a{color:rgba(255,255,255,.6);transition:color .2s}
+  .sub-hero__crumb a:hover{color:#fff}
+  .sub-hero__crumb span{margin:0 10px;color:rgba(255,255,255,.35)}
+  .sub-hero__title{font:700 clamp(28px,3.5vw,40px)/1.15 "Noto Sans KR","Inter",sans-serif;letter-spacing:-.02em;margin:0}
+
+  .pp-body{padding:80px 0 100px;background:#fff}
+  .pp-inner{max-width:1100px;margin:0 auto;padding:0 40px}
+  .pp-meta{display:flex;justify-content:space-between;align-items:baseline;margin:0 0 24px;font:500 13px/1 "Inter","Noto Sans KR",sans-serif;color:#888;letter-spacing:.04em}
+  .pp-meta strong{color:#535470;font-weight:700}
+  .pp-list{display:grid;grid-template-columns:repeat(2,1fr);gap:0 28px;border-top:1px solid #eceff5}
+  .pp-list > li{border-bottom:1px solid #eceff5}
+  .pp-list a{display:block;padding:20px 22px;color:inherit;text-decoration:none;transition:background .18s ease,color .18s ease}
+  .pp-list a:hover{background:#f6f8fb}
+  .pp-list a:hover .pp-title{color:#535470}
+  .pp-date{font-size:11px;color:#888;letter-spacing:.05em}
+  .pp-title{margin-top:6px;font:500 14.5px/1.55 "Noto Sans KR",sans-serif;color:#3e3a39;word-break:keep-all;text-wrap:pretty}
+  .pp-empty,.pp-error{padding:48px 0;text-align:center;color:#888}
+  .pp-pager{display:flex;justify-content:center;gap:6px;margin:48px 0 0;flex-wrap:wrap}
+  .pp-pager button,.pp-pager span{
+    appearance:none;border:1px solid #e5e2dc;background:#fff;color:#535470;
+    padding:9px 14px;font:600 13px/1 "Inter",sans-serif;cursor:pointer;
+    transition:background .18s ease,color .18s ease,border-color .18s ease;
+  }
+  .pp-pager button:hover{background:#535470;color:#fff;border-color:#535470}
+  .pp-pager button:disabled{opacity:.4;cursor:not-allowed;background:#fff !important;color:#535470 !important;border-color:#e5e2dc !important}
+  .pp-pager .is-current{background:#535470;color:#fff;border-color:#535470}
+  .pp-pager .pp-ellipsis{border-color:transparent;color:#aaa;cursor:default}
+  @media (max-width:768px){
+    .pp-body{padding:60px 0 80px}
+    .pp-inner{padding:0 24px}
+    .pp-list{grid-template-columns:1fr;gap:0}
+  }
+
+  .gp-footer{background:#3a3f4a;color:rgba(255,255,255,.65)}
+  .gp-footer a{color:inherit;transition:color .18s ease}
+  .gp-footer__wrap{max-width:1400px;margin:0 auto;padding:0 40px}
+  .gp-footer__links{border-bottom:1px solid rgba(255,255,255,.08)}
+  .gp-footer__links ul{padding:14px 0;display:flex;gap:32px;align-items:center}
+  .gp-footer__links a{display:inline-flex;align-items:center;gap:8px;font:400 12.5px/1 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.7)}
+  .gp-footer__links a::before{content:"";display:inline-block;width:11px;height:11px;border:1px solid rgba(255,255,255,.35);flex-shrink:0}
+  .gp-footer__info .gp-footer__wrap{display:grid;grid-template-columns:1fr auto;gap:60px;align-items:flex-start;padding:40px 0}
+  .gp-footer__addr{font-style:normal;font:400 12.5px/1.75 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.55)}
+  .gp-footer__addr p{margin:0 0 4px}
+  .gp-footer__name{font:700 15px/1.3 "Noto Sans KR",sans-serif;color:#fff;margin:0 0 10px !important}
+  .gp-footer__copy{margin-top:14px !important;font-size:11.5px;color:rgba(255,255,255,.4)}
+  .gp-footer__brand{display:flex;flex-direction:column;align-items:flex-end;gap:14px;text-align:right;min-width:220px}
+  .gp-footer__logo{height:28px;width:auto}
+  .gp-footer__partner{margin:4px 0 0;font:400 11.5px/1.65 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.55)}
+  @media (max-width:900px){.gp-footer__info .gp-footer__wrap{grid-template-columns:1fr;gap:28px}.gp-footer__brand{align-items:flex-start;text-align:left}}
+</style>
+</head>
+<body data-lang="ko">
+
+<header id="header" class="header">
+  <div class="contain">
+    <h1 class="sitelogo"><a href="index.html"><img src="images/GPDI_LOGO_white.svg" alt="글로벌조달개발원"></a></h1>
+    <div id="gnb" class="gnb">
+      <ul>
+        <li><a href="about.html">전략 자문</a>
+          <div class="submenu"><ul>
+            <li><a href="about.html">해외공공조달</a></li>
+            <li><a href="members.html">해외 공공조달 전문가</a></li>
+            <li><a href="history.html">히스토리</a></li>
+          </ul></div></li>
+        <li><a href="performance.html">글로벌 사업</a>
+          <div class="submenu"><ul>
+            <li><a href="performance.html">주요 실적</a></li>
+            <li><a href="services.html">서비스 소개</a></li>
+            <li><a href="gpdi-usa.html">GPDI USA</a></li>
+            <li><a href="gpdi-uae.html">GPDI UAE</a></li>
+            <li><a href="gpdi-ukraine.html">GPDI Ukraine</a></li>
+          </ul></div></li>
+        <li><a href="healthcare.html">산업 솔루션</a>
+          <div class="submenu"><ul>
+            <li><a href="healthcare.html">헬스케어</a></li>
+            <li><a href="smartcity.html">스마트시티</a></li>
+            <li><a href="defense.html"><span class="t-ko">국방안전</span><span class="t-en">Defense &amp; Safety</span></a></li>
+          </ul></div></li>
+        <li><a href="ai.html">AI 전환</a>
+          <div class="submenu"><ul>
+            <li><a href="ai.html#ax-axdx">AX · DX</a></li>
+            <li><a href="ai.html#ax-ict-infra">ICT · 인프라</a></li>
+          </ul></div></li>
+        <li><a href="contact.html">문의·위치</a></li>
+      </ul>
+    </div>
+    <div class="util util--clean">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" class="lang-btn is-active" data-lang="ko">KOR</button>
+        <button type="button" class="lang-btn" data-lang="en">ENG</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="sub-hero">
+  <div class="sub-hero__inner">
+    <p class="sub-hero__crumb"><a href="index.html">HOME</a><span>›</span>PRESS</p>
+    <h2 class="sub-hero__title">보도자료</h2>
+  </div>
+</section>
+
+<main class="pp-body">
+  <div class="pp-inner">
+    <div class="pp-meta">
+      <strong>전체 <span id="pp-total">…</span>건</strong>
+      <span id="pp-page-info"></span>
+    </div>
+    <ul class="pp-list" id="pp-list"></ul>
+    <nav class="pp-pager" id="pp-pager" aria-label="페이지 이동"></nav>
+  </div>
+</main>
+
+<footer id="footer" class="gp-footer">
+  <div class="gp-footer__links">
+    <div class="gp-footer__wrap">
+      <ul>
+        <li><a href="sub/pop_privacy.html"><span class="t-ko">개인정보처리방침</span><span class="t-en">Privacy Policy</span></a></li>
+        <li><a href="sub/pop_email.html"><span class="t-ko">이메일무단수집거부</span><span class="t-en">No Email Collection</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="gp-footer__info">
+    <div class="gp-footer__wrap">
+      <address class="gp-footer__addr">
+        <p class="gp-footer__name"><span class="t-ko">글로벌조달개발원</span><span class="t-en">Global Procurement Development Institute</span></p>
+        <p><span class="t-ko">주소 : (10542) 경기도 고양시 덕양구 청초로 10, A동 4층 AA04-0405호, 0406호(덕은동)</p>
+        <p>사업자등록번호: 863-87-01643 &nbsp; 전화: 02-6242-7200 &nbsp; 팩스: 02-6242-7209 &nbsp; 대표 이메일: information@gpdi.kr</p>
+        <p class="gp-footer__copy">COPYRIGHT(C) 2022. Global Procurement Development Institute ALL RIGHTS RESERVED.</p>
+      </address>
+      <div class="gp-footer__brand">
+        <img class="gp-footer__logo" src="images/GPDI_LOGO_white.svg" alt="글로벌조달개발원">
+        <p class="gp-footer__partner"><span class="t-ko">수출바우처 공식수행기관<br>소관부처: 산업통상자원부(KOTRA)<br>중소벤처기업부(중진공)</span><span class="t-en">Official Export Voucher Operator<br>Sponsored by: Ministry of Trade, Industry &amp; Energy (KOTRA)<br>Ministry of SMEs &amp; Startups (KOSME)</span></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script type="module">
+import { supabase, esc } from './js/supabase.js';
+
+const PAGE_SIZE = 20;
+const params = new URLSearchParams(location.search);
+let page = Math.max(1, parseInt(params.get('p') || '1', 10));
+
+async function load() {
+  const from = (page - 1) * PAGE_SIZE;
+  const to   = from + PAGE_SIZE - 1;
+
+  const { data, count, error } = await supabase
+    .from('press_releases')
+    .select('id, title, url, published_at', { count: 'exact' })
+    .eq('is_published', true)
+    .order('published_at', { ascending: false })
+    .order('id', { ascending: false })
+    .range(from, to);
+
+  const $list  = document.getElementById('pp-list');
+  const $total = document.getElementById('pp-total');
+  const $info  = document.getElementById('pp-page-info');
+
+  if (error) {
+    $list.innerHTML = `<li class="pp-error">불러오기 실패: ${esc(error.message)}</li>`;
+    return;
+  }
+
+  $total.textContent = count ?? 0;
+  const totalPages = Math.max(1, Math.ceil((count || 0) / PAGE_SIZE));
+  $info.textContent = `${page} / ${totalPages} 페이지`;
+
+  if (!data || data.length === 0) {
+    $list.innerHTML = `<li class="pp-empty">표시할 항목이 없습니다.</li>`;
+  } else {
+    $list.innerHTML = data.map(item => `
+      <li>
+        <a href="${esc(item.url || '#')}" target="_blank" rel="noopener">
+          <div class="pp-date">${esc(item.published_at)}</div>
+          <div class="pp-title">${esc(item.title)}</div>
+        </a>
+      </li>`).join('');
+  }
+
+  renderPager(totalPages);
+}
+
+function renderPager(totalPages) {
+  const $p = document.getElementById('pp-pager');
+  if (totalPages <= 1) { $p.innerHTML = ''; return; }
+  const pages = pageWindow(page, totalPages, 2); // 현재 ±2
+  const html = [];
+  html.push(`<button data-p="${page - 1}" ${page === 1 ? 'disabled' : ''}>‹ 이전</button>`);
+  pages.forEach(p => {
+    if (p === '...') html.push(`<span class="pp-ellipsis">…</span>`);
+    else if (p === page) html.push(`<span class="is-current">${p}</span>`);
+    else html.push(`<button data-p="${p}">${p}</button>`);
+  });
+  html.push(`<button data-p="${page + 1}" ${page === totalPages ? 'disabled' : ''}>다음 ›</button>`);
+  $p.innerHTML = html.join('');
+  $p.querySelectorAll('button[data-p]').forEach(b => {
+    b.addEventListener('click', () => {
+      const np = parseInt(b.dataset.p, 10);
+      if (np >= 1 && np <= totalPages) {
+        location.search = `?p=${np}`;
+      }
+    });
+  });
+}
+
+function pageWindow(cur, total, span) {
+  const set = new Set([1, total, cur]);
+  for (let i = 1; i <= span; i++) {
+    if (cur - i >= 1) set.add(cur - i);
+    if (cur + i <= total) set.add(cur + i);
+  }
+  const sorted = [...set].sort((a, b) => a - b);
+  const out = [];
+  for (let i = 0; i < sorted.length; i++) {
+    out.push(sorted[i]);
+    if (i < sorted.length - 1 && sorted[i + 1] - sorted[i] > 1) out.push('...');
+  }
+  return out;
+}
+
+load();
+</script>
+</body>
+</html>

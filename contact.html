@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+<meta name="description" content="GPDI 문의·위치 — 서비스별 이메일 연락처와 한국·미국·우크라이나 사무소 위치">
+<title>GPDI | 문의·위치</title>
+<link rel="icon" type="image/svg+xml" href="images/GPDI_Symbol.svg">
+<link rel="apple-touch-icon" href="images/GPDI_Symbol.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap">
+
+<script src="js/lang.js" defer></script>
+<style>
+  body[data-lang="ko"] .t-en{display:none !important}
+  body[data-lang="en"] .t-ko{display:none !important}
+
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;padding:0;scroll-behavior:smooth}
+  ul,ol{list-style:none;margin:0;padding:0}
+  h1,h2,h3,h4,h5,h6,p{margin:0}
+  button{font:inherit}
+  body{font-family:"Noto Sans KR","Malgun Gothic",sans-serif;color:#3e3a39;background:#fff;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;height:auto;display:block}
+  a{color:inherit;text-decoration:none}
+
+  /* Header */
+  .header{position:absolute;top:0;left:0;right:0;z-index:100;background:transparent;border-bottom:1px solid rgba(255,255,255,.08)}
+  .header .contain{max-width:1400px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;gap:30px;height:88px}
+  .header .contain .util--clean{margin-right:64px}
+  header.header h1.sitelogo{margin:0 !important;padding:0 !important;flex-shrink:0;line-height:1;display:flex !important;align-items:center;align-self:center;height:auto;font-size:0}
+  header.header h1.sitelogo a{display:inline-flex !important;align-items:center;line-height:0;padding:0;margin:0;border:0}
+  header.header h1.sitelogo img{height:36px !important;width:auto !important;display:block;margin:0;padding:0;border:0;vertical-align:middle}
+  .header #gnb{flex:1}
+  .header #gnb > ul{display:flex !important;justify-content:center;gap:56px;margin:0;padding:0;list-style:none}
+  .header #gnb > ul > li{position:relative;list-style:none}
+  .header #gnb > ul > li > a{display:flex !important;align-items:center;height:88px;padding:0 4px;font:500 15px/1 "Noto Sans KR",sans-serif;letter-spacing:-.01em;color:#fff !important;position:relative;transition:color .2s ease;white-space:nowrap;text-decoration:none}
+  .header #gnb > ul > li > a::after{content:"";position:absolute;left:50%;bottom:32px;width:0;height:2px;background:#86acaa;transform:translateX(-50%);transition:width .25s ease}
+  .header #gnb > ul > li:hover > a::after,.header #gnb > ul > li:focus-within > a::after{width:22px}
+  .header #gnb > ul > li.is-current > a::after{width:22px}
+  .header #gnb .submenu{position:absolute !important;left:50% !important;top:88px !important;transform:translateX(-50%) translateY(4px);background:#fff !important;border-top:2px solid #535470;box-shadow:0 20px 44px rgba(14,20,38,.16);padding:4px 0;min-width:200px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,transform .22s ease,visibility 0s linear .22s;z-index:120;display:block !important}
+  .header #gnb > ul > li:hover > .submenu,.header #gnb > ul > li:focus-within > .submenu{opacity:1 !important;visibility:visible !important;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .22s ease,transform .22s ease,visibility 0s}
+  .header #gnb > ul > li::before{content:"";position:absolute;left:-16px;right:-16px;top:88px;height:8px;opacity:0;pointer-events:none}
+  .header #gnb > ul > li:hover::before,.header #gnb > ul > li:focus-within::before{opacity:1;pointer-events:auto}
+  .header #gnb .submenu ul{list-style:none !important;margin:0 !important;padding:0 !important;display:block !important}
+  .header #gnb .submenu li{list-style:none;background:transparent !important;border:0 !important;padding:0 !important}
+  .header #gnb .submenu li a{display:block !important;padding:12px 22px !important;font:500 14px/1.45 "Noto Sans KR",sans-serif !important;color:#3e3a39 !important;white-space:nowrap;background:transparent;transition:background .18s ease,color .18s ease,padding-left .18s ease;text-decoration:none;letter-spacing:0}
+  .header #gnb .submenu li a:hover{background:#f3f5f8 !important;color:#535470 !important;padding-left:26px !important}
+  .util--clean{display:inline-flex;align-items:stretch;font:600 12px/1 "Inter","Noto Sans KR",sans-serif}
+  .util--clean .lang-toggle{display:inline-flex;align-items:stretch;border:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.08);backdrop-filter:blur(4px)}
+  .util--clean .lang-btn{appearance:none;background:transparent;border:0;padding:8px 14px;color:rgba(255,255,255,.7);font:inherit;letter-spacing:.14em;cursor:pointer;transition:color .15s ease,background .15s ease}
+  .util--clean .lang-btn:hover{color:#fff}
+  .util--clean .lang-btn.is-active{color:#fff;background:rgba(83,84,112,.85)}
+
+  /* Sub-hero */
+  .sub-hero{position:relative;min-height:360px;background:#0a0d14 url('images/main/web-banner-1.png') center/cover no-repeat;color:#fff;display:flex;align-items:flex-end;padding:0 0 60px}
+  .sub-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(14,20,38,.65),rgba(14,20,38,.82))}
+  .sub-hero__inner{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:0 40px;width:100%}
+  .sub-hero__crumb{font:600 11px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.22em;color:rgba(255,255,255,.7);text-transform:uppercase;margin:0 0 14px}
+  .sub-hero__crumb a{color:rgba(255,255,255,.6);transition:color .2s}
+  .sub-hero__crumb a:hover{color:#fff}
+  .sub-hero__crumb span{margin:0 10px;color:rgba(255,255,255,.35)}
+  .sub-hero__title{font:700 clamp(32px,4vw,48px)/1.15 "Noto Sans KR","Inter",sans-serif;letter-spacing:-.02em;margin:0}
+  .sub-hero__lede{margin:14px 0 0;max-width:760px;font:400 15px/1.7 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.78);letter-spacing:-.005em;word-break:keep-all;text-wrap:balance}
+
+  /* ===== Body ===== */
+  .ct-body{padding:110px 0 120px;background:#fff}
+  .ct-body__inner{max-width:1200px;margin:0 auto;padding:0 40px}
+
+  .ct-section{margin:0 0 80px}
+  .ct-section:last-child{margin-bottom:0}
+  .ct-section__eyebrow{font:700 11px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.28em;color:#b87860;text-transform:uppercase;margin:0 0 12px;text-align:center}
+  .ct-section__title{
+    margin:0 0 20px;font:700 clamp(26px,2.8vw,34px)/1.25 "Noto Sans KR","Inter",sans-serif;
+    color:#3e3a39;letter-spacing:-.015em;text-align:center;
+  }
+  .ct-section__title::after{content:"";display:block;width:36px;height:2px;background:#86acaa;margin:16px auto 0}
+  .ct-section__lede{max-width:760px;margin:20px auto 0;font:400 14.5px/1.9 "Noto Sans KR",sans-serif;color:#595857;word-break:keep-all;text-wrap:pretty;text-align:center}
+
+  /* 서비스 이메일 카드 그리드 */
+  .ct-emails{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:48px 0 0}
+  .ct-email{
+    position:relative;display:flex;flex-direction:column;gap:14px;
+    padding:32px 28px 28px;background:#fff;border:1px solid #eceff5;
+    transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+  }
+  .ct-email::before{
+    content:"";position:absolute;top:0;left:0;width:0;height:3px;
+    background:linear-gradient(90deg,#535470,#86acaa);transition:width .35s ease;
+  }
+  .ct-email:hover{transform:translateY(-4px);border-color:#86acaa;box-shadow:0 22px 40px rgba(14,20,38,.1)}
+  .ct-email:hover::before{width:100%}
+  .ct-email__tag{
+    display:inline-block;align-self:flex-start;
+    padding:5px 11px;background:#f3f5f8;color:#535470;
+    font:700 10.5px/1 "Inter",sans-serif;letter-spacing:.18em;text-transform:uppercase;
+  }
+  .ct-email:nth-child(2) .ct-email__tag{background:#eaf3f2;color:#86acaa}
+  .ct-email:nth-child(3) .ct-email__tag{background:#f5ebe6;color:#b87860}
+  .ct-email:nth-child(4) .ct-email__tag{background:#e7e9ef;color:#1f2a4a}
+  .ct-email:nth-child(5) .ct-email__tag{background:#eaf3f2;color:#86acaa}
+  .ct-email:nth-child(6) .ct-email__tag{background:#f5ebe6;color:#b87860}
+  .ct-email__title{margin:0;font:700 18px/1.3 "Noto Sans KR",sans-serif;color:#1f2a4a;letter-spacing:-.01em;word-break:keep-all}
+  .ct-email__desc{margin:0;font:400 13.5px/1.75 "Noto Sans KR",sans-serif;color:#595857;word-break:keep-all;text-wrap:pretty;flex:1}
+  .ct-email__addr{
+    display:inline-flex;align-items:center;gap:8px;align-self:flex-start;
+    margin-top:8px;padding:10px 14px;
+    background:#faf9f6;border:1px solid #e5e2dc;
+    font:600 13.5px/1 "Inter","Noto Sans KR",sans-serif;color:#535470;letter-spacing:-.005em;
+    transition:background .22s ease,color .22s ease,border-color .22s ease;
+  }
+  .ct-email__addr::before{
+    content:"";flex-shrink:0;width:14px;height:10px;
+    background:
+      linear-gradient(#535470,#535470) 0 0/100% 1.5px no-repeat,
+      linear-gradient(135deg,transparent 49%,#535470 49%,#535470 51%,transparent 51%) 0 0/50% 100% no-repeat,
+      linear-gradient(-135deg,transparent 49%,#535470 49%,#535470 51%,transparent 51%) 50% 0/50% 100% no-repeat;
+    border:1.5px solid #535470;border-top:0;
+  }
+  .ct-email__addr:hover{background:#535470;color:#fff;border-color:#535470}
+  .ct-email__addr:hover::before{filter:brightness(20)}
+
+  /* ===== Location 섹션 ===== */
+  .ct-location{margin:0 0 0;padding:0}
+  .loc-map{
+    position:relative;width:100%;
+    height:clamp(380px,48vw,520px);
+    background:#f3f5f8;overflow:hidden;border:1px solid #e5e2dc;
+    margin:48px 0 0;
+  }
+  .loc-map__frame{
+    position:absolute;inset:0;width:100%;height:100%;border:0;
+    opacity:0;visibility:hidden;transition:opacity .4s ease,visibility 0s linear .4s;
+    pointer-events:none;
+  }
+  .loc-map__frame.is-active{
+    opacity:1;visibility:visible;pointer-events:auto;
+    transition:opacity .4s ease,visibility 0s;
+  }
+  .loc-list{
+    list-style:none;margin:36px 0 0;padding:0;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    border-top:1px solid #e5e2dc;
+  }
+  .loc-list > li{margin:0;padding:0;list-style:none;display:flex}
+  .loc-list__item{
+    display:flex;gap:20px;align-items:flex-start;
+    width:100%;height:100%;padding:28px 28px;
+    background:#fff;border:0;border-bottom:1px solid #e5e2dc;border-right:1px solid #e5e2dc;
+    cursor:pointer;text-align:left;
+    font-family:"Noto Sans KR","Malgun Gothic",sans-serif;
+    transition:background .22s ease;position:relative;
+  }
+  .loc-list > li:last-child .loc-list__item{border-right:0}
+  .loc-list__item::before{
+    content:"";position:absolute;left:0;top:0;width:0;height:2px;background:#535470;
+    transition:width .3s ease;
+  }
+  .loc-list__item:hover{background:#faf9f6}
+  .loc-list__item.is-active{background:#f3f5f8}
+  .loc-list__item.is-active::before{width:100%}
+  .loc-list__flag{
+    flex-shrink:0;display:block;
+    width:44px;height:30px;object-fit:cover;
+    border:1px solid #d6dae3;
+    transition:border-color .22s ease,box-shadow .22s ease,transform .22s ease;
+  }
+  .loc-list__item:hover .loc-list__flag{border-color:#86acaa}
+  .loc-list__item.is-active .loc-list__flag{
+    border-color:#b87860;
+    box-shadow:0 0 0 2px rgba(184,120,96,.18);
+  }
+  .loc-list__body{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+  .loc-list__name{font:600 15px/1.3 "Noto Sans KR",sans-serif;color:#3e3a39}
+  .loc-list__addr{font-size:13.5px;line-height:1.65;color:#595857}
+  .loc-list__zip{
+    align-self:flex-start;margin-top:4px;padding:3px 8px;
+    font:600 11px/1 "Inter",sans-serif;letter-spacing:.08em;
+    background:#f3f5f8;color:#535470;border:1px solid #e5e2dc;
+  }
+  .loc-list__item.is-active .loc-list__zip{background:#fff}
+  .loc-list__arrow{
+    align-self:center;flex-shrink:0;
+    font-size:18px;color:#b87860;opacity:.5;
+    transition:opacity .22s ease,transform .22s ease;
+  }
+  .loc-list__item:hover .loc-list__arrow,
+  .loc-list__item.is-active .loc-list__arrow{opacity:1;transform:translateX(4px)}
+
+  @media (max-width:1024px){
+    .ct-emails{grid-template-columns:repeat(2,1fr)}
+    .loc-list{grid-template-columns:1fr 1fr}
+    .loc-list > li:nth-child(2) .loc-list__item{border-right:0}
+    .loc-list > li:nth-child(3) .loc-list__item{border-right:0}
+  }
+  @media (max-width:768px){
+    .sub-hero{min-height:280px;padding-bottom:40px}
+    .ct-body{padding:80px 0}
+    .ct-body__inner{padding:0 24px}
+    .ct-section{margin-bottom:60px}
+    .ct-emails{grid-template-columns:1fr;gap:14px}
+    .loc-list{grid-template-columns:1fr}
+    .loc-list__item{border-right:0;padding:22px 20px}
+  }
+
+  /* Footer */
+  .gp-footer{background:#3a3f4a;color:rgba(255,255,255,.65)}
+  .gp-footer a{color:inherit;text-decoration:none;transition:color .18s ease}
+  .gp-footer__wrap{max-width:1400px;margin:0 auto;padding:0 40px}
+  .gp-footer__links{border-bottom:1px solid rgba(255,255,255,.08)}
+  .gp-footer__links ul{list-style:none;margin:0;padding:14px 0;display:flex;gap:32px;align-items:center}
+  .gp-footer__links li{list-style:none}
+  .gp-footer__links a{display:inline-flex;align-items:center;gap:8px;font:400 12.5px/1 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.7);letter-spacing:-.005em}
+  .gp-footer__links a::before{content:"";display:inline-block;width:11px;height:11px;border:1px solid rgba(255,255,255,.35);flex-shrink:0}
+  .gp-footer__links a:hover{color:#fff}
+  .gp-footer__info .gp-footer__wrap{display:grid;grid-template-columns:1fr auto;gap:60px;align-items:flex-start;padding-top:40px;padding-bottom:40px}
+  .gp-footer__addr{font-style:normal;font:400 12.5px/1.75 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.55);letter-spacing:-.005em}
+  .gp-footer__addr p{margin:0 0 4px}
+  .gp-footer__addr p:last-child{margin-bottom:0}
+  .gp-footer__name{font:700 15px/1.3 "Noto Sans KR",sans-serif;color:#fff;margin:0 0 10px !important;letter-spacing:-.01em}
+  .gp-footer__copy{margin-top:14px !important;font-size:11.5px;letter-spacing:.02em;color:rgba(255,255,255,.4)}
+  .gp-footer__brand{display:flex;flex-direction:column;align-items:flex-end;gap:14px;text-align:right;min-width:220px}
+  .gp-footer__logo{height:28px;width:auto;display:block}
+  .gp-footer__voucher{display:inline-block;line-height:0}
+  .gp-footer__voucher img{height:20px;width:auto;display:block}
+  .gp-footer__partner{margin:4px 0 0;font:400 11.5px/1.65 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.55)}
+  @media (max-width:900px){.gp-footer__wrap{padding:0 24px}.gp-footer__info .gp-footer__wrap{grid-template-columns:1fr;gap:28px;padding-top:32px;padding-bottom:32px}.gp-footer__brand{align-items:flex-start;text-align:left}.gp-footer__links ul{gap:20px;padding:12px 0}}
+</style>
+</head>
+<body data-lang="ko">
+
+<header id="header" class="header">
+  <div class="contain">
+    <h1 class="sitelogo">
+      <a href="index.html"><img src="images/GPDI_LOGO_white.svg" alt="글로벌조달개발원" style="height:36px;width:auto"></a>
+    </h1>
+    <div id="gnb" class="gnb">
+      <ul>
+        <li><a href="about.html">전략 자문</a>
+          <div class="submenu"><ul>
+            <li><a href="about.html">해외공공조달</a></li>
+            <li><a href="members.html">해외 공공조달 전문가</a></li>
+            <li><a href="history.html">히스토리</a></li>
+          </ul></div>
+        </li>
+        <li><a href="performance.html">글로벌 사업</a>
+          <div class="submenu"><ul>
+            <li><a href="performance.html">주요 실적</a></li>
+            <li><a href="services.html">서비스 소개</a></li>
+            <li><a href="gpdi-usa.html">GPDI USA</a></li>
+            <li><a href="gpdi-uae.html">GPDI UAE</a></li>
+            <li><a href="gpdi-ukraine.html">GPDI Ukraine</a></li>
+          </ul></div>
+        </li>
+        <li><a href="healthcare.html">산업 솔루션</a>
+          <div class="submenu"><ul>
+            <li><a href="healthcare.html">헬스케어</a></li>
+            <li><a href="smartcity.html">스마트시티</a></li>
+            <li><a href="defense.html"><span class="t-ko">국방안전</span><span class="t-en">Defense &amp; Safety</span></a></li>
+          </ul></div>
+        </li>
+        <li><a href="ai.html">AI 전환</a>
+          <div class="submenu"><ul>
+            <li><a href="ai.html#ax-axdx">AX · DX</a></li>
+            <li><a href="ai.html#ax-ict-infra">ICT · 인프라</a></li>
+          </ul></div>
+        </li>
+        <li class="is-current"><a href="contact.html">문의·위치</a></li>
+      </ul>
+    </div>
+    <div class="util util--clean">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" class="lang-btn is-active" data-lang="ko">KOR</button>
+        <button type="button" class="lang-btn" data-lang="en">ENG</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="sub-hero">
+  <div class="sub-hero__inner">
+    <p class="sub-hero__crumb"><a href="index.html">HOME</a><span>›</span>CONTACT</p>
+    <h2 class="sub-hero__title">문의·위치</h2>
+  </div>
+</section>
+
+<main class="ct-body">
+  <div class="ct-body__inner">
+
+    <!-- ===== 서비스별 이메일 ===== -->
+    <section class="ct-section">
+      <p class="ct-section__eyebrow">Contact</p>
+      <h3 class="ct-section__title">서비스별 문의</h3>
+      <p class="ct-section__lede">분야별 담당 메일로 문의 주시면 가장 빠르게 답변드립니다. 어디로 보낼지 모르겠다면 일반 문의로 보내셔도 좋습니다.</p>
+
+      <div class="ct-emails">
+        <article class="ct-email">
+          <span class="ct-email__tag">General</span>
+          <h4 class="ct-email__title">일반 문의</h4>
+          <p class="ct-email__desc">회사 전반 · 미디어 · 기타 문의는 이쪽으로 보내 주세요. 24시간 이내 회신을 원칙으로 합니다.</p>
+          <a class="ct-email__addr" href="mailto:information@gpdi.kr">information@gpdi.kr</a>
+        </article>
+
+        <article class="ct-email">
+          <span class="ct-email__tag">Procurement</span>
+          <h4 class="ct-email__title">해외 공공조달 컨설팅</h4>
+          <p class="ct-email__desc">미국 GSA·VA Schedule, UAE·우크라이나 등 해외 공공조달 시장 진출 전략·실행 지원에 관한 문의.</p>
+          <a class="ct-email__addr" href="mailto:procurement@gpdi.kr">procurement@gpdi.kr</a>
+        </article>
+
+        <article class="ct-email">
+          <span class="ct-email__tag">AI · DX · SI</span>
+          <h4 class="ct-email__title">AI · DX · 시스템 통합</h4>
+          <p class="ct-email__desc">AI 에이전트 · LLM 솔루션, 디지털 전환(DX), 맞춤형 SI 개발, 데이터 파이프라인·MCP 구축.</p>
+          <a class="ct-email__addr" href="mailto:ai@gpdi.kr">ai@gpdi.kr</a>
+        </article>
+
+        <article class="ct-email">
+          <span class="ct-email__tag">Solutions</span>
+          <h4 class="ct-email__title">헬스케어 · 스마트시티</h4>
+          <p class="ct-email__desc">헬스케어 ODA, 스마트시티(Smart House · Mobility · Finance) 등 산업 솔루션 사업개발.</p>
+          <a class="ct-email__addr" href="mailto:solutions@gpdi.kr">solutions@gpdi.kr</a>
+        </article>
+
+        <article class="ct-email">
+          <span class="ct-email__tag">Defense</span>
+          <h4 class="ct-email__title">국방 · 방산</h4>
+          <p class="ct-email__desc">한·미 RDP MOU, 미국 국방조달(DoD) 진출, 방산 정책·시장 분석 등 국방 분야 컨설팅 문의.</p>
+          <a class="ct-email__addr" href="mailto:defense@gpdi.kr">defense@gpdi.kr</a>
+        </article>
+
+        <article class="ct-email">
+          <span class="ct-email__tag">Partners</span>
+          <h4 class="ct-email__title">채용 · 파트너십</h4>
+          <p class="ct-email__desc">채용 지원, 전략 파트너십, 투자·협업 제안 등 비즈니스 관계에 관한 문의를 받습니다.</p>
+          <a class="ct-email__addr" href="mailto:partners@gpdi.kr">partners@gpdi.kr</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== 회사 위치 ===== -->
+    <section class="ct-section ct-location" id="location">
+      <p class="ct-section__eyebrow">Office Locations</p>
+      <h3 class="ct-section__title">회사 위치</h3>
+      <p class="ct-section__lede">한국 본사 · 미국 사무소 · 우크라이나 사무소. 카드를 클릭하면 지도가 전환됩니다.</p>
+
+      <!-- 지도: 한국/미국/우크라이나 3개 iframe 겹쳐놓고 active 클래스로 전환 -->
+      <div class="loc-map">
+        <iframe
+          class="loc-map__frame is-active"
+          data-loc="kr"
+          src="https://maps.google.com/maps?q=37.5806992,126.8571219&z=17&hl=ko&output=embed"
+          loading="lazy" title="GPDI 한국 본사" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe
+          class="loc-map__frame"
+          data-loc="us"
+          src="https://maps.google.com/maps?q=38.832046,-77.209677&z=17&hl=en&output=embed"
+          loading="lazy" title="GPDI US Office" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe
+          class="loc-map__frame"
+          data-loc="ua"
+          src="https://maps.google.com/maps?q=46.4543772,30.7429975&z=17&hl=en&output=embed"
+          loading="lazy" title="GPDI Ukraine Office" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <!-- 주소 카드 -->
+      <ul class="loc-list" role="tablist" aria-label="오피스 선택">
+        <li>
+          <button type="button" class="loc-list__item is-active" data-loc="kr" role="tab" aria-selected="true">
+            <img class="loc-list__flag" src="images/about/info06_01_country01.png" alt="대한민국 국기">
+            <span class="loc-list__body">
+              <span class="loc-list__name">한국 본사</span>
+              <span class="loc-list__addr">경기도 고양시 덕양구 청초로 10, A동 4층 AA04-0405 / 0406호 (덕은동)</span>
+              <span class="loc-list__zip">10542</span>
+            </span>
+            <span class="loc-list__arrow" aria-hidden="true">→</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="loc-list__item" data-loc="us" role="tab" aria-selected="false">
+            <img class="loc-list__flag" src="images/about/info06_01_country03.png" alt="미국 국기">
+            <span class="loc-list__body">
+              <span class="loc-list__name">미국 사무소</span>
+              <span class="loc-list__addr">7617 Little River Turnpike, Suite 800, Annandale, VA, USA</span>
+              <span class="loc-list__zip">22003</span>
+            </span>
+            <span class="loc-list__arrow" aria-hidden="true">→</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="loc-list__item" data-loc="ua" role="tab" aria-selected="false">
+            <img class="loc-list__flag" src="images/about/info06_01_country02.png" alt="우크라이나 국기">
+            <span class="loc-list__body">
+              <span class="loc-list__name">우크라이나 사무소</span>
+              <span class="loc-list__addr">Haharina Ave, 12a, Odesa, Odes'ka oblast, Ukraine (Office 140865044)</span>
+              <span class="loc-list__zip">ODESA</span>
+            </span>
+            <span class="loc-list__arrow" aria-hidden="true">→</span>
+          </button>
+        </li>
+      </ul>
+    </section>
+
+  </div>
+</main>
+
+<script>
+  /* 오피스 카드 클릭 → 지도 iframe 전환 */
+  (function(){
+    var items  = document.querySelectorAll('.loc-list__item');
+    var frames = document.querySelectorAll('.loc-map__frame');
+    if(!items.length || !frames.length) return;
+    items.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var target = btn.getAttribute('data-loc');
+        items.forEach(function(b){
+          var on = (b === btn);
+          b.classList.toggle('is-active', on);
+          b.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        frames.forEach(function(f){
+          f.classList.toggle('is-active', f.getAttribute('data-loc') === target);
+        });
+      });
+    });
+  })();
+</script>
+
+<footer id="footer" class="gp-footer">
+  <div class="gp-footer__links">
+    <div class="gp-footer__wrap">
+      <ul>
+        <li><a href="sub/pop_privacy.html"><span class="t-ko">개인정보처리방침</span><span class="t-en">Privacy Policy</span></a></li>
+        <li><a href="sub/pop_email.html"><span class="t-ko">이메일무단수집거부</span><span class="t-en">No Email Collection</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="gp-footer__info">
+    <div class="gp-footer__wrap">
+      <address class="gp-footer__addr">
+        <p class="gp-footer__name"><span class="t-ko">글로벌조달개발원</span><span class="t-en">Global Procurement Development Institute</span></p>
+        <p><span class="t-ko">주소 : (10542) 경기도 고양시 덕양구 청초로 10, A동 4층 AA04-0405호, 0406호(덕은동), AA04-0405, 0406, 10 Cheongcho-ro, Deogyang-gu, Goyang-si, Gyeonggi-do (10542)</p>
+        <p>사업자등록번호: 863-87-01643 &nbsp; 전화: 02-6242-7200 &nbsp; 팩스: 02-6242-7209 &nbsp; 대표 이메일: information@gpdi.kr</p>
+        <p class="gp-footer__copy">COPYRIGHT(C) 2022. Global Procurement Development Institute ALL RIGHTS RESERVED.</p>
+      </address>
+      <div class="gp-footer__brand">
+        <img class="gp-footer__logo" src="images/GPDI_LOGO_white.svg" alt="글로벌조달개발원">
+        <a href="https://www.exportvoucher.com/portal/sample/main" target="_blank" rel="noopener" class="gp-footer__voucher" aria-label="수출지원기반활용사업">
+          <img src="https://www.gpdi.kr/images/common/f_logo02.png" alt="수출지원기반활용사업" onerror="this.style.display='none'">
+        </a>
+        <p class="gp-footer__partner"><span class="t-ko">수출바우처 공식수행기관<br>소관부처: 산업통상자원부(KOTRA)<br>중소벤처기업부(중진공)</span><span class="t-en">Official Export Voucher Operator<br>Sponsored by: Ministry of Trade, Industry &amp; Energy (KOTRA)<br>Ministry of SMEs &amp; Startups (KOSME)</span></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

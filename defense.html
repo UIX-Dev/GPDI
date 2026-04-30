@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+<meta name="description" content="GPDI Defense & Safety — 한·미 RDP MOU, 미 국방조달(DoD·DLA·VA) 진출, K-방산 글로벌화 컨설팅">
+<title>GPDI | 국방안전</title>
+<link rel="icon" type="image/svg+xml" href="images/GPDI_Symbol.svg">
+<link rel="apple-touch-icon" href="images/GPDI_Symbol.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap">
+
+<script src="js/lang.js" defer></script>
+<style>
+  /* 언어 토글 */
+  body[data-lang="ko"] .t-en{display:none !important}
+  body[data-lang="en"] .t-ko{display:none !important}
+
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  ul,ol{list-style:none;margin:0;padding:0}
+  h1,h2,h3,h4,h5,h6,p{margin:0}
+  button{font:inherit}
+  body{font-family:"Noto Sans KR","Malgun Gothic",sans-serif;color:#3e3a39;background:#fff;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;height:auto;display:block}
+  a{color:inherit;text-decoration:none}
+
+  /* Header (공통) */
+  .header{position:absolute;top:0;left:0;right:0;z-index:100;background:transparent;border-bottom:1px solid rgba(255,255,255,.08)}
+  .header .contain{max-width:1400px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;gap:30px;height:88px}
+  .header .contain .util--clean{margin-right:64px}
+  header.header h1.sitelogo{margin:0 !important;padding:0 !important;flex-shrink:0;line-height:1;display:flex !important;align-items:center;align-self:center;height:auto;font-size:0}
+  header.header h1.sitelogo a{display:inline-flex !important;align-items:center;line-height:0;padding:0;margin:0;border:0}
+  header.header h1.sitelogo img{height:36px !important;width:auto !important;display:block;margin:0;padding:0;border:0;vertical-align:middle}
+  .header #gnb{flex:1}
+  .header #gnb > ul{display:flex !important;justify-content:center;gap:56px;margin:0;padding:0;list-style:none}
+  .header #gnb > ul > li{position:relative;list-style:none}
+  .header #gnb > ul > li > a{display:flex !important;align-items:center;height:88px;padding:0 4px;font:500 15px/1 "Noto Sans KR",sans-serif;letter-spacing:-.01em;color:#fff !important;position:relative;transition:color .2s ease;white-space:nowrap;text-decoration:none}
+  .header #gnb > ul > li > a::after{content:"";position:absolute;left:50%;bottom:32px;width:0;height:2px;background:#86acaa;transform:translateX(-50%);transition:width .25s ease}
+  .header #gnb > ul > li:hover > a::after,.header #gnb > ul > li:focus-within > a::after{width:22px}
+  .header #gnb > ul > li.is-current > a::after{width:22px}
+  .header #gnb .submenu{position:absolute !important;left:50% !important;top:88px !important;transform:translateX(-50%) translateY(4px);background:#fff !important;border-top:2px solid #535470;box-shadow:0 20px 44px rgba(14,20,38,.16);padding:4px 0;min-width:200px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,transform .22s ease,visibility 0s linear .22s;z-index:120;display:block !important}
+  .header #gnb > ul > li:hover > .submenu,.header #gnb > ul > li:focus-within > .submenu{opacity:1 !important;visibility:visible !important;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .22s ease,transform .22s ease,visibility 0s}
+  .header #gnb > ul > li::before{content:"";position:absolute;left:-16px;right:-16px;top:88px;height:8px;opacity:0;pointer-events:none}
+  .header #gnb > ul > li:hover::before,.header #gnb > ul > li:focus-within::before{opacity:1;pointer-events:auto}
+  .header #gnb .submenu ul{list-style:none !important;margin:0 !important;padding:0 !important;display:block !important}
+  .header #gnb .submenu li{list-style:none;background:transparent !important;border:0 !important;padding:0 !important}
+  .header #gnb .submenu li a{display:block !important;padding:12px 22px !important;font:500 14px/1.45 "Noto Sans KR",sans-serif !important;color:#3e3a39 !important;white-space:nowrap;background:transparent;transition:background .18s ease,color .18s ease,padding-left .18s ease;text-decoration:none;letter-spacing:0}
+  .header #gnb .submenu li a:hover{background:#f3f5f8 !important;color:#535470 !important;padding-left:26px !important}
+  .util--clean{display:inline-flex;align-items:stretch;font:600 12px/1 "Inter","Noto Sans KR",sans-serif}
+  .util--clean .lang-toggle{display:inline-flex;align-items:stretch;border:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.08);backdrop-filter:blur(4px)}
+  .util--clean .lang-btn{appearance:none;background:transparent;border:0;padding:8px 14px;color:rgba(255,255,255,.7);font:inherit;letter-spacing:.14em;cursor:pointer;transition:color .15s ease,background .15s ease}
+  .util--clean .lang-btn:hover{color:#fff}
+  .util--clean .lang-btn.is-active{color:#fff;background:rgba(83,84,112,.85)}
+
+  /* Sub-hero */
+  .sub-hero{position:relative;min-height:360px;background:#0a0d14 url('images/main/web-banner-1.png') center/cover no-repeat;color:#fff;display:flex;align-items:flex-end;padding:0 0 60px}
+  .sub-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(14,20,38,.65),rgba(14,20,38,.82))}
+  .sub-hero__inner{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:0 40px;width:100%}
+  .sub-hero__crumb{font:600 11px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.22em;color:rgba(255,255,255,.7);text-transform:uppercase;margin:0 0 14px}
+  .sub-hero__crumb a{color:rgba(255,255,255,.6);transition:color .2s}
+  .sub-hero__crumb a:hover{color:#fff}
+  .sub-hero__crumb span{margin:0 10px;color:rgba(255,255,255,.35)}
+  .sub-hero__title{font:700 clamp(32px,4vw,48px)/1.15 "Noto Sans KR","Inter",sans-serif;letter-spacing:-.02em;margin:0}
+  .sub-hero__lede{margin:14px 0 0;max-width:760px;font:400 15px/1.7 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.78);letter-spacing:-.005em;word-break:keep-all;text-wrap:balance}
+
+  /* ======= Defense Body ======= */
+  .df-body{padding:100px 0 120px;background:#fff}
+  .df-body__inner{max-width:1180px;margin:0 auto;padding:0 40px}
+
+  .df-section{margin:0 0 96px}
+  .df-section:last-child{margin-bottom:0}
+  .df-section__eyebrow{font:700 11px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.28em;color:#b87860;text-transform:uppercase;margin:0 0 12px}
+  .df-section__title{
+    margin:0 0 20px;font:700 clamp(24px,2.6vw,32px)/1.25 "Noto Sans KR","Inter",sans-serif;
+    color:#3e3a39;letter-spacing:-.015em;word-break:keep-all;
+  }
+  .df-section__title::after{content:"";display:block;width:36px;height:2px;background:#86acaa;margin:16px 0 0}
+  .df-section__lede{max-width:820px;font:400 15px/1.9 "Noto Sans KR",sans-serif;color:#595857;margin:18px 0 0;word-break:keep-all;text-wrap:pretty}
+
+  /* 인트로 블록 */
+  .df-lead{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin:0 0 96px}
+  .df-lead__text h3{
+    margin:0 0 20px;font:700 clamp(26px,2.8vw,34px)/1.25 "Inter","Noto Sans KR",sans-serif;
+    color:#1f2a4a;letter-spacing:-.018em;word-break:keep-all;
+  }
+  .df-lead__text p{margin:14px 0 0;font:400 15px/1.9 "Noto Sans KR",sans-serif;color:#3e3a39;word-break:keep-all;text-wrap:pretty}
+  .df-lead__kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:32px 0 0;padding:0;list-style:none}
+  .df-lead__kpis li{list-style:none;padding:18px 20px;background:#faf9f6;border-left:3px solid #535470}
+  .df-lead__kpis strong{display:block;font:700 22px/1.2 "Inter","Noto Sans KR",sans-serif;color:#535470;letter-spacing:-.01em;margin-bottom:6px}
+  .df-lead__kpis span{display:block;font:500 12.5px/1.5 "Noto Sans KR",sans-serif;color:#86acaa;letter-spacing:-.005em}
+
+  .df-lead__visual{
+    position:relative;background:linear-gradient(135deg,#1f2a4a 0%,#3e3a39 100%);
+    padding:44px 36px;color:#fff;overflow:hidden;min-height:340px;
+    display:flex;flex-direction:column;justify-content:space-between;
+  }
+  .df-lead__visual::before{
+    content:"";position:absolute;top:-30px;right:-30px;width:180px;height:180px;
+    background:radial-gradient(circle,#86acaa 0%,transparent 70%);opacity:.4;
+  }
+  .df-lead__visual::after{
+    content:"";position:absolute;bottom:-20px;left:-20px;width:140px;height:140px;
+    border:1px solid rgba(255,255,255,.15);
+  }
+  .df-lead__tag{position:relative;z-index:2;display:inline-block;padding:5px 12px;background:rgba(184,120,96,.25);font:700 10.5px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.22em;color:#e7c2b0;text-transform:uppercase}
+  .df-lead__h{position:relative;z-index:2;margin:22px 0 0;font:700 22px/1.35 "Noto Sans KR","Inter",sans-serif;letter-spacing:-.015em;word-break:keep-all}
+  .df-lead__meta{position:relative;z-index:2;display:grid;grid-template-columns:auto 1fr;gap:8px 20px;margin:24px 0 0;font:400 13.5px/1.6 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.82)}
+  .df-lead__meta dt{color:rgba(231,194,176,.9);font-weight:500;letter-spacing:-.005em}
+  .df-lead__meta dd{margin:0;color:#fff}
+
+  /* 전문 분야 카드 */
+  .df-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin:32px 0 0}
+  .df-card{
+    position:relative;padding:32px 30px 30px;background:#fff;border:1px solid #eceff5;
+    transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+  }
+  .df-card:hover{transform:translateY(-3px);border-color:#86acaa;box-shadow:0 18px 36px rgba(14,20,38,.08)}
+  .df-card__num{font:800 13px/1 "Inter",sans-serif;color:#86acaa;letter-spacing:.15em;margin:0 0 16px}
+  .df-card__title{margin:0 0 14px;font:700 18px/1.35 "Noto Sans KR",sans-serif;color:#535470;letter-spacing:-.01em;word-break:keep-all}
+  .df-card__desc{margin:0;font:400 14px/1.8 "Noto Sans KR",sans-serif;color:#595857;word-break:keep-all;text-wrap:pretty}
+  .df-card__tags{margin:18px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+  .df-card__tags li{list-style:none;padding:5px 11px;background:#f3f5f8;color:#535470;font:600 11.5px/1 "Noto Sans KR",sans-serif;letter-spacing:-.005em}
+
+  /* 파트너 기관 */
+  .df-partners{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:32px 0 0}
+  .df-partners__item{
+    padding:22px 18px;background:#faf9f6;border:1px solid #efece5;text-align:center;
+    transition:background .22s ease,border-color .22s ease;
+  }
+  .df-partners__item:hover{background:#fff;border-color:#86acaa}
+  .df-partners__item strong{display:block;font:700 14px/1.35 "Noto Sans KR",sans-serif;color:#3e3a39;letter-spacing:-.01em;margin-bottom:6px}
+  .df-partners__item span{display:block;font:500 11px/1.4 "Inter",sans-serif;color:#86acaa;letter-spacing:.06em;text-transform:uppercase}
+
+  /* 실적 테이블 */
+  .df-table-wrap{margin:32px 0 0;overflow-x:auto}
+  .df-table{width:100%;border-collapse:collapse;min-width:720px}
+  .df-table thead th{
+    padding:14px 16px;text-align:left;
+    font:700 12px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.08em;color:#86acaa;text-transform:uppercase;
+    border-bottom:2px solid #535470;background:#faf9f6;
+  }
+  .df-table tbody td{
+    padding:18px 16px;vertical-align:top;
+    font:400 13.5px/1.65 "Noto Sans KR",sans-serif;color:#3e3a39;
+    border-bottom:1px solid #eceff5;word-break:keep-all;
+  }
+  .df-table tbody tr:hover{background:#faf9f6}
+  .df-table .df-table__year{color:#535470;font:700 13px/1.2 "Inter","Noto Sans KR",sans-serif;letter-spacing:-.005em;white-space:nowrap}
+  .df-table .df-table__client{color:#86acaa;font:500 12.5px/1.4 "Noto Sans KR",sans-serif;letter-spacing:-.005em;white-space:nowrap}
+
+  /* CTA */
+  .df-cta{margin:80px 0 0;padding:56px 48px;background:#faf9f6;border-left:4px solid #b87860;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center}
+  .df-cta h3{margin:0 0 12px;font:700 22px/1.35 "Noto Sans KR",sans-serif;color:#3e3a39;letter-spacing:-.01em;word-break:keep-all}
+  .df-cta p{margin:0;font:400 14px/1.8 "Noto Sans KR",sans-serif;color:#595857;word-break:keep-all}
+  .df-cta__mail{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;background:#535470;color:#fff;font:700 13.5px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.02em;transition:background .22s ease}
+  .df-cta__mail:hover{background:#3e3a39}
+  .df-cta__mail::after{content:"→";font-weight:400;margin-left:2px}
+
+  @media (max-width:900px){
+    .sub-hero{min-height:280px;padding-bottom:40px}
+    .df-body{padding:64px 0 80px}
+    .df-body__inner{padding:0 24px}
+    .df-section{margin-bottom:64px}
+    .df-lead{grid-template-columns:1fr;gap:32px;margin-bottom:64px}
+    .df-lead__kpis{grid-template-columns:1fr 1fr}
+    .df-grid{grid-template-columns:1fr;gap:18px}
+    .df-partners{grid-template-columns:repeat(2,1fr)}
+    .df-cta{grid-template-columns:1fr;gap:24px;padding:36px 28px;text-align:left}
+  }
+
+  /* Floating Info */
+  .info-float{position:fixed;right:48px;top:50%;transform:translateY(-50%);z-index:200}
+  .info-float__btn{position:relative;appearance:none;border:0;cursor:pointer;width:56px;height:56px;padding:0;background:#535470;box-shadow:0 10px 24px rgba(14,20,38,.24);transition:background .2s ease,transform .2s ease,box-shadow .2s ease;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .info-float__btn:hover,.info-float__btn:focus-visible,.info-float.is-open .info-float__btn{background:#3e3a39;transform:translateY(-2px);box-shadow:0 14px 30px rgba(14,20,38,.32);outline:none}
+  .info-float__txt{font:800 12px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.24em;color:#fff;position:relative;z-index:2}
+  .info-float__btn::before{content:"";position:absolute;top:0;right:0;width:10px;height:10px;background:#86acaa;z-index:1}
+  .info-float__btn::after{content:"";position:absolute;bottom:0;left:0;width:8px;height:8px;background:#b87860;z-index:1}
+  .info-float.is-scrolled .info-float__btn{background:#fff;box-shadow:0 10px 24px rgba(14,20,38,.18)}
+  .info-float.is-scrolled .info-float__txt{color:#535470}
+  .info-float.is-scrolled .info-float__btn:hover,.info-float.is-scrolled.is-open .info-float__btn{background:#f3f5f8}
+  .info-float__menu{position:absolute;right:calc(100% + 14px);top:50%;transform:translateY(-50%) translateX(6px);min-width:240px;padding:14px 0 8px;background:#fff;border-right:2px solid #535470;box-shadow:0 20px 44px rgba(14,20,38,.22);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,visibility 0s linear .22s,transform .22s ease}
+  .info-float:hover .info-float__menu,.info-float:focus-within .info-float__menu,.info-float.is-open .info-float__menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(-50%) translateX(0);transition:opacity .22s ease,visibility 0s,transform .22s ease}
+  .info-float::before{content:"";position:absolute;right:100%;top:0;bottom:0;width:18px;opacity:0;pointer-events:none}
+  .info-float:hover::before,.info-float:focus-within::before{opacity:1;pointer-events:auto}
+  .info-float__title{margin:0 0 6px;padding:0 20px;font:700 10px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#86acaa}
+  .info-float__menu ul{list-style:none;padding:0;margin:0}
+  .info-float__menu li{list-style:none}
+  .info-float__menu li a{display:block;padding:11px 20px;font:500 13.5px/1.45 "Noto Sans KR",sans-serif;color:#3e3a39;transition:background .18s ease,color .18s ease,padding-left .18s ease;white-space:nowrap}
+  .info-float__menu li a:hover{background:#f3f5f8;color:#535470;padding-left:24px}
+  @media (max-width:768px){.info-float{top:auto;bottom:24px;transform:none;right:20px}.info-float__btn{width:52px;height:52px}.info-float__txt{font-size:11px}.info-float__menu{right:calc(100% + 10px);top:auto;bottom:0;transform:translateX(6px)}.info-float:hover .info-float__menu,.info-float:focus-within .info-float__menu,.info-float.is-open .info-float__menu{transform:translateX(0)}}
+
+  /* Footer */
+  .gp-footer{background:#3a3f4a;color:rgba(255,255,255,.65)}
+  .gp-footer a{color:inherit;text-decoration:none;transition:color .18s ease}
+  .gp-footer__wrap{max-width:1400px;margin:0 auto;padding:0 40px}
+  .gp-footer__links{border-bottom:1px solid rgba(255,255,255,.08)}
+  .gp-footer__links ul{list-style:none;margin:0;padding:14px 0;display:flex;gap:32px;align-items:center}
+  .gp-footer__links li{list-style:none}
+  .gp-footer__links a{display:inline-flex;align-items:center;gap:8px;font:400 12.5px/1 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.7);letter-spacing:-.005em}
+  .gp-footer__links a::before{content:"";display:inline-block;width:11px;height:11px;border:1px solid rgba(255,255,255,.35);flex-shrink:0}
+  .gp-footer__links a:hover{color:#fff}
+  .gp-footer__info .gp-footer__wrap{display:grid;grid-template-columns:1fr auto;gap:60px;align-items:flex-start;padding-top:40px;padding-bottom:40px}
+  .gp-footer__addr{font-style:normal;font:400 12.5px/1.75 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.55);letter-spacing:-.005em}
+  .gp-footer__addr p{margin:0 0 4px}
+  .gp-footer__addr p:last-child{margin-bottom:0}
+  .gp-footer__name{font:700 15px/1.3 "Noto Sans KR",sans-serif;color:#fff;margin:0 0 10px !important;letter-spacing:-.01em}
+  .gp-footer__copy{margin-top:14px !important;font-size:11.5px;letter-spacing:.02em;color:rgba(255,255,255,.4)}
+  .gp-footer__brand{display:flex;flex-direction:column;align-items:flex-end;gap:14px;text-align:right;min-width:220px}
+  .gp-footer__logo{height:28px;width:auto;display:block}
+  .gp-footer__voucher{display:inline-block;line-height:0}
+  .gp-footer__voucher img{height:20px;width:auto;display:block}
+  .gp-footer__partner{margin:4px 0 0;font:400 11.5px/1.65 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.55)}
+  @media (max-width:900px){.gp-footer__wrap{padding:0 24px}.gp-footer__info .gp-footer__wrap{grid-template-columns:1fr;gap:28px;padding-top:32px;padding-bottom:32px}.gp-footer__brand{align-items:flex-start;text-align:left}.gp-footer__links ul{gap:20px;padding:12px 0}}
+</style>
+</head>
+<body data-lang="ko">
+
+<header id="header" class="header">
+  <div class="contain">
+    <h1 class="sitelogo">
+      <a href="index.html"><img src="images/GPDI_LOGO_white.svg" alt="글로벌조달개발원" style="height:36px;width:auto"></a>
+    </h1>
+    <div id="gnb" class="gnb">
+      <ul>
+        <li><a href="about.html"><span class="t-ko">전략 자문</span><span class="t-en">Strategy &amp; Advisory</span></a>
+          <div class="submenu"><ul>
+            <li><a href="about.html"><span class="t-ko">해외공공조달</span><span class="t-en">Overseas Procurement</span></a></li>
+            <li><a href="members.html"><span class="t-ko">해외 공공조달 전문가</span><span class="t-en">Senior Members</span></a></li>
+            <li><a href="history.html"><span class="t-ko">히스토리</span><span class="t-en">History</span></a></li>
+          </ul></div>
+        </li>
+        <li><a href="performance.html"><span class="t-ko">글로벌 사업</span><span class="t-en">Global Programs</span></a>
+          <div class="submenu"><ul>
+            <li><a href="performance.html"><span class="t-ko">주요 실적</span><span class="t-en">Performance</span></a></li>
+            <li><a href="services.html"><span class="t-ko">서비스 소개</span><span class="t-en">Services</span></a></li>
+            <li><a href="gpdi-usa.html">GPDI USA</a></li>
+            <li><a href="gpdi-uae.html">GPDI UAE</a></li>
+            <li><a href="gpdi-ukraine.html">GPDI Ukraine</a></li>
+          </ul></div>
+        </li>
+        <li class="is-current"><a href="healthcare.html"><span class="t-ko">산업 솔루션</span><span class="t-en">Industry Solutions</span></a>
+          <div class="submenu"><ul>
+            <li><a href="healthcare.html"><span class="t-ko">헬스케어</span><span class="t-en">Healthcare</span></a></li>
+            <li><a href="smartcity.html"><span class="t-ko">스마트시티</span><span class="t-en">Smart City</span></a></li>
+            <li><a href="defense.html"><span class="t-ko">국방안전</span><span class="t-en">Defense &amp; Safety</span></a></li>
+          </ul></div>
+        </li>
+        <li><a href="ai.html"><span class="t-ko">AI 전환</span><span class="t-en">AX / DX</span></a>
+          <div class="submenu"><ul>
+            <li><a href="ai.html#ax-axdx">AX · DX</a></li>
+            <li><a href="ai.html#ax-ict-infra"><span class="t-ko">ICT · 인프라</span><span class="t-en">ICT · Infra</span></a></li>
+          </ul></div>
+        </li>
+        <li><a href="contact.html"><span class="t-ko">문의·위치</span><span class="t-en">Contact</span></a></li>
+      </ul>
+    </div>
+    <div class="util util--clean">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" class="lang-btn is-active" data-lang="ko">KOR</button>
+        <button type="button" class="lang-btn" data-lang="en">ENG</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="sub-hero">
+  <div class="sub-hero__inner">
+    <p class="sub-hero__crumb"><a href="index.html">HOME</a><span>›</span><span class="t-ko">국방안전</span><span class="t-en">DEFENSE &amp; SAFETY</span></p>
+    <h2 class="sub-hero__title">
+      <span class="t-ko">국방안전</span>
+      <span class="t-en">Defense &amp; Safety</span>
+    </h2>
+    <p class="sub-hero__lede">
+      <span class="t-ko">한·미 RDP MOU 체결을 전후한 정책 변화에 맞춰 미 국방조달(DoD·DLA·VA) 진출과 K-방산 글로벌화의 전 주기를 설계합니다.</span>
+      <span class="t-en">We design end-to-end pathways into U.S. federal defense procurement (DoD, DLA, VA) and the global expansion of K-Defense, aligned with the policy shifts surrounding the Korea–U.S. RDP MOU.</span>
+    </p>
+  </div>
+</section>
+
+<main class="df-body">
+  <div class="df-body__inner">
+
+    <!-- ===== 인트로 ===== -->
+    <section class="df-lead">
+      <div class="df-lead__text">
+        <h3>
+          <span class="t-ko">한·미 방산동맹의 다음 단계,<br>국방조달 시장 진출의 첫걸음.</span>
+          <span class="t-en">The next chapter of the Korea–U.S. defense alliance<br>begins with procurement-market readiness.</span>
+        </h3>
+        <p>
+          <span class="t-ko">GPDI 국방안전 팀은 한·미 상호국방조달협정(RDP MOU) 체결을 전후한 정책·제도·시장 환경 변화에 맞춰, 국내 방산기업이 미 국방조달시장(DoD·DLA·VA 등)에 진출할 수 있도록 단계별 컨설팅을 제공합니다. 경제성·산업영향성 분석부터 RFP 사례 분석, GSA Schedule 진출, 현지 파트너 매칭까지 — 정책 연구와 실행 컨설팅을 한 팀에서 책임집니다.</span>
+          <span class="t-en">GPDI's Defense &amp; Safety team helps Korean defense companies enter the U.S. federal defense procurement market (DoD, DLA, VA), guiding them through the policy and regulatory shifts surrounding the Korea–U.S. Reciprocal Defense Procurement (RDP) MOU. From economic and industrial-impact analysis to RFP review, GSA Schedule entry, and local partner matching — we deliver both policy research and execution-level consulting from a single team.</span>
+        </p>
+        <p>
+          <span class="t-ko">국방기술진흥연구소(KRIT)·방위사업청·한국방위산업학회 등 핵심 기관과의 축적된 협력, 그리고 워싱턴 D.C.·버지니아 거점의 현지 네트워크를 결합해 실질적 진출 경로를 설계합니다.</span>
+          <span class="t-en">Drawing on long-standing collaboration with KRIT, DAPA, and KADIS, combined with on-the-ground networks in Washington D.C. and Virginia, we design practical pathways into the U.S. defense market.</span>
+        </p>
+        <ul class="df-lead__kpis">
+          <li><strong>$540B</strong><span class="t-ko">미 국방 조달시장 연 규모</span><span class="t-en">U.S. annual defense procurement</span></li>
+          <li><strong>28</strong><span class="t-ko">RDP MOU 체결국 (분석 대상)</span><span class="t-en">RDP MOU partner countries analyzed</span></li>
+          <li><strong>1,600 pp.</strong><span class="t-ko">FAR · DFARS 규정집 번역</span><span class="t-en">FAR &amp; DFARS regulations translated</span></li>
+          <li><strong>KRIT · DAPA</strong><span class="t-ko">핵심 발주기관 레퍼런스</span><span class="t-en">Core agency references</span></li>
+        </ul>
+      </div>
+
+      <aside class="df-lead__visual" aria-label="대표 사업">
+        <span class="df-lead__tag">KEY ENGAGEMENT · 2022</span>
+        <h4 class="df-lead__h">
+          <span class="t-ko">한·미 국방상호조달협정(RDP MOU)<br>경제성 · 산업영향성 분석</span>
+          <span class="t-en">Korea–U.S. Reciprocal Defense<br>Procurement MOU: Economic &amp; Industrial Impact Analysis</span>
+        </h4>
+        <dl class="df-lead__meta">
+          <dt><span class="t-ko">발주기관</span><span class="t-en">Client</span></dt>
+          <dd><span class="t-ko">국방기술진흥연구소(KRIT)</span><span class="t-en">Korea Research Institute for Defense Technology Planning &amp; Advancement (KRIT)</span></dd>
+          <dt><span class="t-ko">핵심 과업</span><span class="t-en">Scope</span></dt>
+          <dd><span class="t-ko">28개 RDP 체결국 협정문 비교 · 국내 방산 영향성·경제성 분석 · 양국 쟁점사항 법적 해석</span><span class="t-en">Comparison of RDP agreements across 28 partner countries · industrial &amp; economic impact analysis on Korea's defense sector · legal interpretation of bilateral issues</span></dd>
+          <dt><span class="t-ko">GPDI 역할</span><span class="t-en">GPDI Role</span></dt>
+          <dd><span class="t-ko">정책 분석 · 이해관계자 의견수렴 · 실효적 정책 제언</span><span class="t-en">Policy analysis · stakeholder engagement · actionable policy recommendations</span></dd>
+        </dl>
+      </aside>
+    </section>
+
+    <!-- ===== 전문 분야 ===== -->
+    <section class="df-section" id="df-expertise">
+      <p class="df-section__eyebrow">Our Expertise</p>
+      <h3 class="df-section__title">
+        <span class="t-ko">전문 분야</span>
+        <span class="t-en">Areas of Practice</span>
+      </h3>
+      <p class="df-section__lede">
+        <span class="t-ko">국방조달 정책 연구부터 미 시장 진출 실행까지, 네 갈래의 업무 영역이 하나의 흐름으로 연결됩니다.</span>
+        <span class="t-en">Four practice areas — from defense-procurement policy research to executable U.S. market entry — connected as a single continuum.</span>
+      </p>
+
+      <div class="df-grid">
+        <article class="df-card">
+          <p class="df-card__num">01</p>
+          <h4 class="df-card__title">
+            <span class="t-ko">RDP MOU 자문 · 정책 연구</span>
+            <span class="t-en">RDP MOU Advisory &amp; Policy Research</span>
+          </h4>
+          <p class="df-card__desc">
+            <span class="t-ko">한·미 RDP MOU의 경제성·산업영향성을 정량 분석하고, 28개 RDP 체결국 사례 비교를 통해 한국 방산기업의 진출 전략을 제시합니다. 양국 국방조달 쟁점사항에 대한 법적 해석과 정책 제언까지.</span>
+            <span class="t-en">We quantify the economic and industrial impact of the Korea–U.S. RDP MOU, benchmark agreements across 28 partner countries, and shape entry strategies for Korean defense firms — including legal interpretation of bilateral issues and policy recommendations.</span>
+          </p>
+          <ul class="df-card__tags">
+            <li><span class="t-ko">RDP MOU</span><span class="t-en">RDP MOU</span></li>
+            <li><span class="t-ko">정책 연구</span><span class="t-en">Policy Research</span></li>
+            <li><span class="t-ko">28개국 비교 분석</span><span class="t-en">28-Country Benchmark</span></li>
+          </ul>
+        </article>
+
+        <article class="df-card">
+          <p class="df-card__num">02</p>
+          <h4 class="df-card__title">
+            <span class="t-ko">미 국방조달 시장 진출 (DoD · DLA · VA)</span>
+            <span class="t-en">U.S. Defense Market Entry (DoD · DLA · VA)</span>
+          </h4>
+          <p class="df-card__desc">
+            <span class="t-ko">미 국방부·국방군수국·재향군인부 발주 시장 분석, RFP·RFI 해석, 입찰 제안서 작성, GSA Schedule·DLA Tailored Logistics·NSN 등록까지 진출의 전 단계를 지원합니다.</span>
+            <span class="t-en">End-to-end support across the U.S. Department of Defense, Defense Logistics Agency, and Department of Veterans Affairs — from market analysis and RFP/RFI interpretation to bid writing, GSA Schedule listing, DLA Tailored Logistics, and NSN registration.</span>
+          </p>
+          <ul class="df-card__tags">
+            <li>GSA Schedule</li>
+            <li><span class="t-ko">NSN 등록</span><span class="t-en">NSN Registration</span></li>
+            <li>RFP · RFI</li>
+            <li>FAR · DFARS</li>
+          </ul>
+        </article>
+
+        <article class="df-card">
+          <p class="df-card__num">03</p>
+          <h4 class="df-card__title">
+            <span class="t-ko">K-방산 글로벌 진출 컨설팅</span>
+            <span class="t-en">K-Defense Global Expansion</span>
+          </h4>
+          <p class="df-card__desc">
+            <span class="t-ko">K2·K9·KF-21·천궁 등 K-방산 무기체계의 미국·NATO·MENA 시장 진출 전략. 현지 파트너·로비스트 네트워크 매칭, 수출 후속군수지원(FMS·DCS) 자문, 절충교역(Offset) 설계까지 연계합니다.</span>
+            <span class="t-en">Strategy for K-Defense platforms (K2, K9, KF-21, Cheongung, etc.) entering U.S., NATO, and MENA markets. We match local partners and lobby networks, advise on FMS/DCS sustainment, and design offset programs.</span>
+          </p>
+          <ul class="df-card__tags">
+            <li>FMS · DCS</li>
+            <li><span class="t-ko">후속군수지원</span><span class="t-en">Sustainment</span></li>
+            <li><span class="t-ko">절충교역(Offset)</span><span class="t-en">Offset</span></li>
+            <li><span class="t-ko">NATO 시장</span><span class="t-en">NATO Markets</span></li>
+          </ul>
+        </article>
+
+        <article class="df-card">
+          <p class="df-card__num">04</p>
+          <h4 class="df-card__title">
+            <span class="t-ko">방산 정책 · 안보 연구</span>
+            <span class="t-en">Defense Policy &amp; Security Research</span>
+          </h4>
+          <p class="df-card__desc">
+            <span class="t-ko">방위산업 정책 환경 분석, 한·미 동맹·NATO·인태(INDOPACIFIC) 안보 외교 분석, 방산 수출 4대 강국 진입 전략 등을 정책 연구와 기고·세미나 활동으로 풀어내며 사회적 의제를 형성합니다.</span>
+            <span class="t-en">We analyze defense-industry policy, Korea–U.S. alliance dynamics, NATO and Indo-Pacific security diplomacy, and Korea's path to becoming a top-4 defense exporter — translating findings into policy commentary, op-eds, and seminars.</span>
+          </p>
+          <ul class="df-card__tags">
+            <li><span class="t-ko">정책 연구</span><span class="t-en">Policy Research</span></li>
+            <li><span class="t-ko">기고 · 칼럼</span><span class="t-en">Op-eds</span></li>
+            <li><span class="t-ko">정책 세미나</span><span class="t-en">Policy Seminars</span></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== 파트너 ===== -->
+    <section class="df-section" id="df-partners">
+      <p class="df-section__eyebrow">Clients &amp; Partners</p>
+      <h3 class="df-section__title">
+        <span class="t-ko">주요 발주기관 · 파트너</span>
+        <span class="t-en">Clients &amp; Partners</span>
+      </h3>
+      <p class="df-section__lede">
+        <span class="t-ko">국내 방위산업 정책·연구 생태계의 핵심 기관들과 반복적으로 협업해 왔습니다.</span>
+        <span class="t-en">We collaborate continuously with the core institutions of Korea's defense-policy and research ecosystem.</span>
+      </p>
+
+      <div class="df-partners">
+        <div class="df-partners__item"><strong><span class="t-ko">국방기술진흥연구소</span><span class="t-en">KRIT</span></strong><span>KRIT</span></div>
+        <div class="df-partners__item"><strong><span class="t-ko">방위사업청</span><span class="t-en">DAPA</span></strong><span>DAPA</span></div>
+        <div class="df-partners__item"><strong><span class="t-ko">국방부</span><span class="t-en">MND</span></strong><span>Ministry of National Defense</span></div>
+        <div class="df-partners__item"><strong><span class="t-ko">한국방위산업학회</span><span class="t-en">KADIS</span></strong><span>Korean Assoc. of Defense Industry Studies</span></div>
+        <div class="df-partners__item"><strong><span class="t-ko">한국방위산업진흥회</span><span class="t-en">KDIA</span></strong><span>Korea Defense Industry Assoc.</span></div>
+        <div class="df-partners__item"><strong><span class="t-ko">한국방위산업연구소</span><span class="t-en">KIDIS</span></strong><span>Defense Industry Research</span></div>
+        <div class="df-partners__item"><strong><span class="t-ko">KAIST 미래전략대학원</span><span class="t-en">KAIST GSFS</span></strong><span>Graduate School of Future Strategy</span></div>
+        <div class="df-partners__item"><strong><span class="t-ko">한국연구재단</span><span class="t-en">NRF</span></strong><span>National Research Foundation</span></div>
+      </div>
+    </section>
+
+    <!-- ===== 실적 ===== -->
+    <section class="df-section" id="df-performance">
+      <p class="df-section__eyebrow">Recent Performance</p>
+      <h3 class="df-section__title">
+        <span class="t-ko">최근 수행 실적 (발췌)</span>
+        <span class="t-en">Recent Engagements (Selected)</span>
+      </h3>
+      <p class="df-section__lede">
+        <span class="t-ko">국방조달·정책 분야의 대표 사업과 정책 활동. 전체 이력은 회사 소개서에서 확인하실 수 있습니다.</span>
+        <span class="t-en">Selected defense-procurement and policy engagements. The full record is available on request.</span>
+      </p>
+
+      <div class="df-table-wrap">
+        <table class="df-table">
+          <thead>
+            <tr>
+              <th style="width:14%"><span class="t-ko">기간</span><span class="t-en">Period</span></th>
+              <th style="width:44%"><span class="t-ko">사업명</span><span class="t-en">Engagement</span></th>
+              <th style="width:26%"><span class="t-ko">발주처 · 매체</span><span class="t-en">Client / Outlet</span></th>
+              <th style="width:16%"><span class="t-ko">유형</span><span class="t-en">Type</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="df-table__year">2023.09 — 2023.12</td>
+              <td><strong><span class="t-ko">미 국방사업 제안요청서(RFP) 사례 조사 및 분석</span><span class="t-en">U.S. DoD Request-for-Proposal (RFP) Case Studies &amp; Analysis</span></strong></td>
+              <td class="df-table__client"><span class="t-ko">국방기술진흥연구소(KRIT)</span><span class="t-en">KRIT</span></td>
+              <td><span class="t-ko">시장 분석</span><span class="t-en">Market Analysis</span></td>
+            </tr>
+            <tr>
+              <td class="df-table__year">2022.05 — 2022.07</td>
+              <td><strong><span class="t-ko">한·미 국방상호조달협정(RDP MOU) 경제성 및 산업영향성 분석</span><span class="t-en">Korea–U.S. RDP MOU: Economic &amp; Industrial Impact Analysis</span></strong></td>
+              <td class="df-table__client"><span class="t-ko">국방기술진흥연구소(KRIT)</span><span class="t-en">KRIT</span></td>
+              <td><span class="t-ko">정책 분석</span><span class="t-en">Policy Analysis</span></td>
+            </tr>
+            <tr>
+              <td class="df-table__year">2026</td>
+              <td><span class="t-ko">RDP MOU: The missing link in the Korea–US defense alliance (컬럼)</span><span class="t-en">RDP MOU: The Missing Link in the Korea–U.S. Defense Alliance (column)</span></td>
+              <td class="df-table__client">Korea Herald</td>
+              <td><span class="t-ko">정책 기고</span><span class="t-en">Op-ed</span></td>
+            </tr>
+            <tr>
+              <td class="df-table__year">2026</td>
+              <td><span class="t-ko">Korea's US security strategy test (컬럼)</span><span class="t-en">Korea's U.S. Security Strategy Test (column)</span></td>
+              <td class="df-table__client">Korea Herald</td>
+              <td><span class="t-ko">정책 기고</span><span class="t-en">Op-ed</span></td>
+            </tr>
+            <tr>
+              <td class="df-table__year">2024</td>
+              <td><span class="t-ko">[기고] K-방산의 지속 가능성과 대미 수출</span><span class="t-en">K-Defense Sustainability &amp; Exports to the U.S. (op-ed)</span></td>
+              <td class="df-table__client"><span class="t-ko">한국일보</span><span class="t-en">The Hankook Ilbo</span></td>
+              <td><span class="t-ko">정책 기고</span><span class="t-en">Op-ed</span></td>
+            </tr>
+            <tr>
+              <td class="df-table__year">2024</td>
+              <td><span class="t-ko">2024 K-방산혁신포럼 — 미국 국방조달 시장 진출 패널</span><span class="t-en">2024 K-Defense Innovation Forum — U.S. Procurement Panel</span></td>
+              <td class="df-table__client"><span class="t-ko">한국방위산업진흥회(KDIA)</span><span class="t-en">KDIA</span></td>
+              <td><span class="t-ko">정책 포럼</span><span class="t-en">Forum</span></td>
+            </tr>
+            <tr>
+              <td class="df-table__year">2022</td>
+              <td><span class="t-ko">한국방위산업학회 정책세미나 — 한·미 RDP-MOU 체결 속도조절론</span><span class="t-en">KADIS Policy Seminar — Korea–U.S. RDP MOU Pacing</span></td>
+              <td class="df-table__client"><span class="t-ko">한국방위산업학회</span><span class="t-en">KADIS</span></td>
+              <td><span class="t-ko">정책 세미나</span><span class="t-en">Policy Seminar</span></td>
+            </tr>
+            <tr>
+              <td class="df-table__year">2022</td>
+              <td><span class="t-ko">한국방위산업연구소 국회 방위산업 특별 정책세미나</span><span class="t-en">National Assembly Special Policy Seminar — Korea Defense Industry Research Institute</span></td>
+              <td class="df-table__client"><span class="t-ko">한국방위산업연구소</span><span class="t-en">KIDIS</span></td>
+              <td><span class="t-ko">정책 세미나</span><span class="t-en">Policy Seminar</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== 방법론 ===== -->
+    <section class="df-section" id="df-methodology">
+      <p class="df-section__eyebrow">Methodology</p>
+      <h3 class="df-section__title">
+        <span class="t-ko">우리가 쓰는 방법론</span>
+        <span class="t-en">Frameworks We Use</span>
+      </h3>
+      <p class="df-section__lede">
+        <span class="t-ko">국방조달 시장 진출과 정책 연구에 특화된 글로벌 표준 방법론을 사업 특성에 맞춰 결합합니다.</span>
+        <span class="t-en">We combine global-standard frameworks tailored to defense-procurement market entry and policy research.</span>
+      </p>
+
+      <div class="df-grid">
+        <article class="df-card">
+          <p class="df-card__num">METHOD</p>
+          <h4 class="df-card__title">
+            <span class="t-ko">RDP MOU 비교 프레임워크 (28개국)</span>
+            <span class="t-en">RDP MOU Comparative Framework (28 Countries)</span>
+          </h4>
+          <p class="df-card__desc">
+            <span class="t-ko">미국이 체결한 28개 RDP MOU의 협정 조항·발효 조건·예외 규정을 비교 매트릭스로 정리해, 한국 방산기업이 활용 가능한 조항과 위험 조항을 식별합니다.</span>
+            <span class="t-en">We map the clauses, entry-into-force conditions, and carve-outs of all 28 U.S. RDP MOUs into a single comparison matrix — surfacing both the leverage points and the risks for Korean firms.</span>
+          </p>
+        </article>
+        <article class="df-card">
+          <p class="df-card__num">METHOD</p>
+          <h4 class="df-card__title">
+            <span class="t-ko">FAR · DFARS 컴플라이언스 매핑</span>
+            <span class="t-en">FAR &amp; DFARS Compliance Mapping</span>
+          </h4>
+          <p class="df-card__desc">
+            <span class="t-ko">미 연방조달규정(FAR)·국방연방조달규정(DFARS)의 핵심 조항을 한국 방산기업 사업 모델에 매핑해, 입찰 자격·표준조항·하도급 요건을 사전에 검토합니다.</span>
+            <span class="t-en">We map FAR (Federal Acquisition Regulation) and DFARS (Defense FAR Supplement) provisions to a Korean firm's business model, surfacing eligibility, standard clauses, and subcontracting obligations before bid submission.</span>
+          </p>
+        </article>
+        <article class="df-card">
+          <p class="df-card__num">METHOD</p>
+          <h4 class="df-card__title">
+            <span class="t-ko">ACAT 기반 프로그램 매핑</span>
+            <span class="t-en">ACAT-Based Program Mapping</span>
+          </h4>
+          <p class="df-card__desc">
+            <span class="t-ko">미 국방부의 획득 카테고리(ACAT I–III) 분류 체계로 표적 프로그램을 분류하고, 각 카테고리별 의사결정권자·예산 흐름·승인 절차를 추적합니다.</span>
+            <span class="t-en">We classify target programs using the U.S. DoD Acquisition Category (ACAT I–III) framework, then trace decision-makers, budget flows, and approval gates for each category.</span>
+          </p>
+        </article>
+        <article class="df-card">
+          <p class="df-card__num">METHOD</p>
+          <h4 class="df-card__title">
+            <span class="t-ko">RFP · BRD 분해 분석</span>
+            <span class="t-en">RFP · BRD Decomposition</span>
+          </h4>
+          <p class="df-card__desc">
+            <span class="t-ko">발주처 RFP와 BRD(Business Requirements Document)를 표준 분류 체계로 분해해 평가 가중치·평가 기준·필수·선택 요구사항을 식별, 입찰 전략을 도출합니다.</span>
+            <span class="t-en">We decompose RFPs and BRDs into a standardized taxonomy — exposing scoring weights, evaluation criteria, and mandatory vs. optional requirements — then build the bid strategy from that grid.</span>
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="df-cta">
+      <div>
+        <h3>
+          <span class="t-ko">한·미 방산협력의 다음 단계,<br>지금 준비하시겠습니까?</span>
+          <span class="t-en">Ready to prepare for the next stage<br>of Korea–U.S. defense cooperation?</span>
+        </h3>
+        <p>
+          <span class="t-ko">RDP MOU·미 국방조달·K-방산 글로벌화 — 어느 단계든 과업 개요를 보내주시면 담당자가 확인 후 회신드립니다.</span>
+          <span class="t-en">From RDP MOU to U.S. defense procurement to K-Defense globalization — share your scope and we'll respond promptly.</span>
+        </p>
+      </div>
+      <a class="df-cta__mail" href="mailto:defense@gpdi.kr">defense@gpdi.kr</a>
+    </section>
+
+  </div>
+</main>
+
+<!-- ===== Floating Info ===== -->
+<div class="info-float" id="infoFloat">
+  <button type="button" class="info-float__btn" aria-haspopup="true" aria-expanded="false" aria-label="Information"><span class="info-float__txt">INFO</span></button>
+  <div class="info-float__menu" role="menu">
+    <p class="info-float__title">Information</p>
+    <ul>
+      <li><a role="menuitem" href="index.html#press"><span class="t-ko">보도자료</span><span class="t-en">Press</span></a></li>
+      <li><a role="menuitem" href="index.html#videos"><span class="t-ko">교육동영상</span><span class="t-en">Education Videos</span></a></li>
+    </ul>
+  </div>
+</div>
+<script>(function(){var f=document.getElementById('infoFloat');if(!f)return;var btn=f.querySelector('.info-float__btn');btn.addEventListener('click',function(e){e.stopPropagation();var o=f.classList.toggle('is-open');btn.setAttribute('aria-expanded',o?'true':'false');});document.addEventListener('click',function(e){if(!f.contains(e.target)){f.classList.remove('is-open');btn.setAttribute('aria-expanded','false');}});function s(){if(window.scrollY>120){f.classList.add('is-scrolled');}else{f.classList.remove('is-scrolled');}}window.addEventListener('scroll',s,{passive:true});s();})();</script>
+
+<footer id="footer" class="gp-footer">
+  <div class="gp-footer__links">
+    <div class="gp-footer__wrap">
+      <ul>
+        <li><a href="sub/pop_privacy.html"><span class="t-ko">개인정보처리방침</span><span class="t-en">Privacy Policy</span></a></li>
+        <li><a href="sub/pop_email.html"><span class="t-ko">이메일무단수집거부</span><span class="t-en">No Email Collection</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="gp-footer__info">
+    <div class="gp-footer__wrap">
+      <address class="gp-footer__addr">
+        <p class="gp-footer__name"><span class="t-ko">글로벌조달개발원</span><span class="t-en">Global Procurement Development Institute</span></p>
+        <p><span class="t-ko">주소 : (10542) 경기도 고양시 덕양구 청초로 10, A동 4층 AA04-0405호, 0406호(덕은동)</span><span class="t-en">Address: AA04-0405 / 0406, Building A, 4F, 10 Cheongcho-ro, Deogyang-gu, Goyang-si, Gyeonggi-do 10542, Republic of Korea</span></p>
+        <p><span class="t-ko">사업자등록번호: 863-87-01643 &nbsp; 전화: 02-6242-7200 &nbsp; 팩스: 02-6242-7209 &nbsp; 대표 이메일: information@gpdi.kr</span><span class="t-en">Business Reg. No.: 863-87-01643 &nbsp; Tel: +82-2-6242-7200 &nbsp; Fax: +82-2-6242-7209 &nbsp; Email: information@gpdi.kr</span></p>
+        <p class="gp-footer__copy">COPYRIGHT(C) 2022. Global Procurement Development Institute ALL RIGHTS RESERVED.</p>
+      </address>
+      <div class="gp-footer__brand">
+        <img class="gp-footer__logo" src="images/GPDI_LOGO_white.svg" alt="글로벌조달개발원">
+        <a href="https://www.exportvoucher.com/portal/sample/main" target="_blank" rel="noopener" class="gp-footer__voucher" aria-label="수출지원기반활용사업">
+          <img src="https://www.gpdi.kr/images/common/f_logo02.png" alt="수출지원기반활용사업" onerror="this.style.display='none'">
+        </a>
+        <p class="gp-footer__partner"><span class="t-ko">수출바우처 공식수행기관<br>소관부처: 산업통상자원부(KOTRA)<br>중소벤처기업부(중진공)</span><span class="t-en">Official Export Voucher Operator<br>Sponsored by: Ministry of Trade, Industry &amp; Energy (KOTRA)<br>Ministry of SMEs &amp; Startups (KOSME)</span></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
