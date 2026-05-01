@@ -16,7 +16,7 @@ async function renderPress() {
     .limit(LANDING_PRESS_LIMIT);
 
   if (error) {
-    ul.innerHTML = `<li style="padding:18px 20px;color:#999">불러오기 실패: ${esc(error.message)}</li>`;
+    ul.innerHTML = `<li style="padding:18px 20px;color:#999">${(document.body.getAttribute('data-lang')||'ko')==='en'?'Failed to load':'불러오기 실패'}: ${esc(error.message)}</li>`;
     return;
   }
 
@@ -41,7 +41,7 @@ async function renderVideos() {
     .limit(LANDING_VIDEO_LIMIT);
 
   if (error) {
-    ul.innerHTML = `<li style="padding:14px 16px;color:#999">불러오기 실패: ${esc(error.message)}</li>`;
+    ul.innerHTML = `<li style="padding:14px 16px;color:#999">${(document.body.getAttribute('data-lang')||'ko')==='en'?'Failed to load':'불러오기 실패'}: ${esc(error.message)}</li>`;
     return;
   }
 

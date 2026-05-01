@@ -229,7 +229,7 @@ async function load() {
   } else {
     $grid.innerHTML = data.map(v => {
       const { link, thumb, hasThumb } = videoLinkAndThumb(v);
-      const head = v.title.split(']')[0] + (v.title.includes(']') ? ']' : '영상');
+      const head = v.title.split(']')[0] + (v.title.includes(']') ? ']' : (lang==='en' ? 'Video' : '영상'));
       const media = hasThumb
         ? `<img src="${thumb}" alt="" onerror="this.style.display='none'">`
         : `<div class="ed-card__placeholder" aria-hidden="true">${esc(head)}</div>`;
