@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta content="width=device-width,initial-scale=1.0,viewport-fit=cover" name="viewport">
+<meta name="description" content="GPDI 조직도 — 글로벌조달개발원 조직 구성 및 본부별 인력 편제">
+<title data-ko="GPDI | 조직도" data-en="GPDI | Organization Chart">GPDI | 조직도</title>
+<link rel="icon" type="image/svg+xml" href="images/GPDI_Symbol.svg">
+<link rel="apple-touch-icon" href="images/GPDI_Symbol.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap">
+
+<script src="js/lang.js"></script>
+<style>
+  /* 언어 토글 */
+  body[data-lang="ko"] .t-en{display:none !important}
+  body[data-lang="en"] .t-ko{display:none !important}
+  .t-ko.is-block,.t-en.is-block{display:block}
+  body[data-lang="ko"] .t-en.is-block{display:none !important}
+  body[data-lang="en"] .t-ko.is-block{display:none !important}
+
+  /* ======== 공용 ======== */
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;padding:0;scroll-behavior:smooth}
+  ul,ol{list-style:none;margin:0;padding:0}
+  h1,h2,h3,h4,h5,h6,p{margin:0}
+  button{font:inherit}
+  body{font-family:"Noto Sans KR","Malgun Gothic",sans-serif;color:#3e3a39;background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%;height:auto;display:block}
+  a{color:inherit;text-decoration:none}
+
+  /* ================= HEADER (라이트 변형 — 조직도 문서형 페이지) ================= */
+  .header{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #eceff5}
+  .header .contain{max-width:1480px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;height:88px}
+  header.header h1.sitelogo{margin:0 !important;padding:0 !important;flex-shrink:0;line-height:1;display:flex !important;align-items:center;height:auto;font-size:0}
+  header.header h1.sitelogo a{display:inline-flex !important;align-items:center;line-height:0}
+  header.header h1.sitelogo img{height:36px !important;width:auto !important;display:block}
+  .header #gnb{flex:1}
+  .header #gnb > ul{display:flex !important;justify-content:center;gap:clamp(20px,3.4vw,52px);margin:0;padding:0;list-style:none}
+  .header #gnb > ul > li{position:relative;list-style:none}
+  .header #gnb > ul > li > a{display:flex !important;align-items:center;height:88px;padding:0 4px;font:500 15px/1 "Noto Sans KR",sans-serif;letter-spacing:-.01em;color:#3e3a39;position:relative;transition:color .2s ease;white-space:nowrap}
+  .header #gnb > ul > li > a::after{content:"";position:absolute;left:50%;bottom:30px;width:0;height:2px;background:#86acaa;transform:translateX(-50%);transition:width .25s ease}
+  .header #gnb > ul > li:hover > a,.header #gnb > ul > li.is-current > a{color:#535470}
+  .header #gnb > ul > li:hover > a::after,.header #gnb > ul > li:focus-within > a::after,.header #gnb > ul > li.is-current > a::after{width:22px}
+  .header #gnb .submenu{position:absolute !important;left:50% !important;top:88px !important;transform:translateX(-50%) translateY(4px);background:#fff !important;border-top:2px solid #535470;box-shadow:0 20px 44px rgba(14,20,38,.16);padding:4px 0;min-width:200px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,transform .22s ease,visibility 0s linear .22s;z-index:120}
+  .header #gnb > ul > li:hover > .submenu,.header #gnb > ul > li:focus-within > .submenu{opacity:1 !important;visibility:visible !important;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity .22s ease,transform .22s ease,visibility 0s}
+  .header #gnb .submenu ul{list-style:none !important;margin:0 !important;padding:0 !important;display:block !important}
+  .header #gnb .submenu li a{display:block !important;padding:12px 22px !important;font:500 14px/1.45 "Noto Sans KR",sans-serif !important;color:#3e3a39 !important;white-space:nowrap;transition:background .18s ease,color .18s ease,padding-left .18s ease}
+  .header #gnb .submenu li a:hover{background:#f3f5f8 !important;color:#535470 !important;padding-left:26px !important}
+
+  .header__right{display:flex;align-items:center;gap:20px;flex-shrink:0}
+  .header__meta{font:600 11px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.2em;color:#86acaa;white-space:nowrap}
+  .util--clean{display:inline-flex;align-items:stretch;font:600 12px/1 "Inter","Noto Sans KR",sans-serif}
+  .util--clean .lang-toggle{display:inline-flex;align-items:stretch;border:1px solid #d7dbe4}
+  .util--clean .lang-btn{appearance:none;background:transparent;border:0;padding:8px 13px;color:#8b8f9c;font:inherit;letter-spacing:.14em;cursor:pointer;transition:color .15s ease,background .15s ease}
+  .util--clean .lang-btn:hover{color:#535470}
+  .util--clean .lang-btn.is-active{color:#fff;background:#535470}
+  /* lang.js FOUC 스타일은 다크 헤더 기준 — 라이트 헤더에서 재정의 */
+  html .header .lang-btn[data-lang]{color:#8b8f9c !important;background:transparent !important}
+  html[data-lang="ko"] .header .lang-btn[data-lang="ko"],
+  html[data-lang="en"] .header .lang-btn[data-lang="en"]{color:#fff !important;background:#535470 !important}
+
+  /* 모바일 토글 버튼 + 드로어 */
+  .nav-toggle{display:none;appearance:none;background:transparent;border:1px solid #d7dbe4;width:44px;height:44px;padding:0;cursor:pointer;position:relative;flex-shrink:0}
+  .nav-toggle span,.nav-toggle::before,.nav-toggle::after{content:"";position:absolute;left:12px;right:12px;height:1.5px;background:#3e3a39;transition:transform .25s ease,opacity .2s ease}
+  .nav-toggle::before{top:15px}
+  .nav-toggle span{top:21px}
+  .nav-toggle::after{top:27px}
+  body.nav-open .nav-toggle::before{transform:translateY(6px) rotate(45deg)}
+  body.nav-open .nav-toggle span{opacity:0}
+  body.nav-open .nav-toggle::after{transform:translateY(-6px) rotate(-45deg)}
+  .nav-scrim{position:fixed;inset:0;background:rgba(14,20,38,.45);opacity:0;visibility:hidden;transition:opacity .25s ease,visibility 0s linear .25s;z-index:98}
+  body.nav-open .nav-scrim{opacity:1;visibility:visible;transition:opacity .25s ease,visibility 0s}
+  /* 드로어 열림 중 배경 스크롤 잠금 */
+  body.nav-open{overflow:hidden}
+  /* 플로팅 INFO 버튼(z-index:200)이 드로어 링크를 덮지 않도록 — 헤더(z-100)보다 드로어(z-99)를 낮게 유지해야 토글이 눌리므로 z-index 대신 숨김 처리 */
+  body.nav-open .info-float{opacity:0;visibility:hidden;pointer-events:none}
+
+  /* ================= 조직도 본문 ================= */
+  .org{padding:76px 0 96px;background:#fff}
+  .org__inner{max-width:1400px;margin:0 auto;padding:0 40px}
+
+  /* --- 타이틀 블록 --- */
+  .org-intro{padding-left:108px}
+  .org-eyebrow{font:600 11px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#86acaa;margin:0 0 26px}
+  .org-title{font:700 clamp(38px,5.6vw,57px)/1.1 "Noto Sans KR","Inter",sans-serif;letter-spacing:-.03em;color:#535470;margin:0}
+  .org-sub{margin:22px 0 0;font:400 15px/1.6 "Noto Sans KR",sans-serif;color:#595857;letter-spacing:-.005em}
+  .org-rule{border:0;border-top:1px solid #eceff5;margin:46px 0 0}
+
+  /* --- 트리 --- */
+  .org-tree{margin:0}
+
+  /* CEO */
+  .org-ceo{width:min(500px,100%);margin:56px auto 0;background:#faf9f6;border-left:3px solid #535470;padding:34px 38px 36px}
+  .org-ceo__label{font:600 12px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#b87860;margin:0 0 30px}
+  .org-ceo__name{font:700 30px/1.2 "Noto Sans KR",sans-serif;letter-spacing:-.02em;color:#535470;margin:0}
+  .org-ceo__role{margin:16px 0 0;font:400 14.5px/1.5 "Noto Sans KR",sans-serif;color:#595857}
+  .org-ceo__en{margin:14px 0 0;font:700 12px/1.5 "Inter","Noto Sans KR",sans-serif;letter-spacing:.1em;color:#595857;text-transform:uppercase}
+
+  /* CEO → 자문단 연결 구간 */
+  .org-connect{position:relative;display:grid;grid-template-columns:1fr 1fr;padding:34px 0 40px}
+  .org-connect::before{content:"";position:absolute;left:50%;top:0;bottom:0;border-left:1px solid #cfd4de}
+  .org-adv{grid-column:2;justify-self:start;margin-left:72px;width:min(300px,100%);position:relative;background:#f3f5f8;border-left:3px solid #86acaa;padding:28px 30px 30px}
+  .org-adv::before{content:"";position:absolute;right:100%;top:50%;width:72px;border-top:1px solid #cfd4de}
+  .org-adv__label{font:600 12px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#86acaa;margin:0 0 22px}
+  .org-adv__list li{display:flex;align-items:baseline;gap:12px;margin:0 0 14px}
+  .org-adv__list li:last-child{margin-bottom:0}
+  .org-adv__name{font:700 17px/1.3 "Noto Sans KR",sans-serif;color:#535470;letter-spacing:-.01em}
+  .org-adv__role{font:400 12.5px/1.3 "Noto Sans KR",sans-serif;color:#595857}
+
+  /* 분기 버스 */
+  .org-bus{position:relative;height:56px;display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
+  .org-bus::before{content:"";position:absolute;left:calc(10% - 9.6px);right:calc(10% - 9.6px);top:0;border-top:1px solid #cfd4de}
+  .org-bus__leg{position:relative}
+  .org-bus__leg::before{content:"";position:absolute;left:50%;top:0;bottom:0;border-left:1px solid #cfd4de}
+
+  /* --- 본부 5열 --- */
+  .org-divs{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;align-items:start}
+  .org-div{min-width:0;display:flex;flex-direction:column}
+  .org-div__head{border-top:2px solid #535470;padding:24px 0 12px;text-align:center;position:relative}
+  .org-div__num{font:800 52px/1 "Inter",sans-serif;color:#f3f5f8;letter-spacing:.02em;display:block;margin:0 0 -8px;user-select:none}
+  .org-div__ko{position:relative;font:700 21px/1.3 "Noto Sans KR",sans-serif;letter-spacing:-.02em;color:#535470;margin:0}
+  .org-div__en{margin:16px 0 0;font:600 11.5px/1.75 "Inter","Noto Sans KR",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#86acaa}
+
+  .org-div__cards{margin:18px 0 0;display:flex;flex-direction:column;gap:18px}
+  .org-card{background:#fff;border:1px solid #eceff5;border-left:3px solid transparent;padding:20px 18px 22px;min-height:148px}
+  .org-card--head{border-left-color:#b87860}
+  .org-card--dashed{border-left-style:dashed;border-left-color:#b87860}
+  .org-card--sub{min-height:118px}
+  .org-card__name{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .org-card__ko{font:700 18px/1.3 "Noto Sans KR",sans-serif;letter-spacing:-.01em;color:#535470}
+  .org-card__en{font:700 13.5px/1.3 "Inter","Noto Sans KR",sans-serif;color:#595857;letter-spacing:-.005em}
+  .org-card__role{margin:14px 0 0;font:400 14px/1.5 "Noto Sans KR",sans-serif;color:#3e3a39}
+  .org-card__roleen{margin:12px 0 0;font:700 11px/1.5 "Inter","Noto Sans KR",sans-serif;letter-spacing:.055em;text-transform:uppercase;color:#595857}
+  .org-badge{display:inline-block;margin:14px 0 0;padding:6px 10px;border:1px solid #b87860;font:600 11px/1 "Noto Sans KR",sans-serif;letter-spacing:.02em;color:#b87860}
+
+  /* 5열 데스크톱에서 본부 헤더·1차 카드·2차 카드 행 높이를 열 간 정렬 (원본 시안과 동일) */
+  @supports (grid-template-rows:subgrid){
+    @media (min-width:1241px){
+      .org-divs{grid-template-rows:auto auto auto;align-items:stretch}
+      .org-div{display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:18px}
+      .org-div__cards{display:contents}
+    }
+  }
+
+  /* --- 프로젝트 인력 운영 --- */
+  .org-note{margin:66px 0 0;background:#faf9f6;border-left:3px solid #b87860;padding:36px 40px 38px 36px}
+  .org-note__label{font:600 11.5px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#b87860;margin:0 0 26px}
+  .org-note__list li{position:relative;padding-left:26px;margin:0 0 18px;font:400 15px/1.7 "Noto Sans KR",sans-serif;color:#3e3a39;word-break:keep-all}
+  .org-note__list li:last-child{margin-bottom:0}
+  .org-note__list li::before{content:"–";position:absolute;left:0;top:0;color:#b87860}
+  .org-note__list strong{font-weight:700;color:#3e3a39}
+
+  /* --- 지표 pill --- */
+  .org-pills{display:flex;flex-wrap:wrap;gap:14px;margin:44px 0 0}
+  .org-pills li{border:1px solid #e3e6ee;border-radius:999px;padding:13px 24px;font:600 11.5px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#595857}
+
+  /* ================= 반응형 ================= */
+  @media (max-width:1240px){
+    .header__meta{display:none}
+    .org-intro{padding-left:0}
+    /* 5열은 1320px 콘텐츠 폭을 전제로 한 시안 — 그 아래에서는 3열로 재편 */
+    .org-divs{grid-template-columns:repeat(3,1fr)}
+    .org-bus{display:none}
+    .org-connect{display:block;padding:28px 0 34px}
+    .org-connect::before{display:none}
+    .org-adv{margin:0 auto;width:min(420px,100%)}
+    .org-adv::before{display:none}
+  }
+  @media (max-width:1180px){
+    .header .contain{padding:0 24px;height:72px;gap:16px}
+    /* 닫힘 상태에서 visibility:hidden → 화면 밖 링크가 Tab 순서에 잡히지 않게 함 */
+    .header #gnb{position:fixed;top:0;right:0;bottom:0;width:min(320px,86vw);background:#fff;box-shadow:-12px 0 40px rgba(14,20,38,.16);transform:translateX(100%);visibility:hidden;transition:transform .3s cubic-bezier(.4,0,.2,1),visibility 0s linear .3s;z-index:99;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:88px 0 40px;flex:none}
+    body.nav-open .header #gnb{transform:translateX(0);visibility:visible;transition:transform .3s cubic-bezier(.4,0,.2,1),visibility 0s}
+    .header #gnb > ul{display:block !important;padding:0 8px}
+    .header #gnb > ul > li > a{height:auto;padding:16px 20px;font-size:16px;font-weight:600;border-bottom:1px solid #f3f5f8}
+    .header #gnb > ul > li > a::after{display:none}
+    /* visibility:inherit — visible로 강제하면 닫힌 드로어 안에서도 서브메뉴 링크가 다시 포커스 가능해짐 */
+    .header #gnb .submenu{position:static !important;transform:none !important;opacity:1 !important;visibility:inherit !important;pointer-events:auto;box-shadow:none;border-top:0;min-width:0;padding:4px 0 12px;background:#faf9f6 !important}
+    .header #gnb .submenu li a{padding:11px 32px !important;font-size:14px !important;color:#595857 !important}
+    .nav-toggle{display:block}
+    /* 터치 타깃 확보 (Apple/Google 권장 44px) */
+    .util--clean .lang-btn{padding:14px 13px}
+    .org{padding:56px 0 72px}
+    .org__inner{padding:0 24px}
+    .org-div__head{padding-top:22px}
+    .org-ceo{margin-top:44px}
+  }
+  @media (max-width:760px){
+    .org-divs{grid-template-columns:repeat(2,1fr);gap:20px}
+    .org-title{letter-spacing:-.02em}
+    .org-note{padding:28px 24px 30px}
+    .org-ceo{padding:28px 26px 30px}
+    .org-pills li{padding:11px 18px;letter-spacing:.08em}
+  }
+  @media (max-width:520px){
+    /* 좁은 화면에서 로고+언어토글+햄버거가 헤더 폭을 넘지 않도록 축소.
+       터치 타깃(44px)은 유지하고 로고·자간만 줄인다 */
+    .header .contain{padding:0 16px;gap:10px}
+    header.header h1.sitelogo img{height:26px !important}
+    .header__right{gap:10px}
+    .util--clean .lang-btn{padding:14px 9px;letter-spacing:.1em}
+    .org__inner{padding:0 20px}
+    .org-divs{grid-template-columns:1fr;gap:16px}
+    .org-div{padding-bottom:8px}
+    .org-card{min-height:0}
+    .org-eyebrow{margin-bottom:18px}
+    .org-rule{margin-top:34px}
+  }
+  @media (max-width:359px){
+    .header .contain{padding:0 12px;gap:8px}
+    header.header h1.sitelogo img{height:22px !important}
+    .util--clean .lang-btn{padding:14px 7px;letter-spacing:.06em;font-size:11px}
+  }
+  /* 1241~1320 구간에서 header__meta 가 되살아나면 헤더 행이 뷰포트를 넘김 — 숨김 구간을 넓힌다 */
+  @media (max-width:1320px){
+    .header__meta{display:none}
+  }
+
+  /* ================= Floating Info ================= */
+  .info-float{position:fixed;right:48px;top:50%;transform:translateY(-50%);z-index:200}
+  .info-float__btn{position:relative;appearance:none;border:0;cursor:pointer;width:56px;height:56px;padding:0;background:#535470;box-shadow:0 10px 24px rgba(14,20,38,.24);transition:background .2s ease,transform .2s ease,box-shadow .2s ease;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .info-float__btn:hover,.info-float__btn:focus-visible,.info-float.is-open .info-float__btn{background:#3e3a39;transform:translateY(-2px);outline:none}
+  .info-float__txt{font:800 12px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.24em;color:#fff;position:relative;z-index:2}
+  .info-float__btn::before{content:"";position:absolute;top:0;right:0;width:10px;height:10px;background:#86acaa;z-index:1}
+  .info-float__btn::after{content:"";position:absolute;bottom:0;left:0;width:8px;height:8px;background:#b87860;z-index:1}
+  .info-float__menu{position:absolute;right:calc(100% + 14px);top:50%;transform:translateY(-50%) translateX(6px);min-width:240px;padding:14px 0 8px;background:#fff;border-right:2px solid #535470;box-shadow:0 20px 44px rgba(14,20,38,.22);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,visibility 0s linear .22s,transform .22s ease}
+  .info-float:hover .info-float__menu,.info-float:focus-within .info-float__menu,.info-float.is-open .info-float__menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(-50%) translateX(0);transition:opacity .22s ease,visibility 0s,transform .22s ease}
+  .info-float__title{margin:0 0 6px;padding:0 20px;font:700 10px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#86acaa}
+  .info-float__menu li a{display:block;padding:11px 20px;font:500 13.5px/1.45 "Noto Sans KR",sans-serif;color:#3e3a39;transition:background .18s ease,color .18s ease,padding-left .18s ease;white-space:nowrap}
+  .info-float__menu li a:hover{background:#f3f5f8;color:#535470;padding-left:24px}
+  @media (max-width:768px){.info-float{top:auto;bottom:24px;transform:none;right:20px}.info-float__btn{width:52px;height:52px}.info-float__menu{right:calc(100% + 10px);top:auto;bottom:0;transform:translateX(6px)}.info-float:hover .info-float__menu,.info-float:focus-within .info-float__menu,.info-float.is-open .info-float__menu{transform:translateX(0)}}
+
+  /* ================= FOOTER ================= */
+  .gp-footer{background:#3a3f4a;color:rgba(255,255,255,.65)}
+  .gp-footer a{color:inherit;text-decoration:none;transition:color .18s ease}
+  .gp-footer__wrap{max-width:1400px;margin:0 auto;padding:0 40px}
+  .gp-footer__links{border-bottom:1px solid rgba(255,255,255,.08)}
+  .gp-footer__links ul{list-style:none;margin:0;padding:14px 0;display:flex;gap:32px;align-items:center;flex-wrap:wrap}
+  .gp-footer__links a{display:inline-flex;align-items:center;gap:8px;font:400 12.5px/1 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.7);letter-spacing:-.005em}
+  .gp-footer__links a::before{content:"";display:inline-block;width:11px;height:11px;border:1px solid rgba(255,255,255,.35);flex-shrink:0}
+  .gp-footer__links a:hover{color:#fff}
+  .gp-footer__info .gp-footer__wrap{display:grid;grid-template-columns:1fr auto;gap:60px;align-items:flex-start;padding-top:40px;padding-bottom:40px}
+  .gp-footer__addr{font-style:normal;font:400 12.5px/1.75 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.55);letter-spacing:-.005em}
+  .gp-footer__addr p{margin:0 0 4px}
+  .gp-footer__addr p:last-child{margin-bottom:0}
+  .gp-footer__name{font:700 15px/1.3 "Noto Sans KR",sans-serif;color:#fff;margin:0 0 10px !important;letter-spacing:-.01em}
+  .gp-footer__copy{margin-top:14px !important;font-size:11.5px;letter-spacing:.02em;color:rgba(255,255,255,.4)}
+  .gp-footer__brand{display:flex;flex-direction:column;align-items:flex-end;gap:14px;text-align:right;min-width:220px}
+  .gp-footer__logo{height:28px;width:auto;display:block}
+  .gp-footer__voucher{display:inline-block;line-height:0}
+  .gp-footer__voucher img{height:20px;width:auto;display:block}
+  .gp-footer__partner{margin:4px 0 0;font:400 11.5px/1.65 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.55)}
+  @media (max-width:900px){
+    .gp-footer__wrap{padding:0 24px}
+    .gp-footer__info .gp-footer__wrap{grid-template-columns:1fr;gap:28px;padding-top:32px;padding-bottom:32px}
+    .gp-footer__brand{align-items:flex-start;text-align:left}
+    .gp-footer__links ul{gap:20px;padding:12px 0}
+  }
+</style>
+</head>
+<body data-lang="ko">
+
+<!-- ===== HEADER ===== -->
+<header id="header" class="header">
+  <div class="contain">
+    <h1 class="sitelogo">
+      <a href="index.html"><img src="images/GPDI_LOGO.svg" alt="글로벌조달개발원"></a>
+    </h1>
+    <div id="gnb" class="gnb">
+      <ul>
+        <li class="is-current"><a href="about.html"><span class="t-ko">전략 자문</span><span class="t-en">Strategy &amp; Advisory</span></a>
+          <div class="submenu"><ul>
+            <li><a href="about.html"><span class="t-ko">해외공공조달</span><span class="t-en">Overseas Procurement</span></a></li>
+            <li><a href="members.html"><span class="t-ko">해외 공공조달 전문가</span><span class="t-en">Senior Members</span></a></li>
+            <li><a href="history.html"><span class="t-ko">히스토리</span><span class="t-en">History</span></a></li>
+            <li><a href="organization.html"><span class="t-ko">조직도</span><span class="t-en">Organization</span></a></li>
+          </ul></div>
+        </li>
+        <li><a href="performance.html"><span class="t-ko">글로벌 사업</span><span class="t-en">Global Programs</span></a>
+          <div class="submenu"><ul>
+            <li><a href="performance.html"><span class="t-ko">주요 실적</span><span class="t-en">Performance</span></a></li>
+            <li><a href="services.html"><span class="t-ko">서비스 소개</span><span class="t-en">Services</span></a></li>
+            <li><a href="gpdi-usa.html">GPDI USA</a></li>
+            <li><a href="gpdi-uae.html">GPDI UAE</a></li>
+            <li><a href="gpdi-ukraine.html">GPDI Ukraine</a></li>
+          </ul></div>
+        </li>
+        <li><a href="healthcare.html"><span class="t-ko">산업 솔루션</span><span class="t-en">Industry Solutions</span></a>
+          <div class="submenu"><ul>
+            <li><a href="healthcare.html"><span class="t-ko">헬스케어</span><span class="t-en">Healthcare</span></a></li>
+            <li><a href="smartcity.html"><span class="t-ko">스마트시티</span><span class="t-en">Smart City</span></a></li>
+            <li><a href="defense.html"><span class="t-ko">국방안전</span><span class="t-en">Defense &amp; Safety</span></a></li>
+          </ul></div>
+        </li>
+        <li><a href="ai.html"><span class="t-ko">AI 전환</span><span class="t-en">AX / DX</span></a>
+          <div class="submenu"><ul>
+            <li><a href="ai.html#ax-axdx">AX · DX</a></li>
+            <li><a href="ai.html#ax-ict-infra"><span class="t-ko">ICT · 인프라</span><span class="t-en">ICT · Infra</span></a></li>
+          </ul></div>
+        </li>
+        <li><a href="contact.html"><span class="t-ko">문의·위치</span><span class="t-en">Contact</span></a></li>
+      </ul>
+    </div>
+    <div class="header__right">
+      <span class="header__meta">2026 · SEOUL HQ</span>
+      <div class="util util--clean">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button type="button" class="lang-btn is-active" data-lang="ko">KOR</button>
+          <button type="button" class="lang-btn" data-lang="en">ENG</button>
+        </div>
+      </div>
+      <button type="button" class="nav-toggle" id="navToggle" aria-controls="gnb" aria-expanded="false" aria-label="메뉴 열기"><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="nav-scrim" id="navScrim" hidden></div>
+
+<!-- ===== 조직도 ===== -->
+<main class="org">
+  <div class="org__inner">
+
+    <!-- 타이틀 -->
+    <div class="org-intro">
+      <p class="org-eyebrow">Organization Chart</p>
+      <h2 class="org-title"><span class="t-ko">조직도</span><span class="t-en">Organization Chart</span></h2>
+      <p class="org-sub">글로벌조달개발원 · Global Procurement Development Institute</p>
+      <hr class="org-rule" aria-hidden="true">
+    </div>
+
+    <div class="org-tree">
+
+      <!-- 대표 -->
+      <article class="org-ceo">
+        <p class="org-ceo__label">Chief Executive Officer</p>
+        <p class="org-ceo__name">서민영</p>
+        <p class="org-ceo__role"><span class="t-ko">대표</span><span class="t-en">Chief Executive Officer</span></p>
+        <p class="org-ceo__en">CEO · Global Procurement Development Institute</p>
+      </article>
+
+      <!-- 자문단 -->
+      <div class="org-connect">
+        <aside class="org-adv">
+          <p class="org-adv__label">Advisory Board</p>
+          <ul class="org-adv__list">
+            <li><span class="org-adv__name">김만기</span><span class="org-adv__role">교수 · Professor</span></li>
+            <li><span class="org-adv__name">김성균</span><span class="org-adv__role">교수 · Professor</span></li>
+            <li><span class="org-adv__name">자비스</span><span class="org-adv__role">고문 · Advisor</span></li>
+          </ul>
+        </aside>
+      </div>
+
+      <!-- 분기선 -->
+      <div class="org-bus" aria-hidden="true">
+        <span class="org-bus__leg"></span><span class="org-bus__leg"></span><span class="org-bus__leg"></span><span class="org-bus__leg"></span><span class="org-bus__leg"></span>
+      </div>
+
+      <!-- 5개 본부 -->
+      <div class="org-divs">
+
+        <!-- 01 AX전략본부 -->
+        <section class="org-div">
+          <header class="org-div__head">
+            <span class="org-div__num">01</span>
+            <h3 class="org-div__ko">AX전략본부</h3>
+            <p class="org-div__en">Intelligence<br>Division</p>
+          </header>
+          <div class="org-div__cards">
+            <article class="org-card org-card--head">
+              <p class="org-card__name"><span class="org-card__ko">송시우</span><span class="org-card__en">Song Xiu</span></p>
+              <p class="org-card__role">이사 / CTO / 본부장</p>
+              <p class="org-card__roleen">Director · CTO · Division Head</p>
+            </article>
+            <article class="org-card org-card--sub">
+              <p class="org-card__name"><span class="org-card__ko">조 훈</span><span class="org-card__en">Rex Cho</span></p>
+              <p class="org-card__role">총괄 디렉터</p>
+              <p class="org-card__roleen">Lead Director</p>
+            </article>
+          </div>
+        </section>
+
+        <!-- 02 신사업본부 -->
+        <section class="org-div">
+          <header class="org-div__head">
+            <span class="org-div__num">02</span>
+            <h3 class="org-div__ko">신사업본부</h3>
+            <p class="org-div__en">Future Business<br>Division</p>
+          </header>
+          <div class="org-div__cards">
+            <article class="org-card org-card--head org-card--dashed">
+              <p class="org-card__name"><span class="org-card__ko">송시우</span><span class="org-card__en">Song Xiu</span></p>
+              <p class="org-card__role">본부장 (겸임)</p>
+              <p class="org-card__roleen">Division Head</p>
+              <p class="org-badge">AX전략본부 겸임</p>
+            </article>
+            <article class="org-card org-card--sub">
+              <p class="org-card__name"><span class="org-card__ko">배선미</span></p>
+              <p class="org-card__role">책임</p>
+              <p class="org-card__roleen">Senior Manager</p>
+            </article>
+          </div>
+        </section>
+
+        <!-- 03 공공사업본부 -->
+        <section class="org-div">
+          <header class="org-div__head">
+            <span class="org-div__num">03</span>
+            <h3 class="org-div__ko">공공사업본부</h3>
+            <p class="org-div__en">Public Business<br>Division</p>
+          </header>
+          <div class="org-div__cards">
+            <article class="org-card org-card--head">
+              <p class="org-card__name"><span class="org-card__ko">이미정</span></p>
+              <p class="org-card__role">본부장</p>
+              <p class="org-card__roleen">Division Head</p>
+            </article>
+            <article class="org-card org-card--sub">
+              <p class="org-card__name"><span class="org-card__ko">최현호</span></p>
+              <p class="org-card__role">팀장</p>
+              <p class="org-card__roleen">Team Leader</p>
+            </article>
+          </div>
+        </section>
+
+        <!-- 04 국방사업본부 -->
+        <section class="org-div">
+          <header class="org-div__head">
+            <span class="org-div__num">04</span>
+            <h3 class="org-div__ko">국방사업본부</h3>
+            <p class="org-div__en">Defense Business<br>Division</p>
+          </header>
+          <div class="org-div__cards">
+            <article class="org-card org-card--head">
+              <p class="org-card__name"><span class="org-card__ko">정은진</span></p>
+              <p class="org-card__role">파트너 / 본부장</p>
+              <p class="org-card__roleen">Partner · Division Head</p>
+            </article>
+            <article class="org-card org-card--sub">
+              <p class="org-card__name"><span class="org-card__ko">문지원</span></p>
+              <p class="org-card__role">매니저</p>
+              <p class="org-card__roleen">Manager</p>
+            </article>
+          </div>
+        </section>
+
+        <!-- 05 경영지원본부 -->
+        <section class="org-div">
+          <header class="org-div__head">
+            <span class="org-div__num">05</span>
+            <h3 class="org-div__ko">경영지원본부</h3>
+            <p class="org-div__en">Corporate Services<br>Division</p>
+          </header>
+          <div class="org-div__cards">
+            <article class="org-card org-card--head">
+              <p class="org-card__name"><span class="org-card__ko">김은영</span></p>
+              <p class="org-card__role">실장</p>
+              <p class="org-card__roleen">General Manager</p>
+            </article>
+            <article class="org-card org-card--sub">
+              <p class="org-card__name"><span class="org-card__ko">이진주</span></p>
+              <p class="org-card__role">팀장</p>
+              <p class="org-card__roleen">Team Leader</p>
+            </article>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- 프로젝트 인력 운영 -->
+    <section class="org-note">
+      <p class="org-note__label">Project Staffing</p>
+      <ul class="org-note__list">
+        <li><span class="t-ko">당해 연도 수주 사업에 투입되는 인력의 인사 관리는 <strong>공공사업본부 이미정 본부장</strong>이 총괄한다.</span><span class="t-en">Personnel management for staff assigned to projects awarded in the current year is overseen by <strong>Division Head Mi Jung Lee, Public Business Division</strong>.</span></li>
+        <li><span class="t-ko">사업 수주 현황에 따라 <strong>기간제 · 계약직</strong>으로 충원하며, 사업 종료 시 조직 편제에서 제외한다.</span><span class="t-en">Staffing is filled on a <strong>fixed-term or contract basis</strong> according to the award pipeline, and is removed from the organization structure once the project closes.</span></li>
+      </ul>
+    </section>
+
+    <!-- 지표 -->
+    <ul class="org-pills">
+      <li>5 Divisions</li>
+      <li>3 Advisors</li>
+      <li>1 Concurrent Post</li>
+      <li>Project-based Staffing</li>
+    </ul>
+
+  </div>
+</main>
+
+<!-- ===== Floating Info ===== -->
+<div class="info-float" id="infoFloat">
+  <button type="button" class="info-float__btn" aria-haspopup="true" aria-expanded="false" aria-label="Information 메뉴"><span class="info-float__txt">INFO</span></button>
+  <div class="info-float__menu" role="menu">
+    <p class="info-float__title">Information</p>
+    <ul>
+      <li><a role="menuitem" href="index.html#press"><span class="t-ko">보도자료</span><span class="t-en">Press</span></a></li>
+      <li><a role="menuitem" href="index.html#videos"><span class="t-ko">교육동영상</span><span class="t-en">Education Videos</span></a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer id="footer" class="gp-footer">
+  <div class="gp-footer__links">
+    <div class="gp-footer__wrap">
+      <ul>
+        <li><a href="sub/pop_privacy.html"><span class="t-ko">개인정보처리방침</span><span class="t-en">Privacy Policy</span></a></li>
+        <li><a href="sub/pop_email.html"><span class="t-ko">이메일무단수집거부</span><span class="t-en">No Email Collection</span></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="gp-footer__info">
+    <div class="gp-footer__wrap">
+      <address class="gp-footer__addr">
+        <p class="gp-footer__name"><span class="t-ko">글로벌조달개발원</span><span class="t-en">Global Procurement Development Institute</span></p>
+        <p><span class="t-ko">주소 : (10542) 경기도 고양시 덕양구 청초로 10, A동 4층 AA04-0405호, 0406호(덕은동)</span><span class="t-en">Address: AA04-0405 / 0406, Building A, 4F, 10 Cheongcho-ro, Deogyang-gu, Goyang-si, Gyeonggi-do 10542, Republic of Korea</span></p>
+        <p><span class="t-ko">사업자등록번호: 863-87-01643 &nbsp; 전화: 02-6242-7200 &nbsp; 팩스: 02-6242-7209 &nbsp; 대표 이메일: information@gpdi.kr</span><span class="t-en">Business Reg. No.: 863-87-01643 &nbsp; Tel: +82-2-6242-7200 &nbsp; Fax: +82-2-6242-7209 &nbsp; Email: information@gpdi.kr</span></p>
+        <p class="gp-footer__copy">COPYRIGHT(C) 2022. Global Procurement Development Institute ALL RIGHTS RESERVED.</p>
+      </address>
+
+      <div class="gp-footer__brand">
+        <img class="gp-footer__logo" src="images/GPDI_LOGO_white.svg" alt="글로벌조달개발원">
+        <a href="https://www.exportvoucher.com/portal/sample/main" target="_blank" rel="noopener" class="gp-footer__voucher" aria-label="수출지원기반활용사업">
+          <img src="https://www.gpdi.kr/images/common/f_logo02.png" alt="수출지원기반활용사업" onerror="this.style.display='none'">
+        </a>
+        <p class="gp-footer__partner">
+          수출바우처 공식수행기관<br>
+          소관부처: 산업통상자원부(KOTRA)<br>
+          중소벤처기업부(중진공)
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* Floating INFO */
+  (function(){var f=document.getElementById('infoFloat');if(!f)return;var btn=f.querySelector('.info-float__btn');btn.addEventListener('click',function(e){e.stopPropagation();var o=f.classList.toggle('is-open');btn.setAttribute('aria-expanded',o?'true':'false');});document.addEventListener('click',function(e){if(!f.contains(e.target)){f.classList.remove('is-open');btn.setAttribute('aria-expanded','false');}});})();
+
+  /* 모바일 내비 드로어 — 스크롤 잠금 · 포커스 이동/복귀 · 포커스 트랩 · 다국어 aria-label */
+  (function(){
+    var t=document.getElementById('navToggle'), s=document.getElementById('navScrim'),
+        g=document.getElementById('gnb'), b=document.body, root=document.documentElement;
+    if(!t||!s||!g) return;
+    var LABEL={ko:{open:'메뉴 열기',close:'메뉴 닫기'},en:{open:'Open menu',close:'Close menu'}};
+    function label(state){t.setAttribute('aria-label',LABEL[root.getAttribute('data-lang')==='en'?'en':'ko'][state]);}
+    function items(){return Array.prototype.filter.call(g.querySelectorAll('a[href]'),function(el){return el.getClientRects().length>0;});}
+    function close(){
+      if(!b.classList.contains('nav-open'))return;
+      b.classList.remove('nav-open');t.setAttribute('aria-expanded','false');label('open');
+      s.hidden=true;root.style.overflow='';t.focus();
+    }
+    function open(){
+      b.classList.add('nav-open');t.setAttribute('aria-expanded','true');label('close');
+      s.hidden=false;root.style.overflow='hidden';
+      var f=items();if(f.length)f[0].focus();
+    }
+    t.addEventListener('click',function(){b.classList.contains('nav-open')?close():open();});
+    s.addEventListener('click',close);
+    document.addEventListener('keydown',function(e){
+      if(e.key==='Escape'){close();return;}
+      if(e.key!=='Tab'||!b.classList.contains('nav-open'))return;
+      var list=[t].concat(items());if(list.length<2)return;
+      var i=list.indexOf(document.activeElement);
+      if(e.shiftKey){if(i<=0){e.preventDefault();list[list.length-1].focus();}}
+      else if(i===list.length-1){e.preventDefault();list[0].focus();}
+    });
+    Array.prototype.forEach.call(g.querySelectorAll('a'),function(a){a.addEventListener('click',close);});
+    window.addEventListener('resize',function(){if(window.innerWidth>1180)close();});
+    if(window.MutationObserver){new MutationObserver(function(){label(b.classList.contains('nav-open')?'close':'open');}).observe(root,{attributes:true,attributeFilter:['data-lang']});}
+    label('open');
+  })();
+</script>
+
+</body>
+</html>

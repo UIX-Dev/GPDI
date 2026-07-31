@@ -101,6 +101,53 @@
   .gp-footer__partner{margin:4px 0 0;font:400 11.5px/1.65 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.55)}
   @media (max-width:900px){.gp-footer__info .gp-footer__wrap{grid-template-columns:1fr;gap:28px}.gp-footer__brand{align-items:flex-start;text-align:left}}
 </style>
+<style>
+  /* ================= 모바일 내비게이션 (≤1180px 드로어) ================= */
+  .nav-toggle{display:none;appearance:none;background:transparent;border:1px solid rgba(255,255,255,.55);width:44px;height:44px;padding:0;cursor:pointer;position:relative;flex-shrink:0}
+  .nav-toggle span,.nav-toggle::before,.nav-toggle::after{content:"";position:absolute;left:12px;right:12px;height:1.5px;background:#fff;transition:transform .25s ease,opacity .2s ease}
+  .nav-toggle::before{top:15px}
+  .nav-toggle span{top:21px}
+  .nav-toggle::after{top:27px}
+  body.nav-open .nav-toggle::before{transform:translateY(6px) rotate(45deg)}
+  body.nav-open .nav-toggle span{opacity:0}
+  body.nav-open .nav-toggle::after{transform:translateY(-6px) rotate(-45deg)}
+  .nav-scrim{position:fixed;inset:0;background:rgba(14,20,38,.45);opacity:0;visibility:hidden;transition:opacity .25s ease,visibility 0s linear .25s;z-index:98}
+  body.nav-open .nav-scrim{opacity:1;visibility:visible;transition:opacity .25s ease,visibility 0s}
+  /* 드로어 열림 중 배경 스크롤 잠금 */
+  body.nav-open{overflow:hidden}
+  /* 플로팅 INFO 버튼(z-index:200)이 드로어 링크를 덮는 것 방지.
+     헤더(z-100)보다 드로어(z-99)를 낮게 유지해야 햄버거 버튼이 눌리므로 z-index 대신 숨김 처리 */
+  body.nav-open .info-float{opacity:0;visibility:hidden;pointer-events:none}
+  @media (max-width:1180px){
+    .header .contain{padding:0 24px;gap:16px}
+    .header .contain .util--clean{margin-right:0;margin-left:auto}
+    /* 닫힘 상태에서 visibility:hidden → 화면 밖 링크가 Tab 순서에 잡히지 않게 함 */
+    .header #gnb{position:fixed;top:0;right:0;bottom:0;width:min(320px,86vw);background:#fff;box-shadow:-12px 0 40px rgba(14,20,38,.16);transform:translateX(100%);visibility:hidden;transition:transform .3s cubic-bezier(.4,0,.2,1),visibility 0s linear .3s;z-index:99;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:88px 0 40px;flex:none}
+    body.nav-open .header #gnb{transform:translateX(0);visibility:visible;transition:transform .3s cubic-bezier(.4,0,.2,1),visibility 0s}
+    .header #gnb > ul{display:block !important;justify-content:normal;gap:0;padding:0 8px}
+    .header #gnb > ul > li > a{display:block !important;height:auto !important;padding:16px 20px !important;font:600 16px/1.4 "Noto Sans KR",sans-serif;color:#3e3a39 !important;border-bottom:1px solid #f3f5f8;white-space:normal}
+    .header #gnb > ul > li > a::after{display:none}
+    .header #gnb > ul > li::before{display:none}
+    /* visibility:inherit — visible로 강제하면 닫힌 드로어 안에서도 서브메뉴 링크가 다시 포커스 가능해짐 */
+    .header #gnb .submenu{position:static !important;left:auto !important;top:auto !important;transform:none !important;opacity:1 !important;visibility:inherit !important;pointer-events:auto;box-shadow:none;border-top:0;min-width:0;padding:4px 0 12px;background:#faf9f6 !important;z-index:auto;transition:none}
+    .header #gnb .submenu li a{padding:11px 32px !important;font-size:14px !important;color:#595857 !important;white-space:normal}
+    .nav-toggle{display:block}
+    /* 터치 타깃 확보 (Apple/Google 권장 44px) */
+    .util--clean .lang-btn{padding:14px 13px}
+  }
+  @media (max-width:520px){
+    .header .contain{padding:0 16px;gap:10px}
+    header.header h1.sitelogo img{height:28px !important}
+    .sitelogo img{height:28px}
+    .util--clean .lang-btn{padding:14px 9px;letter-spacing:.1em}
+  }
+  @media (max-width:359px){
+    .header .contain{padding:0 12px;gap:8px}
+    header.header h1.sitelogo img{height:24px !important}
+    .sitelogo img{height:24px}
+    .util--clean .lang-btn{padding:14px 7px;letter-spacing:.06em;font-size:11px}
+  }
+</style>
 </head>
 <body data-lang="ko">
 
@@ -114,6 +161,7 @@
             <li><a href="about.html"><span class="t-ko">해외공공조달</span><span class="t-en">Overseas Procurement</span></a></li>
             <li><a href="members.html"><span class="t-ko">해외 공공조달 전문가</span><span class="t-en">Senior Members</span></a></li>
             <li><a href="history.html"><span class="t-ko">히스토리</span><span class="t-en">History</span></a></li>
+            <li><a href="organization.html"><span class="t-ko">조직도</span><span class="t-en">Organization</span></a></li>
           </ul></div></li>
         <li><a href="performance.html"><span class="t-ko">글로벌 사업</span><span class="t-en">Global Programs</span></a>
           <div class="submenu"><ul>
@@ -143,6 +191,7 @@
         <button type="button" class="lang-btn" data-lang="en">ENG</button>
       </div>
     </div>
+    <button type="button" class="nav-toggle" id="navToggle" aria-controls="gnb" aria-expanded="false" aria-label="메뉴 열기"><span></span></button>
   </div>
 </header>
 
@@ -290,5 +339,45 @@ function pageWindow(cur, total, span) {
 
 load();
 </script>
+
+<div class="nav-scrim" id="navScrim" hidden></div>
+
+
+<script>
+  /* 모바일 내비 드로어 — 스크롤 잠금 · 포커스 이동/복귀 · 포커스 트랩 · 다국어 aria-label */
+  (function(){
+    var t=document.getElementById('navToggle'), s=document.getElementById('navScrim'),
+        g=document.getElementById('gnb'), b=document.body, root=document.documentElement;
+    if(!t||!s||!g) return;
+    var LABEL={ko:{open:'메뉴 열기',close:'메뉴 닫기'},en:{open:'Open menu',close:'Close menu'}};
+    function label(state){t.setAttribute('aria-label',LABEL[root.getAttribute('data-lang')==='en'?'en':'ko'][state]);}
+    function items(){return Array.prototype.filter.call(g.querySelectorAll('a[href]'),function(el){return el.getClientRects().length>0;});}
+    function close(){
+      if(!b.classList.contains('nav-open'))return;
+      b.classList.remove('nav-open');t.setAttribute('aria-expanded','false');label('open');
+      s.hidden=true;root.style.overflow='';t.focus();
+    }
+    function open(){
+      b.classList.add('nav-open');t.setAttribute('aria-expanded','true');label('close');
+      s.hidden=false;root.style.overflow='hidden';
+      var f=items();if(f.length)f[0].focus();
+    }
+    t.addEventListener('click',function(){b.classList.contains('nav-open')?close():open();});
+    s.addEventListener('click',close);
+    document.addEventListener('keydown',function(e){
+      if(e.key==='Escape'){close();return;}
+      if(e.key!=='Tab'||!b.classList.contains('nav-open'))return;
+      var list=[t].concat(items());if(list.length<2)return;
+      var i=list.indexOf(document.activeElement);
+      if(e.shiftKey){if(i<=0){e.preventDefault();list[list.length-1].focus();}}
+      else if(i===list.length-1){e.preventDefault();list[0].focus();}
+    });
+    Array.prototype.forEach.call(g.querySelectorAll('a'),function(a){a.addEventListener('click',close);});
+    window.addEventListener('resize',function(){if(window.innerWidth>1180)close();});
+    if(window.MutationObserver){new MutationObserver(function(){label(b.classList.contains('nav-open')?'close':'open');}).observe(root,{attributes:true,attributeFilter:['data-lang']});}
+    label('open');
+  })();
+</script>
+
 </body>
 </html>
