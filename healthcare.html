@@ -20,7 +20,7 @@
   body[data-lang="en"] .t-ko{display:none !important}
 
   *,*::before,*::after{box-sizing:border-box}
-  html,body{margin:0;padding:0}
+  html,body{margin:0;padding:0;overflow-x:hidden}
   ul,ol{list-style:none;margin:0;padding:0}
   h1,h2,h3,h4,h5,h6,p{margin:0}
   button{font:inherit}
@@ -57,7 +57,7 @@
   .util--clean .lang-btn.is-active{color:#fff;background:rgba(83,84,112,.85)}
 
   /* Sub-hero */
-  .sub-hero{position:relative;min-height:360px;background:#0a0d14 url('images/main/web-banner-1.png') center/cover no-repeat;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 0 60px}
+  .sub-hero{position:relative;min-height:360px;background:#0a0d14 url('images/main/web-banner-1.png') center/cover no-repeat;color:#fff;display:flex;align-items:flex-end;padding:0 0 60px}
   .sub-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(14,20,38,.65),rgba(14,20,38,.82))}
   .sub-hero__inner{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:0 40px;width:100%}
   .sub-hero__crumb{font:600 11px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.22em;color:rgba(255,255,255,.7);text-transform:uppercase;margin:0 0 14px}
@@ -164,7 +164,8 @@
   .hc-cta__mail::after{content:"→";font-weight:400;margin-left:2px}
 
   @media (max-width:900px){
-    .sub-hero{min-height:300px;padding:100px 0 40px}
+    .sub-hero{min-height:280px;padding-bottom:40px}
+    .sub-hero__inner{padding:0 24px}
     .hc-body{padding:64px 0 80px}
     .hc-body__inner{padding:0 24px}
     .hc-section{margin-bottom:64px}
@@ -172,9 +173,17 @@
     .hc-lead__kpis{grid-template-columns:1fr}
     .hc-grid{grid-template-columns:1fr;gap:18px}
     .hc-partners{grid-template-columns:repeat(2,1fr)}
-    .hc-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+    .hc-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%}
     .hc-table thead th,.hc-table tbody td{padding:12px 15px;font-size:12.5px;white-space:nowrap;text-wrap:nowrap}
     .hc-cta{grid-template-columns:1fr;gap:24px;padding:36px 28px;text-align:left}
+    
+    /* 긴 단어(예: 괄호가 붙은 긴 기관명)로 인한 레이아웃 깨짐(가로 스크롤/잘림) 방지 */
+    .sub-hero__lede, .hc-section__title, .hc-section__lede, 
+    .hc-lead__text h3, .hc-lead__text p, .hc-lead__h, 
+    .hc-card__title, .hc-card__desc, .hc-cta h3, .hc-cta p,
+    .hc-lead__meta dd {
+        word-break: break-all !important;
+    }
   }
 
   /* Floating Info */
