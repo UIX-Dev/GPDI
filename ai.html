@@ -353,10 +353,8 @@
     .ax-why__item{padding:28px 22px;gap:16px}
     .ax-cta{grid-template-columns:1fr;gap:24px;padding:40px 28px}
     .ax-cta__btn{justify-self:start}
-    .ax-arch{padding:32px 20px}
-    .ax-arch__flow{grid-template-columns:1fr;gap:14px}
-    .ax-arch__arrow{transform:rotate(90deg);padding:4px 0}
-    .ax-arch__support{grid-template-columns:1fr;gap:10px}
+    /* ax-arch: 데스크톱과 동일한 가로 흐름 유지 (세로 스택 금지) */
+    .ax-arch{padding:28px 16px;overflow:hidden}
     .ax-cases{grid-template-columns:repeat(2,1fr);gap:10px}
     .ax-stack-arch__hdr{padding:28px 22px 18px}
     .ax-stack-arch__layer{grid-template-columns:1fr;gap:10px;padding:20px 22px 20px 30px}
@@ -550,6 +548,73 @@
     .ax-case,.ax-case__icon,.ax-case__title,.ax-case__desc{
       transition:none;transform:none !important;
     }
+  }
+
+  /* ================================================== */
+  /* How it works — 모바일: 데스크톱과 동일 가로 구성   */
+  /* (3D 스타일 이후에 두어 cascade 우선순위 확보)      */
+  /* ================================================== */
+  @media (max-width:900px){
+    /* 3D 틸트/글로우로 인한 가로 스크롤 방지 */
+    .ax-arch,.ax-stack-arch,.ax-cases{perspective:none}
+    .ax-stack-arch{overflow:hidden}
+    .ax-stack-arch__body,
+    .ax-arch__flow,
+    .ax-arch__support{
+      transform:none !important;
+      transition:none;
+    }
+    .ax-case{transform:none !important}
+    .ax-stack-arch__layer:hover,
+    .ax-stack-arch__layer:has(+ .ax-stack-arch__layer:hover),
+    .ax-stack-arch__layer:hover + .ax-stack-arch__layer{transform:none;box-shadow:none}
+    .ax-arch__flow{
+      grid-template-columns:1fr 40px 1.35fr 40px 1fr;
+      max-width:100%;
+    }
+    .ax-arch__arrow{
+      transform:none !important;
+      margin:0 4px;
+      height:2px;
+      padding:0;
+      align-self:center;
+      justify-self:stretch;
+    }
+    .ax-arch__node{padding:16px 10px;gap:6px;min-width:0}
+    .ax-arch__node--core{padding:20px 12px;box-shadow:0 10px 22px rgba(31,42,74,.14)}
+    .ax-arch__node--core::before{inset:-10px;filter:blur(10px)}
+    .ax-arch__node:not(.ax-arch__node--core):hover,
+    .ax-arch__node--core:hover,
+    .ax-arch__sup-item:hover{
+      transform:none;
+      box-shadow:none;
+    }
+    .ax-arch__node-label{font-size:9.5px;letter-spacing:.12em}
+    .ax-arch__node-title{font-size:12.5px;line-height:1.35}
+    .ax-arch__node--core .ax-arch__node-title{font-size:14px}
+    .ax-arch__node-desc{font-size:10.5px;line-height:1.5}
+    .ax-arch__support{grid-template-columns:repeat(3,1fr);gap:8px;max-width:100%}
+    .ax-arch__sup-item{padding:14px 8px;gap:6px}
+    .ax-arch__sup-icon{width:32px;height:32px}
+    .ax-arch__sup-icon svg{width:16px;height:16px}
+    .ax-arch__sup-name{font-size:12px;line-height:1.3}
+    .ax-arch__sup-desc{font-size:10.5px;line-height:1.5}
+    .ax-arch__sub{margin-bottom:24px;font-size:13px}
+  }
+  @media (max-width:540px){
+    .ax-arch{padding:22px 12px}
+    .ax-arch__flow{grid-template-columns:1fr 22px 1.3fr 22px 1fr}
+    .ax-arch__arrow{margin:0 2px}
+    .ax-arch__node{padding:12px 6px;gap:4px}
+    .ax-arch__node--core{padding:14px 8px}
+    .ax-arch__node-label{font-size:8.5px;letter-spacing:.08em}
+    .ax-arch__node-title{font-size:11px}
+    .ax-arch__node--core .ax-arch__node-title{font-size:12px}
+    .ax-arch__node-desc{font-size:9.5px;line-height:1.45}
+    .ax-arch__support{gap:6px}
+    .ax-arch__sup-item{padding:12px 6px}
+    .ax-arch__sup-name{font-size:11px}
+    .ax-arch__sup-desc{font-size:9.5px;line-height:1.45}
   }
 </style>
 <style>
