@@ -179,8 +179,8 @@
     .header #gnb > ul > li > a{height:auto;padding:16px 20px;font-size:16px;font-weight:600;border-bottom:1px solid #f3f5f8}
     .header #gnb > ul > li > a::after{display:none}
     /* visibility:inherit — visible로 강제하면 닫힌 드로어 안에서도 서브메뉴 링크가 다시 포커스 가능해짐 */
-    .header #gnb .submenu{position:static !important;transform:none !important;opacity:1 !important;visibility:inherit !important;pointer-events:auto;box-shadow:none;border-top:0;min-width:0;padding:4px 0 12px;background:#faf9f6 !important}
-    .header #gnb .submenu li a{padding:11px 32px !important;font-size:14px !important;color:#595857 !important}
+    .header #gnb .submenu{position:static !important;left:auto !important;top:auto !important;transform:none !important;opacity:1 !important;visibility:inherit !important;pointer-events:auto;box-shadow:none;border-top:0;min-width:0;padding:4px 0 12px;background:#faf9f6 !important;z-index:auto;transition:none}
+    .header #gnb .submenu li a{padding:11px 32px !important;font-size:14px !important;color:#595857 !important;white-space:normal}
     .nav-toggle{display:block}
     /* 터치 타깃 확보 (Apple/Google 권장 44px) */
     .util--clean .lang-btn{padding:14px 13px}
