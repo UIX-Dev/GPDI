@@ -91,7 +91,7 @@
       linear-gradient(to bottom,#f3f5f8 100%,transparent 0) 0 0/20% 100% no-repeat;
   }
   .sub-head__logo{height:46px;width:auto;margin:0 auto 32px;display:block}
-  .sub-head__intro{margin:0 auto;max-width:900px;font:400 16.5px/2 "Noto Sans KR","Malgun Gothic",sans-serif;color:#3e3a39;letter-spacing:-.005em}
+  .sub-head__intro{margin:0 auto;max-width:900px;font:400 16.5px/2 "Noto Sans KR","Malgun Gothic",sans-serif;color:#3e3a39;letter-spacing:-.005em;word-break:keep-all;text-wrap:pretty;overflow-wrap:anywhere}
   .sub-head__divider{
     width:32px;height:2px;background:#b87860;margin:32px auto 0;
   }
@@ -101,9 +101,10 @@
     display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
     margin:0 0 110px;position:relative;
   }
-  .sub-block:last-child{margin-bottom:40px}
-  .sub-block--reverse{direction:rtl}
-  .sub-block--reverse > *{direction:ltr}
+  .sub-block:last-of-type{margin-bottom:40px}
+  /* 데스크톱: 이미지 왼쪽 / 텍스트 오른쪽 (DOM은 텍스트 먼저 → 모바일·접근성 유리) */
+  .sub-block--reverse .sub-block__visual{grid-column:1;grid-row:1}
+  .sub-block--reverse .sub-block__text{grid-column:2;grid-row:1}
 
   /* 에디토리얼 넘버 (뒷배경 큰 숫자) */
   .sub-block__num{
@@ -112,30 +113,30 @@
     pointer-events:none;z-index:0;user-select:none;
   }
   .sub-block .sub-block__num{left:-10px}
-  .sub-block--reverse .sub-block__num{right:-10px;left:auto;direction:ltr}
+  .sub-block--reverse .sub-block__num{right:-10px;left:auto}
 
-  .sub-block__text{position:relative;z-index:1}
+  .sub-block__text{position:relative;z-index:1;min-width:0}
   .sub-block__badge{
     display:inline-flex;align-items:center;gap:10px;margin:0 0 18px;
     font:700 11px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.28em;
-    color:#b87860;text-transform:uppercase;
+    color:#b87860;text-transform:uppercase;max-width:100%;
   }
   .sub-block__badge::before{
-    content:"";width:20px;height:1px;background:#b87860;
+    content:"";width:20px;height:1px;background:#b87860;flex-shrink:0;
   }
   .sub-block__text h3{
     margin:0 0 24px;
     font:700 clamp(26px,2.4vw,32px)/1.3 "Noto Sans KR","Inter",sans-serif;
-    color:#3e3a39;letter-spacing:-.015em;
+    color:#3e3a39;letter-spacing:-.015em;word-break:keep-all;
   }
   .sub-block__text p{
     margin:0;font:400 15.5px/1.9 "Noto Sans KR",sans-serif;color:#595857;
-    word-break:keep-all;
+    word-break:keep-all;text-wrap:pretty;overflow-wrap:anywhere;
   }
   .sub-block__text p strong{color:#535470;font-weight:700}
 
   /* 이미지 (우하단에 브랜드 컬러 포인트 오프셋) */
-  .sub-block__visual{position:relative}
+  .sub-block__visual{position:relative;min-width:0}
   .sub-block__visual::before{
     content:"";position:absolute;left:-14px;bottom:-14px;
     width:48%;height:60%;background:#f3f5f8;z-index:-1;
@@ -154,18 +155,19 @@
 
   /* 핵심수치 하이라이트 (블록 2 내부 스탯 카드) */
   .sub-stats{
-    display:grid;grid-template-columns:repeat(2,1fr);gap:0;
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;
     margin:32px 0 0;border-top:1px solid #e5e2dc;
   }
-  .sub-stats__item{padding:20px 0 0}
+  .sub-stats__item{padding:20px 0 0;min-width:0}
   .sub-stats__item + .sub-stats__item{padding-left:24px;border-left:1px solid #e5e2dc;margin-left:24px}
   .sub-stats__num{
-    font:800 30px/1 "Inter","Noto Sans KR",sans-serif;color:#535470;letter-spacing:-.02em;
-    margin:0 0 6px;
+    font:800 30px/1.15 "Inter","Noto Sans KR",sans-serif;color:#535470;letter-spacing:-.02em;
+    margin:0 0 6px;word-break:keep-all;
   }
   .sub-stats__num em{font-style:normal;color:#b87860}
   .sub-stats__lbl{
-    font:500 12px/1.4 "Noto Sans KR",sans-serif;color:#8a90a0;letter-spacing:-.005em;
+    font:500 12px/1.45 "Noto Sans KR",sans-serif;color:#8a90a0;letter-spacing:-.005em;
+    word-break:keep-all;text-wrap:pretty;
   }
 
   /* 하단 CTA */
@@ -182,36 +184,117 @@
       linear-gradient(to bottom,rgba(134,172,170,.4) 100%,transparent 0) 0 0/22% 100% no-repeat;
     pointer-events:none;
   }
-  .sub-cta__head{position:relative;z-index:1}
+  .sub-cta__head{position:relative;z-index:1;min-width:0;flex:1 1 240px}
   .sub-cta__eyebrow{
     margin:0 0 8px;font:700 11px/1 "Inter",sans-serif;letter-spacing:.28em;
     color:#86acaa;text-transform:uppercase;
   }
   .sub-cta__title{
     margin:0;font:700 clamp(20px,2vw,26px)/1.3 "Noto Sans KR","Inter",sans-serif;
-    letter-spacing:-.01em;
+    letter-spacing:-.01em;word-break:keep-all;
   }
   .sub-cta__btn{
     display:inline-flex;align-items:center;gap:10px;padding:16px 28px;
     background:#b87860;color:#fff;
     font:700 13px/1 "Noto Sans KR",sans-serif;letter-spacing:.04em;
     transition:background .22s ease,gap .22s ease,transform .22s ease;
-    position:relative;z-index:1;
+    position:relative;z-index:1;flex-shrink:0;
   }
   .sub-cta__btn:hover{background:#a06752;gap:16px;transform:translateY(-2px)}
 
   @media (max-width:900px){
-    .sub-hero{min-height:260px;padding-bottom:40px}
-    .sub-body{padding:70px 0 40px}
-    .sub-body__inner{padding:0 24px}
-    .sub-head{margin-bottom:72px}
+    .sub-hero{min-height:280px;padding-bottom:44px}
+    .sub-hero__inner{padding:0 24px}
+    .sub-hero__title{font-size:clamp(26px,7vw,36px);line-height:1.2}
+    .sub-hero__lede{font-size:14px;line-height:1.65;margin-top:12px}
+    .sub-body{padding:56px 0 32px}
+    .sub-body__inner{padding:0 20px}
+    .sub-head{margin-bottom:56px}
+    .sub-head__logo{height:36px;margin-bottom:24px}
+    .sub-head__intro{font-size:15px;line-height:1.85;padding:0 2px}
     .sub-head__intro br{display:none}
-    .sub-block,.sub-block--reverse{grid-template-columns:1fr;gap:36px;margin-bottom:72px;direction:ltr}
-    .sub-block__num{font-size:80px;top:-30px}
-    .sub-block--reverse .sub-block__num{right:auto;left:-10px}
-    .sub-stats{grid-template-columns:1fr;gap:16px}
-    .sub-stats__item + .sub-stats__item{padding-left:0;border-left:0;margin-left:0;border-top:1px solid #e5e2dc;padding-top:16px}
-    .sub-cta{margin:80px -24px 0;padding:40px 24px;flex-direction:column;align-items:flex-start}
+    .sub-head__divider{margin-top:24px}
+    .sub-head::before{width:120px;height:120px;top:-16px;opacity:.5}
+
+    /* 모바일: 항상 텍스트 → 이미지 순서 (grid placement 해제) */
+    .sub-block,
+    .sub-block--reverse{
+      grid-template-columns:1fr;
+      gap:28px;
+      margin-bottom:64px;
+    }
+    .sub-block--reverse .sub-block__visual,
+    .sub-block--reverse .sub-block__text{
+      grid-column:auto;
+      grid-row:auto;
+    }
+    .sub-block__text{order:1}
+    .sub-block__visual{order:2}
+    .sub-block__num{
+      font-size:64px;top:-8px;left:0;right:auto;
+      opacity:.9;line-height:1;
+    }
+    .sub-block--reverse .sub-block__num{right:auto;left:0}
+    .sub-block__badge{
+      letter-spacing:.16em;font-size:10px;margin-bottom:14px;
+      flex-wrap:wrap;row-gap:6px;
+    }
+    .sub-block__text h3{margin-bottom:16px;font-size:clamp(22px,5.5vw,28px)}
+    .sub-block__text p{font-size:14.5px;line-height:1.8}
+
+    /* 장식 오프셋이 화면 밖으로 나가지 않도록 */
+    .sub-block__visual{margin:0 6px 10px}
+    .sub-block__visual::before{
+      left:0;bottom:-8px;width:42%;height:48%;
+    }
+    .sub-block__visual::after{
+      right:0;top:-8px;width:28px;height:28px;
+    }
+    .sub-block--reverse .sub-block__visual::before{left:auto;right:0}
+    .sub-block--reverse .sub-block__visual::after{right:auto;left:0}
+    .sub-block__visual img{box-shadow:0 16px 32px rgba(14,20,38,.1)}
+
+    /* 스탯: 모바일에서도 2열 유지하되 간격·테두리 정리 */
+    .sub-stats{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px 14px;
+      margin-top:24px;
+      padding-top:4px;
+    }
+    .sub-stats__item{padding-top:16px}
+    .sub-stats__item + .sub-stats__item{
+      padding-left:14px;margin-left:0;
+      border-left:1px solid #e5e2dc;
+    }
+    .sub-stats__num{font-size:clamp(22px,6vw,28px)}
+    .sub-stats__lbl{font-size:11.5px;line-height:1.45}
+
+    .sub-cta{
+      margin:56px -20px 0;padding:36px 20px;
+      flex-direction:column;align-items:stretch;gap:20px;
+    }
+    .sub-cta__btn{align-self:flex-start;padding:14px 22px}
+  }
+
+  @media (max-width:540px){
+    .sub-hero{min-height:240px;padding-bottom:36px}
+    .sub-hero__inner{padding:0 16px}
+    .sub-hero__crumb{font-size:10px;letter-spacing:.16em;margin-bottom:10px}
+    .sub-body__inner{padding:0 16px}
+    .sub-head{margin-bottom:44px}
+    .sub-block,
+    .sub-block--reverse{gap:22px;margin-bottom:52px}
+    .sub-block__num{font-size:52px;top:-4px}
+    .sub-block__visual{margin:0 4px 8px}
+    /* 초소형: 스탯 세로 스택 — 라벨 잘림 방지 */
+    .sub-stats{grid-template-columns:1fr;gap:0}
+    .sub-stats__item + .sub-stats__item{
+      padding-left:0;border-left:0;
+      border-top:1px solid #e5e2dc;padding-top:16px;margin-top:4px;
+    }
+    .sub-cta{margin:48px -16px 0;padding:32px 16px}
+    .sub-cta__btn{width:100%;justify-content:center}
+    .gp-footer__links ul{flex-wrap:wrap;gap:14px 20px}
   }
 
   /* Floating Info (index.html과 동일) */
@@ -270,7 +353,16 @@
   .gp-footer__voucher{display:inline-block;line-height:0}
   .gp-footer__voucher img{height:20px;width:auto;display:block}
   .gp-footer__partner{margin:4px 0 0;font:400 11.5px/1.65 "Noto Sans KR",sans-serif;color:rgba(255,255,255,.55)}
-  @media (max-width:900px){.gp-footer__wrap{padding:0 24px}.gp-footer__info .gp-footer__wrap{grid-template-columns:1fr;gap:28px;padding-top:32px;padding-bottom:32px}.gp-footer__brand{align-items:flex-start;text-align:left}.gp-footer__links ul{gap:20px;padding:12px 0}}
+  @media (max-width:900px){
+    .gp-footer__wrap{padding:0 20px}
+    .gp-footer__info .gp-footer__wrap{grid-template-columns:1fr;gap:28px;padding-top:32px;padding-bottom:32px}
+    .gp-footer__brand{align-items:flex-start;text-align:left;min-width:0}
+    .gp-footer__links ul{gap:16px 20px;padding:12px 0;flex-wrap:wrap}
+    .gp-footer__addr{overflow-wrap:anywhere;word-break:keep-all}
+  }
+  @media (max-width:540px){
+    .gp-footer__wrap{padding:0 16px}
+  }
 </style>
 <style>
   /* ================= 모바일 내비게이션 (≤1180px 드로어) ================= */
@@ -419,10 +511,6 @@
     <!-- 블록 2: 왜 해외 공공조달이 답일까요? + 핵심수치 -->
     <article class="sub-block sub-block--reverse">
       <span class="sub-block__num" aria-hidden="true">02</span>
-      <div class="sub-block__visual">
-        <img src="images/main/web-banner-2.png"
-             alt="글로벌 물류 네트워크">
-      </div>
       <div class="sub-block__text">
         <div class="sub-block__badge">WHY GLOBAL PUBLIC PROCUREMENT</div>
         <h3><span class="t-ko">왜 해외 공공조달이 답일까요?</span><span class="t-en">Why Overseas Public Procurement?</span></h3>
@@ -437,6 +525,10 @@
             <dd class="sub-stats__lbl"><span class="t-ko">OECD 국가 GDP 대비 공공조달 예산 비중</span><span class="t-en">Public procurement as % of GDP across OECD</span></dd>
           </div>
         </dl>
+      </div>
+      <div class="sub-block__visual">
+        <img src="images/main/web-banner-2.png"
+             alt="글로벌 물류 네트워크">
       </div>
     </article>
 
