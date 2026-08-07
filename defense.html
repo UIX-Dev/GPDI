@@ -172,6 +172,50 @@
     .df-cta{grid-template-columns:1fr;gap:24px;padding:36px 28px;text-align:left}
   }
 
+  /* 모바일 (≤640px) — 데스크톱 레이아웃에는 영향 없음 */
+  @media (max-width:640px){
+    .df-body__inner{padding:0 20px}
+
+    /* KPI: 2열에서는 "KRIT · DAPA" 같은 값이 줄바꿈되어 깨짐 → 1열 */
+    .df-lead__kpis{grid-template-columns:1fr;gap:12px;margin-top:28px}
+    .df-lead__kpis li{padding:16px 18px}
+    .df-lead__kpis strong{font-size:20px;margin-bottom:4px}
+
+    /* 대표 사업 비주얼: 여백 축소 */
+    .df-lead__visual{padding:32px 24px;min-height:0}
+    .df-lead__h{font-size:19px;margin-top:18px}
+    /* dt/dd 2열은 값 칸이 105px까지 좁아짐 → 라벨을 값 위로 */
+    .df-lead__meta{grid-template-columns:1fr;gap:0;margin-top:20px}
+    .df-lead__meta dt{margin-top:14px}
+    .df-lead__meta dt:first-of-type{margin-top:0}
+    .df-lead__meta dd{margin-top:2px}
+
+    /* 실적 테이블: min-width 720px라 4열 중 2열이 잘림 → 행 단위 카드로 전환 */
+    .df-table-wrap{overflow-x:visible;margin-top:24px}
+    .df-table{min-width:0;width:100%;display:block}
+    .df-table thead{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+    .df-table tbody{display:block}
+    .df-table tbody tr{display:block;padding:18px 0;border-bottom:1px solid #eceff5}
+    .df-table tbody tr:first-child{padding-top:0}
+    .df-table tbody tr:hover{background:transparent}
+    .df-table tbody td{display:block;padding:0;border:0}
+    .df-table tbody td.df-table__year{
+      white-space:normal;font-size:11.5px;letter-spacing:.06em;margin:0 0 6px;
+    }
+    .df-table tbody td:nth-child(2){
+      font:700 14.5px/1.6 "Noto Sans KR",sans-serif;color:#1f2a4a;letter-spacing:-.01em;
+    }
+    .df-table tbody td:nth-child(2) strong{font-weight:700}
+    .df-table tbody td.df-table__client{white-space:normal;margin-top:8px;font-size:12.5px}
+    .df-table tbody td:nth-child(4){
+      display:inline-block;margin-top:10px;padding:5px 11px;background:#f3f5f8;
+      font:600 11.5px/1 "Noto Sans KR",sans-serif;color:#535470;letter-spacing:-.005em;
+    }
+
+    .df-cta{padding:32px 22px}
+    .df-partners__item{padding:18px 12px}
+  }
+
   /* Floating Info */
   .info-float{position:fixed;right:48px;top:50%;transform:translateY(-50%);z-index:200}
   .info-float__btn{position:relative;appearance:none;border:0;cursor:pointer;width:56px;height:56px;padding:0;background:#535470;box-shadow:0 10px 24px rgba(14,20,38,.24);transition:background .2s ease,transform .2s ease,box-shadow .2s ease;display:flex;align-items:center;justify-content:center;overflow:hidden}
