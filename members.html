@@ -61,7 +61,7 @@
   .util--clean .lang-btn.is-active{color:#fff;background:rgba(83,84,112,.85)}
 
   /* Sub-hero */
-  .sub-hero{position:relative;min-height:360px;background:#0a0d14 url('images/main/web-banner.png') center/cover no-repeat;color:#fff;display:flex;align-items:flex-end;padding:0 0 60px}
+  .sub-hero{position:relative;min-height:360px;background:#0a0d14 url('images/main/web-banner.png') center/cover no-repeat;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 0 60px}
   .sub-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(14,20,38,.7),rgba(14,20,38,.85))}
   .sub-hero__inner{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:0 40px;width:100%}
   .sub-hero__crumb{font:600 11px/1 "Inter","Noto Sans KR",sans-serif;letter-spacing:.22em;color:rgba(255,255,255,.7);text-transform:uppercase;margin:0 0 14px}
@@ -91,6 +91,7 @@
   .mem-intro--reverse .mem-intro__text{order:2}
   .mem-intro--reverse .mem-intro__portrait{order:1}
   @media (max-width:900px){
+    .sub-hero{min-height:300px;padding:100px 0 40px}
     .mem-intro{grid-template-columns:1fr;gap:28px;margin-bottom:48px;padding-top:24px}
     .mem-intro__portrait{min-height:0;order:-1}
     .mem-intro__portrait img{max-height:360px}
