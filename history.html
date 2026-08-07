@@ -171,7 +171,8 @@
     .hist-body__inner{padding:0 24px}
     .hist-lead{margin-bottom:36px}
     /* 모바일: 중앙선 왼쪽, row 좌측 배치로 통일 */
-    .hist-list::before{left:44px;top:14px;bottom:14px;transform:none}
+    /* left = 서클 중심(76/2 = 38). 44px면 서클 중심에서 6px 벗어남 */
+    .hist-list::before{left:38px;top:14px;bottom:14px;transform:none}
     .hist-row,.hist-row--flip{
       grid-template-columns:88px 1fr;gap:0;padding:10px 0;
     }
@@ -186,7 +187,8 @@
     .hist-row--flip .hist-row__events li{padding:5px 0 5px 14px}
     .hist-row--flip .hist-row__events li::before{left:0;right:auto}
     .hist-circle{width:76px;height:76px;font-size:13px}
-    .hist-row__connector{min-width:14px}
+    /* 서클 76 + 커넥터 14 = 90 > 88px 칼럼 → 커넥터가 5px 삐져나감 */
+    .hist-row__connector{min-width:10px;flex:0 0 10px}
     .hist-row__connector::after{width:8px;height:8px}
     .hist-row:not(.hist-row--flip) .hist-row__connector::after,
     .hist-row--flip .hist-row__connector::after{
@@ -194,6 +196,18 @@
     }
     .hist-row__events li{font-size:12.5px;padding:5px 0 5px 12px}
     .hist-row__events li::before{top:13px}
+  }
+
+  /* 소형 모바일 (≤520px) — 서클을 줄여 이벤트 칼럼 폭 확보 */
+  @media (max-width:520px){
+    .hist-body__inner{padding:0 20px}
+    .hist-list::before{left:32px}
+    .hist-row,.hist-row--flip{grid-template-columns:64px 1fr;padding:8px 0}
+    /* "2018-2019" 같은 긴 라벨이 64px 서클에 여유 있게 들어가도록 */
+    .hist-circle{width:64px;height:64px;font-size:11px}
+    .hist-row__connector{display:none}
+    .hist-row .hist-row__events,
+    .hist-row--flip .hist-row__events{padding-left:16px}
   }
 
   /* Floating Info */
