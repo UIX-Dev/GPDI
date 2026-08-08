@@ -20,7 +20,7 @@
   body[data-lang="en"] .t-ko{display:none !important}
 
   *,*::before,*::after{box-sizing:border-box}
-  html,body{margin:0;padding:0;overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  html,body{margin:0;padding:0;overflow-x:hidden}
   ul,ol{list-style:none;margin:0;padding:0}
   h1,h2,h3,h4,h5,h6,p{margin:0}
   button{font:inherit}
@@ -174,9 +174,12 @@
     .hc-grid{grid-template-columns:1fr;gap:18px}
     .hc-partners{grid-template-columns:repeat(2,1fr)}
     .hc-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%}
+    /* 모바일 브라우저의 자동 텍스트 확대(text auto-inflation) 방지 — 테이블이 뷰포트보다 넓어 발생 */
+    .hc-table{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     .hc-table thead th,.hc-table tbody td{padding:12px 15px;font-size:12px;white-space:nowrap;text-wrap:nowrap}
-    .hc-table tbody td strong{font-size:12px}
-    .hc-table .hc-table__year,.hc-table .hc-table__client{font-size:12px}
+    /* 셀마다 폰트 크기가 달라 첫 줄 baseline이 어긋나므로 line-height를 절대값으로 통일 */
+    .hc-table tbody td,.hc-table tbody td strong,
+    .hc-table .hc-table__year,.hc-table .hc-table__client{font-size:12px;line-height:20px}
     .hc-cta{grid-template-columns:1fr;gap:24px;padding:36px 28px;text-align:left}
     
     /* 긴 단어(예: 괄호가 붙은 긴 기관명)로 인한 레이아웃 깨짐(가로 스크롤/잘림) 방지 */
