@@ -95,6 +95,8 @@
   .hc-lead__kpis li{list-style:none;padding:18px 20px;background:#faf9f6;border-left:3px solid #535470}
   .hc-lead__kpis strong{display:block;font:700 22px/1.2 "Inter","Noto Sans KR",sans-serif;color:#535470;letter-spacing:-.01em;margin-bottom:6px}
   .hc-lead__kpis span{display:block;font:500 12.5px/1.5 "Noto Sans KR",sans-serif;color:#86acaa;letter-spacing:-.005em}
+  /* 수치 안의 한·영 전환 span은 수치 스타일을 따른다 */
+  .hc-lead__kpis strong span{font:inherit;color:inherit;letter-spacing:inherit}
 
   .hc-lead__visual{
     position:relative;background:linear-gradient(135deg,#535470 0%,#3e3a39 100%);
@@ -137,6 +139,8 @@
   .hc-partners__item:hover{background:#fff;border-color:#86acaa}
   .hc-partners__item strong{display:block;font:700 14px/1.35 "Noto Sans KR",sans-serif;color:#3e3a39;letter-spacing:-.01em;margin-bottom:6px}
   .hc-partners__item span{display:block;font:500 11px/1.4 "Inter",sans-serif;color:#86acaa;letter-spacing:.06em;text-transform:uppercase}
+  /* 기관명 안의 한·영 전환 span은 기관명 스타일을 따른다 */
+  .hc-partners__item strong span{font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit}
 
   /* 실적 테이블 */
   .hc-table-wrap{margin:32px 0 0;overflow-x:auto}
@@ -339,7 +343,7 @@
   <div class="sub-hero__inner">
     <p class="sub-hero__crumb"><a href="index.html">HOME</a><span>›</span>HEALTHCARE</p>
     <h2 class="sub-hero__title"><span class="t-ko">헬스케어</span><span class="t-en">Healthcare</span></h2>
-    <p class="sub-hero__lede"><span class="t-ko">조달청·보건복지부·KOFIH·KOICA와 수행한 보건의료 해외공공조달 및 ODA 사업의 전 주기를 설계합니다.</span><span class="t-en">Designing the full lifecycle of overseas public healthcare procurement and ODA projects with PPS, MoHW, KOFIH, and KOICA.</span></p>
+    <p class="sub-hero__lede"><span class="t-ko">조달청·한국보건산업진흥원·KOICA와 수행해 온 보건의료 해외공공조달·ODA 사업 경험으로 의료기업의 해외 공공시장 진출을 지원합니다.</span><span class="t-en">Drawing on healthcare procurement and ODA work for PPS, KHIDI, and KOICA, we help healthcare companies enter overseas public markets.</span></p>
   </div>
 </section>
 
@@ -347,27 +351,28 @@
   <div class="hc-body__inner">
 
     <!-- ===== 인트로: 왜 GPDI 헬스케어인가 + 현재 진행 하이라이트 ===== -->
+    <!-- ===== 인트로: 왜 GPDI 헬스케어인가 + 최근 대표 사업 ===== -->
     <section class="hc-lead">
       <div class="hc-lead__text">
         <h3><span class="t-ko">공공 보건의료 조달의<br>가장 앞단에서부터 동행합니다.</span><span class="t-en">Partnering from the earliest stage<br>of public healthcare procurement.</span></h3>
-        <p><span class="t-ko">GPDI 헬스케어 팀은 의료기기·의약품·병원 인프라의 해외 공공조달 시장 진입을 지원합니다. 조달 제도·국제입찰 분석, 보건 ODA 사업 형성, 수요조사·타당성 검토, PDM 기반 성과관리까지 — 연구 기획부터 현장 실행, 사후평가에 이르는 전 주기에 참여합니다.</span><span class="t-en">GPDI Healthcare supports market entry into overseas public procurement for medical devices, pharmaceuticals, and hospital infrastructure. From procurement-system analysis and international bidding, through health-ODA project design, demand and feasibility assessment, and PDM-based performance management — we engage across the full lifecycle, from research planning through field execution and ex-post evaluation.</span></p>
-        <p><span class="t-ko">국내 주요 발주기관(한국국제보건의료재단·한국보건산업진흥원·KOICA·EDCF·질병관리청 등)과의 축적된 네트워크, 그리고 베트남·스리랑카·캄보디아·파키스탄 등지의 현지 이해관계자 관계를 바탕으로 실질적인 실행력을 제공합니다.</span><span class="t-en">We deliver real-world execution by combining a deep network with Korean public-sector clients (KOFIH, KHIDI, KOICA, EDCF, KDCA, and others) with on-the-ground relationships across Vietnam, Sri Lanka, Cambodia, Pakistan, and beyond.</span></p>
+        <p><span class="t-ko">GPDI 헬스케어 팀은 의료기기·바이오 기업과 의료기관의 해외 공공조달 시장 진입을 지원합니다. 국제입찰 공고 분석과 해외 발주처 수요조사, 미 연방 벤더 등록과 인허가, 입찰제안서 작성, 보건 ODA 사업기획까지 — 시장조사에서 실제 입찰 참여까지 함께합니다.</span><span class="t-en">GPDI Healthcare helps medical-device and biotech companies and healthcare providers enter overseas public procurement markets. From international tender analysis and demand surveys of overseas buyers, through U.S. federal vendor registration and regulatory requirements, bid-proposal writing, and health ODA planning — we stay with you from market research to the bid itself.</span></p>
+        <p><span class="t-ko">2019년부터 매년 이어 온 한국보건산업진흥원 국제입찰 컨설팅, 조달청 K-바이오 해외조달시장 진출 지원, KOICA·UNDP 과업에서 쌓은 경험을 바탕으로 미국·EU·카타르·러시아·카자흐스탄·방글라데시 등 시장 진출을 지원합니다.</span><span class="t-en">Building on KHIDI's international bidding program, run every year since 2019, PPS's K-Bio overseas procurement program, and assignments for KOICA and UNDP, we support entry into markets including the U.S., the EU, Qatar, Russia, Kazakhstan, and Bangladesh.</span></p>
         <ul class="hc-lead__kpis">
-          <li><strong>20+</strong><span><span class="t-ko">보건의료 ODA · 조달 용역 수행</span><span class="t-en">Healthcare ODA &amp; procurement engagements delivered</span></span></li>
-          <li><strong><span class="t-ko">8개국</span><span class="t-en">8 countries</span></strong><span><span class="t-ko">현지조사 및 사업 실행 경험</span><span class="t-en">Field research and project execution experience</span></span></li>
-          <li><strong>KOFIH · KOICA</strong><span><span class="t-ko">주요 공공 발주기관 레퍼런스</span><span class="t-en">Anchor public-sector client references</span></span></li>
-          <li><strong>PDM · ISP</strong><span><span class="t-ko">정량 평가·정보화 전략 방법론 내재화</span><span class="t-en">Quantitative evaluation and information-strategy methodology built in</span></span></li>
+          <li><strong>30+</strong><span><span class="t-ko">보건의료 조달 · ODA 용역 수행</span><span class="t-en">Healthcare procurement &amp; ODA engagements delivered</span></span></li>
+          <li><strong><span class="t-ko">7년 연속</span><span class="t-en">7 years running</span></strong><span><span class="t-ko">한국보건산업진흥원 국제입찰 컨설팅 (2019–2025)</span><span class="t-en">KHIDI international bidding consulting (2019–2025)</span></span></li>
+          <li><strong><span class="t-ko">8개국 + EU</span><span class="t-en">8 countries + EU</span></strong><span><span class="t-ko">보건의료 시장조사 · 진출 자문</span><span class="t-en">Healthcare market research &amp; entry advisory</span></span></li>
+          <li><strong>VA · GSA · FDA</strong><span><span class="t-ko">미 연방 벤더 등록 · 인허가 지원</span><span class="t-en">U.S. federal vendor registration &amp; regulatory support</span></span></li>
         </ul>
       </div>
 
-      <aside class="hc-lead__visual" aria-label="진행 중인 대표 사업">
-        <span class="hc-lead__tag">NOW IN PROGRESS · 2026</span>
-        <h4 class="hc-lead__h"><span class="t-ko">베트남 의료기기 관리체계<br>디지털전환 지원사업 형성조사</span><span class="t-en">Vietnam Medical Device Management<br>Digital Transformation — Feasibility Study</span></h4>
+      <aside class="hc-lead__visual" aria-label="최근 대표 사업">
+        <span class="hc-lead__tag">RECENT · 2025</span>
+        <h4 class="hc-lead__h"><span class="t-ko">글로벌 보건의료 조달시장<br>수요조사 · 입찰제안서 컨설팅</span><span class="t-en">Global Healthcare Procurement Market<br>Demand Survey &amp; Bid Proposal Consulting</span></h4>
         <dl class="hc-lead__meta">
-          <dt><span class="t-ko">발주기관</span><span class="t-en">Client</span></dt><dd><span class="t-ko">한국국제보건의료재단(KOFIH)</span><span class="t-en">Korea Foundation for International Healthcare (KOFIH)</span></dd>
-          <dt><span class="t-ko">총사업 규모</span><span class="t-en">Total Budget</span></dt><dd><span class="t-ko">98억 원 (2026–2032)</span><span class="t-en">KRW 9.8 billion (2026–2032)</span></dd>
-          <dt><span class="t-ko">핵심 과업</span><span class="t-en">Scope</span></dt><dd><span class="t-ko">ISP 수립 · 통합 조달플랫폼 설계 · 현지 이해관계자 수요 분석</span><span class="t-en">ISP development · integrated procurement platform design · local stakeholder demand analysis</span></dd>
-          <dt><span class="t-ko">GPDI 역할</span><span class="t-en">GPDI Role</span></dt><dd><span class="t-ko">국제조달 컨설팅 · 정보화전략 기획 · 변화이론(ToC) 기반 성과관리</span><span class="t-en">International procurement consulting · ISP planning · Theory-of-Change (ToC) based performance management</span></dd>
+          <dt><span class="t-ko">발주기관</span><span class="t-en">Client</span></dt><dd><span class="t-ko">한국보건산업진흥원(KHIDI)</span><span class="t-en">Korea Health Industry Development Institute (KHIDI)</span></dd>
+          <dt><span class="t-ko">사업 기간</span><span class="t-en">Period</span></dt><dd>2025.05 — 2025.11</dd>
+          <dt><span class="t-ko">핵심 과업</span><span class="t-en">Scope</span></dt><dd><span class="t-ko">해외 보건의료 조달시장 수요조사 · 조달 정보 제공 · 입찰제안서 컨설팅</span><span class="t-en">Overseas healthcare procurement demand survey · procurement information · bid-proposal consulting</span></dd>
+          <dt><span class="t-ko">연속성</span><span class="t-en">Continuity</span></dt><dd><span class="t-ko">2019년부터 7년 연속 수행한 국제입찰 컨설팅 사업</span><span class="t-en">Part of the international bidding program run seven years in a row since 2019</span></dd>
         </dl>
       </aside>
     </section>
@@ -376,50 +381,50 @@
     <section class="hc-section" id="hc-expertise">
       <p class="hc-section__eyebrow">Our Expertise</p>
       <h3 class="hc-section__title"><span class="t-ko">전문 분야</span><span class="t-en">Areas of Practice</span></h3>
-      <p class="hc-section__lede"><span class="t-ko">보건의료 해외공공조달에 특화된 네 갈래의 업무 영역. 조달 시장 진입부터 ODA 사업의 성과평가까지 단일 팀이 연속적으로 수행합니다.</span><span class="t-en">Four practice areas specialized in healthcare overseas public procurement — from market entry through ODA performance evaluation, delivered continuously by a single team.</span></p>
+      <p class="hc-section__lede"><span class="t-ko">수행해 온 사업을 기준으로 정리한 네 갈래의 업무 영역. 국제입찰 컨설팅부터 미 연방 등록, 의료 해외진출 자문, 보건 ODA 기획까지 단일 팀이 수행합니다.</span><span class="t-en">Four practice areas drawn from the work we have delivered — from international bidding consulting and U.S. federal registration to healthcare expansion advisory and health ODA planning, all by a single team.</span></p>
 
       <div class="hc-grid">
         <article class="hc-card">
           <p class="hc-card__num">01</p>
-          <h4 class="hc-card__title"><span class="t-ko">보건의료 ODA 사업기획 · 형성조사</span><span class="t-en">Healthcare ODA Project Design · Feasibility</span></h4>
-          <p class="hc-card__desc"><span class="t-ko">보건복지부·KOFIH·KOICA가 발주하는 국제보건 ODA의 기획조사·타당성조사·형성조사를 수행합니다. 수원국 보건제도 분석, 수요조사, 이해관계자 면담, 사업 구성안 설계·예산 산정을 총괄합니다.</span><span class="t-en">Planning, feasibility, and formation studies for international health ODA awarded by MoHW, KOFIH, and KOICA. We lead recipient-country health-system analysis, demand surveys, stakeholder interviews, project structuring, and budgeting.</span></p>
+          <h4 class="hc-card__title"><span class="t-ko">보건의료 국제입찰 · 조달 컨설팅</span><span class="t-en">Healthcare International Bidding &amp; Procurement Consulting</span></h4>
+          <p class="hc-card__desc"><span class="t-ko">한국보건산업진흥원·조달청의 국제입찰 지원사업을 수행하며 해외 정부 발주처 수요조사·시장분석·진출전략 수립, 입찰제안서 작성, 벤더 발굴·매칭을 지원합니다.</span><span class="t-en">Delivering KHIDI and PPS international bidding programs — demand surveys of overseas government buyers, market analysis and entry strategy, bid-proposal writing, and vendor sourcing and matching.</span></p>
           <ul class="hc-card__tags">
-            <li><span class="t-ko">PCP / ToR 설계</span><span class="t-en">PCP / ToR Design</span></li>
-            <li><span class="t-ko">수요·타당성 조사</span><span class="t-en">Demand &amp; Feasibility Studies</span></li>
-            <li><span class="t-ko">현지 FGI · 이해관계자 면담</span><span class="t-en">In-country FGIs &amp; Stakeholder Interviews</span></li>
+            <li><span class="t-ko">수요조사 · 시장분석</span><span class="t-en">Demand Survey · Market Analysis</span></li>
+            <li><span class="t-ko">입찰제안서 컨설팅</span><span class="t-en">Bid Proposal Consulting</span></li>
+            <li><span class="t-ko">벤더 발굴 · 매칭</span><span class="t-en">Vendor Sourcing · Matching</span></li>
           </ul>
         </article>
 
         <article class="hc-card">
           <p class="hc-card__num">02</p>
-          <h4 class="hc-card__title"><span class="t-ko">의료기기 · 헬스케어 디지털전환</span><span class="t-en">Medical Device · Healthcare DX</span></h4>
-          <p class="hc-card__desc"><span class="t-ko">의료기기 전생애주기(조달–운영–폐기) 통합관리 플랫폼 설계, 병원 정보화 전략계획(ISP) 수립, EHR/EMR·CMMS 연계 아키텍처 구상 등 보건 디지털 전환 컨설팅을 제공합니다.</span><span class="t-en">Healthcare digital transformation consulting — integrated medical-device lifecycle (procurement → operations → disposal) management platform design, hospital ISP development, and EHR / EMR · CMMS integration architecture.</span></p>
+          <h4 class="hc-card__title"><span class="t-ko">미 연방조달 등록 · 인허가</span><span class="t-en">U.S. Federal Registration &amp; Regulatory</span></h4>
+          <p class="hc-card__desc"><span class="t-ko">보건의료 기업의 미 보훈처(VA Schedule)·GSA 등록과 FDA 등록·현지 연락책 확보, CLIA 실험실 규정 등 미 연방 공공조달 참여에 필요한 자격요건 확보를 지원합니다.</span><span class="t-en">Helping healthcare companies qualify for U.S. federal procurement — VA Schedule and GSA listings, FDA registration with a U.S. agent, and CLIA laboratory requirements.</span></p>
           <ul class="hc-card__tags">
-            <li><span class="t-ko">ISP 수립</span><span class="t-en">ISP Development</span></li>
-            <li><span class="t-ko">통합 조달 플랫폼 설계</span><span class="t-en">Integrated Procurement Platform Design</span></li>
-            <li>CMMS · EHR · EMR</li>
+            <li>VA Schedule · GSA</li>
+            <li><span class="t-ko">FDA 등록</span><span class="t-en">FDA Registration</span></li>
+            <li><span class="t-ko">CLIA 자격요건</span><span class="t-en">CLIA Requirements</span></li>
           </ul>
         </article>
 
         <article class="hc-card">
           <p class="hc-card__num">03</p>
-          <h4 class="hc-card__title"><span class="t-ko">보건의료 국제입찰 · 조달 컨설팅</span><span class="t-en">Healthcare International Bidding · Procurement Consulting</span></h4>
-          <p class="hc-card__desc"><span class="t-ko">국내 의료기기·의약품·병원시스템 기업이 WHO·UN·MDB·개도국 정부 조달 시장에 진입할 수 있도록 입찰 분석, 등록·인증 전략, 파트너 매칭, 제안서 작성을 지원합니다.</span><span class="t-en">Help Korean medical-device, pharmaceutical, and hospital-system firms enter procurement markets at WHO, UN, MDBs, and developing-country governments — bid analysis, registration / certification strategy, partner matching, and proposal writing.</span></p>
+          <h4 class="hc-card__title"><span class="t-ko">의료 해외진출 자문</span><span class="t-en">Healthcare Overseas Expansion Advisory</span></h4>
+          <p class="hc-card__desc"><span class="t-ko">병원의 카타르 의료진출, 대학병원의 러시아·카자흐스탄 원격의료 진출과 모스크바 검진센터 운영 설계, 진단·의료기기 기업의 글로벌 공공조달 사업개발을 자문해 왔습니다.</span><span class="t-en">Advising on healthcare ventures abroad — a hospital's entry into Qatar, a university hospital's telemedicine entry into Russia and Kazakhstan and the operating design of its Moscow screening center, and global public-procurement business development for diagnostics and medical-device companies.</span></p>
           <ul class="hc-card__tags">
-            <li><span class="t-ko">WHO · UN · MDB 조달</span><span class="t-en">WHO · UN · MDB Procurement</span></li>
-            <li>ASEAN CSDT · AMDD</li>
-            <li><span class="t-ko">입찰 · 제안서 컨설팅</span><span class="t-en">Bid · Proposal Consulting</span></li>
+            <li><span class="t-ko">진출환경 조사</span><span class="t-en">Market-Entry Research</span></li>
+            <li><span class="t-ko">운영 모델 설계</span><span class="t-en">Operating Model Design</span></li>
+            <li><span class="t-ko">공공조달 사업개발</span><span class="t-en">Procurement Business Development</span></li>
           </ul>
         </article>
 
         <article class="hc-card">
           <p class="hc-card__num">04</p>
-          <h4 class="hc-card__title"><span class="t-ko">보건 ODA 성과관리 · 평가</span><span class="t-en">Health ODA Performance Management · Evaluation</span></h4>
-          <p class="hc-card__desc"><span class="t-ko">OECD DAC 평가기준·변화이론(ToC)·PDM(Project Design Matrix)을 기반으로 한 정량 성과지표 설계, 중간평가·종료평가·사후평가 용역을 수행합니다.</span><span class="t-en">Quantitative performance-indicator design and mid-term, end-line, and ex-post evaluations grounded in OECD DAC criteria, Theory of Change (ToC), and Project Design Matrix (PDM).</span></p>
+          <h4 class="hc-card__title"><span class="t-ko">보건 ODA 사업기획</span><span class="t-en">Health ODA Project Planning</span></h4>
+          <p class="hc-card__desc"><span class="t-ko">우리나라 감염병 대응체계를 활용한 패키지형 ODA 사업모델 개발, 방글라데시 감염병 방역체계 구축 ODA 사업개발, KOICA 해외긴급구호물품 비축체계·표준운영절차 수립을 수행했습니다.</span><span class="t-en">A packaged ODA business model built on Korea's infectious-disease response system, business development for an epidemic-control ODA program in Bangladesh, and stockpile systems and SOPs for KOICA's overseas emergency relief supplies.</span></p>
           <ul class="hc-card__tags">
-            <li>PDM · ToC</li>
-            <li><span class="t-ko">중간/종료/사후 평가</span><span class="t-en">Mid-Term / End-Line / Ex-Post Evaluation</span></li>
-            <li><span class="t-ko">OECD DAC 평가기준</span><span class="t-en">OECD DAC Criteria</span></li>
+            <li><span class="t-ko">ODA 사업모델 개발</span><span class="t-en">ODA Business Model</span></li>
+            <li><span class="t-ko">감염병 대응</span><span class="t-en">Infectious-Disease Response</span></li>
+            <li><span class="t-ko">긴급구호 비축체계</span><span class="t-en">Emergency Relief Stockpiling</span></li>
           </ul>
         </article>
       </div>
@@ -433,56 +438,100 @@
 
       <div class="hc-partners">
         <div class="hc-partners__item"><strong><span class="t-ko">조달청</span><span class="t-en">PPS</span></strong><span>Public Procurement Service</span></div>
-        <div class="hc-partners__item"><strong><span class="t-ko">보건복지부</span><span class="t-en">MoHW</span></strong><span>Ministry of Health &amp; Welfare</span></div>
-        <div class="hc-partners__item"><strong><span class="t-ko">한국국제보건의료재단</span><span class="t-en">KOFIH</span></strong><span>Korea Foundation for International Healthcare</span></div>
         <div class="hc-partners__item"><strong><span class="t-ko">한국보건산업진흥원</span><span class="t-en">KHIDI</span></strong><span>Korea Health Industry Development Institute</span></div>
         <div class="hc-partners__item"><strong><span class="t-ko">한국국제협력단</span><span class="t-en">KOICA</span></strong><span>Korea International Cooperation Agency</span></div>
-        <div class="hc-partners__item"><strong><span class="t-ko">한국수출입은행</span><span class="t-en">Korea Eximbank</span></strong><span>EDCF</span></div>
-        <div class="hc-partners__item"><strong><span class="t-ko">질병관리청</span><span class="t-en">KDCA</span></strong><span>Korea Disease Control &amp; Prevention Agency</span></div>
-        <div class="hc-partners__item"><strong><span class="t-ko">중소벤처기업부</span><span class="t-en">MSS</span></strong><span><span class="t-ko">수출바우처 수행기관</span><span class="t-en">Export Voucher Operator</span></span></div>
+        <div class="hc-partners__item"><strong><span class="t-ko">KOTRA</span><span class="t-en">KOTRA</span></strong><span><span class="t-ko">수출바우처 수행기관</span><span class="t-en">Export Voucher Operator</span></span></div>
       </div>
     </section>
 
     <!-- ===== 주요 수행 실적 ===== -->
     <section class="hc-section" id="hc-performance">
       <p class="hc-section__eyebrow">Recent Performance</p>
-      <h3 class="hc-section__title"><span class="t-ko">최근 수행 실적 (발췌)</span><span class="t-en">Recent Engagements (Selected)</span></h3>
-      <p class="hc-section__lede"><span class="t-ko">최근 3년 내 대표 사업. 전체 수행 이력은 회사 소개서에서 확인하실 수 있습니다.</span><span class="t-en">Selected projects from the last three years. The full record is available on request.</span></p>
+      <h3 class="hc-section__title"><span class="t-ko">최근 수행 실적</span><span class="t-en">Recent Engagements</span></h3>
+      <p class="hc-section__lede"><span class="t-ko">최근 3년간 보건의료 분야 수행 사업입니다. 2017년 이후 전체 이력은 <a href="performance.html" style="text-decoration:underline">주요 실적</a>에서 확인하실 수 있습니다.</span><span class="t-en">Healthcare engagements from the last three years. The full record since 2017 is on our <a href="performance.html" style="text-decoration:underline">Track Record</a> page.</span></p>
 
       <div class="hc-table-wrap">
         <table class="hc-table">
           <thead>
             <tr>
-              <th style="width:14%"><span class="t-ko">기간</span><span class="t-en">Period</span></th>
+              <th style="width:16%"><span class="t-ko">기간</span><span class="t-en">Period</span></th>
               <th style="width:44%"><span class="t-ko">사업명</span><span class="t-en">Project</span></th>
-              <th style="width:26%"><span class="t-ko">발주처</span><span class="t-en">Client</span></th>
+              <th style="width:24%"><span class="t-ko">발주처</span><span class="t-en">Client</span></th>
               <th style="width:16%"><span class="t-ko">유형</span><span class="t-en">Type</span></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="hc-table__year">2025</td>
+              <td class="hc-table__year">2026.03 — 2026.06</td>
+              <td><span class="t-ko">해외 공공조달 시장조사 및 해외 진출전략 컨설팅 (KOTRA 수출지원기반활용사업)</span><span class="t-en">Overseas Public Procurement Market Research &amp; Entry Strategy Consulting (KOTRA Export Voucher Program)</span></td>
+              <td class="hc-table__client"><span class="t-ko">국내 중소기업</span><span class="t-en">Korean SME</span></td>
+              <td><span class="t-ko">진출전략 컨설팅</span><span class="t-en">Entry Strategy Consulting</span></td>
+            </tr>
+            <tr>
+              <td class="hc-table__year">2025.10 — 2025.12</td>
+              <td><span class="t-ko">해외 공공조달 시장조사 및 해외 진출전략 컨설팅 (KOTRA 수출지원기반활용사업)</span><span class="t-en">Overseas Public Procurement Market Research &amp; Entry Strategy Consulting (KOTRA Export Voucher Program)</span></td>
+              <td class="hc-table__client"><span class="t-ko">국내 중소기업</span><span class="t-en">Korean SME</span></td>
+              <td><span class="t-ko">진출전략 컨설팅</span><span class="t-en">Entry Strategy Consulting</span></td>
+            </tr>
+            <tr>
+              <td class="hc-table__year">2025.07 — 2025.12</td>
               <td><span class="t-ko">KOICA 해외긴급구호물품 비축체계 및 표준운영절차 수립 연구</span><span class="t-en">KOICA — Stockpile System &amp; Standard Operating Procedures for Overseas Emergency Relief Supplies</span></td>
               <td class="hc-table__client"><span class="t-ko">한국국제협력단(KOICA)</span><span class="t-en">KOICA</span></td>
               <td><span class="t-ko">제도 설계</span><span class="t-en">System Design</span></td>
             </tr>
             <tr>
-              <td class="hc-table__year">2025</td>
+              <td class="hc-table__year">2025.06 — 2025.11</td>
+              <td><span class="t-ko">2025년 GHKOL 발굴형 심화컨설팅 지원사업</span><span class="t-en">2025 GHKOL Discovery-Type In-Depth Consulting Support Program</span></td>
+              <td class="hc-table__client"><span class="t-ko">한국보건산업진흥원(KHIDI)</span><span class="t-en">KHIDI</span></td>
+              <td><span class="t-ko">심화 컨설팅</span><span class="t-en">In-Depth Consulting</span></td>
+            </tr>
+            <tr>
+              <td class="hc-table__year">2025.05 — <span class="t-ko">진행 중</span><span class="t-en">Ongoing</span></td>
+              <td><span class="t-ko">미국 FDA 등록 및 현지 연락책 확보</span><span class="t-en">U.S. FDA Registration &amp; Securing a U.S. Agent</span></td>
+              <td class="hc-table__client"><span class="t-ko">바이오 기업</span><span class="t-en">Biotech company</span></td>
+              <td><span class="t-ko">인허가 · 등록</span><span class="t-en">Regulatory &amp; Registration</span></td>
+            </tr>
+            <tr>
+              <td class="hc-table__year">2025.05 — 2025.11</td>
               <td><span class="t-ko">글로벌 보건의료 조달시장 수요조사 · 정보제공 · 입찰제안서 컨설팅</span><span class="t-en">Global Healthcare Procurement Market — Demand Survey, Information Provision &amp; Bid Proposal Consulting</span></td>
               <td class="hc-table__client"><span class="t-ko">한국보건산업진흥원(KHIDI)</span><span class="t-en">KHIDI</span></td>
               <td><span class="t-ko">조달 컨설팅</span><span class="t-en">Procurement Consulting</span></td>
             </tr>
             <tr>
-              <td class="hc-table__year">2024</td>
+              <td class="hc-table__year">2024.04 — 2024.11</td>
+              <td><span class="t-ko">국제입찰 역량강화 및 컨설팅 지원사업 위탁 운영</span><span class="t-en">Operated International Bidding Capacity-Building &amp; Consulting Support Program</span></td>
+              <td class="hc-table__client"><span class="t-ko">한국보건산업진흥원(KHIDI)</span><span class="t-en">KHIDI</span></td>
+              <td><span class="t-ko">역량 강화</span><span class="t-en">Capacity Building</span></td>
+            </tr>
+            <tr>
+              <td class="hc-table__year">2024.02 — 2024.12</td>
               <td><span class="t-ko">조달청 2024년 K-바이오 해외조달시장 진출 지원사업 용역</span><span class="t-en">PPS — 2024 K-Bio Overseas Public Procurement Market Entry Support</span></td>
               <td class="hc-table__client"><span class="t-ko">조달청</span><span class="t-en">PPS</span></td>
               <td><span class="t-ko">시장 진출 지원</span><span class="t-en">Market Entry Support</span></td>
             </tr>
             <tr>
-              <td class="hc-table__year">2024</td>
-              <td><span class="t-ko">국제입찰 역량강화 및 컨설팅 지원사업 위탁 운영</span><span class="t-en">Operated International Bidding Capacity-Building &amp; Consulting Support Program</span></td>
+              <td class="hc-table__year">2023.08 — 2023.11</td>
+              <td><span class="t-ko">국제입찰 공고분석 및 낙찰 상위국가 지원사업 선진사례 조사</span><span class="t-en">International Tender Analysis &amp; Best-Practice Study of Top-Winning Countries’ Support Programs</span></td>
               <td class="hc-table__client"><span class="t-ko">한국보건산업진흥원(KHIDI)</span><span class="t-en">KHIDI</span></td>
-              <td><span class="t-ko">역량 강화</span><span class="t-en">Capacity Building</span></td>
+              <td><span class="t-ko">조사 · 분석</span><span class="t-en">Research &amp; Analysis</span></td>
+            </tr>
+            <tr>
+              <td class="hc-table__year">2023.06 — 2023.10</td>
+              <td><span class="t-ko">미국 연방 공공조달 시장 진출에 필요한 자격요건 획득 자문</span><span class="t-en">Advisory on Qualification Requirements for U.S. Federal Public Procurement</span></td>
+              <td class="hc-table__client"><span class="t-ko">바이오 기업 · 한국바이오협회</span><span class="t-en">Biotech company · Korea Biotechnology Industry Organization</span></td>
+              <td><span class="t-ko">인허가 · 등록</span><span class="t-en">Regulatory &amp; Registration</span></td>
+            </tr>
+            <tr>
+              <td class="hc-table__year">2023.03 — 2023.11</td>
+              <td><span class="t-ko">국제입찰 컨설팅 지원사업 위탁운영</span><span class="t-en">Operated International Bidding Consulting Support Program</span></td>
+              <td class="hc-table__client"><span class="t-ko">한국보건산업진흥원(KHIDI)</span><span class="t-en">KHIDI</span></td>
+              <td><span class="t-ko">조달 컨설팅</span><span class="t-en">Procurement Consulting</span></td>
+            </tr>
+            <tr>
+              <td class="hc-table__year">2023.03 — 2023.12</td>
+              <td><span class="t-ko">조달청 2023년 K-바이오 해외조달시장 진출 지원사업</span><span class="t-en">PPS — 2023 K-Bio Overseas Public Procurement Market Entry Support</span></td>
+              <td class="hc-table__client"><span class="t-ko">조달청</span><span class="t-en">PPS</span></td>
+              <td><span class="t-ko">시장 진출 지원</span><span class="t-en">Market Entry Support</span></td>
             </tr>
           </tbody>
         </table>
@@ -493,28 +542,28 @@
     <section class="hc-section" id="hc-methodology">
       <p class="hc-section__eyebrow">Methodology</p>
       <h3 class="hc-section__title"><span class="t-ko">우리가 쓰는 방법론</span><span class="t-en">Frameworks We Use</span></h3>
-      <p class="hc-section__lede"><span class="t-ko">보건의료 ODA·조달 사업의 특성에 맞춘 글로벌 표준 방법론을 프로젝트별로 조합해 적용합니다.</span><span class="t-en">Global-standard frameworks combined per project to fit the specifics of healthcare ODA and procurement work.</span></p>
+      <p class="hc-section__lede"><span class="t-ko">수행해 온 조달 컨설팅 사업에서 반복적으로 써 온 분석·실행 방식입니다.</span><span class="t-en">The analysis and execution methods we use repeatedly across our procurement consulting work.</span></p>
 
       <div class="hc-grid">
         <article class="hc-card">
           <p class="hc-card__num">METHOD</p>
-          <h4 class="hc-card__title">WHO Global Strategy on Digital Health 2020–2025</h4>
-          <p class="hc-card__desc"><span class="t-ko">디지털 보건 사업 설계 시 WHO 디지털 보건 4대 전략 목표(거버넌스·인력·인프라·서비스)를 틀로 삼아 포괄성을 확보합니다.</span><span class="t-en">For digital-health project design, we use the WHO Digital Health four strategic objectives (governance, workforce, infrastructure, services) as the framework to ensure comprehensiveness.</span></p>
+          <h4 class="hc-card__title"><span class="t-ko">국제입찰 공고 · 낙찰 분석</span><span class="t-en">International Tender &amp; Award Analysis</span></h4>
+          <p class="hc-card__desc"><span class="t-ko">국제입찰 공고와 낙찰 상위국가의 지원사업 사례를 분석해 품목별 진입 가능성과 지원 방향을 판단합니다.</span><span class="t-en">We analyze international tenders and the support programs of top-winning countries to judge entry potential and support direction by product.</span></p>
         </article>
         <article class="hc-card">
           <p class="hc-card__num">METHOD</p>
-          <h4 class="hc-card__title"><span class="t-ko">OECD DAC 평가 6대 기준</span><span class="t-en">OECD DAC Six Evaluation Criteria</span></h4>
-          <p class="hc-card__desc"><span class="t-ko">Relevance · Coherence · Effectiveness · Efficiency · Impact · Sustainability의 6개 축을 통해 ODA 성과를 체계적으로 평가합니다.</span><span class="t-en">We evaluate ODA outcomes systematically through the six axes: Relevance, Coherence, Effectiveness, Efficiency, Impact, and Sustainability.</span></p>
+          <h4 class="hc-card__title"><span class="t-ko">해외 발주처 수요조사</span><span class="t-en">Overseas Buyer Demand Surveys</span></h4>
+          <p class="hc-card__desc"><span class="t-ko">해외 정부 발주처 수요조사와 시장분석을 바탕으로 기업별 진출전략을 수립합니다.</span><span class="t-en">Demand surveys of overseas government buyers and market analysis form the basis of each company's entry strategy.</span></p>
         </article>
         <article class="hc-card">
           <p class="hc-card__num">METHOD</p>
-          <h4 class="hc-card__title">Theory of Change(ToC) · PDM</h4>
-          <p class="hc-card__desc"><span class="t-ko">변화이론과 사업설계행렬(PDM)을 통해 투입–활동–산출–성과–영향의 논리적 흐름을 가시화하고, 정량 평가지표를 도출합니다.</span><span class="t-en">Theory of Change and the Project Design Matrix (PDM) make the logic chain (inputs → activities → outputs → outcomes → impact) visible and yield quantitative evaluation indicators.</span></p>
+          <h4 class="hc-card__title"><span class="t-ko">미 연방 조달 규정 · 등록 체계</span><span class="t-en">U.S. Federal Procurement Rules &amp; Registration</span></h4>
+          <p class="hc-card__desc"><span class="t-ko">VA Schedule·GSA MAS 등록 절차와 BAA 국내산 요건, CLIA 등 미 연방 조달 규정을 실무 기준으로 적용합니다.</span><span class="t-en">We apply U.S. federal procurement rules in practice — VA Schedule and GSA MAS registration, BAA domestic-content requirements, and CLIA.</span></p>
         </article>
         <article class="hc-card">
           <p class="hc-card__num">METHOD</p>
-          <h4 class="hc-card__title">Information Strategy Plan (ISP)</h4>
-          <p class="hc-card__desc"><span class="t-ko">보건 디지털 전환 사업에서 요구되는 정보화전략계획을 ISP 표준 프레임(업무·데이터·응용·기술 아키텍처)으로 설계합니다.</span><span class="t-en">We design the Information Strategy Plan required for healthcare digital transformation using the standard ISP frame (business, data, application, and technology architectures).</span></p>
+          <h4 class="hc-card__title"><span class="t-ko">입찰제안서 · 벤더 매칭</span><span class="t-en">Bid Proposals &amp; Vendor Matching</span></h4>
+          <p class="hc-card__desc"><span class="t-ko">국제입찰 참가를 위한 제안서 작성과 벤더 발굴·매칭으로 실제 입찰 참여까지 연결합니다.</span><span class="t-en">Proposal writing for international tenders and vendor sourcing and matching carry companies through to an actual bid.</span></p>
         </article>
       </div>
     </section>
@@ -523,7 +572,7 @@
     <section class="hc-cta">
       <div>
         <h3><span class="t-ko">보건의료 해외조달 · ODA 사업을 준비하고 계신가요?</span><span class="t-en">Planning a healthcare overseas procurement or ODA project?</span></h3>
-        <p><span class="t-ko">사업 기획 단계부터 입찰·실행·평가까지, GPDI 헬스케어 팀이 함께 설계해 드립니다. 아래 이메일로 과업 개요를 보내주시면 담당자가 확인 후 회신드립니다.</span><span class="t-en">From early planning through bidding, execution, and evaluation — the GPDI Healthcare team designs it with you. Send your scope to the address below and we'll respond.</span></p>
+        <p><span class="t-ko">시장조사부터 벤더 등록·입찰제안서 작성까지, GPDI 헬스케어 팀이 함께 설계해 드립니다. 아래 이메일로 과업 개요를 보내주시면 담당자가 확인 후 회신드립니다.</span><span class="t-en">From market research through vendor registration and bid proposals — the GPDI Healthcare team designs it with you. Send your scope to the address below and we'll respond.</span></p>
       </div>
       <a class="hc-cta__mail" href="mailto:healthcare@gpdi.kr">healthcare@gpdi.kr</a>
     </section>
